@@ -1,0 +1,29 @@
+== Exact-rational Collatz-Wielandt enclosures of lambda_1(C_comp) ==
+L=16 d=2 p=2/5 (3 exact CW iterations after warm start):
+   reproduced : [0.0022886508026864136, 0.0022886508026864144]  rel width 3.4e-16
+   deposited  : [0.0022886508026864124561, 0.0022886508026864175903]  rel 2.2e-15
+   closed form: 0.002288650802686413894529  -> inside both: reproduced True, deposited True
+   overlap+containment consistent: True
+L=16 d=2 p=4/25 (8 exact CW iterations after warm start):
+   reproduced : [0.0751896333829877167, 0.0751896333829877445]  rel width 4.3e-16
+   deposited  : [0.075189633382987646, 0.075189633382987911]  rel 3.5e-15
+   closed form: 0.07518963338298773124186  -> inside both: reproduced True, deposited True
+   overlap+containment consistent: True
+L=16 d=2 p=1169/5000 (11 exact CW iterations after warm start):
+   reproduced : [0.0236927451718797685, 0.0236927451718797789]  rel width 4.8e-16
+   deposited  : [0.0236927451718797476, 0.0236927451718798042]  rel 2.4e-15
+   closed form: 0.02369274517187977453766  -> inside both: reproduced True, deposited True
+   overlap+containment consistent: True
+L=20 d=2 p=2/5 (3 exact CW iterations after warm start):
+   reproduced : [0.0005002857006813117, 0.0005002857006813120]  rel width 3.2e-16
+   deposited  : [0.00050028570068131041, 0.00050028570068131407]  rel 7.3e-15
+   closed form: 0.0005002857006813118520095  -> inside both: reproduced True, deposited True
+   overlap+containment consistent: True
+L=16 d=3 p=2/5 (4 exact CW iterations after warm start):
+   reproduced : [0.0000636588722621600, 0.0000636588722621600]  rel width 3.1e-16
+   deposited  : [6.3658872262159916e-05, 6.3658872262160092e-05]  rel 2.9e-15
+   closed form: 0.00006365887226215996231924  -> inside both: reproduced True, deposited True
+   overlap+containment consistent: True
+
+ALL CONSISTENT: True
+written /home/z/quantum-circuits/research/scripts/../results/audit3_cw_exact.json

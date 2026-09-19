@@ -1,0 +1,40 @@
+== S1/S2/S3: dense C_comp vs closed form, kernel/rank ==
+[PASS] S2_full_spectrum_dense_vs_closed worst log-deviation 8.81e-08 over 108 configs (tol 1e-07)
+[PASS] S3_kernel_count dim ker = 2^{m-2} for all configs
+[PASS] S1_overall_factor dense lam1 = 0.548127369402, closed = 0.548127369402
+== S4: commutators [C,F] and [C,tau] ==
+   d=2 p=0.16: ||[C,F]||=5.46e-16 ||[C,tau]||=2.33e-16
+   d=3 p=0.4: ||[C,F]||=9.70e-16 ||[C,tau]||=3.10e-16
+[PASS] S4_commutators 
+== S5/S6: spinor factorization and determinant identity ==
+[NOTE] The deposited proof route states the spinor factorization E = cosh(K2) Y + sinh(K2) z_m Y z_1 (residual 5e-15 in the deposited workspace). This reconstruction could not reproduce that identity with the parameter candidates tried (K1 in {K_d, dual(K_d), artanh(e^-2Kd)/2, ...} x K2 in {K_h, ...}); the manuscript proof therefore cites Kaufman 1949 / Newell 1950 / Stephenson for the spinor method and relies on the direct dense verification (S2/S3) plus the exact enclosures (S8) as the numerical certificate. Recorded honestly in the report.
+== S7: benchmark reproduction ==
+   d=2 crossings p*: ['0.23319', '0.23348', '0.23361', '0.23368']
+   d=3 crossings p*: ['0.45934', '0.45950', '0.45957', '0.45961']
+[PASS] S7a_benchmark_crossings match to the table rounding (5e-6)
+   ratio row at p_c (d=2): ['0.12204', '0.12310', '0.12367', '0.12402', '0.12425'] (deposited 0.1220..0.1243 -> 0.125)
+[PASS] S7b_ratio_row 
+   d=2: L log(l1/l_odd)/2pi -> 0.149981 (beta/4 = 0.150000); L log(l1/l_eps)/2pi -> 1.200300 (2 beta = 1.200000); ratio 0.124953 -> 1/8
+   d=3: L log(l1/l_odd)/2pi -> 0.199985 (beta/4 = 0.200000); L log(l1/l_eps)/2pi -> 1.600243 (2 beta = 1.600000); ratio 0.124972 -> 1/8
+   d=5: L log(l1/l_odd)/2pi -> 0.230756 (beta/4 = 0.230769); L log(l1/l_eps)/2pi -> 1.846370 (2 beta = 1.846154); ratio 0.124978 -> 1/8
+[PASS] S7c_amplitudes 
+[PASS] S7d_gapless_k0 Q(0)-R(0) at pc2 = -4.4e-16 (double zero); symmetric scaling ratio 1.0002
+== S8: the five exact-rational Collatz-Wielandt enclosures ==
+   L=16 d=2 p=2/5: closed form 0.0022886508026864, enclosure mid 0.0022886508026864, rel-dev 6.8e-15
+   L=16 d=2 p=4/25: closed form 0.0751896333829880, enclosure mid 0.0751896333829878, rel-dev 2.6e-15
+   L=16 d=2 p=1169/5000: closed form 0.0236927451718797, enclosure mid 0.0236927451718798, rel-dev 3.2e-15
+   L=20 d=2 p=2/5: closed form 0.0005002857006813, enclosure mid 0.0005002857006813, rel-dev 4.1e-15
+   L=16 d=3 p=2/5: closed form 0.0000636588722622, enclosure mid 0.0000636588722622, rel-dev 2.1e-16
+[PASS] S8_enclosures_contain_closed_form float64 agreement with the exact-rational enclosure midpoints (<= 1e-14 rel)
+== S9: lambda_1(L)^{1/L} at p = 0.40, d = 2 ==
+   L=28: 0.683844946 (deposited text: 0.6838449); L=64: 0.683844659 (Houtappel bulk: 0.683844659)
+[PASS] S9_houtappel_quotes 
+== S10: p_eff identity ==
+   p_eff(pc2): {2: 0.149291053006338, 3: 0.25838536647773214, 5: 0.3546984846401831} vs deposited {2: 0.14929105315176264, 3: 0.25838536801495504, 5: 0.3546984899540994}
+   bulk p_eff(0.16) = 0.091988 (deposited 0.0920)
+[PASS] S10_p_eff 
+== S11: Q^2 >= R^2 on the k grid ==
+[PASS] S11_w_real 
+
+SUMMARY: 12 / 15 named checks passed
+written /home/z/quantum-circuits/research/scripts/../results/audit3_gauss_proof.json
