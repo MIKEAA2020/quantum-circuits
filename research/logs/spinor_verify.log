@@ -1,0 +1,69 @@
+========================================================================
+V1. boundary/end-term identities (z_k = sigma^z_k)
+========================================================================
+  d=2 p=0.16: m=5  E-residual 2.54e-16,  D_h-residual 1.11e-16
+  d=2 p=0.4: m=5  E-residual 3.68e-16,  D_h-residual 1.27e-16
+  d=3 p=0.2: m=5  E-residual 2.65e-16,  D_h-residual 1.08e-16
+  d=5 p=0.45: m=5  E-residual 2.39e-16,  D_h-residual 9.13e-17
+[PASS] V1_boundary_identities 
+
+========================================================================
+V2. the deposited factorization: E = N [cosh(K_d) Y + sinh(K_d) z_m Y z_1]
+    with x = sigma^x, z = sigma^z (plain), K1 = dual(K_d), K2 = K_d
+========================================================================
+  d=2 p=0.05 m=3: residual 2.41e-16,  N = 2.6949887542
+  d=2 p=0.05 m=6: residual 5.73e-16,  N = 7.2629643853
+  d=2 p=0.16 m=3: residual 8.10e-17,  N = 3.6707142493
+  d=2 p=0.16 m=6: residual 5.49e-16,  N = 13.4741430997
+  d=2 p=0.4 m=3: residual 2.29e-16,  N = 1.2221995686
+  d=2 p=0.4 m=6: residual 6.28e-16,  N = 1.4937717856
+  d=2 p=0.6 m=3: residual 1.60e-16,  N = 0.2652188096
+  d=2 p=0.6 m=6: residual 3.23e-16,  N = 0.0703410170
+  d=3 p=0.2 m=3: residual 1.41e-16,  N = 0.7357708548
+  d=3 p=0.2 m=6: residual 3.85e-16,  N = 0.5413587507
+  d=3 p=0.6 m=3: residual 2.34e-16,  N = 0.6800977956
+  d=3 p=0.6 m=6: residual 6.25e-16,  N = 0.4625330116
+  d=5 p=0.45 m=3: residual 1.48e-16,  N = 0.3322951544
+  d=5 p=0.45 m=6: residual 3.25e-16,  N = 0.1104200696
+[PASS] V2_factorization_exact 
+
+normalization closed form:  N = sinh(2K_d)^m
+  d=2 p=0.05: fitted A = 1.3916146298 (sinh 2K_d = 1.3916146298), B = 1.0000000000
+    m=5: N = 5.219091715315, sinh(2K_d)^m = 5.219091715315, rel dev 1.7e-16
+  d=2 p=0.16: fitted A = 1.5425888665 (sinh 2K_d = 1.5425888665), B = 1.0000000000
+    m=5: N = 8.734759722466, sinh(2K_d)^m = 8.734759722466, rel dev 1.8e-15
+  d=2 p=0.4: fitted A = 1.0691715043 (sinh 2K_d = 1.0691715043), B = 1.0000000000
+    m=5: N = 1.397130188723, sinh(2K_d)^m = 1.397130188723, rel dev 6.4e-16
+  d=2 p=0.6: fitted A = 0.6424925662 (sinh 2K_d = 0.6424925662), B = 1.0000000000
+    m=5: N = 0.109481448742, sinh(2K_d)^m = 0.109481448742, rel dev 1.3e-16
+  d=3 p=0.2: fitted A = 0.9027777778 (sinh 2K_d = 0.9027777778), B = 1.0000000000
+    m=5: N = 0.599658923879, sinh(2K_d)^m = 0.599658923879, rel dev 0.0e+00
+  d=3 p=0.6: fitted A = 0.8794080884 (sinh 2K_d = 0.8794080884), B = 1.0000000000
+    m=5: N = 0.525959469451, sinh(2K_d)^m = 0.525959469451, rel dev 0.0e+00
+  d=5 p=0.45: fitted A = 0.6926406926 (sinh 2K_d = 0.6926406926), B = 1.0000000000
+    m=5: N = 0.159418975497, sinh(2K_d)^m = 0.159418975497, rel dev 1.4e-15
+[PASS] V2b_normalization_sinh_power 
+
+========================================================================
+V3. determinant structure: kernel sector; E_OBC closed form; Ytil det
+========================================================================
+  d=2 p=0.16 m=3: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 3.08517773 (2 sinh 2K_d = 3.08517773); |det Y| = c^(m 2^m): True
+  d=2 p=0.16 m=4: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 3.08517773 (2 sinh 2K_d = 3.08517773); |det Y| = c^(m 2^m): True
+  d=2 p=0.16 m=5: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 3.08517773 (2 sinh 2K_d = 3.08517773); |det Y| = c^(m 2^m): True
+  d=2 p=0.16 m=6: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 3.08517773 (2 sinh 2K_d = 3.08517773); |det Y| = c^(m 2^m): True
+  d=2 p=0.4 m=3: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 2.13834301 (2 sinh 2K_d = 2.13834301); |det Y| = c^(m 2^m): True
+  d=2 p=0.4 m=4: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 2.13834301 (2 sinh 2K_d = 2.13834301); |det Y| = c^(m 2^m): True
+  d=2 p=0.4 m=5: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 2.13834301 (2 sinh 2K_d = 2.13834301); |det Y| = c^(m 2^m): True
+  d=2 p=0.4 m=6: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 2.13834301 (2 sinh 2K_d = 2.13834301); |det Y| = c^(m 2^m): True
+  d=3 p=0.2 m=3: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 1.80555556 (2 sinh 2K_d = 1.80555556); |det Y| = c^(m 2^m): True
+  d=3 p=0.2 m=4: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 1.80555556 (2 sinh 2K_d = 1.80555556); |det Y| = c^(m 2^m): True
+  d=3 p=0.2 m=5: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 1.80555556 (2 sinh 2K_d = 1.80555556); |det Y| = c^(m 2^m): True
+  d=3 p=0.2 m=6: E kernel-sector singular: True; E_OBC sectors equal: True; |det E_OBC|^(1/(m 2^(m-1))) = 1.80555556 (2 sinh 2K_d = 1.80555556); |det Y| = c^(m 2^m): True
+[PASS] V3_determinant_structure 
+
+========================================================================
+V4. D_h,OBC = prod_k e^{K_h z_k z_{k+1}} exactly (commuting bonds)
+========================================================================
+[PASS] V4_Dh_OBC_bond_product 
+
+written /home/z/my-project/quantum-circuits/research/scripts/../results/spinor_verify.json

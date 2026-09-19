@@ -39,4 +39,4 @@
   bootstrap: got (0.16009(1), 1.249(13)); deposited 0.16011(9)/1.250(14) -> True
 
 ALL VERIFIED: True
-written /home/z/quantum-circuits/research/scripts/../results/purif_summary.json
+written /home/z/my-project/quantum-circuits/research/scripts/../results/purif_summary.json

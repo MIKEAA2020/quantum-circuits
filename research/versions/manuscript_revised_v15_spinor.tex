@@ -1,0 +1,846 @@
+% =========================================================================
+% manuscript_revised_v15_spinor.tex
+% v15 of the manuscript: v14 with the one unresolved proof-route item (the
+% S5/S6 spinor factorization) DERIVED AND VERIFIED:
+%   E = sinh^m(2K_d) [ cosh(K_d) Ytil + sinh(K_d) sz_m Ytil sz_1 ],
+%   Ytil = c e^{K1 x_m} prod_{k=m-1..1} [ e^{K_d sz_k sz_{k+1}} c e^{K1 x_k} ],
+%   x_k = sigma^x_k, z_k = sigma^z_k  (plain Paulis, SML Clifford algebra),
+%   K1 = Kramers-Wannier dual of K_d  (sinh 2K1 * sinh 2K_d = 1),
+%   K2 = K_d,  c = sqrt(2 sinh 2K1);
+% verified to 6e-16 relative for m = 3..8, d in {2,3,5}, both branches;
+% boundary/end-term structure and determinant structure likewise verified
+% (research/scripts/spinor_verify.py, logs/spinor_verify.log).
+% New version file; v14 (audit3) kept unmodified.
+%
+% v14 header (inherited):
+% v14 of the manuscript, implementing the full audit-3 plan (E1-E9, N3, D6,
+% the p_c recenter, the floorN disclosure).  New version file; v13 kept.
+%
+% Implemented items (audit3_joint_assessment_v2.md Sec. 4, plus the
+% resolutions D1-D5 and the Q2/Q3 decisions):
+%   1b (D2 recenter)  p_c 0.1595(10) -> 0.1597(8) (abstract, Sec. 5, concl.)
+%   E1  tilt mechanism replaces "(Jensen)" (App. B) + one clause (Sec. 3)
+%   E2  fixed-set Delta-chi^2 profile, corrections to scaling, weighting
+%       disclosure, shared-trajectory (GATE-4) sentence (App. B)
+%   E3  omega_eff = 1.6(4)-2.5(8) depending on L_min (App. B)
+%   E4  alpha at p_c = 0.1597 + s1 L^{-y} clause (App. B)
+%   E5  "(sampled as the 720 symplectic actions ...)" (App. B)
+%   E6  Gullans-Huse values + the purification locator paragraph (App. B)
+%   E9  reproducibility / seed-contract sentence (App. B)
+%   N3  Collatz-Wielandt enclosures subsection (App. A)
+%   D6  Proposition (closed-form spectrum) with proof + verification para
+%       (Sec. 4, after the Houtappel proof; Q2 -> (b): full Proposition)
+%   N2  purification paragraph (Q3 -> yes: independent observable) (App. B)
+%   item 13  the 1/N standard-error floor disclosure (App. B + table caption)
+% =========================================================================
+\documentclass[11pt]{article}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,microtype,graphicx}
+\usepackage[round]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newcommand{\pc}{p_c}
+\newcommand{\pctwo}{p_c^{(2)}}
+\newcommand{\vth}{\vartheta}
+\newcommand{\Ccomp}{\mathcal{C}}
+\newcommand{\Wz}{\mathcal{W}_0}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\E}{\mathbb{E}}
+
+\title{Measurement-induced phase transition in random hybrid Clifford circuits:
+exact annealed criticality and a high-precision quenched locator}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study the measurement-induced entanglement transition in random hybrid
+circuits of $L$ qudits (local dimension $d$) on a ring: two layers of random
+two-site Clifford gates per period, each followed by independent
+computational-basis measurements at rate $p$.  For the \emph{annealed}
+(disorder-averaged) two-replica problem the full moment dynamics closes on a
+three-dimensional per-site commutative algebra and is exactly similar to the
+row transfer of an anisotropic triangular-lattice Ising model,
+$\Ccomp=\Wz^L E D_h E^{\mathsf T}D_h$ acting on $2^{L/2}$ states, with
+$K_d=\tfrac14\ln(a/c)$, $K_h=\tfrac14\ln(ac/b^2)$, $\Wz=(acb^2)^{1/4}$
+determined by the measurement channel.  We prove a closed form for the
+complete nonzero spectrum (a free-fermion product over parity-quantised
+momenta, recovering the rank $3\cdot2^{L/2-2}$ by mode counting), and obtain
+the exact annealed critical line
+$\pctwo(d)=\bigl(d-\vth_c\bigr)/(d-1)$, $\vth_c=\beta_d+\sqrt{\beta_d^2+1}$,
+$\beta_d=(d^2-1)/(d^2+1)$, with certified leading eigenvalues (exact-rational
+Collatz--Wielandt enclosures of relative width $\le7.3\times10^{-15}$).
+The record-collision weight of the annealed channel favours trajectories with
+fewer measurements, lowering the effective monitoring density to
+$p_{\rm eff}=p+\tfrac{p(1-p)}{2L}\partial_p\ln\lambda_1$; this resolves the
+annealed-versus-quenched entropy ordering without a convexity argument.
+For the \emph{quenched} Clifford dynamics we locate the transition from
+$475{,}600$ trajectories ($L=16$--$512$) of the tripartite information
+$I_3$ and the logarithmic entanglement entropy: crossings, windowed data
+collapse, bootstrap errors): $p_c=0.1597(8)$, $\nu=1.24(7)$, and critical
+half-chain entropy $\alpha=1.55(7)$ bits per $\ln L$ (systematic rather than
+statistical uncertainties).  An independent purification locator
+(Gullans--Huse reference-qubit protocol, disjoint seeds, mixed initial state,
+$135{,}000$ trajectories) gives $p_c^{\rm purif}=0.1601$--$0.1604$,
+$\nu^{\rm purif}=1.25(2)$.  Our values agree with Gullans--Huse
+$0.1593(5)$, $\nu=1.28(2)$ and Sierant et al.\ $0.15995(10)$.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+Hybrid random circuits---interleaving unitary evolution with projective
+measurements---display a measurement-induced entanglement transition between
+a volume-law and an area-law phase
+\citep{Skinner2019,Li2018,Gullans2020,Nahum2020}.  Numerically the transition
+is located through disorder-averaged observables ($I_3$, entropies,
+purification) whose sample-to-sample fluctuations grow exponentially with
+system size; in monitored \emph{Clifford} circuits those averages can be
+sampled exactly by stabilizer simulation, which makes the Clifford ensemble
+the natural high-precision testbed \citep{Gullans2020,Sierant2022,Zabalo2020}.
+
+This paper combines two complementary attacks on the same Clifford model.
+(i)~\emph{Exact annealed results.}  The second moment of the monitored
+channel averaged over circuits (equivalently over measurement \emph{records}
+with the record-collision weight $P(R)^2$) is exactly solvable: the
+two-replica dynamics closes on a per-site algebra of three commuting
+projectors, compresses to a classical transfer matrix of Ising type, and
+yields the full finite-size spectrum in closed form, the exact annealed
+critical line for every local dimension $d$, and certified eigenvalues.
+(ii)~\emph{Quenched numerics.}  A high-precision stabilizer simulation of the
+\emph{Born-sampled} (quenched) dynamics pins the transition at
+$p_c=0.1597(8)$ with $\nu=1.24(7)$ from $475{,}600$ trajectories, and an
+independent Gullans--Huse purification protocol with disjoint seeds confirms
+the point through a different observable.
+
+The paper is organised as follows.  Sec.~\ref{sec:model} defines the circuit
+and the two-replica (record-collision) moment problem, introduces the
+per-site algebra and the compressed classical transfer
+(Eqs.~\ref{eq:M1M2}--\ref{eq:Kdh}), and states the rank theorem.
+Sec.~\ref{sec:ising} identifies the classical model as the anisotropic
+triangular-lattice Ising model, recalls the Houtappel free energy
+(Prop.~\ref{prop:houtappel}), and proves the closed-form spectrum
+(Prop.~\ref{prop:spectrum}) together with its numerical certificate.
+Sec.~\ref{sec:benchmark} verifies the exact solution against the
+finite-size benchmark (Table~\ref{tab:benchmark}) and the certified
+eigenvalues (App.~\ref{app:enclosures}).  Sec.~\ref{sec:annealed} derives the
+exact annealed critical line and the effective-density (tilt) mechanism.
+Sec.~\ref{sec:records} states the multifractal record statistics.
+Sec.~\ref{sec:quenched} presents the quenched locator and the adopted
+numbers; Sec.~\ref{sec:conclusion} concludes.  App.~\ref{app:rank3} collects
+the rank certificates and the exact-rational enclosures; App.~\ref{app:numerics}
+documents the numerical estimators, their error model, the audit-driven
+robustness analysis, and the independent purification locator.
+
+\section{Model, two-replica compression, and the rank theorem}
+\label{sec:model}
+
+\subsection{The monitored Clifford circuit}
+\label{sec:circuit}
+
+The system is a ring of $L=2m$ qudits (dimension $d$, computational basis
+$\{|x\rangle\}_{x=0}^{d-1}$).  One circuit \emph{period} consists of two
+brickwork layers of random two-qudit gates (even bonds $(2k,2k+1)$, then odd
+bonds $(2k+1,2k+2)$, each gate drawn independently and uniformly from the
+two-qudit Clifford group), each gate layer followed by a measurement layer in
+which every site is independently measured in the computational basis with
+probability $p$.  A \emph{record} $R$ is the complete list of measurement
+positions and outcomes along a trajectory; its Born probability under a
+random circuit realisation is $P(R)$.  The quenched observables of interest
+($I_3$, half-chain entropy $S_{L/2}$) are Born-sampled averages over
+trajectories; the annealed second moments average the record probability
+squared, which glues two replicas onto the same record.
+
+\subsection{The record-collision moment and the per-site algebra}
+\label{sec:replica}
+
+The two-replica state $\sigma$ lives on
+$(\mathbb{C}^d)^{\otimes L}\otimes(\mathbb{C}^d)^{\otimes L}$.  Under a gate
+$U$ acting identically on both replicas, $\sigma\mapsto(U\otimes
+U)\,\sigma\,(U^\dagger\otimes U^\dagger)$; since the two-qudit Clifford group
+is an exact $2$-design, the circuit average of this conjugation is the
+twirl onto the commutant $\operatorname{span}\{I,S\}$ of each gate bond ($S$
+the replica swap).  A record-colliding measurement of site $i$ maps
+$\sigma\mapsto(\Pi_i\otimes\Pi_i)\,\sigma\,(\Pi_i\otimes\Pi_i)$ with
+$\Pi_i=\sum_x|x\rangle\langle x|$ the same-outcome projector on both
+replicas.  The relevant operator algebra is therefore generated per site by
+\begin{equation}
+  e_0=\Pi,\qquad e_+=\tfrac{I+S}{2}-\Pi,\qquad e_-=\tfrac{I-S}{2},
+  \label{eq:Vdef}
+\end{equation}
+three mutually orthogonal projectors ($e_0+e_++e_-=I$;
+$Se_0=e_0,\ Se_+=e_+,\ Se_-=-e_-$).  The gate twirl preserves this algebra
+and the colliding measurement acts diagonally on it,
+$e_0\mapsto e_0$, $e_\pm\mapsto(1-p)\,e_\pm$; the whole annealed dynamics is
+a positive linear map on the $3^L$-dimensional commutative algebra spanned
+by the products $\bigotimes_k e_{a_k}$.  Because the transfer is
+similar (Schur complement on the collided sector) to a $2^m$-dimensional
+classical transfer acting on the pair variables, all annealed $n=2$
+quantities coincide with the Haar ones by the $2$-design property
+(Remark~\ref{rem:clifford}).
+
+\subsection{The compressed classical transfer}
+\label{sec:compression}
+
+Let $s=(s_1,\dots,s_m)\in\{\pm1\}^m$ label the pair (row) configuration.
+The half-period transfer is the $2^m\times2^m$ matrix
+\begin{equation}
+  M_1=\Wz^m\,E\,D_h,\qquad
+  E_{s's}=\exp\!\Bigl[K_d\sum_k s'_k\,(s_k+s_{k+1})\Bigr],\qquad
+  D_h=\operatorname{diag}\exp\!\Bigl[K_h\sum_k s_k s_{k+1}\Bigr],
+  \label{eq:M1M2}
+\end{equation}
+with $s_{m+1}=s_1$ (ring).  The full period map is
+\begin{equation}
+  \Ccomp=M_1M_2=\Wz^L\,E\,D_h\,E^{\mathsf T}D_h
+       =M_1^2\,\tau,
+  \label{eq:periodmap}
+\end{equation}
+where $M_2=\Wz^mE^{\mathsf T}D_h=M_1\tau$ and $\tau$ is the bond-ring shift
+($(E^{\mathsf T}=E\tau$, $[D_h,\tau]=0)$.  The bond weight of a single pair
+transition factorises as $w(s'|s,s^+)$ with
+\begin{equation}
+  a=w(+|+,+),\qquad b=w(\pm|+,-),\qquad c=w(-|+,+),
+  \label{eq:weights}
+\end{equation}
+and the Ising couplings are (Eq.~\ref{eq:Kdh})
+\begin{equation}
+  K_d=\tfrac14\ln\frac{a}{c},\qquad
+  K_h=\tfrac14\ln\frac{ac}{b^2},\qquad
+  \Wz=(acb^2)^{1/4}.
+  \label{eq:Kdh}
+\end{equation}
+Writing $\vth=d-(d-1)p$, the measurement channel gives the weights in closed
+form, with two branches joined continuously at the annealed critical point
+$\vth_c=\beta_d+\sqrt{\beta_d^2+1}$, $\beta_d=(d^2-1)/(d^2+1)$:
+\begin{align}
+  \text{\emph{ordered}}\ (\vth\ge\vth_c):\qquad
+  a&=\frac{(\vth+1)^2}{2(d^2+1)},& b&=\frac{\vth^2-1}{2(d^2-1)},&
+  c&=\frac{(\vth-1)^2}{2(d^2+1)},&
+  \Wz&=\frac{\vth^2-1}{2\sqrt{d^4-1}},
+  \label{eq:wordered}\\[2pt]
+  \text{\emph{disordered}}\ (\vth\le\vth_c):\qquad
+  a&=\frac{d^2\vth^2-1}{d^4-1},& b&=\frac{\vth}{d^2+1},&
+  c&=\frac{d^2-\vth^2}{d^4-1},&
+  \Wz&=\frac{\bigl[\vth(d^2-1)\bigr]^{1/2}
+        \bigl[(d^2\vth^2-1)(d^2-\vth^2)\bigr]^{1/4}}{d^4-1}.
+  \label{eq:wdisordered}
+\end{align}
+At $\vth=\vth_c$ both branches give $a-c=2b$ exactly: the $k=0$ mode of
+Prop.~\ref{prop:spectrum} is gapless there.  In the limits $p\to1$
+($\vth\to1$) the three weights coincide, $a=b=c=1/(d^2+1)$ (the disordered
+fixed point), and at $p\to0$ ($\vth\to d$) the ordered weights
+$a=(d+1)^2/2(d^2+1)$, $b=\tfrac12$, $c=(d-1)^2/2(d^2+1)$ describe the
+strong-coupling (volume-law) limit.
+
+\begin{theorem}[rank; compressed period map]\label{thm:rank}
+Let $L=2m\ge4$, $d\ge2$, $0<p<1$.
+\begin{enumerate}
+\item[(i)] $\Ccomp$ \emph{is similar to a positive-semidefinite matrix}
+      $\Wz^L D_h^{1/2}YY^{\mathsf T}D_h^{1/2}$ with
+      $Y=D_h^{-1/2}ED_h^{1/2}$; in particular its spectrum is real and
+      non-negative.
+\item[(ii)] $\Ccomp$ commutes with the global spin flip
+      $F:(s\mapsto-s)$ and with the ring shift $\tau$.
+\item[(iii)] The nonzero spectrum splits into a flip-even and a flip-odd
+      sector of $2^{m-1}$ states each.
+\item[(iv)] $\operatorname{rank}\Ccomp=3\cdot2^{m-2}$ and
+      $\dim\ker\Ccomp=2^{m-2}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+(i) is the similarity $D_h^{-1/2}\Ccomp D_h^{1/2}
+=\Wz^L(D_h^{-1/2}ED_h^{1/2})(D_h^{-1/2}ED_h^{1/2})^{\mathsf T}$.
+(ii) follows from the invariance of the weights
+$w(-s'|-s,-s^+)=w(s'|s,s^+)$ and of $D_h$ under the flip and the shift.
+(iv) is proved mode-by-mode in Prop.~\ref{prop:spectrum}(iii) below (the
+$k=\pi$ mode has $w_\pi^-=0$); an independent Schur-complement proof through
+$L=12$ is given in App.~\ref{app:rank3}.
+\end{proof}
+
+\section{The Ising form, the Houtappel limit, and the closed-form spectrum}
+\label{sec:ising}
+
+$E$ is the diagonal-bond (vertical) transfer of an anisotropic
+triangular-lattice Ising model with horizontal coupling $K_h$ and the two
+diagonal couplings $K_d$; $M_1=E\,D_h$ is its row transfer.  The
+finite-size scaling variable is the Ising reduced coupling; the annealed
+transition is the triangular-lattice critical line
+\begin{equation}
+  \sinh(2K_d)\,e^{2K_h}=1,
+  \label{eq:gapless}
+\end{equation}
+which at the physical trajectory \eqref{eq:wordered}--\eqref{eq:wdisordered}
+is met exactly at $\vth=\vth_c$, i.e.\ at
+$p=\pctwo(d)=(d-\vth_c)/(d-1)$: $e^{2K_h}=\beta_d$ and $\sinh(2K_d)=1/\beta_d$
+there.  (For the isotropic point $K_d=K_h$ Eq.~\eqref{eq:gapless} gives
+$\sinh(2K)e^{2K}=1$, i.e.\ $K=\tfrac14\ln3$, the known triangular-lattice
+critical coupling.)
+
+\begin{proposition}[Houtappel]\label{prop:houtappel}
+The thermodynamic leading eigenvalue obeys
+$\frac1L\ln\lambda_1\to\ln\Wz+f_H(K_d,K_h)$ with $f_H$ the anisotropic
+triangular-lattice free energy per site of \citet{Houtappel1950}.  At
+$d=2$, $p=0.40$: $\lambda_1(L)^{1/L}\to0.683844659$.
+\end{proposition}
+
+\begin{proposition}[closed form of the nonzero spectrum]
+\label{prop:spectrum}
+Let $L=2m\ge4$, $d\ge2$, $0<p<1$, and let
+$\Ccomp=\Wz^L E D_h E^{\mathsf T}D_h$ be the operator of
+Eq.~\eqref{eq:periodmap}, with $K_d,K_h,\Wz$ as in Eq.~\eqref{eq:Kdh}.  For
+$k\in[0,2\pi)$ define
+\begin{equation}
+  Q(k)=\cosh^2\!2K_d\,\cosh 2K_h+\sinh^2\!2K_d\,\sinh 2K_h
+        -\sinh 2K_h\,\cos k,\qquad
+  R(k)=2\sinh 2K_d\,\cos\frac{k}{2},
+  \label{eq:QRdef}
+\end{equation}
+and $w_k^\pm=Q(k)\pm\sqrt{Q(k)^2-R(k)^2}$ (real, since $0\le R^2\le Q^2$ for
+all $k$).  Then every nonzero eigenvalue of $\Ccomp$ is of the form
+\begin{equation}
+  \lambda=\bigl(2\Wz^2\bigr)^m\prod_{k\in\mathcal K_\sigma} w_k^{\pm_k},
+  \label{eq:spectrum}
+\end{equation}
+where the product runs over the momentum states of the flip sector $\sigma$:
+in the flip-even sector
+$\mathcal K_+=\{(2j-1)\pi/m:\ j=1,\dots,m\}$ (antiperiodic) with an
+\emph{even} number of ``$-$'' choices; in the flip-odd sector
+$\mathcal K_-=\{2\pi j/m:\ j=0,\dots,m-1\}$ (periodic) with an \emph{odd}
+number of ``$-$'' choices when the branches are ordered as
+$w^\pm=Q\pm\sqrt{Q^2-R^2}$ fixed.  Equivalently, in the convention that
+orders the $k=0$ branches by magnitude (the ordering flips at $\pctwo$),
+the flip-odd sector carries an even number of ``$-$'' choices below
+$\pctwo(d)$ and an odd number above, exactly as in the spinor analysis of
+\citet{Kaufman1949,Newell1950}.  Moreover:
+\begin{enumerate}
+\item[(i)] $R(\pi)=0$, so $w_\pi^-=Q(\pi)-|Q(\pi)|=0$: every state occupying
+      the ``$-$'' branch of the $k=\pi$ mode lies in the kernel.  Counting
+      nonzero states (half of the sector containing $k=\pi$, all of the
+      other) gives $\operatorname{rank}\Ccomp=3\cdot2^{m-2}$, recovering
+      Theorem~\ref{thm:rank}(iv) by mode counting.
+\item[(ii)] At $p=\pctwo(d)$ the $k=0$ mode is gapless:
+      $Q(0)-R(0)$ has a double zero at $a-c=2b$, so
+      $w_0^+=w_0^-$ there, and the scaled gaps have the exact limits
+      $L\ln(\lambda_1/\lambda_{\rm odd})\to2\pi\,\beta_d/4$ and
+      $L\ln(\lambda_1/\lambda_\varepsilon)\to2\pi\cdot2\beta_d$, ratio
+      $1/8=x_\sigma/x_\varepsilon$ for every $d$.
+\item[(iii)] $a-c=2b\iff Q(0)=R(0)$; the critical line
+      Eq.~\eqref{eq:gapless} is the gapless condition of the $k=0$ mode.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The transfer $E$ is a bond-factorised matrix whose spinor (Jordan--Wigner)
+analysis follows \citet{Kaufman1949,Newell1950,Stephenson1964,Schultz1964}:
+(a)~in the spinor representation with open chain ends the diagonal transfer
+is a product of Ising-Clifford exponentials.  With
+$x_k=\sigma^x_k$ and $z_k=\sigma^z_k$ (the Schultz--Mattis--Lieb algebra of
+the row transfer), $K_1$ the Kramers--Wannier dual of $K_d$
+($\sinh2K_1\,\sinh2K_d=1$), $K_2=K_d$ and $c=\sqrt{2\sinh2K_1}$,
+\begin{equation}
+  E=\sinh^m(2K_d)\,\bigl[\cosh K_d\,\tilde Y+\sinh K_d\,z_m\tilde Y z_1\bigr],\qquad
+  \tilde Y=c\,e^{K_1x_m}U_{m-1}\cdots U_1,\quad
+  U_k=e^{K_dz_kz_{k+1}}\,c\,e^{K_1x_k},
+  \label{eq:spinor}
+\end{equation}
+the periodic boundary contributing only through the end term $z_m\tilde Y
+z_1$; every factor of \eqref{eq:spinor} has unit determinant, so
+$\det\tilde Y=c^{m2^m}$, one flip sector of $E$ is exactly singular (the
+$k=\pi$ kernel of item~(i) below, at the transfer level), and the two flip
+sectors of the open-boundary transfer have equal determinants
+$|\det E_{\rm OBC,\varepsilon}|=(2\sinh2K_d)^{m2^{m-2}}$.  Identity
+\eqref{eq:spinor} is machine-verified (relative residual $\le6\times
+10^{-16}$ for $m=3$--$8$, $d\in\{2,3,5\}$, both branches of the weight
+trajectory; \texttt{spinor\_verify.py}, checks V1--V4).
+(b)~On each flip-parity sector $\varepsilon=\pm1$, $E_\varepsilon$ commutes
+with the Majorana translation $T_\varepsilon$ carrying the boundary sign
+$-\varepsilon$, hence is block-diagonal in the momentum basis
+$\mathcal K_\sigma$ fixed by that sign (antiperiodic for the even sector,
+periodic for the odd sector).  (c)~Each momentum block of
+$\Ccomp=\Wz^L(ED_h)(ED_h)^{\mathsf T}\tau$ is a $2\times2$ Majorana
+quadratic form; diagonalising it gives the two eigenvalues $w_k^\pm$ of
+Eqs.~\eqref{eq:QRdef}, with the half-shift $\cos(k/2)$ in $R(k)$ tracing to
+$E^{\mathsf T}=E\tau$.  (d)~Multiplying the per-momentum block eigenvalues
+over the sector and fixing the parity of ``$-$'' choices from the fermion
+parity of the sector (the $k=0$ block changes its parity character at
+$\pctwo$, the Kaufman boundary-condition switch) yields
+Eq.~\eqref{eq:spectrum}.  (e)~The kernel count (i) is immediate from
+$R(\pi)=0$; the amplitude limits (ii) follow from the expansion of
+$\ln w_k^+-\ln w_k^-$ near $k=0$ at $\vth=\vth_c$ where
+$ac/b^2=\beta_d^2$; and (iii) is a direct substitution using
+$a=\Wz e^{2K_d+K_h}$, $b=\Wz e^{-K_h}$, $c=\Wz e^{-2K_d+K_h}$.
+Every algebraic step of the proof has been checked numerically: the spinor
+factorisation \eqref{eq:spinor} holds with the stated closed-form
+parameters and normalisation $\sinh^m(2K_d)$ to a relative residual of
+$6\times10^{-16}$; the nonzero
+spectrum of the dense $\Ccomp$ agrees with Eq.~\eqref{eq:spectrum} to
+$\le10^{-10}$ in $\ln\lambda$ for $m=4$--$9$, $d\in\{2,3,5\}$, twelve
+values of $p$ including $\pctwo\pm2\times10^{-4}$; the commutators
+$[\Ccomp,F]$ and $[\Ccomp,\tau]$ vanish to $10^{-15}$; and the closed form
+lies inside every exact-rational Collatz--Wielandt enclosure of
+App.~\ref{app:enclosures} (proof-to-code chain, deposited with the
+scripts and logs).
+\end{proof}
+
+\begin{remark}[numerical verification]\label{rem:verification}
+The verification suite (deposited as \texttt{mipt\_audit3\_gauss\_proof.py},
+now complemented by \texttt{spinor\_verify.py} for the factorisation)
+additionally reproduces: the finite-size benchmark of
+Table~\ref{tab:benchmark} to its rounding ($\le5\times10^{-6}$ on the
+crossings, all four decimals of the ratio row);
+$\lambda_1(28)^{1/28}=0.683844946$ at $d=2$, $p=0.40$ (the transfer-matrix
+value $0.6838449$ quoted below) and the bulk $0.683844659$ (the Houtappel
+value); and the effective-density values of Sec.~\ref{sec:annealed}.  The
+spinor factorisation \eqref{eq:spinor} of the deposited route is reproduced
+exactly in the present workspace: with $x_k=\sigma^x_k$, $z_k=\sigma^z_k$,
+$K_1$ the Kramers--Wannier dual of $K_d$ and $K_2=K_d$, the identity holds
+to a relative residual $\le6\times10^{-16}$ ($m=3$--$8$, $d\in\{2,3,5\}$,
+both branches), the normalisation being exactly $\sinh^m(2K_d)$; the
+boundary enters only through the end term $z_m(\cdot)z_1$ (verified
+separately for $E$ and for $D_h$, with the respective wrap couplings $K_d$
+and $K_h$), and $D_{h,\rm OBC}=\prod_k e^{K_hz_kz_{k+1}}$ exactly.  The
+square-lattice Kaufman determinant formula
+$\rho_\varepsilon^2=1+\varepsilon(-1)^m(\sinh2K_2/\sinh2K_1)^m$ quoted in
+the deposited route does not hold for this triangular $E$ (both flip
+sectors of $E_{\rm OBC}$ have equal determinants and one PBC sector is
+exactly singular); the verified determinant statements after
+\eqref{eq:spinor} replace it.
+\end{remark}
+
+\section{The exact benchmark}\label{sec:benchmark}
+
+The closed form of Prop.~\ref{prop:spectrum} turns the annealed benchmark
+into exact arithmetic.  Table~\ref{tab:benchmark} lists the consecutive-size
+crossings of the scaled odd-sector gap $L\ln(\lambda_1/\lambda_{\rm odd})$
+(with $\lambda_{\rm odd}$ the periodic-sector all-``$+$'' state, the analytic
+continuation through $\pctwo$ of the leading flip-odd eigenvalue) for
+$d=2$ and $d=3$, together with the ratio row at $\pctwo$.  The crossings
+converge to $\pctwo$ from below; the ratio row converges to $1/8$
+($x_\sigma/x_\varepsilon$) as required by (ii).
+
+\begin{table}[t]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+ & $p^*(16,20)$ & $p^*(20,24)$ & $p^*(24,28)$ & $p^*(28,32)$\\
+\midrule
+$d=2$ & $0.23319$ & $0.23348$ & $0.23361$ & $0.23368$\\
+$d=3$ & $0.45934$ & $0.45950$ & $0.45957$ & $0.45961$\\
+\midrule
+ratio at $\pctwo$, $L=16$--$32$ & $0.1220$ & $0.1231$ & $0.1237$ & $0.1243$\\
+\bottomrule
+\end{tabular}
+\caption{Benchmark: consecutive-size crossings of the scaled gap
+$L\ln(\lambda_1/\lambda_{\rm odd})$, and the ratio
+$\ln(\lambda_1/\lambda_{\rm odd})/\ln(\lambda_1/\lambda_\varepsilon)$ at
+$\pctwo$ (exact limit $1/8$).  The closed form reproduces the deposited
+transfer-matrix table to the rounding.}
+\label{tab:benchmark}
+\end{table}
+
+The finite-size crossings of the scaled $I\leftrightarrow S$ gap computed
+from the transfer matrix directly agree with the Houtappel limit
+Eq.~\eqref{eq:QRdef}-based value to $3\times10^{-7}$ at $L=28$ ($d=2$,
+$p=0.40$: $0.6838449$ versus $0.6838447$).  At the five exact rational
+points of App.~\ref{app:enclosures} (including the same $p=0.40$ at
+$L=16,20$) this agreement is certified: $\lambda_1$ is enclosed in exact
+rational arithmetic with relative width $\le7.3\times10^{-15}$, and the
+closed form of Prop.~\ref{prop:spectrum} lies inside every enclosure.
+
+\section{The annealed critical line and the effective-density mechanism}
+\label{sec:annealed}
+
+\subsection{The exact critical line}
+Solving the gapless condition \eqref{eq:gapless} on the trajectory
+\eqref{eq:wordered}--\eqref{eq:wdisordered} gives, for every $d\ge2$,
+\begin{equation}
+  \boxed{\;\pctwo(d)=\frac{d-\vth_c}{d-1},\qquad
+  \vth_c=\beta_d+\sqrt{\beta_d^2+1},\qquad \beta_d=\frac{d^2-1}{d^2+1}.\;}
+  \label{eq:pctwo}
+\end{equation}
+Numerically $\pctwo(2)=0.233810$, $\pctwo(3)=0.459688$,
+$\pctwo(5)=0.679004$.  For the Clifford realization of the present period
+Appendix~\ref{app:numerics} finds $p_c=0.1597(8)$, against
+$\pctwo(2)=0.2338$; at every size the quenched half-chain entropy lies
+strictly below the annealed quasi-entropy $\tilde S_2$
+(Table~\ref{tab:numerics}), whose record-collision weight favours
+trajectories with fewer measurements (effective rate
+$p_{\rm eff}=0.092$ at $p=0.16$; App.~\ref{app:numerics}); at
+$p=0.22<\pctwo(2)$ the quenched chain is already in its area-law phase while
+the annealed model is still ordered.
+
+\subsection{Why the annealed entropy exceeds the quenched one}
+\label{sec:tilt}
+For stabilizer states $\tr\rho_A^2=2^{-S_A}$, so
+$\bar P_{2,A}/\bar Z_2=\E_{\rm tilt}[2^{-S_A}]$ with the tilt measure
+$\propto p_R^2$ (the record-collision weight), and Jensen gives
+$\tilde S_2(A)=-\log_2\E_{\rm tilt}[2^{-S_A}]\le\E_{\rm tilt}[S_A]$: for a
+\emph{common} measure the annealed quantity is the \emph{smaller} one.  The
+observed $\tilde S_2>\E_{\rm Born}S$ therefore requires a change of measure,
+and the $p_R^2$ weight supplies it: it favours records with fewer
+measurements.  The exact tilted density is
+\begin{equation}
+  p_{\rm eff}=p+\frac{p(1-p)}{2L}\,\partial_p\ln\lambda_1(L)
+  \label{eq:peff}
+\end{equation}
+with $\lambda_1$ the leading eigenvalue of $\Ccomp$: $0.1049$ ($L=8$),
+$0.1011$ ($L=12$), $0.0920$ ($L\to\infty$) at $p=0.16$; $0.1493$ at
+$p=\pctwo(2)$ (closed form and transfer matrix agree to five digits).  An
+exact/sampled chain at $L=8$, $t=4$, $p=0.16$ ($40{,}000$ Born trajectories,
+effective sample size $5935$) quantifies the mechanism: the exact annealed
+quasi-entropy $\tilde S_2=2.155$ bits exceeds the quenched mean
+$\E S=2.019(4)$ by $0.14$, while the quenched mean at the density-shifted
+rate is $2.339(4)$: the density shift alone accounts for
+${\approx}80\%$ of the tilt gap ($2.429-2.019=0.41$), the remainder being
+record selection at fixed density (the tilted sample overshoots the exact
+annealed value by $0.27$, the finite-ESS convexity cost).  At $L=12$ the
+exact numbers ($\tilde S_2=3.128$, $\E S=2.394(5)$, $S(p_{\rm eff})=2.941(4)$)
+show the same ordering; the sampled tilt average there (ESS $454$) is not
+reliable and is not used.  (The bare $p$ at which $p_{\rm eff}=0.1595$ in the
+thermodynamic limit is $0.2446$---close to, but not equal to,
+$\pctwo(2)=0.2338$; this is a numerical coincidence and does not represent a
+mapping between the two transitions.)
+
+\section{Multifractal record statistics}\label{sec:records}
+
+The Born probability of a record of the monitored circuit is a product of
+per-measurement dyadic probabilities, and its statistics across records are
+multifractal.  We state the deposited result in the notation of the record
+literature: with $\tau(q)$ the scaling exponent of the $q$-th record moment
+and $\psi(x)$ the convex conjugate of the Craps--Huberman spectrum,
+\begin{equation}
+  \tau(q)=-\psi(1-q)
+  \label{eq:taupsi}
+\end{equation}
+(Theorem~\texttt{record-mf}; stated once, used consistently for all $q$).
+The free-fermion determinants of Sec.~\ref{sec:ising} provide the exact
+annealed side of these moments; the quenched side is sampled.
+
+\section{The quenched locator}\label{sec:quenched}
+
+The quenched ensemble is simulated by stabilizer (tableau) dynamics with
+Born-sampled measurement outcomes: $L=16$--$512$, $p=0.14$--$0.18$,
+$t=2L$ and $4L$, $N=800$--$4000$ trajectories per $(L,p,t)$ cell
+($475{,}600$ trajectories in total), each gate an independent uniformly
+random two-qubit Clifford (sampled as the $720$ symplectic actions, under
+which every recorded quantity is invariant).  Trajectory $k$ of file
+$(L,p)$ is generated by the legacy MT19937 stream seeded with
+$\mathit{seed0}(L,p)+k$, $\mathit{seed0}$ stored in the file; regeneration
+is bit-exact (checked for $23$ trajectories spanning $L=16$--$512$,
+including the $I_3\equiv0$ file at $L=384$, $p=0.18$).
+
+\paragraph{Critical point.}
+Table~\ref{tab:numerics} lists the crossings of $I_3(L)$ and $I_3(2L)$
+(monotone piecewise-cubic interpolation of each curve; three other
+estimators agree within the quoted scatter).  The ladder
+$p_\times=p_c+aL^{-\omega}$ gives $0.1602(6)$
+($\omega_{\rm eff}=1.6(4)$--$2.5(8)$ depending on $L_{\min}$) and the
+weighted plateau of the $L\ge96$ crossings $0.1599(3)$.  The joint collapse
+of $I_3$ and $S_{L/2}$ gives $p_c=0.1598$--$0.1601$.  Adopted:
+\begin{equation}
+  p_c=0.1597\pm0.0008:
+  \label{eq:adoptedpc}
+\end{equation}
+the corrected, tail-safe fits centre at $0.1597$--$0.1598$ and every
+independent estimator lies at or above $0.1597$ within its stated errors
+(weighted crossing plateau $0.1599(3)$, ladder $0.1600(4)$--$0.1602(6)$,
+joint entropy fits $0.1598$--$0.1601$, $\Delta S$ crossings
+$0.159$--$0.161$; Sierant et al.\ $0.15995(10)$, Gullans--Huse
+$0.1593(5)$).  The statistical errors alone are $\pm0.0003$; the interval
+quoted is the envelope of the estimators.
+
+\paragraph{Exponent.}
+The windowed collapse gives $\nu=1.18$--$1.27$ over all depth, size and
+window choices with $L\ge48$; the slope method
+$\partial_p I_3|_{p_c}\propto L^{1/\nu}$ (cubic fits over
+$|p-p_c|\le0.011$, $L=32$--$512$) gives $\nu=1.13$--$1.36$ as the assumed
+$p_c$ ranges over $0.1585$--$0.1605$ (a $p_c$-sensitive consistency check:
+$\Delta\nu\approx0.1$ per $0.0008$).  Frozen-$\nu$ comparisons on
+\emph{fixed} point sets ($L\ge64$, spline scaling function with the area-law
+tail retained; $\Delta\chi^2$ over the eight tail-safe variants of the
+deposited report) give $\Delta\chi^2=52$--$334$ for $\nu=1$, $0.2$--$11$ for
+$\nu=1.20$, $0.1$--$2.6$ for $\nu=1.24$, $0$--$9.9$ for $\nu=1.28$,
+$3.0$--$36.5$ for $4/3$, and $12.5$--$89$ for $\nu=1.40$; with a sextic
+scaling function and the tail removed, $\Delta\chi^2(\nu=1)\ge72$.  A
+power-law correction to scaling $AL^{-\omega}$ is preferred only when $L=48$
+is retained ($\Delta\mathrm{AIC}=-7$ to $-14$), neutral at $L\ge64$ and
+disfavoured at $L\ge96$, with $\omega$ undetermined ($0.3$--$4$); it raises
+$\nu$ by $0.02$--$0.04$.  The windowed quartic collapses of
+Table~\ref{tab:numerics} are the conservative backbone: they exclude no
+saturated point and give $\nu=1.18$--$1.27$ with $\chi^2/{\rm dof}=0.7$--$2.6$
+($\chi^2$ $p$-values $\ge0.2$ for all windows with $L\ge64$).  We disclose
+the estimator details: standard errors are floored at $1/N_{\rm traj}$
+(never below the sampling floor; the legacy $10^{-4}$/$10^{-6}$ floors of
+the deposited analysis code are replaced by $1/N$ in the released version,
+and the re-run confirms the windowed numbers do not move), and the area-law
+points, for which a polynomial scaling function cannot be flat, are either
+removed or replaced by a spline scaling function, which leaves the answer
+unchanged (report, Sec.~3.5).  Adopted:
+$\nu=1.24\pm0.07$, covering the full tail-safe envelope $1.21$--$1.29$;
+$\nu=1$ is excluded and the percolation value $4/3$ is disfavoured
+($\Delta\chi^2=3.0$--$36.5$, never excluded by the weakest variant).
+
+\paragraph{Logarithmic entanglement.}
+The straight-line fits give $\alpha=1.58$--$1.66$ at $p_c=0.1595$ but
+inherit ${\rm d}\alpha/{\rm d}p\approx-110$ times the uncertainty of $p_c$
+(the row at $p_c=0.1597$ shifts by ${\approx}-0.02$, within the stated
+errors); at the neighbouring grid points $p=0.1575$ and $0.1625$ a straight
+line in $\ln L$ fails.  A power-law correction $s_1L^{-y}$
+($y=0.5,1,2$) is never preferred and moves $\alpha$ by $<0.05$.
+
+\paragraph{Annealing versus quenching.}
+The exact annealed quasi-entropy $\tilde S_2(A)$ exceeds the quenched
+$\E_\omega S(A)$ at every size and $p$; the excess is a density effect
+(Sec.~\ref{sec:tilt}): the record-collision weight of the annealed channel,
+proportional to $p_R^2$, favours trajectories with fewer measurements, and
+the effective monitoring rate of the tilted ensemble is
+$p_{\rm eff}=p+\frac{p(1-p)}{2L}\partial_p\ln\lambda_1$
+($0.105$ at $L=8$, $0.101$ at $L=12$, $0.092$ in the $L\to\infty$ limit at
+$p=0.16$).  A $40{,}000$-trajectory Born chain at $L=8$, $t=4L$ (ESS
+$5935$) quantifies this (Sec.~\ref{sec:tilt}); at $L=12$ the exact values
+are used.  Haar-gate statevector runs with Born sampling ($L=8,12,16$) show
+the same ordering of annealed and quenched entropies, but these sizes are
+too small for an independent Haar transition point; the Haar values
+$p_c^{\rm H}=0.17(1)$, $\nu^{\rm H}=1.2(2)$ are those of \citet{Zabalo2020}.
+
+\paragraph{Literature and the independent purification locator.}
+Gullans and Huse report $p_c=0.1593(5)$, $\nu=1.28(2)$ ($I_3$ crossing,
+pure states; their purification protocol locates the same point through the
+mixed-state order parameter); the coefficient $\tilde c\approx1.5$--$1.6$
+quoted in that literature equals our $\alpha$ in units of $\ln 2$.
+Sierant et al.\ report $0.15995(10)$.  The present values agree with all of
+them within the stated uncertainties.
+
+A locator based on a different observable, and on trajectories disjoint from
+the $475{,}600$ above, is the Gullans--Huse reference-qubit protocol
+\citep{Gullans2020}: the $L$-qubit system starts in the completely mixed
+state, purified by $L$ reference qubits ($2L$ qubits in total), and the same
+circuit and measurements act on the system only, so that $S_{\rm ref}(t)$,
+the entropy of the reference, is the entropy of the system's mixed state.
+We ran $L=16$--$256$, $p=0.14$--$0.18$, $2000$--$4000$ trajectories per
+point (independent seeds, disjoint from the $I_3$ blocks), recording
+$S_{\rm ref}$ at $t=\tau L$, $\tau=0.25,0.5,1,2,4$ ($135{,}000$
+trajectories, $270$ files; \texttt{mipt\_purif\_sim.py}).  At $p=0.16$ the
+reference entropy is nearly $L$-independent for $\tau\ge1$ and decays with
+$\tau$ as $F(0,\tau)\sim1/\tau$.  Pair crossings of the $L\ge64$ curves give
+$0.1606$--$0.1628$; the collapses $S_{\rm ref}=F((p-p_c)L^{1/\nu})$ with a
+sextic $F$ and $L\ge64$ give $p_c=0.16039$, $\nu=1.251$
+($\chi^2/{\rm dof}=15.5/18$) at $\tau=0.5$ and $p_c=0.16009$, $\nu=1.249$
+($18.3/18$) at $\tau=1$; a trajectory bootstrap ($100$ resamples) gives
+$0.16011(9)$, $1.250(14)$ ($\tau=1$, $L\ge64$).  The $\tau=2$ collapse
+($0.16027$, $1.310$, $\chi^2/{\rm dof}=82.8/18$) is degraded by the same
+saturated-tail pathology as in Sec.~3.5 of the report and is not used.
+Frozen-$\nu$ $\Delta\chi^2$ on the $L\ge64$ set ($\tau=1$): $\nu=1$: $544$;
+$1.2$: $16.9$; $1.24$: $0.5$; $1.28$: $6.6$; $4/3$: $45.8$; $1.4$: $139$.
+We therefore find
+\begin{equation}
+  p_c^{\rm purif}=0.1601\text{--}0.1604,\qquad
+  \nu^{\rm purif}=1.25(2),
+  \label{eq:purif}
+\end{equation}
+from an observable and a trajectory set independent of the $I_3$ headline
+above; it is quoted separately and does not enter the $p_c=0.1597(8)$ of the
+$I_3$/entropy locators (different observable, different finite-size
+corrections; combining them would hide that).
+
+\section{Conclusion}\label{sec:conclusion}
+
+The annealed two-replica problem of the monitored Clifford circuit is
+exactly solvable: a three-projector per-site algebra compresses to a
+triangular-lattice Ising transfer whose complete nonzero spectrum has the
+closed form of Prop.~\ref{prop:spectrum}, whose critical line is exact for
+every local dimension, and whose leading eigenvalues are certified in exact
+rational arithmetic.  The quenched transition sits at $p_c=0.1597(8)$ with
+$\nu=1.24(7)$ and $\alpha=1.55(7)$ bits per $\ln L$, against the exact
+annealed $\pctwo(2)=0.2338$; the record-collision weight resolves the
+annealed--quenched entropy ordering through an effective-density mechanism
+rather than a convexity argument; and an independent purification locator
+with disjoint seeds confirms the critical point through a different
+observable.  The exact finite-size amplitudes at $\pctwo$
+($\beta_d/4$ and $2\beta_d$, ratio $1/8$) and the multifractal record
+spectrum connect the measurement problem to the exactly known Ising
+corrections.
+
+\appendix
+
+\section{Rank certificates and exact-rational eigenvalue enclosures}
+\label{app:rank3}
+
+\subsection{Reduction of the two-replica transfer}
+\label{app:reduction}
+The Schur complement eliminating the collided sector $e_0$ of
+Eq.~\eqref{eq:Vdef} reduces the $3^L$-dimensional annealed transfer to the
+$2^m$-dimensional classical transfer of Eq.~\eqref{eq:M1M2}; the reduction
+is verified exactly (symbolic + exact-rational matrix identities) through
+$L=12$.
+
+\subsection{Block structure}
+\label{app:blocks}
+The flip-even/odd decomposition of Theorem~\ref{thm:rank}(iii) is
+implemented by the paired basis
+$(e_n\pm e_{N-1-n})/\sqrt2$; the momentum blocks of Prop.~\ref{prop:spectrum}
+are the Fourier modes on the ring with the sector boundary sign.
+
+\subsection{Two-sided rank certificates}
+\label{app:certificates}
+The rank identity $\operatorname{rank}\Ccomp=3\cdot2^{m-2}$ is certified
+two-sided (exact row reduction and exact nullspace certification) through
+$L=12$ at rational $(d,p)$.
+
+\subsection{Collatz--Wielandt enclosures of the two-replica Perron
+eigenvalue}\label{app:enclosures}
+For rational $p$ the weights \eqref{eq:wordered}--\eqref{eq:wdisordered} are
+rational, hence so is $\Ccomp=M_1^2\tau$.  The Collatz--Wielandt theorem
+(for a positive matrix $A$ and positive $x$:
+$\min_i(Ax)_i/x_i\le\lambda_1(A)\le\max_i(Ax)_i/x_i$), evaluated in exact
+rational arithmetic, gives two-sided certificates of $\lambda_1$:
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+$L$ & $d$ & $p$ & enclosure & rel.\ width\\
+\midrule
+16 & 2 & $2/5$       & $[0.0022886508026864124561,\ 0.0022886508026864175903]$ & $2.2\times10^{-15}$\\
+16 & 2 & $4/25$      & $[0.075189633382987646,\    0.075189633382987911]$     & $3.5\times10^{-15}$\\
+16 & 2 & $1169/5000$ & $[0.0236927451718797476,\   0.0236927451718798042]$    & $2.4\times10^{-15}$\\
+20 & 2 & $2/5$       & $[0.00050028570068131041,\  0.00050028570068131407]$    & $7.3\times10^{-15}$\\
+16 & 3 & $2/5$       & $[6.3658872262159916{\times}10^{-5},\ 6.3658872262160092{\times}10^{-5}]$ & $2.9\times10^{-15}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are theorems (positive matrix, Collatz--Wielandt, exact arithmetic on
+the rational matrix of Eq.~\eqref{eq:M1M2}).  The closed form of
+Prop.~\ref{prop:spectrum} lies inside every enclosure (verified at
+$60$-digit precision); the reproduction
+(\texttt{mipt\_audit3\_cw\_exact.py}) re-derives brackets of comparable
+width ($3$--$5\times10^{-16}$) that contain both the deposited intervals and
+the closed form.
+
+\subsection{The $L=12$ two-sided certificate}\label{app:L12}
+The rank certificate at $L=12$ closes the exact verification of the
+compression for all sizes accessible to exact rational arithmetic.
+
+\subsection{Files}\label{app:files}
+\texttt{mipt\_kaufman\_lib.py} (closed form),
+\texttt{mipt\_audit3\_gauss\_proof.py} (verification suite),
+\texttt{spinor\_verify.py} (the spinor factorisation, boundary and
+determinant verification, V1--V4),
+\texttt{mipt\_audit3\_cw\_exact.py} (enclosures),
+\texttt{mipt\_purif\_analysis.py} (purification locator),
+\texttt{mipt\_fss2\_floorN.py} (released floors), with the logs and JSON
+results deposited alongside.
+
+\section{Numerical appendix}\label{app:numerics}
+
+\subsection{Ensemble and validation}
+By the $2$-design property all annealed $n=2$ quantities coincide with the
+Haar ones (Remark~\ref{rem:clifford}); the quenched quantities below are
+Clifford-specific.  The simulator is validated at the exact points $p=0$
+($S_{\rm ref}=L$) and $p=1$ (zero entropy after one layer); the measurement
+count satisfies $N_{\rm meas}\approx2pLt$; and the seed contract above
+regenerates the deposited trajectories bit-exactly.
+
+\subsection{Estimators and their error model}
+Crossings are located by monotone piecewise-cubic interpolation of each
+curve and of their difference; the collapse is
+$I_3=F((p-p_c)L^{1/\nu})$ with polynomial (quartic windowed / sextic
+fixed-set) or spline scaling functions, fitted by weighted least squares
+with Nelder--Mead over $(p_c,\nu)$; the bootstrap resamples trajectories.
+Standard errors are floored at $1/N_{\rm traj}$ per point (the released
+code; the legacy $10^{-4}$/$10^{-6}$ floors are documented in the report and
+their replacement is a no-op on every window---no point with s.e.\ below
+either floor enters any quoted window).
+
+\begin{table}[t]
+\centering
+\begin{tabular}{llll}
+\toprule
+estimator & value & & \\
+\midrule
+crossings $I_3(L)\times I_3(2L)$ & see Sec.~\ref{sec:quenched} & & \\
+weighted plateau ($L\ge96$)      & $0.1599(3)$ & & \\
+ladder $p_c+aL^{-\omega_{\rm eff}}$ & $0.1600(4)$--$0.1602(6)$ & & \\
+windowed collapses ($t=2L,4L$; $L\ge48$--$96$) & $\nu=1.18$--$1.27$ & & \\
+straight-line $\alpha$ at $p_c=0.1597$ & $1.56$--$1.64$ & & \\
+joint $I_3$/$S$ collapse & $p_c=0.1598$--$0.1601$, $\alpha=1.52(3)$ & & \\
+purification locator (independent) & $p_c=0.1601$--$0.1604$, $\nu=1.25(2)$ & & \\
+\bottomrule
+\end{tabular}
+\caption{Numerics summary.  The $\alpha$ straight-line rows are evaluated at
+the adopted $p_c=0.1597$; relative to the $p_c=0.1595$ evaluation they shift
+by ${\approx}-0.02$ (${\rm d}\alpha/{\rm d}p\approx-110$), within the stated
+errors.  Bootstrap errors use $200$ (crossings, collapse) and $100$
+(purification) trajectory resamples; s.e.\ floors at $1/N_{\rm traj}$.}
+\label{tab:numerics}
+\end{table}
+
+\subsection{Audit-driven robustness (summary)}
+Three audit rounds flagged (i) an error floor that let a single saturated
+point ($I_3\equiv0$ in all $800$ trajectories at $L=384$, $p=0.18$) carry
+$98\%$ of one fixed-set fit's weight; (ii) a sextic scaling function forced
+through the area-law tail, tilting the collapse core and biasing
+$\nu$ upward to $1.30$--$1.35$; and (iii) a mis-attributed convexity
+mechanism for the annealed--quenched ordering.  The resolutions---the $1/N$
+floor, tail-safe (spline or tail-excluded) fits centring at
+$p_c=0.1597$--$0.1598$, $\nu=1.21$--$1.29$, and the effective-density
+mechanism of Sec.~\ref{sec:tilt}---are implemented throughout; the headline
+numbers are the envelope of the tail-safe analyses, not of any single fit.
+All locators quoted in this appendix---$I_3$ crossings and collapses,
+$\Delta S$ crossings, the joint entropy fit---are computed from the same
+$475{,}600$ trajectories; the only independent observable is the
+purification protocol of Sec.~\ref{sec:quenched}, which uses disjoint seeds
+and a mixed initial state.
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem[Kaufman(1949)]{Kaufman1949}
+B.~Kaufman, Phys.\ Rev.\ 76, 1232 (1949). Crystal statistics of a
+two-dimensional triangular Ising lattice.
+
+\bibitem[Newell(1950)]{Newell1950}
+G.~F.~Newell, Phys.\ Rev.\ 79, 876 (1950). Crystal statistics of a
+two-dimensional triangular Ising lattice (exact solution).
+
+\bibitem[Houtappel(1950)]{Houtappel1950}
+R.~M.~F.~Houtappel, Physica 16, 425 (1950). Order-disorder in hexagonal
+lattices.
+
+\bibitem[Schultz et al.(1964)]{Schultz1964}
+T.~Schultz, D.~Mattis, E.~Lieb, Rev.\ Mod.\ Phys.\ 36, 856 (1964).
+
+\bibitem[Stephenson(1964)]{Stephenson1964}
+J.~Stephenson, J.\ Math.\ Phys.\ 5, 1003 (1964).
+
+\bibitem[Li et al.(2018)]{Li2018}
+Y.~Li, X.~Chen, M.~P.~A.~Fisher, Phys.\ Rev.\ B 98, 205136 (2018).
+
+\bibitem[Skinner et al.(2019)]{Skinner2019}
+B.~Skinner, J.~Ruhman, A.~Nahum, Phys.\ Rev.\ X 9, 031009 (2019).
+
+\bibitem[Gullans and Huse(2020)]{Gullans2020}
+M.~J.~Gullans, D.~A.~Huse, Phys.\ Rev.\ X 10, 041020 (2020).
+
+\bibitem[Nahum et al.(2020)]{Nahum2020}
+A.~Nahum, S.~Roy, B.~Skinner, J.~Ruhman, PRX Quantum 1, 010301 (2020).
+
+\bibitem[Zabalo et al.(2020)]{Zabalo2020}
+A.~Zabalo \emph{et al.}, Phys.\ Rev.\ B 101, 060301 (2020).
+
+\bibitem[Sierant et al.(2022)]{Sierant2022}
+P.~Sierant \emph{et al.}, Quantum 6, 638 (2022).
+
+\bibitem[Gullans and Huse(2020b)]{Gullans2020b}
+M.~J.~Gullans, D.~A.~Huse, Phys.\ Rev.\ X 10, 041019 (2020) (purification
+dynamics).
+
+\end{thebibliography}
+
+\end{document}

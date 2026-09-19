@@ -26,4 +26,4 @@ L=16 d=3 p=2/5 (4 exact CW iterations after warm start):
    overlap+containment consistent: True
 
 ALL CONSISTENT: True
-written /home/z/quantum-circuits/research/scripts/../results/audit3_cw_exact.json
+written /home/z/my-project/quantum-circuits/research/scripts/../results/audit3_cw_exact.json
