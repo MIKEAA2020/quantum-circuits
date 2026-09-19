@@ -1,0 +1,97 @@
+The import re-ran the whole script (no `__main__` guard). Let me move the shared functions into a module-safe form and rerun the follow-up checks.
+
+The three directives are answered in `versions/audit3_joint_assessment_v2.md` (opened; v1 kept). No manuscript edit has been made. Summary:
+
+**1. Remaining audit points (10, all adjudicated).** Only one requires new text: the reproducibility contract (seeds). I verified it is real: trajectory *k* of every data file regenerates bit-for-bit from `seed0 + k` (23 trajectories, L = 16–512). The "two independent observables" gate is *not* satisfied — all locators share trajectories — and v14 should say so. Everything else is satisfied, not claimed, or already rejected.
+
+**2. Root causes (the important part).**
+- **D1 (ν): I withdraw my v1 recommendation ν = 1.27(9).** The 1.30–1.35 values came from our own analysis, not the data: (i) a 10⁻⁴ error floor let one point with I₃ ≡ 0 in all 800 trajectories (L = 384, p = 0.18) carry 98 % of the fit weight; (ii) a sextic polynomial forced through the saturated area-law tail tilts the collapse core. Fixing either (floor ≥ 1/N; tail excluded, or a spline scaling function with the tail kept in) gives an envelope ν = 1.21–1.29, bootstrap ±0.02–0.04, all four tail-safe variants agreeing to ≤ 0.01. **v13's ν = 1.24(7) and p_c = 0.1595(10) stand.** What must change is the *justification* text: the frozen-ν χ² list (point set changes with ν), "4/3 disfavoured at 1.3σ" (→ Δχ² ≥ 3 in every variant, ≥ 20 without a correction term; ν = 1 excluded at Δχ² ≥ 52), plus an honest disclosure of the weighting defect and its fix.
+- **E1 (Jensen):** mechanism verified exactly — the p_R² tilt lowers the measurement density (p_eff = 0.105 at L = 8, 0.092 in the limit); the L = 8 chain reproduces all four entropies.
+- **D3 runs:** N3 is **done** in exact rational arithmetic (λ₁ enclosures of relative width ~10⁻¹⁵ at L = 16, 20; a genuine Level-B certificate). N1 not merited. N2 (purification) is the only way to meet the independence gate — your call.
+
+**3. An unplanned exact finding.** While certifying λ₁ I found that the *entire* nonzero spectrum of the compressed operator has a closed free-fermion product form (Sec. 2.6): verified for all eigenvalues at L ≤ 18, λ₁ to 3 × 10⁻¹⁴ at L = 32, inside the exact enclosures; it reproduces Table benchmark to the last digit and gives the critical amplitudes exactly (β_d/4 and 2β_d, ratio 1/8 for all d). It is a numerically verified conjecture, not a proof.
+
+Four decisions before I write the v14 patch:
+
+Let me quickly confirm the state of the workspace before I report.
+
+Status check done. Here is where things stand.
+
+## Short answer: the two approved work items are done (N2 run + proof-route verification); v14 itself is untouched, as you instructed.
+
+### 1. N2 purification locator — COMPLETE (incl. bootstrap, just finished)
+Gullans–Huse mixed-state protocol on my own simulator; seeds disjoint from the I3 dataset.
+
+- **Data:** L = 16, 32, 64, 128, 256; p = 0.140–0.180 (step 0.005); τ = t/L = 0.25, 0.5, 1, 2, 4; 2000–4000 trajectories per point → 270 chunk files in `mipt_data_purif/`. Sanity checks passed (p=0 → S_ref = L; p=1 → 0; S_ref ≡ S_sys exactly; N_meas ≈ 2pLt).
+- **Order parameter behaves as in GH:** at p = 0.160, ⟨S_ref⟩ is L-independent for τ ≥ 0.5 (τ=1: 1.72, 1.75, 1.77 for L = 64, 128, 256; τ=2: 0.60–0.62), i.e. zero scaling dimension, F(0,τ) ~ 1/τ.
+- **Pair crossings (L ≥ 64):** 0.1606–0.1628.
+- **Collapses (L ≥ 64, s.e. floor 1/N):** τ=0.5: p_c = 0.1604, ν = 1.251 (χ²/dof 15.5/18); τ=1: 0.1601, 1.249 (18.3/18); τ=2: 0.1603, 1.310 (82.8/18 — poor fit, caused by the S→0 saturated tail with tiny errors, the same tail pathology as in D1; with |x| ≤ 2 it gives 0.1598/1.207).
+- **Bootstrap (100 resamples, L ≥ 64):** τ=1: p_c = 0.16011(9), ν = 1.250(14); τ=2: 0.16028(8), 1.310(11). Statistical errors are small; the τ/L_min spread is the real uncertainty.
+- **Frozen-ν Δχ² (τ=1, L ≥ 64):** ν=1: 544; 1.2: 16.9; 1.24: 0.5; 1.28: 6.6; 4/3: 45.8; 1.4: 139.
+
+**Verdict:** p_c^purif = 0.1601–0.1604, ν^purif = 1.25(2)_stat(6)_sys (from the clean τ = 0.5–1 fits). This is an independent, different-observable confirmation of our I3 result 0.1595(10)/1.24(7) and agrees with Gullans–Huse 0.1593(5)/1.28(2). It resolves audit point R2. My recommendation: keep 0.1595(10) as the I3 headline and quote the purification value separately in App. B (different observable, different finite-size corrections; combining them would hide that).
+
+Files: `mipt_results/purif_summary.json`, `logs/purif_analysis_boot.log`, `mipt_purif_sim.py`, `mipt_purif_analysis.py`.
+
+### 2. Proposition (closed-form spectrum) — proof route verified, text not yet written
+All key steps checked numerically: sequential Gaussian construction of the compressed operator, parity-sector operators with boundary sign −ε (giving the two momentum sets), the normalisation ρ_ε² that identifies the kernel sector (rank 3·2^{m−2}), and the per-momentum 2×2 blocks with eigenvalues w⁺/w⁻. One honest caveat: the sandbox wiped `/tmp`, taking the scratch verification scripts with it. The verified statements and formulas are all recorded; I will re-create a persisted verification script alongside the proof text (it also serves as the numerical certificate).
+
+### 3. Not done — on hold per your instruction
+v14 patch (E1–E9, N3 paragraph in App. A, Proposition + 2–3 pp proof, N2 paragraph/table/figure in App. B), report v3, changelog §P, ledger update (+purification data), PDF rebuild (tectonic and pymupdf must be reinstalled first), and the 1e-4/1e-6 → 1/N floor fix in a new mipt_fss2 version with rerun.
+
+
+Not yet — that's the honest status. Your confirmations arrived, I drafted the acceptance summary, and v14 was authorised ("yes_all"), but **no manuscript edit had been made**: v13 is still the newest version, and nothing was running in the background.
+
+Two open items from your message, resolved by your standing decisions (stating them explicitly so I'm not silently guessing):
+
+- **Q2 → (b):** the closed-form spectrum goes in as a separate **Proposition with full proof** (your earlier decision: "prove closed-form spectrum as a Proposition, not a remark"), inserted in Sec. ising after the Houtappel proof.
+- **Q3 → yes:** N2 purification is an **independent observable** (disjoint seeds, mixed initial state, reference-qubit order parameter — different measurement from I₃/entropy). So the GATE-4/E2 sentence will read: *"all I₃/entropy locators share the same trajectory data; the purification locator (independent seeds, mixed initial state) does not."*
+
+Implementing v14 now in full: recenter p_c → 0.1597(8), E1–E6, N3, Proposition+proof, 1/N-floor rerun, report v3, changelog §P, ledger, PDF. Results at the end of this turn.
+
+First: re-verify every anchor and the exact fix specifications before writing any patch.
+
+
+
+
+
+
+
+
+
+
+Anchors and data confirmed. Now I need the missing middle sections (Eq. Kdh, rank theorem, Houtappel statement, exact l.1121–1123 text, Appendix A location, report v2 structure, and the tilt/purification formulae) before writing anything.
+
+
+
+
+
+
+
+
+
+I've identified the key structural elements including the rank theorem and its Ising formulation. Now I'll work through Appendix A, the remaining report, the fss module, and the purification run details.
+
+
+
+
+
+
+
+
+
+I've gathered all the context needed. Now I'll create the floorN pipeline with two transformed scripts, run the α-at-0.1597 verification, and execute the proof-verification suite for the Proposition.
+
+
+
+
+
+
+
+I found that `mipt_fss2.py` has two `1e-6` floors instead of one, which broke my transform. I'll locate all the floor occurrences and fix both transforms.
+
+
+
+
+
+I found that the second `1e-6` is a Nelder–Mead tolerance, not a floor. I'll regenerate both transforms with corrected logic and write the two verification scripts.
