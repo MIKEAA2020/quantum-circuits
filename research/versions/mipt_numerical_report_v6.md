@@ -77,3 +77,14 @@ mipt_results/n2_control_{blocks,crossings}.json; logs: logs/n3_annealed_*.log;
 manuscript: versions/manuscript_revised_v17_annealed-n3.tex/.pdf (new Sec.
 sec:n3annealed + Table tab:n3annealed + open-problems rewrite), built by
 versions/patch_v17_annealed.py from v16 (anchors asserted).
+
+## 11a. Addendum — exploratory n=4 datum (v17a)
+The same momentum-block machinery at n=4 (bond dim 24, Weingarten D=4>=n
+invertible), L=4,6, with the second momentum-zero eigenvalue as the sigma proxy
+(colour resolution of S_4 not implemented): the (4,6) crossing of
+X_L = L log(l1/l2) lies at 0.35726 (14-point grid, step 0.025).  With the n=3
+small-L bias ((4,6) crossing 0.27114 = p_c - 0.034), this indicates
+p_c^{(4)} ~ 0.36-0.39 — the replica trend continues:
+0.233810 (n=2) < 0.305(3) (n=3) < ~0.37 (n=4) vs quenched 0.1597(8).
+Files: mipt_results/n4_annealed_exploratory.json.  Manuscript v17a records the
+datum (versions/manuscript_revised_v17a_annealed-n3.tex/.pdf).

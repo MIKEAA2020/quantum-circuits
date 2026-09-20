@@ -67,3 +67,12 @@ Manuscript: versions/patch_v17_annealed.py (anchors asserted) ->
 versions/manuscript_revised_v17_annealed-n3.tex/.pdf (31 pp; new subsection
 sec:n3annealed + Table tab:n3annealed + abstract clause + open-problems rewrite
 + bibitem Wu1982).  Report: versions/mipt_numerical_report_v6.md (Sec. 11).
+
+## S.5  Addendum (v17a): the exploratory n=4 datum
+The same machinery run at n=4 (L=4,6; bond dim 24; sigma proxy = the second
+momentum-zero eigenvalue): the (4,6) crossing is 0.35726, i.e.
+p_c^{(4)} ~ 0.36-0.39 after the n=3-calibrated small-L bias — the replica
+trend continues away from the quenched point, as the q=n-Potts conjecture and
+the annealed-quenched distinction require.  New files: v17a manuscript
+(versions/manuscript_revised_v17a_annealed-n3.tex/.pdf), report Sec. 11a,
+mipt_results/n4_annealed_exploratory.json.

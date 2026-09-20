@@ -23,3 +23,7 @@ results: mipt_results/n3_annealed_*.json, n2_control_*.json; logs:
 logs/n3_annealed_*.log; manuscript: versions/manuscript_revised_v17_annealed-n3
 (.tex/.pdf, 31 pp, Sec. sec:n3annealed); report v6 (Sec. 11); changelog
 Section S; ledger certificate_sha256_v4.txt.
+
+**Addendum (v17a).** The same machinery at n=4 (L=4,6): the (4,6) crossing is
+0.357 (p_c^{(4)} ~ 0.36-0.39 after the n=3-calibrated small-L bias) — the
+replica trend continues.  See report Sec. 11a and changelog S.5.
