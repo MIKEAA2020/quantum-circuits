@@ -9,6 +9,7 @@ const LINKS = [
   { href: "#data", label: "Data & FSS", id: "data" },
   { href: "#results", label: "Results", id: "results" },
   { href: "#theory", label: "Exact theory", id: "theory" },
+  { href: "#replica", label: "Replica ladder", id: "replica" },
   { href: "#repro", label: "Reproducibility", id: "repro" },
 ];
 

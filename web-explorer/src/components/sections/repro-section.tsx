@@ -8,7 +8,7 @@ export function ReproSection() {
   return (
     <section id="repro" className="scroll-mt-20 py-16 sm:py-20 border-t border-zinc-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <SectionHeading num="06" id="repro" kicker="Reproducibility" title={<>Bit-exact by contract, honest by design</>} />
+        <SectionHeading num="07" id="repro" kicker="Reproducibility" title={<>Bit-exact by contract, honest by design</>} />
 
         <div className="mt-10 grid lg:grid-cols-2 gap-6">
           <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-6 min-w-0">
