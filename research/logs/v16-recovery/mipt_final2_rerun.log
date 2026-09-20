@@ -1,0 +1,217 @@
+sizes/samples: {16: 4000, 24: 4000, 32: 4000, 48: 4000, 64: 4000, 96: 3000, 128: 3000, 192: 2000, 256: 2000, 384: 800, 512: 400}
+record times: {16: [8, 16, 32, 64, 128], 24: [12, 24, 48, 96, 192], 32: [16, 32, 64, 128, 256], 48: [24, 48, 96, 192, 384], 64: [32, 64, 128, 256, 512], 96: [48, 96, 192, 384], 128: [64, 128, 256, 512], 192: [96, 192, 384, 768], 256: [128, 256, 512, 1024], 384: [192, 384, 768, 1536], 512: [256, 512, 1024]}
+
+== 1. I3 crossings p_x(L,2L) ==
+t=4L (16,32): pchip 0.1481±0.0012 | local-quad 0.1485±0.0013 | cubic-per-curve 0.1493±0.0012 | linear 0.1484±0.0011 | I3(p_x)=-0.711 bits
+t=4L (24,48): pchip 0.1530±0.0024 | local-quad 0.1541±0.0015 | cubic-per-curve 0.1539±0.0012 | linear 0.1535±0.0021 | I3(p_x)=-0.629 bits
+t=4L (32,64): pchip 0.1565±0.0010 | local-quad 0.1567±0.0007 | cubic-per-curve 0.1566±0.0008 | linear 0.1566±0.0010 | I3(p_x)=-0.544 bits
+t=4L (48,96): pchip 0.1577±0.0011 | local-quad 0.1582±0.0006 | cubic-per-curve 0.1582±0.0006 | linear 0.1578±0.0012 | I3(p_x)=-0.496 bits
+t=4L (64,128): pchip 0.1587±0.0007 | local-quad 0.1597±0.0004 | cubic-per-curve 0.1595±0.0004 | linear 0.1589±0.0008 | I3(p_x)=-0.478 bits
+t=4L (96,192): pchip 0.1602±0.0005 | local-quad 0.1602±0.0003 | cubic-per-curve 0.1603±0.0004 | linear 0.1602±0.0005 | I3(p_x)=-0.390 bits
+t=4L (128,256): pchip 0.1596±0.0005 | local-quad 0.1599±0.0003 | cubic-per-curve 0.1597±0.0003 | linear 0.1597±0.0004 | I3(p_x)=-0.433 bits
+t=4L (192,384): pchip 0.1600±0.0005 | local-quad 0.1607±0.0003 | cubic-per-curve 0.1600±0.0003 | linear 0.1600±0.0005 | I3(p_x)=-0.400 bits
+   extrapolation power_L>=24: p_c = 0.1602 ± 0.0006, exponent 1.78 ± 0.90
+   extrapolation power_L>=32: p_c = 0.1603 ± 0.0009, exponent 1.60 ± 1.19
+   extrapolation power_L>=48: p_c = 0.1600 ± 0.0005, exponent 3.21 ± 3.26
+   linear in 1/L, L>=48: p_c = 0.1608 ± 0.0007
+   linear in 1/L, L>=64: p_c = 0.1606 ± 0.0008
+   linear in 1/L, L>=96: p_c = 0.1596 ± 0.0012
+   plateau (weighted mean of pchip crossings with L>=96): p_c = 0.1599 ± 0.0003 (scatter 0.0003, n=3)
+t=2L (16,32): pchip 0.1527±0.0018 | local-quad 0.1525±0.0017 | cubic-per-curve 0.1527±0.0014 | linear 0.1526±0.0018 | I3(p_x)=-0.658 bits
+t=2L (24,48): pchip 0.1529±0.0010 | local-quad 0.1521±0.0008 | cubic-per-curve 0.1530±0.0012 | linear 0.1530±0.0009 | I3(p_x)=-0.648 bits
+t=2L (32,64): pchip 0.1535±0.0013 | local-quad 0.1542±0.0009 | cubic-per-curve 0.1540±0.0008 | linear 0.1537±0.0012 | I3(p_x)=-0.638 bits
+t=2L (48,96): pchip 0.1585±0.0011 | local-quad 0.1588±0.0005 | cubic-per-curve 0.1589±0.0005 | linear 0.1587±0.0011 | I3(p_x)=-0.479 bits
+t=2L (64,128): pchip 0.1586±0.0005 | local-quad 0.1591±0.0004 | cubic-per-curve 0.1591±0.0005 | linear 0.1587±0.0005 | I3(p_x)=-0.474 bits
+t=2L (96,192): pchip 0.1592±0.0007 | local-quad 0.1592±0.0003 | cubic-per-curve 0.1589±0.0004 | linear 0.1592±0.0006 | I3(p_x)=-0.458 bits
+t=2L (128,256): pchip 0.1607±0.0007 | local-quad 0.1602±0.0003 | cubic-per-curve 0.1598±0.0003 | linear 0.1607±0.0006 | I3(p_x)=-0.369 bits
+t=2L (192,384): pchip 0.1602±0.0006 | local-quad 0.1610±0.0022 | cubic-per-curve 0.1605±0.0003 | linear 0.1603±0.0023 | I3(p_x)=-0.395 bits
+t=2L (256,512): pchip 0.1596±0.0004 | local-quad 0.1615±0.0002 | cubic-per-curve 0.1604±0.0004 | linear 0.1598±0.0004 | I3(p_x)=-0.446 bits
+   extrapolation power_L>=24: p_c = 0.1602 ± 0.0005, exponent 1.65 ± 0.44
+   extrapolation power_L>=32: p_c = 0.1600 ± 0.0004, exponent 2.47 ± 0.78
+   extrapolation power_L>=48: p_c = 0.1601 ± 0.0007, exponent 1.82 ± 2.24
+   linear in 1/L, L>=48: p_c = 0.1604 ± 0.0005
+   linear in 1/L, L>=64: p_c = 0.1605 ± 0.0005
+   linear in 1/L, L>=96: p_c = 0.1600 ± 0.0008
+   plateau (weighted mean of pchip crossings with L>=96): p_c = 0.1599 ± 0.0003 (scatter 0.0007, n=4)
+   [partial save: crossings 6 s
+
+== 2. windowed I3 collapse: I3 = F((p-p_c) L^{1/nu}), deg-4 polynomial, |x|<=xmax ==
+t=4L;L>=32;xmax=0.6          L=32..384: p_c=0.1589±0.0001  nu=1.235±0.048  chi2/dof=2.25 (63 pts)
+t=4L;L>=32;xmax=1.0          L=32..384: p_c=0.1589±0.0001  nu=1.230±0.009  chi2/dof=2.24 (78 pts)
+t=4L;L>=32;xmax=1.5          L=32..384: p_c=0.1589±0.0001  nu=1.223±0.026  chi2/dof=2.99 (88 pts)
+t=4L;L>=48;xmax=0.6          L=48..384: p_c=0.1593±0.0001  nu=1.221±0.047  chi2/dof=1.32 (49 pts)
+t=4L;L>=48;xmax=1.0          L=48..384: p_c=0.1591±0.0001  nu=1.226±0.024  chi2/dof=1.64 (65 pts)
+t=4L;L>=48;xmax=1.5          L=48..384: p_c=0.1591±0.0001  nu=1.231±0.024  chi2/dof=2.62 (77 pts)
+t=4L;L>=64;xmax=0.6          L=64..384: p_c=0.1594±0.0001  nu=1.114±0.062  chi2/dof=0.65 (27 pts)
+t=4L;L>=64;xmax=1.0          L=64..384: p_c=0.1594±0.0001  nu=1.179±0.033  chi2/dof=1.09 (48 pts)
+t=4L;L>=64;xmax=1.5          L=64..384: p_c=0.1592±0.0001  nu=1.218±0.029  chi2/dof=2.02 (62 pts)
+t=4L;L>=96;xmax=0.6          L=96..384: p_c=0.1595±0.0002  nu=1.119±0.076  chi2/dof=0.46 (20 pts)
+t=4L;L>=96;xmax=1.0          L=96..384: p_c=0.1595±0.0002  nu=1.103±0.069  chi2/dof=0.72 (29 pts)
+t=4L;L>=96;xmax=1.5          L=96..384: p_c=0.1593±0.0001  nu=1.216±0.066  chi2/dof=1.70 (49 pts)
+t=2L;L>=32;xmax=0.6          L=32..512: p_c=0.1589±0.0001  nu=1.261±0.028  chi2/dof=2.81 (70 pts)
+t=2L;L>=32;xmax=1.0          L=32..512: p_c=0.1590±0.0001  nu=1.262±0.013  chi2/dof=2.64 (86 pts)
+t=2L;L>=32;xmax=1.5          L=32..512: p_c=0.1588±0.0001  nu=1.216±0.014  chi2/dof=2.98 (93 pts)
+t=2L;L>=48;xmax=0.6          L=48..512: p_c=0.1593±0.0001  nu=1.261±0.024  chi2/dof=1.15 (56 pts)
+t=2L;L>=48;xmax=1.0          L=48..512: p_c=0.1593±0.0001  nu=1.266±0.016  chi2/dof=1.46 (73 pts)
+t=2L;L>=48;xmax=1.5          L=48..512: p_c=0.1590±0.0001  nu=1.210±0.016  chi2/dof=2.24 (79 pts)
+t=2L;L>=64;xmax=0.6          L=64..512: p_c=0.1595±0.0001  nu=1.271±0.046  chi2/dof=1.04 (46 pts)
+t=2L;L>=64;xmax=1.0          L=64..512: p_c=0.1595±0.0001  nu=1.263±0.042  chi2/dof=1.16 (60 pts)
+t=2L;L>=64;xmax=1.5          L=64..512: p_c=0.1592±0.0001  nu=1.206±0.019  chi2/dof=1.88 (65 pts)
+t=2L;L>=96;xmax=0.6          L=96..512: p_c=0.1595±0.0012  nu=1.216±0.078  chi2/dof=1.03 (30 pts)
+t=2L;L>=96;xmax=1.0          L=96..512: p_c=0.1594±0.0001  nu=1.204±0.042  chi2/dof=1.09 (42 pts)
+t=2L;L>=96;xmax=1.5          L=96..512: p_c=0.1594±0.0002  nu=1.193±0.031  chi2/dof=1.47 (51 pts)
+   [partial save: collapse_I3 265 s
+
+== 3. slope method: dI3/dp|_{p_c} ~ L^{1/nu} (cubic fit over |p-p_c|<=0.011) ==
+t=4L L>=32 p_c=0.1585: nu=1.197±0.071 (L=32..384)
+t=4L L>=32 p_c=0.159: nu=1.250±0.048 (L=32..384)
+t=4L L>=32 p_c=0.1595: nu=1.303±0.053 (L=32..384)
+t=4L L>=32 p_c=0.16: nu=1.362±0.057 (L=32..384)
+t=4L L>=32 p_c=0.1605: nu=1.430±0.069 (L=32..384)
+t=4L L>=48 p_c=0.1585: nu=1.178±0.058 (L=48..384); local nu: {'64-96': 1.22, '96-128': 1.3, '128-192': 1.06, '192-256': 1.28, '256-384': 1.11}
+t=4L L>=48 p_c=0.159: nu=1.214±0.047 (L=48..384); local nu: {'64-96': 1.58, '96-128': 1.06, '128-192': 1.15, '192-256': 1.04, '256-384': 1.3}
+t=4L L>=48 p_c=0.1595: nu=1.262±0.049 (L=48..384); local nu: {'64-96': 1.62, '96-128': 1.1, '128-192': 1.18, '192-256': 1.07, '256-384': 1.39}
+t=4L L>=48 p_c=0.16: nu=1.317±0.059 (L=48..384); local nu: {'64-96': 1.66, '96-128': 1.15, '128-192': 1.22, '192-256': 1.12, '256-384': 1.5}
+t=4L L>=48 p_c=0.1605: nu=1.379±0.066 (L=48..384); local nu: {'64-96': 1.7, '96-128': 1.21, '128-192': 1.26, '192-256': 1.17, '256-384': 1.63}
+t=2L L>=32 p_c=0.1585: nu=1.218±0.055 (L=32..512)
+t=2L L>=32 p_c=0.159: nu=1.234±0.035 (L=32..512)
+t=2L L>=32 p_c=0.1595: nu=1.284±0.045 (L=32..512)
+t=2L L>=32 p_c=0.16: nu=1.342±0.049 (L=32..512)
+t=2L L>=32 p_c=0.1605: nu=1.410±0.059 (L=32..512)
+t=2L L>=48 p_c=0.1585: nu=1.065±0.053 (L=48..512); local nu: {'64-96': 1.17, '96-128': 0.71, '128-192': 1.31, '192-256': 1.37, '256-384': 0.99, '384-512': 0.67}
+t=2L L>=48 p_c=0.159: nu=1.137±0.035 (L=48..512); local nu: {'64-96': 1.07, '96-128': 1.36, '128-192': 1.06, '192-256': 1.2, '256-384': 1.08, '384-512': 1.12}
+t=2L L>=48 p_c=0.1595: nu=1.180±0.038 (L=48..512); local nu: {'64-96': 1.08, '96-128': 1.5, '128-192': 1.07, '192-256': 1.25, '256-384': 1.14, '384-512': 1.17}
+t=2L L>=48 p_c=0.16: nu=1.232±0.047 (L=48..512); local nu: {'64-96': 1.1, '96-128': 1.68, '128-192': 1.08, '192-256': 1.32, '256-384': 1.21, '384-512': 1.23}
+t=2L L>=48 p_c=0.1605: nu=1.294±0.051 (L=48..512); local nu: {'64-96': 1.12, '96-128': 1.92, '128-192': 1.1, '192-256': 1.4, '256-384': 1.3, '384-512': 1.3}
+t=2L L>=64 p_c=0.1585: nu=1.022±0.046 (L=64..512)
+t=2L L>=64 p_c=0.159: nu=1.130±0.037 (L=64..512)
+t=2L L>=64 p_c=0.1595: nu=1.175±0.041 (L=64..512)
+t=2L L>=64 p_c=0.16: nu=1.228±0.051 (L=64..512)
+t=2L L>=64 p_c=0.1605: nu=1.292±0.055 (L=64..512)
+
+== 4. Delta S(L) = S_half(2L) - S_half(L): crossings of Delta S(L) with Delta S(2L) ==
+t=4L sizes (16,32,64): p_x = 0.1585 ± 0.0023 (robust 0.0016); Delta S(p_x) = 1.121 bits -> alpha = 1.62
+t=4L sizes (24,48,96): p_x = 0.1574 ± 0.0010 (robust 0.0009); Delta S(p_x) = 1.160 bits -> alpha = 1.67
+t=4L sizes (32,64,128): p_x = 0.1601 ± 0.0008 (robust 0.0008); Delta S(p_x) = 1.037 bits -> alpha = 1.50
+t=4L sizes (48,96,192): p_x = 0.1603 ± 0.0010 (robust 0.0009); Delta S(p_x) = 0.972 bits -> alpha = 1.40
+t=4L sizes (64,128,256): p_x = 0.1602 ± 0.0059 (robust 0.0014); Delta S(p_x) = 1.082 bits -> alpha = 1.56
+t=4L sizes (96,192,384): p_x = 0.1590 ± 0.0080 (robust 0.0012); Delta S(p_x) = 1.182 bits -> alpha = 1.70
+t=2L sizes (16,32,64): p_x = 0.1557 ± 0.0021 (robust 0.0021); Delta S(p_x) = 1.214 bits -> alpha = 1.75
+t=2L sizes (24,48,96): p_x = 0.1573 ± 0.0008 (robust 0.0008); Delta S(p_x) = 1.165 bits -> alpha = 1.68
+t=2L sizes (32,64,128): p_x = 0.1604 ± 0.0020 (robust 0.0017); Delta S(p_x) = 1.004 bits -> alpha = 1.45
+t=2L sizes (48,96,192): p_x = 0.1622 ± 0.0169 (robust 0.0012); Delta S(p_x) = 0.916 bits -> alpha = 1.32
+t=2L sizes (64,128,256): p_x = 0.1605 ± 0.0018 (robust 0.0008); Delta S(p_x) = 1.020 bits -> alpha = 1.47
+t=2L sizes (96,192,384): p_x = 0.1597 ± 0.0026 (robust 0.0010); Delta S(p_x) = 1.143 bits -> alpha = 1.65
+t=2L sizes (128,256,512): p_x = 0.1602 ± 0.0044 (robust 0.0023); Delta S(p_x) = 1.082 bits -> alpha = 1.56
+   [partial save: deltaS_crossings 299 s
+
+== 5. S_half(L,p_c) = alpha ln L + b (bits; PBC half chain = two cuts) ==
+reference p_c = 0.1593 ± 0.0004 (t=2L, L>=48, xmax=1 collapse); p_c uncertainty propagated in the bootstrap
+t=4L;L>=16     L=16..384: alpha = 1.583 ± 0.038 bits/lnL  chi2/dof=1.04  -> per cut 0.791 bits = 0.548 nats; c_eff=3*alpha*ln2 = 3.29
+t=4L;L>=32     L=32..384: alpha = 1.586 ± 0.051 bits/lnL  chi2/dof=1.37  -> per cut 0.793 bits = 0.550 nats; c_eff=3*alpha*ln2 = 3.30
+t=4L;L>=48     L=48..384: alpha = 1.602 ± 0.065 bits/lnL  chi2/dof=1.43  -> per cut 0.801 bits = 0.555 nats; c_eff=3*alpha*ln2 = 3.33
+t=4L;L>=64     L=64..384: alpha = 1.630 ± 0.066 bits/lnL  chi2/dof=1.29  -> per cut 0.815 bits = 0.565 nats; c_eff=3*alpha*ln2 = 3.39
+t=4L grid p=0.1575: alpha = 1.816 ± 0.018  chi2/dof=6.73  (L=32..384)
+t=4L grid p=0.16: alpha = 1.500 ± 0.017  chi2/dof=1.68  (L=32..384)
+t=4L grid p=0.1625: alpha = 1.283 ± 0.017  chi2/dof=8.01  (L=32..384)
+t=2L;L>=16     L=16..512: alpha = 1.586 ± 0.034 bits/lnL  chi2/dof=1.14  -> per cut 0.793 bits = 0.550 nats; c_eff=3*alpha*ln2 = 3.30
+t=2L;L>=32     L=32..512: alpha = 1.595 ± 0.052 bits/lnL  chi2/dof=1.39  -> per cut 0.797 bits = 0.553 nats; c_eff=3*alpha*ln2 = 3.32
+t=2L;L>=48     L=48..512: alpha = 1.622 ± 0.065 bits/lnL  chi2/dof=0.99  -> per cut 0.811 bits = 0.562 nats; c_eff=3*alpha*ln2 = 3.37
+t=2L;L>=64     L=64..512: alpha = 1.657 ± 0.070 bits/lnL  chi2/dof=0.41  -> per cut 0.829 bits = 0.574 nats; c_eff=3*alpha*ln2 = 3.45
+t=2L grid p=0.1575: alpha = 1.825 ± 0.017  chi2/dof=8.29  (L=32..512)
+t=2L grid p=0.16: alpha = 1.506 ± 0.017  chi2/dof=0.88  (L=32..512)
+t=2L grid p=0.1625: alpha = 1.263 ± 0.016  chi2/dof=6.09  (L=32..512)
+   [partial save: log_scaling 307 s
+
+== 5b. chord fits S(l) = a ln[(L/pi) sin(pi l/L)] + b at p=0.16 (four block sizes per L) ==
+t=4L L=64: a = 1.573 ± 0.030 bits
+t=4L L=96: a = 1.535 ± 0.039 bits
+t=4L L=128: a = 1.601 ± 0.042 bits
+t=4L L=192: a = 1.477 ± 0.055 bits
+t=4L L=256: a = 1.617 ± 0.058 bits
+t=4L L=384: a = 1.624 ± 0.094 bits
+t=2L L=64: a = 1.574 ± 0.030 bits
+t=2L L=96: a = 1.569 ± 0.039 bits
+t=2L L=128: a = 1.515 ± 0.041 bits
+t=2L L=192: a = 1.602 ± 0.055 bits
+t=2L L=256: a = 1.528 ± 0.058 bits
+t=2L L=384: a = 1.553 ± 0.098 bits
+t=2L L=512: a = 1.285 ± 0.143 bits
+   [partial save: chord_fits 307 s
+
+== 6. depth (aspect-ratio) stability at p=0.16 and p=0.1575 ==
+p=0.1575 L= 32: t=0.5L: S=4.255(0.023) I3=-0.499(0.013)  t=1L: S=4.309(0.023) I3=-0.535(0.013)  t=2L: S=4.296(0.023) I3=-0.558(0.013)  t=4L: S=4.304(0.023) I3=-0.526(0.013)
+p=0.1575 L= 48: t=0.5L: S=4.904(0.026) I3=-0.482(0.013)  t=1L: S=4.959(0.026) I3=-0.505(0.013)  t=2L: S=4.942(0.025) I3=-0.496(0.013)  t=4L: S=4.979(0.026) I3=-0.498(0.013)
+p=0.1575 L= 64: t=0.5L: S=5.389(0.028) I3=-0.454(0.013)  t=1L: S=5.526(0.028) I3=-0.529(0.014)  t=2L: S=5.420(0.027) I3=-0.496(0.013)  t=4L: S=5.469(0.028) I3=-0.511(0.013)
+p=0.1575 L= 96: t=0.5L: S=6.136(0.035) I3=-0.483(0.015)  t=1L: S=6.207(0.035) I3=-0.549(0.016)  t=2L: S=6.175(0.035) I3=-0.516(0.016)  t=4L: S=6.154(0.035) I3=-0.508(0.016)
+p=0.1575 L=128: t=0.5L: S=6.640(0.037) I3=-0.525(0.016)  t=1L: S=6.657(0.037) I3=-0.558(0.016)  t=2L: S=6.640(0.036) I3=-0.541(0.016)  t=4L: S=6.676(0.037) I3=-0.549(0.016)
+p=0.1575 L=192: t=0.5L: S=7.348(0.048) I3=-0.549(0.020)  t=1L: S=7.457(0.048) I3=-0.578(0.020)  t=2L: S=7.480(0.047) I3=-0.572(0.020)  t=4L: S=7.546(0.048) I3=-0.621(0.021)
+p=0.1575 L=256: t=0.5L: S=8.047(0.051) I3=-0.619(0.021)  t=1L: S=8.073(0.050) I3=-0.627(0.021)  t=2L: S=8.079(0.053) I3=-0.615(0.021)  t=4L: S=8.097(0.051) I3=-0.657(0.022)
+p=0.1575 L=384: t=0.5L: S=8.900(0.087) I3=-0.741(0.036)  t=1L: S=8.977(0.088) I3=-0.745(0.037)  t=2L: S=8.977(0.085) I3=-0.749(0.038)  t=4L: S=9.110(0.084) I3=-0.796(0.037)
+p=0.1575 L=512: t=0.5L: S=9.527(0.126) I3=-0.820(0.055)  t=1L: S=9.745(0.127) I3=-0.892(0.054)  t=2L: S=9.857(0.124) I3=-0.922(0.059)
+p=0.16 L= 16: t=0.5L: S=3.098(0.019) I3=-0.547(0.013)  t=1L: S=3.103(0.019) I3=-0.567(0.013)  t=2L: S=3.131(0.019) I3=-0.567(0.013)  t=4L: S=3.127(0.019) I3=-0.580(0.014)
+p=0.16 L= 24: t=0.5L: S=3.706(0.021) I3=-0.487(0.013)  t=1L: S=3.747(0.021) I3=-0.526(0.013)  t=2L: S=3.745(0.021) I3=-0.537(0.013)  t=4L: S=3.762(0.021) I3=-0.520(0.013)
+p=0.16 L= 32: t=0.5L: S=4.170(0.023) I3=-0.439(0.012)  t=1L: S=4.223(0.023) I3=-0.493(0.013)  t=2L: S=4.233(0.024) I3=-0.490(0.013)  t=4L: S=4.216(0.023) I3=-0.490(0.013)
+p=0.16 L= 48: t=0.5L: S=4.766(0.026) I3=-0.416(0.012)  t=1L: S=4.775(0.026) I3=-0.459(0.013)  t=2L: S=4.854(0.026) I3=-0.454(0.012)  t=4L: S=4.835(0.026) I3=-0.481(0.012)
+p=0.16 L= 64: t=0.5L: S=5.156(0.027) I3=-0.421(0.012)  t=1L: S=5.198(0.028) I3=-0.415(0.012)  t=2L: S=5.242(0.027) I3=-0.446(0.012)  t=4L: S=5.255(0.028) I3=-0.440(0.012)
+p=0.16 L= 96: t=0.5L: S=5.853(0.034) I3=-0.390(0.013)  t=1L: S=5.853(0.034) I3=-0.419(0.014)  t=2L: S=5.850(0.034) I3=-0.430(0.014)  t=4L: S=5.811(0.033) I3=-0.394(0.014)
+p=0.16 L=128: t=0.5L: S=6.208(0.035) I3=-0.384(0.013)  t=1L: S=6.290(0.035) I3=-0.423(0.014)  t=2L: S=6.298(0.036) I3=-0.397(0.014)  t=4L: S=6.349(0.036) I3=-0.410(0.014)
+p=0.16 L=192: t=0.5L: S=6.800(0.046) I3=-0.356(0.016)  t=1L: S=7.035(0.048) I3=-0.390(0.017)  t=2L: S=6.967(0.046) I3=-0.406(0.017)  t=4L: S=6.859(0.048) I3=-0.400(0.017)
+p=0.16 L=256: t=0.5L: S=7.226(0.049) I3=-0.370(0.016)  t=1L: S=7.401(0.049) I3=-0.404(0.017)  t=2L: S=7.415(0.049) I3=-0.418(0.018)  t=4L: S=7.413(0.048) I3=-0.394(0.017)
+p=0.16 L=384: t=0.5L: S=7.806(0.081) I3=-0.350(0.026)  t=1L: S=8.020(0.082) I3=-0.391(0.027)  t=2L: S=7.971(0.082) I3=-0.414(0.027)  t=4L: S=7.840(0.079) I3=-0.400(0.026)
+p=0.16 L=512: t=0.5L: S=8.445(0.117) I3=-0.343(0.033)  t=1L: S=8.373(0.126) I3=-0.398(0.039)  t=2L: S=8.262(0.118) I3=-0.390(0.038)
+   [partial save: depth_stability 307 s
+
+== 7. figures ==
+saved mipt_results/fig_final_fss_floorN.{png,pdf}
+
+== 8. v14 additions: alpha at adopted p_c=0.1597, s1*L^-y AIC test, chi2 p-values, floor audit ==
+  alpha at p_c=0.1597, t=4L, L>=16: 1.5444 +/- 0.0343  chi2/dof=1.15
+  alpha at p_c=0.1597, t=4L, L>=32: 1.5339 +/- 0.0496  chi2/dof=1.42
+  alpha at p_c=0.1597, t=4L, L>=48: 1.5397 +/- 0.0592  chi2/dof=1.67
+  alpha at p_c=0.1597, t=4L, L>=64: 1.5573 +/- 0.0671  chi2/dof=1.88
+  alpha at p_c=0.1597, t=2L, L>=16: 1.5514 +/- 0.0346  chi2/dof=0.84
+  alpha at p_c=0.1597, t=2L, L>=32: 1.5411 +/- 0.0479  chi2/dof=0.97
+  alpha at p_c=0.1597, t=2L, L>=48: 1.5563 +/- 0.0659  chi2/dof=0.93
+  alpha at p_c=0.1597, t=2L, L>=64: 1.5861 +/- 0.0697  chi2/dof=0.56
+  s1 test t=4L L>=32 y=0.5: dAIC=+0.84  d_alpha=+0.0779
+  s1 test t=4L L>=32 y=1: dAIC=+0.86  d_alpha=+0.0408
+  s1 test t=4L L>=32 y=2: dAIC=+1.04  d_alpha=+0.0211
+  s1 test t=4L L>=64 y=0.5: dAIC=+1.93  d_alpha=+0.0432
+  s1 test t=4L L>=64 y=1: dAIC=+1.84  d_alpha=+0.0353
+  s1 test t=4L L>=64 y=2: dAIC=+1.59  d_alpha=+0.0314
+  s1 test t=2L L>=32 y=0.5: dAIC=-2.78  d_alpha=+0.1435
+  s1 test t=2L L>=32 y=1: dAIC=-3.04  d_alpha=+0.0783
+  s1 test t=2L L>=32 y=2: dAIC=-2.78  d_alpha=+0.0433
+  s1 test t=2L L>=64 y=0.5: dAIC=+1.93  d_alpha=-0.0368
+  s1 test t=2L L>=64 y=1: dAIC=+1.99  d_alpha=-0.0059
+  s1 test t=2L L>=64 y=2: dAIC=+1.96  d_alpha=+0.0084
+  chi2 p-values of windowed collapses: min over L>=64 windows = 0.000
+  floor audit t=4L;L>=32;xmax=0.6: min se in window = 7.28e-03 (L=64, p=0.175), 1/N = 2.50e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=32;xmax=1.0: min se in window = 4.06e-03 (L=64, p=0.19), 1/N = 2.50e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=32;xmax=1.5: min se in window = 3.46e-03 (L=96, p=0.19), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=48;xmax=0.6: min se in window = 7.28e-03 (L=64, p=0.175), 1/N = 2.50e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=48;xmax=1.0: min se in window = 4.06e-03 (L=64, p=0.19), 1/N = 2.50e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=48;xmax=1.5: min se in window = 3.35e-03 (L=256, p=0.175), 1/N = 5.00e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=64;xmax=0.6: min se in window = 9.03e-03 (L=64, p=0.17), 1/N = 2.50e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=64;xmax=1.0: min se in window = 5.19e-03 (L=96, p=0.18), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=64;xmax=1.5: min se in window = 3.46e-03 (L=96, p=0.19), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=96;xmax=0.6: min se in window = 1.06e-02 (L=128, p=0.165), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=96;xmax=1.0: min se in window = 6.99e-03 (L=96, p=0.175), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=4L;L>=96;xmax=1.5: min se in window = 3.46e-03 (L=96, p=0.19), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=32;xmax=0.6: min se in window = 6.57e-03 (L=64, p=0.18), 1/N = 2.50e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=32;xmax=1.0: min se in window = 3.64e-03 (L=128, p=0.18), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=32;xmax=1.5: min se in window = 2.92e-03 (L=96, p=0.19), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=48;xmax=0.6: min se in window = 6.57e-03 (L=64, p=0.18), 1/N = 2.50e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=48;xmax=1.0: min se in window = 3.64e-03 (L=128, p=0.18), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=48;xmax=1.5: min se in window = 2.92e-03 (L=96, p=0.19), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=64;xmax=0.6: min se in window = 6.57e-03 (L=64, p=0.18), 1/N = 2.50e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=64;xmax=1.0: min se in window = 3.64e-03 (L=128, p=0.18), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=64;xmax=1.5: min se in window = 2.92e-03 (L=96, p=0.19), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=96;xmax=0.6: min se in window = 8.04e-03 (L=128, p=0.17), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=96;xmax=1.0: min se in window = 5.16e-03 (L=96, p=0.18), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+  floor audit t=2L;L>=96;xmax=1.5: min se in window = 2.92e-03 (L=96, p=0.19), 1/N = 3.33e-04 -> binds old 1e-6: False, binds new 1/N: False
+   [partial save: v14 318 s
+  comparison vs final2_summary.json: max |dpc| = 0.000e+00, max |dnu| = 0.000e+00, max |dchi2| = 0.000e+00
+   [partial save: v14_comparison 318 s
+saved mipt_results/final2_summary_floorN.json  (318 s)
