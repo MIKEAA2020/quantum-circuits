@@ -1,0 +1,10 @@
+X_L curves: L4 (0.26..0.46), L6, L8, L10 (0.32..0.42, 11 pts)
+crossing (4,6): ['0.3582'] (common range 0.26..0.46)
+crossing (6,8): ['0.3790'] (common range 0.26..0.46)
+crossing (8,10): ['0.3823'] (common range 0.32..0.42)
+crossing drift: 0.3582 -> 0.3790 -> 0.3823
+successive drifts: 0.02079, 0.00329 (ratio 0.158)
+max|dX6/dp| = 15.54 at p=0.46
+max|dX8/dp| = 25.84 at p=0.46
+max|dX10/dp| = 30.62 at p=0.42
+L=10 gap12: min 0.4661 at p=0.38; at p=0.38: 0.4661 (x L: 4.66)

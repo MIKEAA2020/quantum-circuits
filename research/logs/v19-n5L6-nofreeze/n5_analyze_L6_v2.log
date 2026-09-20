@@ -1,0 +1,57 @@
+=== n=5 two-size battery (d=2) ===
+grid L=4: 0.32..0.52 (21 pts); L=6: 0.32..0.52 (21 pts)
+
+gap12 = log(lam1/lam2) at matched p:
+     p   gap12_L4   gap12_L6   closing
+  0.32     1.8545     1.0513    0.8033
+  0.34     1.8267     1.0091    0.8176
+  0.36     1.8003     0.9663    0.8340
+  0.38     1.7759     0.9241    0.8518
+  0.40     1.7542     0.8843    0.8699
+  0.42     1.7359     0.8493    0.8865
+  0.44     1.7219     0.8225    0.8995
+  0.46     1.7133     0.8075    0.9059
+  0.48     1.7112     0.8084    0.9028
+  0.50     1.7170     0.8290    0.8879
+
+gap12 minimum: L=4 at p=0.480 (value 1.7114); L=6 at p=0.470 (value 0.8057)
+
+L=4: d(gap12)/dp over p: min -1.407 at p=0.32; max 0.868 at p=0.52
+
+L=6: d(gap12)/dp over p: min -2.141 at p=0.35; max 2.433 at p=0.52
+
+X_L = L log(lam1/lam_sigma):  X4(0.32)=0.4622 X6(0.32)=0.3123; X4(0.52)=1.5274 X6(0.52)=2.0631
+X4-X6 crossing at p ~ 0.4488
+|dX/dp| max: L=4 8.95  L=6 19.49  ratio 2.18 (first-order: sigma decouples -> ratio ~ 1)
+  n=3 continuous baseline (sigma CONDENSES at p_c):
+    L=4: |dX/dp| max (0.20<p<0.40) 7.49
+    L=6: |dX/dp| max (0.20<p<0.40) 12.68
+    L=8: |dX/dp| max (0.20<p<0.40) 19.18
+    L=10: |dX/dp| max (0.20<p<0.40) 26.52
+
+gap12 plateau width (+1% band): L=4 0.060  L=6 0.040
+
+=== matched two-size comparison across n (gap12 closing) ===
+n=3 L=4: gap12 at p=0.30: 2.1472  (x L: 8.59)
+n=3 L=6: gap12 at p=0.30: 1.1853  (x L: 7.11)
+n=3 L=8: gap12 at p=0.30: 0.8165  (x L: 6.53)
+n=3 L=10: gap12 at p=0.30: 0.6209  (x L: 6.21)
+n=4 L=4: gap12 at p=0.38: 1.9187  (x L: 7.67)
+n=4 L=6: gap12 at p=0.38: 0.9896  (x L: 5.94)
+n=4 L=8: gap12 at p=0.38: 0.7189  (x L: 5.75)
+
+matched-p gap12 closing, n=5 (L=4 -> L=6):
+  p=0.32: 1.8545 -> 1.0513  (closing 0.8033)
+  p=0.40: 1.7542 -> 0.8843  (closing 0.8699)
+  p=0.44: 1.7219 -> 0.8225  (closing 0.8995)
+  p=0.48: 1.7112 -> 0.8084  (closing 0.9028)
+  p=0.52: 1.7318 -> 0.8719  (closing 0.8599)
+
+gap12 x L at the own-transition point (continuous -> constant ~ 2 pi x_eps; first-order -> growing):
+  n=3 (p_c=0.305): L=4: 8.59
+  n=3 (p_c=0.305): L=6: 7.11
+  n=3 (p_c=0.305): L=8: 6.53
+  n=3 (p_c=0.305): L=10: 6.21
+  n=5 (pc5-lo p=0.46): L=4: 6.85  L=6: 4.84
+  n=5 (pc5-mid p=0.48): L=4: 6.84  L=6: 4.85
+  n=5 (pc5-hi p=0.5): L=4: 6.87  L=6: 4.97

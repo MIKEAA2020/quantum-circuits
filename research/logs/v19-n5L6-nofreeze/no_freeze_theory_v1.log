@@ -1,0 +1,40 @@
+A1  deterministic positive tilted chain (3 states):
+  psi(0)=0.0000  max|d2|=0.0028  min d2=0.00025 (strict convexity -> True)
+  tau'' min |.| = 0.00025 > 0 -> no affine segment: PASS
+A2  i.i.d. allowable random positive chains (CRN, nS=3, T=192):
+  psi range 2.8591; max|d2| 7.58e-02; psi(0)=-0.0029
+  longest |tau''| < 5% of median run: 0 points (0/23 below); median |tau''| 1.49e-02 -> no affine segment: PASS
+A3  reducible two-block chain (sector competition):
+  2 corner(s) (first at k ~ 0.00); max slope jump 0.570 (slope units); away from corner min psi'' = 2.02e-04 (branches curved, vs the REM's exact 0) -> corner WITHOUT affine branch: PASS
+A4  REM freezing benchmark (Theorem thm:rem object):
+  closed form: junction gap 0.0e+00, phi' continuous at s_c=1.1774, |phi''| above s_c 8.9e-16 vs below 1.0e-04 -> terminal AFFINE branch: PASS
+  finite-T (T=22, 160 draws) phi(s) at s=(0.6,1,1.6,2.2): [0.8731, 1.1881, 1.7952, 2.4332] vs closed form [0.8731, 1.1931, 1.8839, 2.5903] (trend, not asserted)
+A5  p=1 Haar-refreshed family (L=4): exact quenched psi(k):
+  psi(0)=-0.0000, psi''~0.0804 (strictly convex, smooth over k in [-2.5, 2.5]): PASS
+B1  synthetic exact interpolation identity:
+  m=0.5: g(m)-m ElogX = 0.1435014158  int = 0.1435014159  rel err 6.81e-10
+  m=1.0: g(m)-m ElogX = 0.5530570108  int = 0.5530570155  rel err 8.52e-09
+  m=2.0: g(m)-m ElogX = 1.9179042249  int = 1.9179042764  rel err 2.68e-08
+  m=3.0: g(m)-m ElogX = 3.6351121687  int = 3.6351123041  rel err 3.73e-08
+  PASS (quadrature-exact to 1e-6)
+B2  Lyapunov monotonicity and the two one-sided limits:
+  monotone: True;  f(m->0+)=0.295539 vs E log X + mV/2 = 0.295501 (E log X = 0.266723);  f(m_max)=2.196457 vs log ess-sup + (log p_max)/m = 2.197992 (ess-sup = 2.197225)
+  m->0 recovers the quenched value (with the mV/2 rate), m->inf overshoots far above it to the extremal: PASS
+B3  real object: p=1 Haar record partition function (L=4, sweeps):
+  N=6000 circuits: E log Z = 13.25601, Var log Z = 0.03671, max Z = 1054463.9252
+  f_m = 13.2606 13.2651 13.2741 13.2918 13.3260 13.3898  monotone: True
+  m=1.0: gap 0.01814 vs int 0.01814 (rel 3.1e-07)
+  m=2.0: gap 0.07168 vs int 0.07168 (rel 6.1e-07)
+  (f_m - Elog)/(m Var/2) at m=[0.125, 0.25, 0.5]: [np.float64(0.998), np.float64(0.997), np.float64(0.994)] (-> 1)
+  d/dm E Z^m |_(m=0) ~ 13.41194 vs E log Z = 13.25601
+  f_8=13.3898 vs log max Z = 13.8685 > E log Z = 13.2560
+  PASS
+--- summary ---
+  A1: PASS
+  A2: PASS
+  A3: PASS
+  A4: PASS
+  A5: PASS
+  B1: PASS
+  B2: PASS
+  B3: PASS
