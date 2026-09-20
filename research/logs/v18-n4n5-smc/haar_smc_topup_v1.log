@@ -1,0 +1,24 @@
+  L=8 p=0.2338 k=-2.0: psi = -4.07251 +- 0.11501  ess_min=251
+  L=8 p=0.2338 k=+1.5: psi = +4.11640 +- 0.14024  ess_min=7
+  L=8 p=0.2338 k=+2.0: psi = +5.78773 +- 0.20923  ess_min=2
+  -> mipt_results/haar_smc_topup_L8_p0.2338_v1.json
+  L=8 p=0.4 k=-2.0: psi = -5.95296 +- 0.09871  ess_min=77
+  L=8 p=0.4 k=+1.5: psi = +6.91277 +- 0.16340  ess_min=3
+  L=8 p=0.4 k=+2.0: psi = +10.02201 +- 0.26218  ess_min=1
+  -> mipt_results/haar_smc_topup_L8_p0.4_v1.json
+  L=10 p=0.2338 k=-2.0: psi = -5.01389 +- 0.09772  ess_min=103
+  L=10 p=0.2338 k=+1.5: psi = +4.97675 +- 0.14376  ess_min=1
+  L=10 p=0.2338 k=+2.0: psi = +6.97106 +- 0.20954  ess_min=1
+  -> mipt_results/haar_smc_topup_L10_p0.2338_v1.json
+  L=10 p=0.4 k=-2.0: psi = -7.51799 +- 0.03762  ess_min=70
+  L=10 p=0.4 k=+1.5: psi = +8.58514 +- 0.09034  ess_min=1
+  L=10 p=0.4 k=+2.0: psi = +12.24987 +- 0.13707  ess_min=1
+  -> mipt_results/haar_smc_topup_L10_p0.4_v1.json
+  L=12 p=0.2338 k=-2.0: psi = -6.01473 +- 0.19068  ess_min=74
+  L=12 p=0.2338 k=+1.5: psi = +6.00012 +- 0.27303  ess_min=3
+  L=12 p=0.2338 k=+2.0: psi = +8.42295 +- 0.40475  ess_min=1
+  -> mipt_results/haar_smc_topup_L12_p0.2338_v1.json
+  L=12 p=0.4 k=-2.0: psi = -9.14784 +- 0.11886  ess_min=21
+  L=12 p=0.4 k=+1.5: psi = +10.60186 +- 0.21332  ess_min=2
+  L=12 p=0.4 k=+2.0: psi = +15.16931 +- 0.34059  ess_min=1
+  -> mipt_results/haar_smc_topup_L12_p0.4_v1.json
