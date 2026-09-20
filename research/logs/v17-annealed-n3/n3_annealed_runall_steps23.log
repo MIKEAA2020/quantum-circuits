@@ -1,0 +1,657 @@
+=== step 2: block12 n=3, 33 p-values ===
+/home/z/.venv/lib/python3.12/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:723: ComplexWarning: Casting complex values to real discards the imaginary part
+  results = self._arpack_solver(self.ido, self.bmat, self.which, self.k,
+    [block_records] WARNING: triv.triv,i- leading 3.39448779e-03 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.53816371e-02 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 3.65014132e-02 not in global top-12
+    [block_records] WARNING: std.std,i- leading 3.57802339e-02 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 9.47336453e-02 not in global top-12
+  L=12 p=0.050 lam1=0.40097020 lam_sig=0.40079629 (std.std,i+) lam_eps=0.1539625917920067 X=0.00521 [44.5s]
+    [block_records] WARNING: triv.triv,i- leading 1.47823425e-03 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 6.26290807e-03 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.57387785e-02 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.53906374e-02 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 3.76937312e-02 not in global top-12
+  L=12 p=0.100 lam1=0.15633881 lam_sig=0.15608112 (std.std,i+) lam_eps=0.06527076067597705 X=0.01980 [44.0s]
+    [block_records] WARNING: triv.triv,i- leading 6.21781146e-04 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 2.45718764e-03 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 6.57302954e-03 not in global top-12
+    [block_records] WARNING: std.std,i- leading 6.41364566e-03 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.44817381e-02 not in global top-12
+  L=12 p=0.150 lam1=0.05936075 lam_sig=0.05908287 (std.std,i+) lam_eps=0.02729895385471182 X=0.05630 [43.8s]
+    [block_records] WARNING: triv.triv,i- leading 2.51723089e-04 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 9.25690011e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 2.65135399e-03 not in global top-12
+    [block_records] WARNING: std.std,i- leading 2.58224839e-03 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 5.35985860e-03 not in global top-12
+  L=12 p=0.200 lam1=0.02204857 lam_sig=0.02178143 (std.std,i+) lam_eps=0.01132154856943699 X=0.14628 [45.4s]
+    [block_records] WARNING: triv.triv,i- leading 1.73297807e-04 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 6.18799119e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.82478723e-03 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.77609227e-03 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 3.56216227e-03 not in global top-12
+  L=12 p=0.220 lam1=0.01477809 lam_sig=0.01451804 (std.std,i+) lam_eps=0.007941939792580949 X=0.21304 [44.2s]
+    [block_records] WARNING: triv.triv,i- leading 1.43411671e-04 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 5.04531850e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.51030087e-03 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.46956715e-03 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 2.89692883e-03 not in global top-12
+  L=12 p=0.230 lam1=0.01209503 lam_sig=0.01183858 (std.std,i+) lam_eps=0.006645804435593794 X=0.25718 [43.5s]
+    [block_records] WARNING: triv.triv,i- leading 1.18465244e-04 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 4.10585120e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.24800554e-03 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.21401200e-03 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 2.35205144e-03 not in global top-12
+  L=12 p=0.240 lam1=0.00989972 lam_sig=0.00964679 (std.std,i+) lam_eps=0.0055565494822387975 X=0.31058 [43.6s]
+    [block_records] WARNING: triv.triv,i- leading 9.76775434e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 3.33484892e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.02957422e-03 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.00127358e-03 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.90648049e-03 not in global top-12
+  L=12 p=0.250 lam1=0.00810530 lam_sig=0.00785581 (std.std,i+) lam_eps=0.004640848456903631 X=0.37518 [42.5s]
+    [block_records] WARNING: triv.triv,i- leading 8.03854491e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 2.70327017e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 8.47954886e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 8.24451059e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.54271675e-03 not in global top-12
+  L=12 p=0.260 lam1=0.00663990 lam_sig=0.00639379 (std.std,i+) lam_eps=0.003870822535665629 X=0.45323 [43.8s]
+    [block_records] WARNING: triv.triv,i- leading 6.60267661e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 2.18687720e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 6.97183527e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 6.77711680e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.24623531e-03 not in global top-12
+  L=12 p=0.270 lam1=0.00544415 lam_sig=0.00520146 (std.std,i+) lam_eps=0.003223188553377618 X=0.54723 [45.7s]
+    [block_records] WARNING: triv.triv,i- leading 5.41255946e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.76547520e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 5.72223368e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 5.56132296e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.00499916e-03 not in global top-12
+  L=12 p=0.280 lam1=0.00446902 lam_sig=0.00422992 (std.std,i+) lam_eps=0.002678530954877131 X=0.65983 [43.3s]
+    [block_records] WARNING: triv.triv,i- leading 4.42797167e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.42226659e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 4.68826802e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 4.55563424e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 8.09049161e-04 not in global top-12
+  L=12 p=0.290 lam1=0.00367405 lam_sig=0.00343892 (std.std,i+) lam_eps=0.002220677220309674 X=0.79365 [48.4s]
+    [block_records] WARNING: triv.triv,i- leading 3.61497335e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.14330385e-04 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 3.83416973e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 3.72512723e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 6.50158808e-04 not in global top-12
+  L=12 p=0.300 lam1=0.00302591 lam_sig=0.00279537 (std.std,i+) lam_eps=0.0018361578162012276 X=0.95096 [43.7s]
+    [block_records] WARNING: triv.triv,i- leading 2.94497246e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 9.17026453e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 3.12986331e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 3.04045248e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 5.32727080e-04 not in global top-12
+  L=12 p=0.310 lam1=0.00249717 lam_sig=0.00227210 (std.std,i+) lam_eps=0.0015137353483838537 X=1.13346 [46.6s]
+    [block_records] WARNING: triv.triv,i- leading 2.39392255e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 7.33869786e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 2.55009858e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 2.47698190e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 4.39868846e-04 not in global top-12
+  L=12 p=0.320 lam1=0.00206535 lam_sig=0.00184683 (std.std,i+) lam_eps=0.0012439940251463603 X=1.34192 [45.9s]
+    [block_records] WARNING: triv.triv,i- leading 1.94163489e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 5.85935179e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 2.07370928e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 2.01408089e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 3.62654428e-04 not in global top-12
+  L=12 p=0.330 lam1=0.00171206 lam_sig=0.00150134 (std.std,i+) lam_eps=0.001018988143556501 X=1.57607 [43.5s]
+    [block_records] WARNING: triv.triv,i- leading 1.57118934e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 4.66712097e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.68298050e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.63448773e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 2.98539320e-04 not in global top-12
+  L=12 p=0.340 lam1=0.00142237 lam_sig=0.00122072 (std.std,i+) lam_eps=0.0008319531383270396 X=1.83459 [44.7s]
+    [block_records] WARNING: triv.triv,i- leading 1.26843078e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 3.70844562e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.36310983e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.32378521e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 2.45378061e-04 not in global top-12
+  L=12 p=0.350 lam1=0.00118418 lam_sig=0.00099280 (std.std,i+) lam_eps=0.0006770814086584492 X=2.11531 [43.5s]
+    [block_records] WARNING: triv.triv,i- leading 1.02153904e-05 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 2.93935131e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.12181302e-04 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.06995148e-04 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 2.01363995e-04 not in global top-12
+  L=12 p=0.360 lam1=0.00098777 lam_sig=0.00080767 (std.std,i+) lam_eps=0.0005493583892620893 X=2.41553 [46.2s]
+    [block_records] WARNING: triv.triv,i- leading 8.20662450e-06 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 2.32380658e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 9.27543381e-05 not in global top-12
+    [block_records] WARNING: std.std,i- leading 8.62978618e-05 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.64977770e-04 not in global top-12
+  L=12 p=0.370 lam1=0.00082534 lam_sig=0.00065727 (std.std,i+) lam_eps=0.0004444468550077283 X=2.73233 [46.8s]
+    [block_records] WARNING: triv.triv,i- leading 6.57605930e-06 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.83234939e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 7.65800474e-05 not in global top-12
+    [block_records] WARNING: std.std,i- leading 6.94549392e-05 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.34943353e-04 not in global top-12
+  L=12 p=0.380 lam1=0.00069062 lam_sig=0.00053505 (std.std,i+) lam_eps=0.000358603859894103 X=3.06288 [46.6s]
+    [block_records] WARNING: triv.triv,i- leading 5.25565973e-06 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.44094041e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 6.31307959e-05 not in global top-12
+    [block_records] WARNING: std.std,i- leading 5.57763543e-05 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.10190521e-04 not in global top-12
+  L=12 p=0.390 lam1=0.00057860 lam_sig=0.00043568 (std.std,i+) lam_eps=0.00028861613115728344 X=3.40462 [46.7s]
+    [block_records] WARNING: triv.triv,i- leading 4.18905885e-06 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.13000759e-05 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 5.19621624e-05 not in global top-12
+    [block_records] WARNING: std.std,i- leading 4.46906494e-05 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 8.98229015e-05 not in global top-12
+  L=12 p=0.400 lam1=0.00048524 lam_sig=0.00035485 (std.std,i+) lam_eps=0.00023174414179452408 X=3.75540 [44.6s]
+    [block_records] WARNING: triv.triv,i- leading 3.32965454e-06 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 8.83651393e-06 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 4.27001124e-05 not in global top-12
+    [block_records] WARNING: std.std,i- leading 3.57254141e-05 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 7.30907840e-05 not in global top-12
+  L=12 p=0.410 lam1=0.00040726 lam_sig=0.00028907 (std.std,i+) lam_eps=0.0001856697886220522 X=4.11352 [44.7s]
+    [block_records] WARNING: triv.triv,i- leading 1.29038835e-06 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 3.20624243e-06 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.91356355e-05 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.42365808e-05 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 3.14565555e-05 not in global top-12
+  L=12 p=0.450 lam1=0.00020302 lam_sig=0.00012732 (std.std,i+) lam_eps=7.498268744563437e-05 X=5.59944 [43.5s]
+    [block_records] WARNING: triv.triv,i- leading 3.66511669e-07 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 8.37663315e-07 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 6.71469169e-06 not in global top-12
+    [block_records] WARNING: std.std,i- leading 4.24292654e-06 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.04772290e-05 not in global top-12
+  L=12 p=0.500 lam1=0.00008517 lam_sig=0.00004536 (std.std,i+) lam_eps=2.31386493164473e-05 X=7.55966 [43.3s]
+    [block_records] WARNING: triv.triv,i- leading 9.45656166e-08 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.98592137e-07 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 2.22462908e-06 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.16992125e-06 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 3.29324377e-06 not in global top-12
+  L=12 p=0.550 lam1=0.00003546 lam_sig=0.00001584 (std.std,i+) lam_eps=6.793817692888269e-06 X=9.66852 [44.3s]
+    [block_records] WARNING: triv.triv,i- leading 2.17261272e-08 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 4.18954845e-08 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 6.87905043e-07 not in global top-12
+    [block_records] WARNING: std.std,i- leading 2.94028441e-07 not in global top-12
+  L=12 p=0.600 lam1=0.00001456 lam_sig=0.00000536 (std.std,i+) lam_eps=1.8802607962469017e-06 X=11.99585 [43.4s]
+    [block_records] WARNING: triv.triv,i- leading 4.32326324e-09 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 7.65325635e-09 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.95514610e-07 not in global top-12
+    [block_records] WARNING: std.std,i- leading 6.59693910e-08 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 2.61191303e-07 not in global top-12
+  L=12 p=0.650 lam1=0.00000587 lam_sig=0.00000173 (std.std,i+) lam_eps=4.831763676285176e-07 X=14.63142 [45.2s]
+    [block_records] WARNING: triv.triv,i- leading 7.15799284e-10 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.16349346e-09 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 4.99844651e-08 not in global top-12
+    [block_records] WARNING: std.std,i- leading 1.28205316e-08 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 6.36014849e-08 not in global top-12
+  L=12 p=0.700 lam1=0.00000231 lam_sig=0.00000053 (std.std,i+) lam_eps=1.127736079141587e-07 X=17.69602 [43.1s]
+    [block_records] WARNING: triv.triv,i- leading 9.27118314e-11 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.38461970e-10 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 1.11275724e-08 not in global top-12
+    [block_records] WARNING: std.std,i- leading 2.06017326e-09 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 1.35172225e-08 not in global top-12
+  L=12 p=0.750 lam1=0.00000089 lam_sig=0.00000015 (std.std,i+) lam_eps=2.3128262529417285e-08 X=21.37005 [42.4s]
+    [block_records] WARNING: triv.triv,i- leading 8.47799368e-12 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 1.16461378e-11 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 2.04562901e-09 not in global top-12
+    [block_records] WARNING: std.std,i- leading 2.53378700e-10 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 2.37825833e-09 not in global top-12
+  L=12 p=0.800 lam1=0.00000033 lam_sig=0.00000004 (std.std,i+) lam_eps=3.949853054125856e-09 X=25.95292 [44.9s]
+    [block_records] WARNING: triv.triv,i- leading 4.52081646e-13 not in global top-12
+    [block_records] WARNING: sgn.sgn,i- leading 5.72049576e-13 not in global top-12
+    [block_records] WARNING: Ind(triv.sgn) leading 2.81657480e-10 not in global top-12
+    [block_records] WARNING: std.std,i- leading 2.06530399e-11 not in global top-12
+    [block_records] WARNING: Ind(sgn.std) leading 3.14209932e-10 not in global top-12
+  L=12 p=0.850 lam1=0.00000012 lam_sig=0.00000001 (std.std,i+) lam_eps=5.091903138441612e-10 X=32.00713 [44.4s]
+=== step 3: n=2 control blocks L=16..32, grid 0.22381..0.24581 (45 pts), pc2=0.233810 ===
+    [block_records] WARNING: Ind(triv.sgn) leading 6.61407800e-19 not in global top-12
+  L=16 p=0.2238 lam1=0.02757343 lam_odd=0.02629080 lam_eps=0.017125284143910062 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.57587739e-19 not in global top-12
+  L=16 p=0.2243 lam1=0.02736378 lam_odd=0.02607778 lam_eps=0.016994556060232768 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.03134316e-19 not in global top-12
+  L=16 p=0.2248 lam1=0.02715585 lam_odd=0.02586649 lam_eps=0.01686472888761033 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.35648919e-19 not in global top-12
+  L=16 p=0.2253 lam1=0.02694960 lam_odd=0.02565692 lam_eps=0.01673579707342689 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.70846371e-19 not in global top-12
+  L=16 p=0.2258 lam1=0.02674504 lam_odd=0.02544906 lam_eps=0.016607755100455465 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.41400636e-19 not in global top-12
+  L=16 p=0.2263 lam1=0.02654214 lam_odd=0.02524289 lam_eps=0.016480597486545342 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.92021775e-19 not in global top-12
+  L=16 p=0.2268 lam1=0.02634089 lam_odd=0.02503841 lam_eps=0.01635431878431059 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.26400936e-19 not in global top-12
+  L=16 p=0.2273 lam1=0.02614128 lam_odd=0.02483559 lam_eps=0.01622891358082115 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.90562367e-20 not in global top-12
+  L=16 p=0.2278 lam1=0.02594330 lam_odd=0.02463442 lam_eps=0.016104376497296187 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.20934433e-20 not in global top-12
+  L=16 p=0.2283 lam1=0.02574692 lam_odd=0.02443489 lam_eps=0.01598070218879847 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.81471321e-20 not in global top-12
+  L=16 p=0.2288 lam1=0.02555214 lam_odd=0.02423699 lam_eps=0.015857885343931656 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.06652907e-19 not in global top-12
+  L=16 p=0.2293 lam1=0.02535894 lam_odd=0.02404070 lam_eps=0.01573592068453934 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.26102973e-19 not in global top-12
+  L=16 p=0.2298 lam1=0.02516731 lam_odd=0.02384601 lam_eps=0.015614802965406379 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.02070042e-20 not in global top-12
+  L=16 p=0.2303 lam1=0.02497723 lam_odd=0.02365291 lam_eps=0.015494526973962246 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.62510470e-20 not in global top-12
+  L=16 p=0.2308 lam1=0.02478870 lam_odd=0.02346138 lam_eps=0.015375087529986899 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.51640052e-20 not in global top-12
+  L=16 p=0.2313 lam1=0.02460170 lam_odd=0.02327141 lam_eps=0.015256479485317968 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.60217758e-20 not in global top-12
+  L=16 p=0.2318 lam1=0.02441621 lam_odd=0.02308298 lam_eps=0.015138697723561712 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.59827456e-19 not in global top-12
+  L=16 p=0.2323 lam1=0.02423223 lam_odd=0.02289609 lam_eps=0.01502173715980461 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.51904435e-20 not in global top-12
+  L=16 p=0.2328 lam1=0.02404974 lam_odd=0.02271073 lam_eps=0.01490559274032868 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.11736404e-19 not in global top-12
+  L=16 p=0.2333 lam1=0.02386872 lam_odd=0.02252687 lam_eps=0.014790259442328178 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.62128167e-19 not in global top-12
+  L=16 p=0.2338 lam1=0.02368917 lam_odd=0.02234451 lam_eps=0.01467573227362939 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.37962578e-20 not in global top-12
+  L=16 p=0.2343 lam1=0.02351107 lam_odd=0.02216364 lam_eps=0.01456200627241188 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.34681582e-19 not in global top-12
+  L=16 p=0.2348 lam1=0.02333441 lam_odd=0.02198424 lam_eps=0.014449076506933676 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.09181705e-20 not in global top-12
+  L=16 p=0.2353 lam1=0.02315918 lam_odd=0.02180629 lam_eps=0.014336938075257289 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.88000397e-20 not in global top-12
+  L=16 p=0.2358 lam1=0.02298537 lam_odd=0.02162980 lam_eps=0.014225586104979522 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.63121830e-20 not in global top-12
+  L=16 p=0.2363 lam1=0.02281295 lam_odd=0.02145475 lam_eps=0.014115015752962791 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.51014113e-19 not in global top-12
+  L=16 p=0.2368 lam1=0.02264193 lam_odd=0.02128112 lam_eps=0.01400522220506987 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 8.92990240e-20 not in global top-12
+  L=16 p=0.2373 lam1=0.02247229 lam_odd=0.02110890 lam_eps=0.013896200675900593 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.43645257e-19 not in global top-12
+  L=16 p=0.2378 lam1=0.02230402 lam_odd=0.02093809 lam_eps=0.013787946408531806 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.02409163e-19 not in global top-12
+  L=16 p=0.2383 lam1=0.02213710 lam_odd=0.02076866 lam_eps=0.013680454674258656 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.67834452e-19 not in global top-12
+  L=16 p=0.2388 lam1=0.02197153 lam_odd=0.02060062 lam_eps=0.013573720772340318 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.68504776e-19 not in global top-12
+  L=16 p=0.2393 lam1=0.02180729 lam_odd=0.02043394 lam_eps=0.013467740029746903 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.89606392e-19 not in global top-12
+  L=16 p=0.2398 lam1=0.02164438 lam_odd=0.02026862 lam_eps=0.013362507800909841 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.49187529e-19 not in global top-12
+  L=16 p=0.2403 lam1=0.02148277 lam_odd=0.02010465 lam_eps=0.013258019467474465 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.00459161e-19 not in global top-12
+  L=16 p=0.2408 lam1=0.02132246 lam_odd=0.01994201 lam_eps=0.013154270438056089 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.41332640e-20 not in global top-12
+  L=16 p=0.2413 lam1=0.02116344 lam_odd=0.01978069 lam_eps=0.013051256147997762 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.28482310e-19 not in global top-12
+  L=16 p=0.2418 lam1=0.02100570 lam_odd=0.01962069 lam_eps=0.012948972059131791 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.98771270e-20 not in global top-12
+  L=16 p=0.2423 lam1=0.02084922 lam_odd=0.01946198 lam_eps=0.012847413659543172 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.01656377e-19 not in global top-12
+  L=16 p=0.2428 lam1=0.02069400 lam_odd=0.01930457 lam_eps=0.012746576463336755 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.67521442e-19 not in global top-12
+  L=16 p=0.2433 lam1=0.02054002 lam_odd=0.01914844 lam_eps=0.012646456010406065 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.84499903e-20 not in global top-12
+  L=16 p=0.2438 lam1=0.02038728 lam_odd=0.01899358 lam_eps=0.012547047866206163 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.40593569e-20 not in global top-12
+  L=16 p=0.2443 lam1=0.02023576 lam_odd=0.01883998 lam_eps=0.012448347621528017 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.13143728e-19 not in global top-12
+  L=16 p=0.2448 lam1=0.02008545 lam_odd=0.01868763 lam_eps=0.012350350892277158 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.83151601e-19 not in global top-12
+  L=16 p=0.2453 lam1=0.01993635 lam_odd=0.01853652 lam_eps=0.012253053319253705 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.27949123e-19 not in global top-12
+  L=16 p=0.2458 lam1=0.01978843 lam_odd=0.01838664 lam_eps=0.012156450567936461 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.68800716e-20 not in global top-12
+  L=20 p=0.2238 lam1=0.01114155 lam_odd=0.01074358 lam_eps=0.007621197638077698 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.70113877e-19 not in global top-12
+  L=20 p=0.2243 lam1=0.01103556 lam_odd=0.01063626 lam_eps=0.00754917754748438 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 8.47052083e-20 not in global top-12
+  L=20 p=0.2248 lam1=0.01093065 lam_odd=0.01053003 lam_eps=0.0074777896395535354 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.48046866e-20 not in global top-12
+  L=20 p=0.2253 lam1=0.01082679 lam_odd=0.01042488 lam_eps=0.007407028743182206 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.27154278e-20 not in global top-12
+  L=20 p=0.2258 lam1=0.01072399 lam_odd=0.01032079 lam_eps=0.007336889731339773 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.19365881e-20 not in global top-12
+  L=20 p=0.2263 lam1=0.01062223 lam_odd=0.01021775 lam_eps=0.007267367520608722 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.55276735e-19 not in global top-12
+  L=20 p=0.2268 lam1=0.01052150 lam_odd=0.01011575 lam_eps=0.007198457070728527 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.20305507e-20 not in global top-12
+  L=20 p=0.2273 lam1=0.01042178 lam_odd=0.01001478 lam_eps=0.007130153384143089 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.23358669e-20 not in global top-12
+  L=20 p=0.2278 lam1=0.01032308 lam_odd=0.00991484 lam_eps=0.007062451505552037 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.20901646e-20 not in global top-12
+  L=20 p=0.2283 lam1=0.01022536 lam_odd=0.00981590 lam_eps=0.0069953465214651084 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.30064816e-20 not in global top-12
+  L=20 p=0.2288 lam1=0.01012864 lam_odd=0.00971797 lam_eps=0.006928833559760369 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.98776597e-20 not in global top-12
+  L=20 p=0.2293 lam1=0.01003289 lam_odd=0.00962102 lam_eps=0.006862907789246123 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.42959685e-20 not in global top-12
+  L=20 p=0.2298 lam1=0.00993811 lam_odd=0.00952505 lam_eps=0.006797564419226451 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.07200482e-19 not in global top-12
+  L=20 p=0.2303 lam1=0.00984428 lam_odd=0.00943006 lam_eps=0.006732798699070379 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.54644027e-20 not in global top-12
+  L=20 p=0.2308 lam1=0.00975140 lam_odd=0.00933602 lam_eps=0.006668605917785208 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.32340397e-19 not in global top-12
+  L=20 p=0.2313 lam1=0.00965945 lam_odd=0.00924293 lam_eps=0.006604981403592921 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.21407343e-20 not in global top-12
+  L=20 p=0.2318 lam1=0.00956843 lam_odd=0.00915079 lam_eps=0.00654192052351142 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.77268761e-20 not in global top-12
+  L=20 p=0.2323 lam1=0.00947832 lam_odd=0.00905957 lam_eps=0.006479418682938684 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 8.21359216e-20 not in global top-12
+  L=20 p=0.2328 lam1=0.00938912 lam_odd=0.00896927 lam_eps=0.006417471325241763 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.51323072e-20 not in global top-12
+  L=20 p=0.2333 lam1=0.00930081 lam_odd=0.00887989 lam_eps=0.006356073931349028 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.82021450e-20 not in global top-12
+  L=20 p=0.2338 lam1=0.00921340 lam_odd=0.00879141 lam_eps=0.006295222019347005 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.82294483e-20 not in global top-12
+  L=20 p=0.2343 lam1=0.00912686 lam_odd=0.00870382 lam_eps=0.006234911144080739 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.79015658e-20 not in global top-12
+  L=20 p=0.2348 lam1=0.00904119 lam_odd=0.00861711 lam_eps=0.006175136896758857 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.26517994e-20 not in global top-12
+  L=20 p=0.2353 lam1=0.00895637 lam_odd=0.00853128 lam_eps=0.006115894904562189 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.48309099e-20 not in global top-12
+  L=20 p=0.2358 lam1=0.00887241 lam_odd=0.00844632 lam_eps=0.006057180830257054 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.87821118e-20 not in global top-12
+  L=20 p=0.2363 lam1=0.00878929 lam_odd=0.00836221 lam_eps=0.005998990371812277 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.00833373e-20 not in global top-12
+  L=20 p=0.2368 lam1=0.00870700 lam_odd=0.00827895 lam_eps=0.00594131926202097 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.91831563e-20 not in global top-12
+  L=20 p=0.2373 lam1=0.00862554 lam_odd=0.00819653 lam_eps=0.0058841632681260045 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.03169693e-20 not in global top-12
+  L=20 p=0.2378 lam1=0.00854489 lam_odd=0.00811494 lam_eps=0.005827518191450472 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.57163998e-20 not in global top-12
+  L=20 p=0.2383 lam1=0.00846504 lam_odd=0.00803418 lam_eps=0.005771379867031536 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.04121604e-19 not in global top-12
+  L=20 p=0.2388 lam1=0.00838599 lam_odd=0.00795423 lam_eps=0.0057157441632597426 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.37489562e-20 not in global top-12
+  L=20 p=0.2393 lam1=0.00830773 lam_odd=0.00787508 lam_eps=0.005660606981521737 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.58389589e-20 not in global top-12
+  L=20 p=0.2398 lam1=0.00823026 lam_odd=0.00779673 lam_eps=0.00560596425584803 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.11040303e-20 not in global top-12
+  L=20 p=0.2403 lam1=0.00815355 lam_odd=0.00771918 lam_eps=0.005551811952564687 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.02889000e-20 not in global top-12
+  L=20 p=0.2408 lam1=0.00807761 lam_odd=0.00764240 lam_eps=0.005498146069949992 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.52196841e-20 not in global top-12
+  L=20 p=0.2413 lam1=0.00800243 lam_odd=0.00756640 lam_eps=0.005444962637894936 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.77757596e-20 not in global top-12
+  L=20 p=0.2418 lam1=0.00792799 lam_odd=0.00749116 lam_eps=0.005392257717568795 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.57219330e-20 not in global top-12
+  L=20 p=0.2423 lam1=0.00785430 lam_odd=0.00741668 lam_eps=0.005340027401088589 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.63618982e-20 not in global top-12
+  L=20 p=0.2428 lam1=0.00778133 lam_odd=0.00734295 lam_eps=0.0052882678111935665 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.99319447e-20 not in global top-12
+  L=20 p=0.2433 lam1=0.00770910 lam_odd=0.00726996 lam_eps=0.005236975100923651 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.34581323e-19 not in global top-12
+  L=20 p=0.2438 lam1=0.00763757 lam_odd=0.00719771 lam_eps=0.0051861454533029955 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.50703490e-20 not in global top-12
+  L=20 p=0.2443 lam1=0.00756676 lam_odd=0.00712619 lam_eps=0.005135775081027203 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.30663618e-19 not in global top-12
+  L=20 p=0.2448 lam1=0.00749665 lam_odd=0.00705538 lam_eps=0.005085860226156003 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.09166665e-20 not in global top-12
+  L=20 p=0.2453 lam1=0.00742724 lam_odd=0.00698529 lam_eps=0.005036397159809522 [0.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.09534204e-19 not in global top-12
+  L=20 p=0.2458 lam1=0.00735851 lam_odd=0.00691590 lam_eps=0.004987382181869758 [0.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.49990594e-20 not in global top-12
+  L=24 p=0.2238 lam1=0.00450763 lam_odd=0.00437934 lam_eps=0.0032850435769436553 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.88030940e-20 not in global top-12
+  L=24 p=0.2243 lam1=0.00445615 lam_odd=0.00432734 lam_eps=0.0032479898385046487 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.00804236e-20 not in global top-12
+  L=24 p=0.2248 lam1=0.00440529 lam_odd=0.00427596 lam_eps=0.0032113314535974023 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.52079414e-20 not in global top-12
+  L=24 p=0.2253 lam1=0.00435505 lam_odd=0.00422520 lam_eps=0.0031750643985097174 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.57825794e-20 not in global top-12
+  L=24 p=0.2258 lam1=0.00430541 lam_odd=0.00417506 lam_eps=0.003139184692208568 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.96446675e-20 not in global top-12
+  L=24 p=0.2263 lam1=0.00425638 lam_odd=0.00412552 lam_eps=0.003103688395821485 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.02791500e-20 not in global top-12
+  L=24 p=0.2268 lam1=0.00420793 lam_odd=0.00407657 lam_eps=0.003068571612122425 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.33342098e-20 not in global top-12
+  L=24 p=0.2273 lam1=0.00416007 lam_odd=0.00402822 lam_eps=0.003033830485022586 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.31520990e-20 not in global top-12
+  L=24 p=0.2278 lam1=0.00411279 lam_odd=0.00398045 lam_eps=0.002999461199065932 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.43814472e-20 not in global top-12
+  L=24 p=0.2283 lam1=0.00406607 lam_odd=0.00393325 lam_eps=0.0029654599789294025 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.91599399e-20 not in global top-12
+  L=24 p=0.2288 lam1=0.00401992 lam_odd=0.00388663 lam_eps=0.002931823088928045 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.64138152e-21 not in global top-12
+  L=24 p=0.2293 lam1=0.00397433 lam_odd=0.00384056 lam_eps=0.002898546832525055 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.47100327e-20 not in global top-12
+  L=24 p=0.2298 lam1=0.00392928 lam_odd=0.00379505 lam_eps=0.0028656275518466304 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.49917834e-20 not in global top-12
+  L=24 p=0.2303 lam1=0.00388477 lam_odd=0.00375009 lam_eps=0.002833061627201772 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.31315641e-20 not in global top-12
+  L=24 p=0.2308 lam1=0.00384080 lam_odd=0.00370567 lam_eps=0.002800845476607168 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.62786519e-20 not in global top-12
+  L=24 p=0.2313 lam1=0.00379736 lam_odd=0.00366179 lam_eps=0.0027689755553169 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.29031990e-20 not in global top-12
+  L=24 p=0.2318 lam1=0.00375444 lam_odd=0.00361843 lam_eps=0.002737448355357434 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.28523904e-20 not in global top-12
+  L=24 p=0.2323 lam1=0.00371203 lam_odd=0.00357559 lam_eps=0.002706260405067414 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.07312341e-20 not in global top-12
+  L=24 p=0.2328 lam1=0.00367013 lam_odd=0.00353327 lam_eps=0.0026754082686429605 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.33638344e-20 not in global top-12
+  L=24 p=0.2333 lam1=0.00362874 lam_odd=0.00349146 lam_eps=0.0026448885456876884 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.55108903e-20 not in global top-12
+  L=24 p=0.2338 lam1=0.00358784 lam_odd=0.00345015 lam_eps=0.0026146978707683667 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.88224499e-20 not in global top-12
+  L=24 p=0.2343 lam1=0.00354743 lam_odd=0.00340934 lam_eps=0.0025848329129753893 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.62288142e-20 not in global top-12
+  L=24 p=0.2348 lam1=0.00350750 lam_odd=0.00336902 lam_eps=0.00255529037548888 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.81133255e-20 not in global top-12
+  L=24 p=0.2353 lam1=0.00346805 lam_odd=0.00332918 lam_eps=0.0025260669951498297 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.62709317e-20 not in global top-12
+  L=24 p=0.2358 lam1=0.00342907 lam_odd=0.00328982 lam_eps=0.0024971595420367147 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.10056957e-20 not in global top-12
+  L=24 p=0.2363 lam1=0.00339056 lam_odd=0.00325094 lam_eps=0.002468564819047351 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.98901198e-20 not in global top-12
+  L=24 p=0.2368 lam1=0.00335250 lam_odd=0.00321252 lam_eps=0.002440279661486296 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.01854107e-20 not in global top-12
+  L=24 p=0.2373 lam1=0.00331490 lam_odd=0.00317457 lam_eps=0.002412300936657451 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.95753565e-21 not in global top-12
+  L=24 p=0.2378 lam1=0.00327775 lam_odd=0.00313707 lam_eps=0.0023846255434623186 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 8.92923304e-20 not in global top-12
+  L=24 p=0.2383 lam1=0.00324104 lam_odd=0.00310002 lam_eps=0.0023572504120034066 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.06056740e-20 not in global top-12
+  L=24 p=0.2388 lam1=0.00320477 lam_odd=0.00306341 lam_eps=0.002330172503193524 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.78007313e-20 not in global top-12
+  L=24 p=0.2393 lam1=0.00316893 lam_odd=0.00302724 lam_eps=0.00230338880837007 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.80153637e-20 not in global top-12
+  L=24 p=0.2398 lam1=0.00313352 lam_odd=0.00299151 lam_eps=0.002276896348915233 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.26577634e-20 not in global top-12
+  L=24 p=0.2403 lam1=0.00309852 lam_odd=0.00295621 lam_eps=0.002250692175881401 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.67990296e-21 not in global top-12
+  L=24 p=0.2408 lam1=0.00306394 lam_odd=0.00292133 lam_eps=0.0022247733696222683 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.23524612e-20 not in global top-12
+  L=24 p=0.2413 lam1=0.00302978 lam_odd=0.00288687 lam_eps=0.002199137039429271 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.12221953e-20 not in global top-12
+  L=24 p=0.2418 lam1=0.00299601 lam_odd=0.00285282 lam_eps=0.0021737803231737605 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.79320377e-20 not in global top-12
+  L=24 p=0.2423 lam1=0.00296265 lam_odd=0.00281918 lam_eps=0.0021487003869543656 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.52586876e-20 not in global top-12
+  L=24 p=0.2428 lam1=0.00292968 lam_odd=0.00278594 lam_eps=0.0021238944247502375 [0.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.04975381e-21 not in global top-12
+  L=24 p=0.2433 lam1=0.00289710 lam_odd=0.00275310 lam_eps=0.0020993596580793643 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.20652321e-20 not in global top-12
+  L=24 p=0.2438 lam1=0.00286491 lam_odd=0.00272066 lam_eps=0.0020750933356627277 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.69851190e-20 not in global top-12
+  L=24 p=0.2443 lam1=0.00283310 lam_odd=0.00268860 lam_eps=0.0020510927330935646 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.47705730e-20 not in global top-12
+  L=24 p=0.2448 lam1=0.00280166 lam_odd=0.00265693 lam_eps=0.002027355152512428 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.69279931e-20 not in global top-12
+  L=24 p=0.2453 lam1=0.00277059 lam_odd=0.00262564 lam_eps=0.0020038779222872824 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.02302237e-20 not in global top-12
+  L=24 p=0.2458 lam1=0.00273989 lam_odd=0.00259472 lam_eps=0.0019806583966993133 [0.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.02786624e-20 not in global top-12
+  L=28 p=0.2238 lam1=0.00182503 lam_odd=0.00178257 lam_eps=0.001390940564687007 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.94370075e-21 not in global top-12
+  L=28 p=0.2243 lam1=0.00180071 lam_odd=0.00175804 lam_eps=0.001372696947054199 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.20505184e-21 not in global top-12
+  L=28 p=0.2248 lam1=0.00177674 lam_odd=0.00173385 lam_eps=0.0013546825073614962 [3.7s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.26706255e-20 not in global top-12
+  L=28 p=0.2253 lam1=0.00175309 lam_odd=0.00171001 lam_eps=0.001336894458847152 [3.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 9.60446414e-21 not in global top-12
+  L=28 p=0.2258 lam1=0.00172978 lam_odd=0.00168649 lam_eps=0.0013193300500056104 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.50548198e-21 not in global top-12
+  L=28 p=0.2263 lam1=0.00170680 lam_odd=0.00166331 lam_eps=0.0013019865640960424 [3.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.81251013e-21 not in global top-12
+  L=28 p=0.2268 lam1=0.00168414 lam_odd=0.00164045 lam_eps=0.0012848613186560236 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.69424948e-21 not in global top-12
+  L=28 p=0.2273 lam1=0.00166179 lam_odd=0.00161791 lam_eps=0.001267951665020627 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.79494011e-20 not in global top-12
+  L=28 p=0.2278 lam1=0.00163976 lam_odd=0.00159569 lam_eps=0.0012512549878468705 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.09321416e-20 not in global top-12
+  L=28 p=0.2283 lam1=0.00161803 lam_odd=0.00157377 lam_eps=0.0012347687046433391 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.65575732e-20 not in global top-12
+  L=28 p=0.2288 lam1=0.00159661 lam_odd=0.00155216 lam_eps=0.0012184902653052676 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.00904066e-20 not in global top-12
+  L=28 p=0.2293 lam1=0.00157549 lam_odd=0.00153086 lam_eps=0.0012024171516549795 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.91769147e-21 not in global top-12
+  L=28 p=0.2298 lam1=0.00155467 lam_odd=0.00150985 lam_eps=0.0011865468769876424 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.31971273e-21 not in global top-12
+  L=28 p=0.2303 lam1=0.00153413 lam_odd=0.00148914 lam_eps=0.00117087698562244 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 8.30242490e-21 not in global top-12
+  L=28 p=0.2308 lam1=0.00151388 lam_odd=0.00146871 lam_eps=0.001155405052459229 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.50227197e-21 not in global top-12
+  L=28 p=0.2313 lam1=0.00149391 lam_odd=0.00144857 lam_eps=0.0011401286825404608 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.68073540e-21 not in global top-12
+  L=28 p=0.2318 lam1=0.00147422 lam_odd=0.00142871 lam_eps=0.001125045510618821 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.51097612e-21 not in global top-12
+  L=28 p=0.2323 lam1=0.00145481 lam_odd=0.00140913 lam_eps=0.001110153200730036 [3.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.96203358e-21 not in global top-12
+  L=28 p=0.2328 lam1=0.00143567 lam_odd=0.00138982 lam_eps=0.0010954494457714895 [3.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.20461126e-20 not in global top-12
+  L=28 p=0.2333 lam1=0.00141679 lam_odd=0.00137078 lam_eps=0.0010809319670861363 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.87632244e-21 not in global top-12
+  L=28 p=0.2338 lam1=0.00139817 lam_odd=0.00135201 lam_eps=0.0010665985140521203 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.60157279e-21 not in global top-12
+  L=28 p=0.2343 lam1=0.00137981 lam_odd=0.00133350 lam_eps=0.0010524468636777945 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.71471340e-21 not in global top-12
+  L=28 p=0.2348 lam1=0.00136171 lam_odd=0.00131524 lam_eps=0.0010384748202025545 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.12113479e-20 not in global top-12
+  L=28 p=0.2353 lam1=0.00134386 lam_odd=0.00129724 lam_eps=0.0010246802147030436 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.37350283e-21 not in global top-12
+  L=28 p=0.2358 lam1=0.00132625 lam_odd=0.00127950 lam_eps=0.001011060904705166 [3.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.82535110e-20 not in global top-12
+  L=28 p=0.2363 lam1=0.00130889 lam_odd=0.00126199 lam_eps=0.0009976147738015985 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.06567112e-21 not in global top-12
+  L=28 p=0.2368 lam1=0.00129177 lam_odd=0.00124474 lam_eps=0.000984339731275092 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.95286255e-21 not in global top-12
+  L=28 p=0.2373 lam1=0.00127489 lam_odd=0.00122772 lam_eps=0.0009712337117273022 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.85391459e-21 not in global top-12
+  L=28 p=0.2378 lam1=0.00125824 lam_odd=0.00121094 lam_eps=0.0009582946747134011 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.37566725e-20 not in global top-12
+  L=28 p=0.2383 lam1=0.00124182 lam_odd=0.00119439 lam_eps=0.0009455206043822488 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.85690579e-21 not in global top-12
+  L=28 p=0.2388 lam1=0.00122563 lam_odd=0.00117808 lam_eps=0.0009329095091223997 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.35377310e-20 not in global top-12
+  L=28 p=0.2393 lam1=0.00120966 lam_odd=0.00116199 lam_eps=0.0009204594212136227 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.43572506e-21 not in global top-12
+  L=28 p=0.2398 lam1=0.00119391 lam_odd=0.00114612 lam_eps=0.0009081683964842086 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.21423975e-21 not in global top-12
+  L=28 p=0.2403 lam1=0.00117837 lam_odd=0.00113048 lam_eps=0.0008960345139738573 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.81233028e-21 not in global top-12
+  L=28 p=0.2408 lam1=0.00116306 lam_odd=0.00111505 lam_eps=0.0008840558756023277 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.29286796e-20 not in global top-12
+  L=28 p=0.2413 lam1=0.00114795 lam_odd=0.00109983 lam_eps=0.000872230605843598 [3.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.61808221e-21 not in global top-12
+  L=28 p=0.2418 lam1=0.00113305 lam_odd=0.00108483 lam_eps=0.0008605568514057544 [3.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.74305186e-20 not in global top-12
+  L=28 p=0.2423 lam1=0.00111835 lam_odd=0.00107004 lam_eps=0.0008490327809163832 [3.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.04241552e-20 not in global top-12
+  L=28 p=0.2428 lam1=0.00110385 lam_odd=0.00105545 lam_eps=0.0008376565846136434 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.66140244e-21 not in global top-12
+  L=28 p=0.2433 lam1=0.00108956 lam_odd=0.00104106 lam_eps=0.000826426474042753 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.65966765e-21 not in global top-12
+  L=28 p=0.2438 lam1=0.00107546 lam_odd=0.00102688 lam_eps=0.0008153406817581112 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.07576203e-21 not in global top-12
+  L=28 p=0.2443 lam1=0.00106155 lam_odd=0.00101289 lam_eps=0.0008043974610307353 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.62562552e-21 not in global top-12
+  L=28 p=0.2448 lam1=0.00104783 lam_odd=0.00099909 lam_eps=0.0007935950855613217 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.16475872e-20 not in global top-12
+  L=28 p=0.2453 lam1=0.00103430 lam_odd=0.00098549 lam_eps=0.0007829318491984537 [3.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.96973549e-21 not in global top-12
+  L=28 p=0.2458 lam1=0.00102096 lam_odd=0.00097207 lam_eps=0.000772406065662368 [3.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.52999941e-21 not in global top-12
+  L=32 p=0.2238 lam1=0.00073926 lam_odd=0.00072493 lam_eps=0.0005825007891603204 [59.8s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.13263353e-21 not in global top-12
+  L=32 p=0.2243 lam1=0.00072800 lam_odd=0.00071359 lam_eps=0.0005737887931165122 [58.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.79877808e-21 not in global top-12
+  L=32 p=0.2248 lam1=0.00071692 lam_odd=0.00070243 lam_eps=0.000565202711113447 [55.9s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.02478789e-20 not in global top-12
+  L=32 p=0.2253 lam1=0.00070602 lam_odd=0.00069144 lam_eps=0.0005567407640590218 [55.7s]
+    [block_records] WARNING: Ind(triv.sgn) leading 7.96773741e-21 not in global top-12
+  L=32 p=0.2258 lam1=0.00069530 lam_odd=0.00068064 lam_eps=0.0005484011989562627 [56.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.09673122e-21 not in global top-12
+  L=32 p=0.2263 lam1=0.00068474 lam_odd=0.00067000 lam_eps=0.0005401822884921836 [56.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.32400178e-21 not in global top-12
+  L=32 p=0.2268 lam1=0.00067435 lam_odd=0.00065953 lam_eps=0.0005320823306317728 [58.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.19684949e-21 not in global top-12
+  L=32 p=0.2273 lam1=0.00066413 lam_odd=0.00064923 lam_eps=0.0005240996482171809 [59.9s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.78860695e-21 not in global top-12
+  L=32 p=0.2278 lam1=0.00065407 lam_odd=0.00063910 lam_eps=0.0005162325885720527 [54.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.93442129e-21 not in global top-12
+  L=32 p=0.2283 lam1=0.00064417 lam_odd=0.00062912 lam_eps=0.0005084795231109426 [54.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.67997528e-21 not in global top-12
+  L=32 p=0.2288 lam1=0.00063443 lam_odd=0.00061931 lam_eps=0.0005008388469538966 [56.2s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.98466541e-21 not in global top-12
+  L=32 p=0.2293 lam1=0.00062484 lam_odd=0.00060965 lam_eps=0.0004933089785461465 [59.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.68180089e-21 not in global top-12
+  L=32 p=0.2298 lam1=0.00061540 lam_odd=0.00060014 lam_eps=0.0004858883592829064 [59.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.88911282e-21 not in global top-12
+  L=32 p=0.2303 lam1=0.00060612 lam_odd=0.00059078 lam_eps=0.000478575453139284 [54.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.55329329e-21 not in global top-12
+  L=32 p=0.2308 lam1=0.00059698 lam_odd=0.00058158 lam_eps=0.000471368746305329 [54.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.10341378e-21 not in global top-12
+  L=32 p=0.2313 lam1=0.00058799 lam_odd=0.00057252 lam_eps=0.0004642667468261549 [58.7s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.61311027e-21 not in global top-12
+  L=32 p=0.2318 lam1=0.00057914 lam_odd=0.00056360 lam_eps=0.00045726798424724477 [59.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.44145678e-21 not in global top-12
+  L=32 p=0.2323 lam1=0.00057043 lam_odd=0.00055482 lam_eps=0.0004503710092648148 [56.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.18343386e-21 not in global top-12
+  L=32 p=0.2328 lam1=0.00056185 lam_odd=0.00054619 lam_eps=0.0004435743933813804 [56.8s]
+    [block_records] WARNING: Ind(triv.sgn) leading 5.89181779e-21 not in global top-12
+  L=32 p=0.2333 lam1=0.00055342 lam_odd=0.00053769 lam_eps=0.0004368767285663998 [54.8s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.85526188e-21 not in global top-12
+  L=32 p=0.2338 lam1=0.00054511 lam_odd=0.00052932 lam_eps=0.00043027662692212044 [56.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.53138514e-21 not in global top-12
+  L=32 p=0.2343 lam1=0.00053694 lam_odd=0.00052109 lam_eps=0.0004237727203545083 [57.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.04339226e-21 not in global top-12
+  L=32 p=0.2348 lam1=0.00052890 lam_odd=0.00051299 lam_eps=0.0004173636602494166 [55.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.47164954e-21 not in global top-12
+  L=32 p=0.2353 lam1=0.00052098 lam_odd=0.00050502 lam_eps=0.000411048117153829 [56.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.58911382e-21 not in global top-12
+  L=32 p=0.2358 lam1=0.00051319 lam_odd=0.00049717 lam_eps=0.0004048247804623322 [57.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 4.72533147e-21 not in global top-12
+  L=32 p=0.2363 lam1=0.00050552 lam_odd=0.00048945 lam_eps=0.00039869235810869875 [57.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 6.15195323e-21 not in global top-12
+  L=32 p=0.2368 lam1=0.00049797 lam_odd=0.00048185 lam_eps=0.0003926495762626817 [58.5s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.47460653e-21 not in global top-12
+  L=32 p=0.2373 lam1=0.00049054 lam_odd=0.00047437 lam_eps=0.00038669517903191424 [58.8s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.47942127e-21 not in global top-12
+  L=32 p=0.2378 lam1=0.00048323 lam_odd=0.00046700 lam_eps=0.00038082792816901493 [54.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.02700771e-20 not in global top-12
+  L=32 p=0.2383 lam1=0.00047603 lam_odd=0.00045976 lam_eps=0.0003750466027837697 [56.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.43589855e-21 not in global top-12
+  L=32 p=0.2388 lam1=0.00046894 lam_odd=0.00045263 lam_eps=0.0003693499990605263 [59.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.52140190e-21 not in global top-12
+  L=32 p=0.2393 lam1=0.00046197 lam_odd=0.00044561 lam_eps=0.0003637369299806334 [59.3s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.04119739e-21 not in global top-12
+  L=32 p=0.2398 lam1=0.00045511 lam_odd=0.00043870 lam_eps=0.00035820622505001597 [59.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.23568739e-21 not in global top-12
+  L=32 p=0.2403 lam1=0.00044835 lam_odd=0.00043190 lam_eps=0.00035275673003181166 [59.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.17573255e-21 not in global top-12
+  L=32 p=0.2408 lam1=0.00044170 lam_odd=0.00042521 lam_eps=0.00034738730668407744 [58.7s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.21073079e-21 not in global top-12
+  L=32 p=0.2413 lam1=0.00043515 lam_odd=0.00041863 lam_eps=0.0003420968325024942 [58.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.02196538e-21 not in global top-12
+  L=32 p=0.2418 lam1=0.00042870 lam_odd=0.00041215 lam_eps=0.00033688420046807586 [55.0s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.82041321e-21 not in global top-12
+  L=32 p=0.2423 lam1=0.00042236 lam_odd=0.00040577 lam_eps=0.0003317483187998233 [56.7s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.28085123e-21 not in global top-12
+  L=32 p=0.2428 lam1=0.00041611 lam_odd=0.00039949 lam_eps=0.00032668811071231193 [56.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.93856184e-21 not in global top-12
+  L=32 p=0.2433 lam1=0.00040996 lam_odd=0.00039331 lam_eps=0.00032170251417811083 [57.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.33244118e-21 not in global top-12
+  L=32 p=0.2438 lam1=0.00040391 lam_odd=0.00038723 lam_eps=0.0003167904816950662 [57.6s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.22695149e-21 not in global top-12
+  L=32 p=0.2443 lam1=0.00039795 lam_odd=0.00038124 lam_eps=0.00031195098005830493 [55.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 2.36184229e-21 not in global top-12
+  L=32 p=0.2448 lam1=0.00039208 lam_odd=0.00037535 lam_eps=0.00030718299013700995 [58.1s]
+    [block_records] WARNING: Ind(triv.sgn) leading 3.42202660e-21 not in global top-12
+  L=32 p=0.2453 lam1=0.00038631 lam_odd=0.00036955 lam_eps=0.0003024855066557884 [58.4s]
+    [block_records] WARNING: Ind(triv.sgn) leading 1.82733847e-21 not in global top-12
+  L=32 p=0.2458 lam1=0.00038062 lam_odd=0.00036384 lam_eps=0.000297857537980699 [57.2s]
+  n=2 control crossings (vs deposited Table):
+    (16,20): p* = 0.23319  deposited 0.23319  diff 0.00000
+    (20,24): p* = 0.23347  deposited 0.23348  diff 0.00001
+    (24,28): p* = 0.23361  deposited 0.23361  diff 0.00000
+    (28,32): p* = 0.23368  deposited 0.23368  diff 0.00000
+=== runall done in 70.2 min ===
