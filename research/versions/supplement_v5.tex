@@ -1,0 +1,924 @@
+% v4 (v21 Clifford record-count round): adds Sec.~S5 (proof of the
+% freezing Theorem 8, deferred from the main text), Sec.~S6 (proof of the
+% finite-population normalization Proposition, deferred from the main
+% text), and Sec.~S7 (the Clifford record-count runs behind the main-text
+% Sec.~IV.F: the exact 3^L algebra evolution with its deposit calibration
+% and time-convention fix, the exact beta=1 anchors, the trajectory
+% ladder with estimator definitions, the reproduction commands, and the
+% ledger note certificate_sha256_v8.txt); scope sentence and bibliography
+% updated accordingly.
+\documentclass[aps,prx,reprint,superscriptaddress,nobibnotes,longbibliography]{revtex4-2}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thesection}{S\Roman{section}}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Ccomp}{\mathsf C_{\rm comp}}
+\begin{document}
+\title{Supplemental Material for ``Exact Replica Mechanics and Born-Record Large Deviations in Monitored Quantum Circuits''}
+\author{Amin Abaee}
+\thanks{ORCID: \href{https://orcid.org/0000-0002-0019-1842}{0000-0002-0019-1842}; Email: \href{mailto:abaee@ut.ac.ir}{abaee@ut.ac.ir}}
+\affiliation{Independent Researcher}
+\date{\today}
+\maketitle
+
+This Supplemental Material collects the reference data behind Secs.~II.F and IV and Appendix~A of the main text: the exceptional sets $E_L$ of the three-replica compressed operator for $d=2$ and $d=3$ with blocks, minimal-polynomial degrees and exact ranks (Sec.~\ref{sm:E}), the per-block certificate data at $L=12$ (Sec.~\ref{sm:L12}), the endpoint and $p_\times$ ranks (Sec.~\ref{sm:endpoints}), the complete list of certificate files and scripts with SHA-256 hashes and reproduction commands (Sec.~\ref{sm:files}); two proofs deferred from the main text (Secs.~\ref{sm:remproof} and~\ref{sm:smcproof}); the Clifford record-count runs behind the main-text Sec.~IV.F (Sec.~\ref{sm:cliffordruns}), and the v22 exact-closure suite of that section (the reconstructed gap\_utils library with its validation battery, the conjugation-design test, the exact $\bar Z_3$ cells and ladder, the $\beta=2$ identification cross-check, the marginal $q=4$ log-correction fits, the tilted-variance profile family, and the symmetry-reduced $n=5$ $L=8$ block route; Sec.~\ref{sm:v22closure}).  Every number is exact (integer, modular with the stated prime, or algebraic with a certified isolating interval); no floating-point computation enters.  Notation follows the main text: $\mathsf B_p$ is the integer-polynomial matrix of Eq.~(A1), $\Gamma=H\times\mathbb Z_m$ with $H=(S_3\times S_3)\rtimes\mathbb Z_2$, blocks are labelled $(\rho,k)$ by an irreducible representation $\rho$ of $H$ (dimension $d_\rho$; $\iota\pm$ is the transposition parity, ${\rm Ind}$ an induced representation of dimension $2$ or $4$) and a momentum $k$ of $\mathbb Z_m$ ($k=\pm1$ and $k=\pm2$ denote the rational block that is the sum of the two conjugate complex sectors).
+
+\section{Exceptional sets}
+\label{sm:E}
+
+At a point $p^*\in E_L$ the drop of $\rk\mathsf B_{p^*}$ below the generic rank is $\sum d_\rho\,\nu_\rho$, where $\nu_\rho$ is the nullity of the block at $p^*$; the tables list, for each $p^*$, the block(s) whose invariant factor vanishes, the degree of the minimal polynomial $f$ of $p^*$ over $\mathbb Q$, the nullity, and the exact rank of $\mathsf B_{p^*}$.  The numerical value of $p^*$ is a truncation of the certified isolating interval (all intervals have width below $10^{-15}$).  For $d=2$ every interior zero is simple (certificate multiplicity equal to the nullity in all $11$ block factors at $L=8$ and the one at $L=6$); for $d=3$ all are simple except the linear factor $3p-2$ ($p_\times(3)=2/3$) in the $k=\pm1$ blocks $({\rm triv}\otimes{\rm triv})^{\iota+}$ at $L=6$, $({\rm std}\otimes{\rm std})^{\iota+}$ at $L=6,8$ and $({\rm sgn}\otimes{\rm sgn})^{\iota+}$ at $L=8$ (file \texttt{n3\_simple\_zero\_check.log}).
+
+\begin{table}[h]
+\caption{$E_8$ for $d=2$ (generic rank $1202$): the eleven algebraic points in $(0,1)$.  For $L=6$, $d=2$, the single point is $p^*=(9-\sqrt{41})/4=0.649219\ldots$, block ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $k=\pm1$, nullity $2$, rank $208$; $E_4=\emptyset$.}
+\label{tab:S1}
+\begin{ruledtabular}
+\begin{tabular}{lllccc}
+$p^*$ & block $\rho$ & $k$ & $\deg f$ & nullity & rank\\
+\colrule
+0.255038 & ${\rm Ind}({\rm triv}\otimes{\rm std})$ & $0$ & 9 & 1 & 1198\\
+0.270503 & $({\rm std}\otimes{\rm std})^{\iota+}$ & $0$ & 14 & 1 & 1198\\
+0.381759 & $({\rm triv}\otimes{\rm triv})^{\iota+}$ & $0$ & 19 & 1 & 1201\\
+0.404429 & ${\rm Ind}({\rm triv}\otimes{\rm std})$ & $0$ & 8 & 1 & 1198\\
+0.510263 & $({\rm std}\otimes{\rm std})^{\iota-}$ & $\pm1$ & 6 & 2 & 1194\\
+0.548044 & $({\rm triv}\otimes{\rm triv})^{\iota+}$ & $\pm1$ & 11 & 2 & 1200\\
+0.557093 & ${\rm Ind}({\rm triv}\otimes{\rm std})$ & $\pm1$ & 12 & 2 & 1194\\
+0.684029 & ${\rm Ind}({\rm triv}\otimes{\rm std})$ & $2$ & 5 & 2 & 1194\\
+0.775468 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$ & $\pm1$ & 11 & 2 & 1200\\
+0.862494 & ${\rm Ind}({\rm triv}\otimes{\rm std})$ & $\pm1$ & 12 & 2 & 1194\\
+0.960754 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$ & $0$ & 22 & 1 & 1201\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Exceptional points for $d=3$ at $L=4$ (generic rank $21$) and $L=6$ (generic rank $216$).  At $L=6$ the rational point $p_\times(3)=2/3$ affects seven blocks simultaneously---$({\rm triv}\otimes{\rm triv})^{\iota+}$, $k=\pm1$ (nullity $2$); ${\rm Ind}({\rm triv}\otimes{\rm sgn})$, $k=0$ ($1$) and $k=\pm1$ ($2$); $({\rm std}\otimes{\rm std})^{\iota+}$, $k=0$ ($1$) and $k=\pm1$ ($4$); ${\rm Ind}({\rm triv}\otimes{\rm std})$, $k=0$ ($1$) and $k=\pm1$ ($2$)---with total drop $40$ and rank $176$.}
+\label{tab:S2}
+\begin{ruledtabular}
+\begin{tabular}{llllcccc}
+$L$ & $p^*$ & block $\rho$ & $k$ & $\deg f$ & $\nu$ & drop & rank\\
+\colrule
+4 & 0.779812 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$ & $0$ & 5 & 1 & 1 & 20\\
+6 & 0.393762 & ${\rm Ind}({\rm sgn}\otimes{\rm std})$ & $\pm1$ & 4 & 2 & 8 & 208\\
+6 & 0.617321 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$ & $0$ & 14 & 1 & 1 & 215\\
+6 & $2/3$ & seven blocks (caption) & & 1 & & 40 & 176\\
+6 & 0.744876 & $({\rm triv}\otimes{\rm triv})^{\iota+}$ & $0$ & 16 & 1 & 1 & 215\\
+6 & 0.775117 & $({\rm std}\otimes{\rm std})^{\iota+}$ & $0$ & 13 & 1 & 4 & 212\\
+6 & 0.826750 & $({\rm std}\otimes{\rm std})^{\iota+}$ & $\pm1$ & 2 & 2 & 8 & 208\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table*}[t]
+\caption{$E_8$ for $d=3$ (generic rank $1202$): $55$ points.  At $p_\times(3)=2/3$ seven blocks lose rank simultaneously---$({\rm sgn}\otimes{\rm sgn})^{\iota+}$, $k=\pm1$ (nullity $2$); ${\rm Ind}({\rm triv}\otimes{\rm sgn})$, $k=0$ ($1$) and $k=\pm1$ ($4$); $({\rm std}\otimes{\rm std})^{\iota+}$, $k=0$ ($1$) and $k=\pm1$ ($6$); ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $k=0$ ($1$) and $k=\pm1$ ($4$)---for a total drop of $60$ and rank $1142$.  For the two degree-$46$ and degree-$50$ factors of $({\rm std}\otimes{\rm std})^{\iota+}$ the nullity is pinned by $1\le\nu\le{\rm mult}_f(\det)$ and the evenness of $\nu$ in $k=\pm1$ blocks, as stated in Appendix~A.3.}
+\label{tab:S3}
+\begin{ruledtabular}
+\begin{tabular}{llcccc|llcccc}
+$p^*$ & block $\rho$, $k$ & $\deg f$ & $\nu$ & drop & rank & $p^*$ & block $\rho$, $k$ & $\deg f$ & $\nu$ & drop & rank\\
+\colrule
+0.019707 & ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $0$ & 11 & 1 & 4 & 1198 & 0.698975 & ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $0$ & 14 & 1 & 4 & 1198\\
+0.043971 & $({\rm triv}\otimes{\rm triv})^{\iota+}$, $0$ & 49 & 1 & 1 & 1201 & 0.699932 & $({\rm std}\otimes{\rm std})^{\iota+}$, $\pm1$ & 46 & 2 & 8 & 1194\\
+0.059680 & $({\rm triv}\otimes{\rm triv})^{\iota+}$, $\pm1$ & 25 & 2 & 2 & 1200 & 0.717603 & ${\rm Ind}({\rm triv}\otimes{\rm sgn})$, $0$ & 6 & 1 & 2 & 1200\\
+0.114953 & $({\rm std}\otimes{\rm std})^{\iota-}$, $\pm1$ & 10 & 2 & 8 & 1194 & 0.726117 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$, $0$ & 40 & 1 & 1 & 1201\\
+0.116570 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $0$ & 23 & 1 & 4 & 1198 & 0.727191 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$, $0$ & 40 & 1 & 1 & 1201\\
+0.157295 & $({\rm std}\otimes{\rm std})^{\iota+}$, $\pm1$ & 46 & 2 & 8 & 1194 & 0.727894 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $0$ & 12 & 1 & 4 & 1198\\
+0.280527 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $\pm1$ & 26 & 2 & 8 & 1194 & 0.734664 & $({\rm std}\otimes{\rm std})^{\iota+}$, $\pm1$ & 46 & 2 & 8 & 1194\\
+0.327751 & $({\rm std}\otimes{\rm std})^{\iota+}$, $\pm1$ & 46 & 2 & 8 & 1194 & 0.736197 & ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $0$ & 11 & 1 & 4 & 1198\\
+0.387717 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $2$ & 10 & 2 & 8 & 1194 & 0.739118 & ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $\pm1$ & 28 & 2 & 8 & 1194\\
+0.406403 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$, $0$ & 40 & 1 & 1 & 1201 & 0.747220 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $\pm1$ & 26 & 2 & 8 & 1194\\
+0.412493 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $2$ & 10 & 2 & 8 & 1194 & 0.750329 & $({\rm std}\otimes{\rm std})^{\iota-}$, $\pm1$ & 10 & 2 & 8 & 1194\\
+0.449885 & $({\rm std}\otimes{\rm std})^{\iota-}$, $0$ & 7 & 1 & 4 & 1198 & 0.752473 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 50 & 1 & 4 & 1198\\
+0.451387 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 7 & 1 & 4 & 1198 & 0.778267 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$, $0$ & 40 & 1 & 1 & 1201\\
+0.482738 & $({\rm std}\otimes{\rm std})^{\iota-}$, $0$ & 4 & 1 & 4 & 1198 & 0.803763 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$, $0$ & 40 & 1 & 1 & 1201\\
+0.488163 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$, $0$ & 3 & 1 & 1 & 1201 & 0.818251 & ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $0$ & 14 & 1 & 4 & 1198\\
+0.499209 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $\pm1$ & 26 & 2 & 8 & 1194 & 0.819702 & $({\rm std}\otimes{\rm std})^{\iota+}$, $\pm1$ & 46 & 2 & 8 & 1194\\
+0.562734 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $0$ & 12 & 1 & 4 & 1198 & 0.826750 & $({\rm std}\otimes{\rm std})^{\iota+}$, $\pm1$ & 2 & 2 & 8 & 1194\\
+0.604733 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $0$ & 23 & 1 & 4 & 1198 & 0.838695 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 7 & 1 & 4 & 1198\\
+0.611851 & ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $\pm1$ & 28 & 2 & 8 & 1194 & 0.839191 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 50 & 1 & 4 & 1198\\
+0.616454 & $({\rm triv}\otimes{\rm triv})^{\iota+}$, $2$ & 14 & 2 & 2 & 1200 & 0.851727 & ${\rm Ind}({\rm sgn}\otimes{\rm std})$, $\pm1$ & 28 & 2 & 8 & 1194\\
+0.628181 & $({\rm triv}\otimes{\rm triv})^{\iota+}$, $\pm1$ & 25 & 2 & 2 & 1200 & 0.882507 & $({\rm std}\otimes{\rm std})^{\iota+}$, $\pm1$ & 46 & 2 & 8 & 1194\\
+0.630557 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 50 & 1 & 4 & 1198 & 0.893682 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 50 & 1 & 4 & 1198\\
+0.630590 & $({\rm triv}\otimes{\rm triv})^{\iota+}$, $0$ & 49 & 1 & 1 & 1201 & 0.895616 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 7 & 1 & 4 & 1198\\
+0.651297 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 7 & 1 & 4 & 1198 & 0.942564 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $\pm1$ & 26 & 2 & 8 & 1194\\
+0.658235 & $({\rm std}\otimes{\rm std})^{\iota+}$, $0$ & 50 & 1 & 4 & 1198 & 0.951754 & $({\rm triv}\otimes{\rm triv})^{\iota+}$, $0$ & 49 & 1 & 1 & 1201\\
+0.664027 & $({\rm std}\otimes{\rm std})^{\iota+}$, $\pm1$ & 46 & 2 & 8 & 1194 & 0.951943 & $({\rm triv}\otimes{\rm triv})^{\iota+}$, $0$ & 3 & 1 & 1 & 1201\\
+0.694261 & $({\rm sgn}\otimes{\rm sgn})^{\iota+}$, $\pm1$ & 25 & 2 & 2 & 1200 & 0.985582 & ${\rm Ind}({\rm triv}\otimes{\rm std})$, $\pm1$ & 26 & 2 & 8 & 1194\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\section{The $L=12$ certificate, block by block}
+\label{sm:L12}
+
+Table~\ref{tab:S4} lists, for the momentum-$\pi$ sector $k=3$ of $L=12$ ($m=6$), the multiplicity $m_{\rho,3}$, the reflection-parity dimensions $(m_+,m_-)$, the symmetry-forced bound $2\min(m_+,m_-)$, the numbers $(c_+,c_-)$ of exactly verified kernel vectors on the two parity sides, the resulting upper bound $2\min(m_+-c_+,m_--c_-)$ valid for all $p$ outside a finite set, and the modular lower bound at $p=1/2$; the two bounds coincide in every block.  The sectors $k\ne3$ have full multiplicity rank, $38906$ in total, so the generic rank is $38906+7104=46010=r_3(12)-70$.  The block data are identical for $d=2$ and $d=3$ (files \texttt{n3\_L12\_final.json}, \texttt{n3\_L12\_final\_d3.json}).
+
+\begin{table}[h]
+\caption{$k=3$ sector at $L=12$.  Weighted totals: forced $7174$, upper bound $7104$, lower bound $7104$.}
+\label{tab:S4}
+\setlength{\tabcolsep}{2pt}\footnotesize
+\begin{ruledtabular}
+\begin{tabular}{lccccccc}
+$\rho$ & $d_\rho$ & $m_{\rho,3}$ & $(m_+,m_-)$ & forced & $(c_+,c_-)$ & upper & lower\\
+\colrule
+$({\rm triv}\otimes{\rm triv})^{\iota+}$ & 1 & 162 & (85,77) & 154 & (0,0) & 154 & 154\\
+$({\rm triv}\otimes{\rm triv})^{\iota-}$ & 1 & 55 & (19,36) & 38 & (0,3) & 38 & 38\\
+$({\rm sgn}\otimes{\rm sgn})^{\iota+}$ & 1 & 170 & (99,71) & 142 & (4,0) & 142 & 142\\
+$({\rm sgn}\otimes{\rm sgn})^{\iota-}$ & 1 & 61 & (30,31) & 60 & (1,0) & 58 & 58\\
+${\rm Ind}({\rm triv}\otimes{\rm sgn})$ & 2 & 237 & (132,105) & 210 & (4,1) & 208 & 208\\
+$({\rm std}\otimes{\rm std})^{\iota+}$ & 4 & 545 & (304,241) & 482 & (5,0) & 482 & 482\\
+$({\rm std}\otimes{\rm std})^{\iota-}$ & 4 & 328 & (164,164) & 328 & (1,4) & 320 & 320\\
+${\rm Ind}({\rm triv}\otimes{\rm std})$ & 4 & 411 & (210,201) & 402 & (0,3) & 396 & 396\\
+${\rm Ind}({\rm sgn}\otimes{\rm std})$ & 4 & 423 & (234,189) & 378 & (7,1) & 376 & 376\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Table~\ref{tab:S5} gives the modular ranks of every block $(\rho,k)$ at $L=12$ for three values of $p$: a generic point ($p=1/2$, $d=2$ and $d=3$ give identical tables), the endpoint $p=0$ ($d=2$; identical for the second prime $1048573$), and $p_\times(3)=2/3$ at $d=3$ (identical for the second prime $1048573$).  Blocks with $k$ and $-k$ have equal rank; only $k=0,1,2,3$ are listed.  Modular ranks are lower bounds for the rank over $\mathbb Q$; at $p=1/2$ they meet the upper bound of Table~\ref{tab:S4}.
+
+\begin{table*}[t]
+\caption{Block ranks at $L=12$: multiplicity $m_{\rho,k}$ and rank at $p=1/2$ (generic), $p=0$, and $p=p_\times(3)=2/3$ ($d=3$).  Weighted totals $\sum d_\rho\,\rk$ over all $k$: $46010$, $45822$, $44898$.}
+\label{tab:S5}
+\begin{ruledtabular}
+\begin{tabular}{lccccccccccccccccc}
+ & & \multicolumn{4}{c}{$m_{\rho,k}$} & \multicolumn{4}{c}{rank, $p=\tfrac12$} & \multicolumn{4}{c}{rank, $p=0$} & \multicolumn{4}{c}{rank, $p=\tfrac23$, $d=3$}\\
+block $\rho$ & $d_\rho$ & $k{=}0$ & $1$ & $2$ & $3$ & $0$ & $1$ & $2$ & $3$ & $0$ & $1$ & $2$ & $3$ & $0$ & $1$ & $2$ & $3$\\
+\colrule
+$({\rm triv}\otimes{\rm triv})^{\iota+}$ & 1 & 190 & 160 & 183 & 162 & 190 & 160 & 183 & 154 & 190 & 160 & 183 & 154 & 187 & 158 & 180 & 154\\
+$({\rm triv}\otimes{\rm triv})^{\iota-}$ & 1 & 64 & 55 & 63 & 55 & 64 & 55 & 63 & 38 & 62 & 54 & 61 & 38 & 58 & 51 & 57 & 38\\
+$({\rm sgn}\otimes{\rm sgn})^{\iota+}$ & 1 & 182 & 166 & 177 & 170 & 182 & 166 & 177 & 142 & 178 & 163 & 172 & 142 & 171 & 158 & 165 & 142\\
+$({\rm sgn}\otimes{\rm sgn})^{\iota-}$ & 1 & 58 & 60 & 58 & 61 & 58 & 60 & 58 & 58 & 58 & 60 & 58 & 58 & 58 & 60 & 58 & 58\\
+${\rm Ind}({\rm triv}\otimes{\rm sgn})$ & 2 & 222 & 233 & 218 & 237 & 222 & 233 & 218 & 208 & 222 & 233 & 218 & 208 & 209 & 223 & 205 & 206\\
+$({\rm std}\otimes{\rm std})^{\iota+}$ & 4 & 560 & 545 & 560 & 545 & 560 & 545 & 560 & 482 & 556 & 542 & 555 & 482 & 533 & 525 & 532 & 480\\
+$({\rm std}\otimes{\rm std})^{\iota-}$ & 4 & 322 & 328 & 322 & 328 & 322 & 328 & 322 & 320 & 322 & 328 & 322 & 320 & 322 & 328 & 322 & 320\\
+${\rm Ind}({\rm triv}\otimes{\rm std})$ & 4 & 426 & 411 & 426 & 411 & 426 & 411 & 426 & 396 & 426 & 411 & 426 & 396 & 423 & 409 & 423 & 396\\
+${\rm Ind}({\rm sgn}\otimes{\rm std})$ & 4 & 414 & 423 & 414 & 423 & 414 & 423 & 414 & 376 & 410 & 420 & 409 & 376 & 395 & 409 & 395 & 374\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\section{Endpoint and $p_\times$ ranks}
+\label{sm:endpoints}
+
+\begin{table}[h]
+\caption{Exact ranks of $\mathsf B_p$ at the endpoints and at $p_\times(d)=(d+1)/[3(d-1)]$.  Generic ranks are certified for $d=2,\ldots,7$ at $L\le10$ and $d=2,3$ at $L=12$; $p=0$ ranks are exact over $\mathbb Z$ for $L\le8$ ($d=2,3$) and modular over two primes at $L=10,12$; $p_\times$ ranks are modular over two primes for $d=3,\ldots,7$ ($L\le10$) and for $d=3$ at $L=12$ (primes $1048261$ and $1048573$, different seeds, identical block ranks).  At $p=1$ the rank is $1$ for every $L$ and $d$ (Theorem~5(iii)).}
+\label{tab:S6}
+\small
+\begin{ruledtabular}
+\begin{tabular}{lcccccc}
+$L$ & $6^{L/2}$ & $r_3(L)$ & generic & $p=0$ & $p_\times$ & $|E_L|$, $d=2/3$\\
+\colrule
+4 & 36 & 21 & 21 & 21 & 21 & 0 / 1\\
+6 & 216 & 216 & 216 & 198 & 176 & 1 / 6\\
+8 & 1296 & 1202 & 1202 & 1184 & 1142 & 11 / 55\\
+10 & 7776 & 7776 & 7776 & 7663 & 7276 & ? / ?\\
+12 & 46656 & 46080 & 46010 & 45822 & 44898 & ? / ?\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\section{Files, hashes and reproduction}
+\label{sm:files}
+
+All certificate files are plain JSON or text.  Table~\ref{tab:S7} lists them ($63$ files) with their full SHA-256 hashes; the same list, in \texttt{sha256sum} format, is the ledger \texttt{certificate\_sha256.txt}, so that \texttt{sha256sum -c certificate\_sha256.txt} verifies the deposit.  The later deposit rounds extend the ledger without altering any entry above: \texttt{certificate\_sha256\_v5.txt} (the $n=4$ colour-resolved scans, the first $n=5$ diagnostics, and the Haar sequential-Monte-Carlo results quoted in the main text), \texttt{certificate\_sha256\_v6.txt} (the $n=5$ two-size test, the $n=4$ $L=10$ third crossing, and the no-freezing-theorem verification), \texttt{certificate\_sha256\_v8.txt} (the v21 round: the manuscript and supplement of that round together with the Clifford record-count suite whose runs are tabulated in Sec.~\ref{sm:cliffordruns}; the parallel-line ledger of that suite is \texttt{certificate\_sha256\_v3\_scgf.txt}), and \texttt{certificate\_sha256\_v9.txt} (the v22 round: the exact-closure suite of Sec.~\ref{sm:v22closure} together with the gap\_utils copies that repair the reproduction chain of the v17--v19 scripts), each self-verifying in the same way.  Table~\ref{tab:S8} lists the scripts (Python~3, dependencies \texttt{numpy} and \texttt{python-flint}; \texttt{sympy} for the $d=2$ number-field ranks).  The reproduction sequence is given in Table~\ref{tab:S9}.
+
+\begin{table*}[t]
+\caption{Reproduction commands (Python~3; \texttt{NB}$\,=2,3,4$ is the number of bonds, $L=2\,\texttt{NB}$).}
+\label{tab:S9}
+\footnotesize
+\begin{ruledtabular}
+\begin{tabular}{ll}
+command & purpose\\
+\colrule
+\texttt{python3 n3\_mult\_certificates.py NB} & $d=2$ interval certificates (Table~II of the main text)\\
+\texttt{python3 n3\_mult\_certificates\_d.py NB 3} & $d=3$ interval certificates\\
+\texttt{python3 n3\_exceptional\_exact.py NB} & $d=2$ exact ranks at the exceptional points (Table~\ref{tab:S1})\\
+\texttt{python3 n3\_exceptional\_exact\_d.py NB 3} & $d=3$ exact ranks at the exceptional points (Tables~\ref{tab:S2}, \ref{tab:S3})\\
+\texttt{python3 n3\_simple\_zero\_check.py} & order of vanishing of the certificate factors\\
+\texttt{python3 n3\_p0\_exact\_rank.py} & $p=0$ ranks over $\mathbb Z$, $L\le8$\\
+\texttt{python3 n3\_closed\_form\_proof.py} & closed form of the Burnside deficit, Eq.~(rank3)\\
+\texttt{python3 n3\_sharpness\_L12.py 6} [\texttt{--d D --p P --q Q --seed S}] & modular lower bounds, all blocks (Table~\ref{tab:S5})\\
+\texttt{python3 n3\_L12\_structure\_check.py} & antisymmetry of the $k=m/2$ sector\\
+\texttt{python3 n3\_L12\_kernel.py 6} & constant kernel vectors ($k=3$)\\
+\texttt{python3 n3\_L12\_kernel\_verify.py 6} & exact verification and all-$p$ upper bound\\
+\texttt{python3 n3\_L12\_moving\_kernel.py 6 --block B --side -} [\texttt{--d 3}] & polynomial kernel vectors\\
+\texttt{python3 n3\_L12\_final.py [--d 3]} & two-sided certificate (Table~\ref{tab:S4})\\
+\texttt{python3 n3\_kernel\_recheck.py [--d 3]} & independent re-verification of all kernel vectors\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+The $L=12$ lower-bound runs take about $15$ minutes each on one core with less than $1.5$~GB of memory; all other steps take seconds to a few minutes.
+
+\begin{table*}[t]
+\caption{Certificate files and SHA-256 hashes.}
+\label{tab:S7}
+\small
+\begin{ruledtabular}
+\begin{tabular}{ll}
+file & SHA-256\\
+\colrule
+\texttt{n3\_mult\_cert\_nb2.json} & \texttt{\scriptsize 5600c82b82c7875210b9ab7803d0a5c8f6934d57f6afbc8f016679d6435ea56a}\\
+\texttt{n3\_mult\_cert\_nb3.json} & \texttt{\scriptsize 135635657992709144b16324a470977ed394a02bc5b21c11bc2da130294807de}\\
+\texttt{n3\_mult\_cert\_nb4.json} & \texttt{\scriptsize 2b618ab68941a68d53d6a0b678411f65053308c8eae8373a083aa55d155ad1dd}\\
+\texttt{n3\_mult\_cert\_nb2\_polys.json} & \texttt{\scriptsize 26fcc456ce8341f10d34c8c6abca08d04de9e0241984f7ccd43057d38e4a542a}\\
+\texttt{n3\_mult\_cert\_nb3\_polys.json} & \texttt{\scriptsize 016233445a4e8139c07dce862e1be358f8fa094df277517a942b14381b2eb837}\\
+\texttt{n3\_mult\_cert\_nb4\_polys.json} & \texttt{\scriptsize 9d944ec1dcacfb1a26216cae008fec698573cfa11de95935c084025abece505c}\\
+\texttt{n3\_mult\_cert\_d3\_nb2.json} & \texttt{\scriptsize 20cc93dfe011ab6fc20925a5310bdc3974f1aa5ab6853603c0e00e750cf89b30}\\
+\texttt{n3\_mult\_cert\_d3\_nb3.json} & \texttt{\scriptsize 7fcd62c254fff32a078dca08e268e16c254478918c6aa6c075d540228359bfe9}\\
+\texttt{n3\_mult\_cert\_d3\_nb4.json} & \texttt{\scriptsize f258be716d31e4a1d48472bfcdb364852eaefcb8b0629733e82c4d84e7d0be78}\\
+\texttt{n3\_mult\_cert\_d3\_nb2\_polys.json} & \texttt{\scriptsize 161e1ef5fc91debe27f598a6aee68199dbd35419fdc8fd4217204a5c7505973a}\\
+\texttt{n3\_mult\_cert\_d3\_nb3\_polys.json} & \texttt{\scriptsize 7e23016ad43897e250fc6e089b02a84fc0eb36814d06184a8ed0c9feccf625d0}\\
+\texttt{n3\_mult\_cert\_d3\_nb4\_polys.json} & \texttt{\scriptsize 1295e4debf29ce426eccad936240c71f7272a096c24344ccacbcec6b81fd90c7}\\
+\texttt{n3\_exceptional\_exact\_nb3.json} & \texttt{\scriptsize 55effc4a80ba193af63f449c6599bbf590e3bb0286bd015a79650b635c9996fa}\\
+\texttt{n3\_exceptional\_exact\_nb4.json} & \texttt{\scriptsize 32442fe7d0dd851619d9a8b4c349c5595abb37df7c020b4594419f5657d66f22}\\
+\texttt{n3\_exceptional\_exact\_d3\_nb2.json} & \texttt{\scriptsize 11ce1f740cbe4d5907461c4bb730d4fd5f7e67b1d4a0a496d1c52738d119e9ee}\\
+\texttt{n3\_exceptional\_exact\_d3\_nb3.json} & \texttt{\scriptsize 785850b46a07fbde476eda6f26058fcee7e56c7ac34745a5f9e2488b2fe7390e}\\
+\texttt{n3\_exceptional\_exact\_d3\_nb4.json} & \texttt{\scriptsize e53211284b01a69f0f693296bff02d82fd5b4e42489f39012880100ab3bb8d1b}\\
+\texttt{n3\_L12\_kernel\_verify\_k3.json} & \texttt{\scriptsize 37c2581e753c771b51c84166f0decad50f9262028243d699ff7643a42b695666}\\
+\texttt{n3\_L12\_moving\_kernel\_2\_Ind(triv.sgn)\_minus.json} & \texttt{\scriptsize 451e548b6b90b150419091f5e829d0e10a7ef9cee5f1abd56485c2386c9d98a1}\\
+\texttt{n3\_L12\_moving\_kernel\_4\_Ind(sgn.std)\_minus.json} & \texttt{\scriptsize e685aa5e8e927203094af86049bbb093fac6f3200dd63a30046b824d2664555b}\\
+\texttt{n3\_L12\_moving\_kernel\_4\_Ind(triv.std)\_minus.json} & \texttt{\scriptsize 9dd9a9d3ece96412693eefc9086858a03a2192402df6a442d27dd0a1a7f5321a}\\
+\texttt{n3\_L12\_moving\_kernel\_4\_std.std\_i-\_minus.json} & \texttt{\scriptsize 96c91b35b2fcb2905cfd0083d1217d12eba8900f09d979f1707c181943dbf55f}\\
+\texttt{n3\_L12\_moving\_kernel\_2\_Ind(triv.sgn)\_minus\_d3.json} & \texttt{\scriptsize 51cf134d4969294c65ffdaa941e2b6dc7769ef473060218a7f6ca783d9842280}\\
+\texttt{n3\_L12\_moving\_kernel\_4\_Ind(sgn.std)\_minus\_d3.json} & \texttt{\scriptsize 6eeb8cb6a8cb4f9a5734180e91eb0f720ee80a420a4ea9cdbe91b1f3c79abb7d}\\
+\texttt{n3\_L12\_moving\_kernel\_4\_Ind(triv.std)\_minus\_d3.json} & \texttt{\scriptsize 32bc17daddb1981d9769e718825f6a92e7dae6c6c1963e71ffcac05ad0720e3d}\\
+\texttt{n3\_L12\_moving\_kernel\_4\_std.std\_i-\_minus\_d3.json} & \texttt{\scriptsize afe7d826252cc60b536647ad15fc9cc059494540cdbe59686a374937168527a8}\\
+\texttt{n3\_L12\_kernel\_1\_sgn.sgn\_i+\_k3\_q1048261\_rational.json} & \texttt{\scriptsize 0f49fed2443e23c4f446d46cdf30befa901ba16561561bc826d25d5f127e7e7b}\\
+\texttt{n3\_L12\_kernel\_1\_sgn.sgn\_i-\_k3\_q1048261\_rational.json} & \texttt{\scriptsize 4acd6bc8d9bc19682a595e82403dc175f9912d86cd6cecc5b15334dfecfc981a}\\
+\texttt{n3\_L12\_kernel\_1\_triv.triv\_i-\_k3\_q1048261\_rational.json} & \texttt{\scriptsize 1d2aa2f1901995a12c92e9acf19d0f71a87617f4a73dd7128ea7a09b35fec639}\\
+\texttt{n3\_L12\_kernel\_2\_Ind(triv.sgn)\_k3\_q1048261\_rational.json} & \texttt{\scriptsize 9d02b012b4f1d9b631ec1bb305be7f7fea6c6c568a8ac12b295ba4926e939285}\\
+\texttt{n3\_L12\_kernel\_4\_Ind(sgn.std)\_k3\_q1048261\_rational.json} & \texttt{\scriptsize 5652eebdda79b9a665da7ba07e77385dadf55a88df8f272404a4065da18bc530}\\
+\texttt{n3\_L12\_kernel\_4\_Ind(triv.std)\_k3\_q1048261\_rational.json} & \texttt{\scriptsize 82e14c6e6396eee75589fd265d422143f39cfccc3597d463bcb0026d0f8ac1fa}\\
+\texttt{n3\_L12\_kernel\_4\_std.std\_i+\_k3\_q1048261\_rational.json} & \texttt{\scriptsize 33be5db62064dbdc2088fff795f25b07ef3151060ea55e3d4f23a4f5fcb6b2e3}\\
+\texttt{n3\_L12\_kernel\_4\_std.std\_i-\_k3\_q1048261\_rational.json} & \texttt{\scriptsize b5edc70bc1eb3f3d47c6b110b797d7ef84435f487c272fb9044e0ff4db9d4a45}\\
+\texttt{n3\_L12\_final.json} & \texttt{\scriptsize 0aa3f5a6e678b8bc80b0cba4d0a84a170a54cbd810c9d7e666a42068c795fd75}\\
+\texttt{n3\_L12\_final\_d3.json} & \texttt{\scriptsize 09dcd3fc785da31010975c85b7dcec2bafe6f6d8cf62230882dd0ad06dae4aff}\\
+\texttt{n3\_sharpness\_L10.log} & \texttt{\scriptsize b0969da19857824e0637ee1e1a634e45039d793019161eee1333f71397d0d81f}\\
+\texttt{n3\_sharpness\_L12.log} & \texttt{\scriptsize f3c2f28467d4acf15ca952587bfbfb90ebf527b4d5e39e8299002fabd7ac0930}\\
+\texttt{n3\_sharpness\_L12\_k3\_central.log} & \texttt{\scriptsize 70664316b052b71c69e6ef4acb620e8f6309c65baea54e1232d68276ace414e8}\\
+\texttt{n3\_sharpness\_L12\_k3\_d3.log} & \texttt{\scriptsize 165d9079fb4a065396d0a49d9666143be90ea36542c3230c0b95f15888868793}\\
+\texttt{n3\_sharpness\_L12\_k3\_p1-2.log} & \texttt{\scriptsize c28642ef7b473425a9bdaee11f53440890a083c15e85a10e9ed8d91d17ed3f11}\\
+\texttt{n3\_sharpness\_L12\_k3\_p1-3.log} & \texttt{\scriptsize 568ca64a32e15eb8007b2971fb4740eab400c2ec8d73776d25fb053a7bc1d8bf}\\
+\texttt{n3\_sharpness\_L12\_k3\_p3-5.log} & \texttt{\scriptsize 129d75f4cf9e8e9a9a49ff57ee704d9850f0fec87842a087bc1693bcbb6d1b85}\\
+\texttt{n3\_sharpness\_L12\_d3\_full.log} & \texttt{\scriptsize 36060cf646724100fd3bf8af19b28c7ba8a8dcb32057ec3bbc4d7332aafa3cf6}\\
+\texttt{n3\_sharpness\_L12\_p0.log} & \texttt{\scriptsize 53dfefbc3ccbffa3dd0707b942640464528b497140e1bea339bcfd2c0dea1889}\\
+\texttt{n3\_sharpness\_L12\_p0\_q1048573.log} & \texttt{\scriptsize 1c7b9af12a9e6a3f9c4cfeb9070f73830c8dde1425dfff2e0377580f94e6bf6e}\\
+\texttt{n3\_sharpness\_L12\_d3\_px.log} & \texttt{\scriptsize 17fab566985c51be05fe068853813704e9e25fbb758ed95180cb96ddd92e6aa0}\\
+\texttt{n3\_sharpness\_L12\_d3\_px\_q1048573.log} & \texttt{\scriptsize 34532374c00dfa678be17c2ffe0c8cf9ae88ffd06b3585cbf307822e0efa865e}\\
+\texttt{n3\_sharpness\_L10\_d3.log} & \texttt{\scriptsize a1663286d77125fa8cf673084dce411df512aa9b3dd38e7fe9d4d976dbfe771d}\\
+\texttt{n3\_sharpness\_L10\_d4.log} & \texttt{\scriptsize af8c189121d9d15692f0add848aea65d63d96d27b52920e4ccca1c8902c9e2b7}\\
+\texttt{n3\_sharpness\_L10\_d5.log} & \texttt{\scriptsize a5999f67c25a9165dd946a9e5949fa185d17924e79100918e63a8530f7664234}\\
+\texttt{n3\_sharpness\_L10\_d6.log} & \texttt{\scriptsize 10292421bfc5316cd1fd28ca5f22d125f2fcc340773f5f7001bf03fd8e75a68b}\\
+\texttt{n3\_sharpness\_L10\_d5\_p1-3.log} & \texttt{\scriptsize cf435e2612e156df6600114189675f1853528bcbf4edf2b2281f95644f8b143e}\\
+\texttt{n3\_sharpness\_L4-10\_d7\_p1-3.log} & \texttt{\scriptsize 8b76837e6edfe453030ec5633a841661efed12a696f1d6fc36529873049096d6}\\
+\texttt{n3\_sharpness\_L4-8\_d456\_p1-3.log} & \texttt{\scriptsize 9f344ea8e8d7df8501d722fb23ecf0f3d02a2b637d17bbc2990d7850e084d18a}\\
+\texttt{n3\_px\_family\_d3-7\_L4-10.log} & \texttt{\scriptsize 8aefdfec8cf4f3cab6cd02ce26033a5c2a91de2951e89bd4a1b110002b04644b}\\
+\texttt{n3\_px\_family\_d3-7\_L6-10\_secondprime.log} & \texttt{\scriptsize 5e24cc37c78ee0c22af8334c8097fdb6f88c393131975ab333bff4ee03ac95ee}\\
+\texttt{n3\_p0\_exact\_rank.log} & \texttt{\scriptsize ff7a263927636714ccb4f586fc18e633e21fa82e657bf4935410908b4a430588}\\
+\texttt{n3\_simple\_zero\_check.log} & \texttt{\scriptsize c5e4342adea4a8603ef4c08d3953b728761d33451dbc9475825f48d6bf53eae1}\\
+\texttt{n3\_kernel\_recheck.log} & \texttt{\scriptsize 4bb73adc85f193dbc51e45b2d7f7ae47889ec06b3efb7e8781f0a276ae6d0764}\\
+\texttt{n3\_kernel\_recheck\_d3.log} & \texttt{\scriptsize b5d60e9742be58267106d8619c08083765e4cb60e311090935f98a12212c0a17}\\
+\texttt{n3\_L12\_structure\_check.log} & \texttt{\scriptsize 0d2be45729abb70f47070e96af1dced94361f3fcaaa2933ae7a311b765c077af}\\
+\texttt{n3\_closed\_form\_proof.log} & \texttt{\scriptsize 12c4443714448499f34b632946107e0ee593617c1379a97cc9895b8e83f20714}\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\begin{table*}[t]
+\caption{Scripts and SHA-256 hashes.}
+\label{tab:S8}
+\begin{ruledtabular}
+\begin{tabular}{ll}
+script & SHA-256\\
+\colrule
+\texttt{gap\_utils.py} & \texttt{\scriptsize 784e2aa0e2275c8fa9123073a1ac267b6ca71279231801a484b7cbf410e1a3d1}\\
+\texttt{n3\_mult\_certificates.py} & \texttt{\scriptsize ed2abc22e9dbcc091372e1845b8a9ca2fcc0cd271ec4f9c01040a37f77b9b561}\\
+\texttt{n3\_mult\_certificates\_d.py} & \texttt{\scriptsize 81e8b91b0de3df0140edbcb21848ccd7d42923c0b76331cc182b7e5b7f51825c}\\
+\texttt{n3\_exceptional\_exact.py} & \texttt{\scriptsize 7b82757b018b9ac74ea963f66091eda3034c363aef842a0e74a1fd1fceb5cadd}\\
+\texttt{n3\_exceptional\_exact\_d.py} & \texttt{\scriptsize 1753756feddbce19e4f630e933d0fcbe169e3a2c46776be41ac73a0a5677a791}\\
+\texttt{n3\_simple\_zero\_check.py} & \texttt{\scriptsize 30fc0dfa4795e5e637b252516f48b95c0f5f9e7dbcdbb4e703ffab2fd9d9cb35}\\
+\texttt{n3\_p0\_exact\_rank.py} & \texttt{\scriptsize adedb74bf3b3956cd4d2b77392950475a2c80da7bb449f776b3bf69c0e8ba582}\\
+\texttt{n3\_closed\_form\_proof.py} & \texttt{\scriptsize da8cc292493b9d7bc030b13a31a81b8289fd5e940beca19900b05e4abb3eb5d2}\\
+\texttt{n3\_formula\_exact.py} & \texttt{\scriptsize 2accd8a1e5360fcba4982138b4973ed2f4848cb1cb7b270f91d85dacc144dfe3}\\
+\texttt{n3\_sharpness\_L12.py} & \texttt{\scriptsize 3dffec312836e13489c48889d3209a862c207314f2fbc3ff6f63cebd8cf350d3}\\
+\texttt{n3\_L12\_structure\_check.py} & \texttt{\scriptsize bd5064ad249d9589f5200ec9e4c5203392176391f46014f3aec46a15d8e7d312}\\
+\texttt{n3\_L12\_kernel.py} & \texttt{\scriptsize dd962b398a3888f1c6b1c26368c91a9af59c63a5d9ebc3a302f4f0e53ae581e5}\\
+\texttt{n3\_L12\_kernel\_verify.py} & \texttt{\scriptsize 548dd40a29b15c7d0fd8188f1e750aeb82fb210006054bcfed40f6fa949cad0f}\\
+\texttt{n3\_L12\_moving\_kernel.py} & \texttt{\scriptsize 07b13b7a3eac81d647290a15c86fd122bcacdc2db7ba40bea868f193550800be}\\
+\texttt{n3\_L12\_final.py} & \texttt{\scriptsize 613584dd468066855a842c6ddcf42535bb8d428bfd9de18659422d0f742e9087}\\
+\texttt{n3\_kernel\_recheck.py} & \texttt{\scriptsize 30062ba34504253b2d770d5bfbd795d38371ad1aeab1bafc92fd8a467c142079}\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\section{Proof of the freezing theorem (Theorem 8 of the main text)}
+\label{sm:remproof}
+
+The main text states the theorem in Sec.~IV and defers the proof here.
+The statement is reproduced with equations renumbered.  Let $a=\log 2$
+and $s_c=\sqrt{2a}=1.17741$.  On one probability space let
+$\{E_{T,\omega}(Y):T\ge1,\ Y\in\{0,1\}^T\}$ be independent Gaussian
+variables with $E_{T,\omega}(Y)\sim\mathcal N(0,T)$, and for real $s$
+put
+\begin{equation}
+ \mathcal Z_{s,T,\omega}=\sum_{Y\in\{0,1\}^T}e^{-sE_{T,\omega}(Y)},\qquad
+ P_{T,\omega}(Y)=\frac{e^{-E_{T,\omega}(Y)}}{\mathcal Z_{1,T,\omega}}.
+ \label{eqS:remP}
+\end{equation}
+\begin{enumerate}
+\item[(i)] (Born realizability.)  For every $T$ and $\omega$,
+$P_{T,\omega}$ is the record law of the sequential computational-basis
+measurement of the $T$ qubits of the pure state
+$|\Psi_{T,\omega}\rangle=\sum_Y\sqrt{P_{T,\omega}(Y)}\,|Y\rangle$, and
+the predictors of Definition~1 of the main text are
+$r_{T,\omega,t}(y_t\mid y_{<t})=P_{T,\omega}(y_{\le t})/P_{T,\omega}(y_{<t})$,
+so that $\mathcal A_T=-\log P_{T,\omega}(Y)$ and
+$\phi_{T,\omega}(k)=T^{-1}\log\sum_YP_{T,\omega}(Y)^{1-k}$ are exactly
+the sample log-MGFs of that definition.
+\item[(ii)] (Extremes.)  As $T\to\infty$, almost surely,
+$\max_Y(-E_{T,\omega}(Y))/T\to s_c$ and
+$\min_Y(-E_{T,\omega}(Y))/T\to-s_c$.
+\item[(iii)] (Quenched free energy.)  Almost surely, simultaneously for
+all real $s$,
+\begin{equation}
+ \lim_{T\to\infty}\frac1T\log\mathcal Z_{s,T,\omega}=\varphi(s)=
+ \begin{cases}a+s^2/2,&|s|\le s_c,\\ |s|\,s_c,&|s|\ge s_c,\end{cases}
+ \label{eqS:remphi}
+\end{equation}
+and the convergence is locally uniform in $s$; $\varphi$ is convex and
+$C^1$ on $\mathbb R$, $\varphi''$ jumps from $1$ to $0$ at $\pm s_c$,
+and $\varphi(1)=a+\tfrac12$ because $1<s_c$.
+\item[(iv)] (Record exponents.)  Almost surely, for every real $k$ and
+every $q\ge0$,
+\begin{align}
+ \psi(k)&=\lim_{T\to\infty}\phi_{T,\omega}(k)=\varphi(1-k)-(1-k)\varphi(1),\label{eqS:rempsi}\\
+ \tau(q)&=-\psi(1-q)=q\varphi(1)-\varphi(q)\nonumber\\
+ &=\begin{cases}q\bigl(a+\tfrac12\bigr)-a-\tfrac{q^2}2,&0\le q\le q_c,\\[2pt]
+ q\bigl(a+\tfrac12-s_c\bigr),&q\ge q_c,\end{cases}
+ \label{eqS:remtau}
+\end{align}
+with $q_c=s_c$.  Thus $\tau$ is $C^1$ on $[0,\infty)$ with a linear
+branch of slope $a+\tfrac12-s_c=0.01574$ for $q\ge q_c$, $\tau''$ jumps
+from $-1$ to $0$ at $q_c$, and $\psi$ is convex, finite and $C^1$ on
+$\mathbb R$ but not analytic at $k_c=1-s_c=-0.17741$ (and, on the
+unphysical side $q<0$, at $1+s_c=2.17741$).  Explicitly
+$\psi(k)=\tfrac12k^2+(a-\tfrac12)k$ for $k_c\le k\le1+s_c$ and $\psi$ is
+affine outside this interval.
+\item[(v)] (Large deviations.)  $\psi$ is essentially smooth, so the
+main-text Theorem~7 applies to the sequence $(P_{T,\omega})_T$: the
+surprisal rate $h=\mathcal A_T/T$ satisfies the full LDP with the good
+rate function $I(h)=\tfrac12(h-h^*)^2$ for $h\in[h_{\min},h_{\max}]$ and
+$I(h)=+\infty$ otherwise, where $h^*=\psi'(0)=a-\tfrac12=0.19315$ is the
+typical surprisal rate, $h_{\min}=\psi'(k_c)=a+\tfrac12-s_c=0.01574$ and
+$h_{\max}=\psi'(1+s_c)=a+\tfrac12+s_c=2.37056$.  The singularity
+spectrum is $f(\alpha)=\alpha-I(\alpha)$ on $[h_{\min},h_{\max}]$, with
+$f(h_{\min})=0$: the most probable records,
+$P_{T,\omega}(Y)=e^{-Th_{\min}+o(T)}$, are subexponentially many, and
+the tilted ensembles $P_{q,\omega}$ with $q>q_c$ all concentrate on
+them.
+\end{enumerate}
+
+\begin{proof}
+(i) The state is normalized because $\sum_YP_{T,\omega}(Y)=1$.  Measuring
+qubit $1$ in the computational basis gives $y_1$ with probability
+$\sum_{y_{>1}}P_{T,\omega}(y_1y_{>1})=P_{T,\omega}(y_1)$ and leaves the
+normalized state
+$\sum_{y_{>1}}\sqrt{P_{T,\omega}(y_1y_{>1})/P_{T,\omega}(y_1)}
+\,|y_1y_{>1}\rangle$; inductively the Born predictor at step $t$ is
+$P_{T,\omega}(y_{\le t})/P_{T,\omega}(y_{<t})$ and the product of the
+predictors telescopes to $P_{T,\omega}(Y)$.  The process is a monitored
+quantum process in the sense of Sec.~IV of the main text with the
+post-measurement state as $X_{t-1}$ and no unitary steps; it is nonlocal
+in the record index and its Hilbert space has dimension $2^T$.
+
+(ii) Write $g_Y=-E_{T,\omega}(Y)/\sqrt T$, i.i.d.\ standard Gaussians,
+$M_T=\max_Yg_Y$, and $\bar\Phi(x)=\Pr(g>x)$.  Upper bound: for
+$\varepsilon>0$, by the union bound and $\bar\Phi(x)\le e^{-x^2/2}$,
+\begin{equation*}
+ \Pr\bigl(M_T>\sqrt T(s_c+\varepsilon)\bigr)
+ \le2^Te^{-T(s_c+\varepsilon)^2/2}
+ =e^{-T(\varepsilon s_c+\varepsilon^2/2)},
+\end{equation*}
+using $2^T=e^{Ts_c^2/2}$; the right side is summable in $T$.  Lower
+bound: by independence and $1-x\le e^{-x}$,
+\begin{align*}
+ \Pr\bigl(M_T<\sqrt T(s_c-\varepsilon)\bigr)
+ &=\bigl(1-\bar\Phi(\sqrt T(s_c-\varepsilon))\bigr)^{2^T}\\
+ &\le\exp\bigl(-2^T\bar\Phi(\sqrt T(s_c-\varepsilon))\bigr),
+\end{align*}
+and the Gaussian tail bound
+$\bar\Phi(x)\ge\frac{x}{1+x^2}\frac{e^{-x^2/2}}{\sqrt{2\pi}}$ gives
+$2^T\bar\Phi(\sqrt T(s_c-\varepsilon))
+\ge cT^{-1/2}e^{T(\varepsilon s_c-\varepsilon^2/2)}$ for a constant
+$c>0$, which grows exponentially for $0<\varepsilon<2s_c$, so the
+probability is summable.  By the Borel--Cantelli lemma
+$M_T/\sqrt T\to s_c$ almost surely, i.e.\
+$T^{-1}\max_Y(-E_{T,\omega}(Y))\to s_c$; the minimum follows from the
+symmetry $E\mapsto-E$.
+
+(iii) Fix $s>0$ (the case $s<0$ follows from $E\mapsto-E$, and $s=0$ is
+$\mathcal Z_0=2^T$).  \emph{Frozen upper bound.}
+$\mathcal Z_{s,T,\omega}\le2^Te^{s\max_Y(-E)}$, so by (ii), almost
+surely $\limsup_TT^{-1}\log\mathcal Z_{s,T,\omega}\le a+ss_c$.
+\emph{Annealed upper bound.}  $\E\mathcal Z_{s,T,\omega}=2^Te^{s^2T/2}$,
+so by Jensen's inequality $\E\log\mathcal Z_{s,T,\omega}\le T(a+s^2/2)$.
+To pass from the mean to the sample, note that
+$F(E)=\log\sum_Ye^{-sE(Y)}$ has gradient $-s\pi_s$ with $\pi_s$ a
+probability vector, so $F$ is $|s|$-Lipschitz for the Euclidean norm of
+$E\in\mathbb R^{2^T}$, and $E=\sqrt T\,G$ with $G$ a standard Gaussian
+vector; the Gaussian concentration inequality of Tsirelson, Ibragimov
+and Sudakov (Ref.~\cite{BLM2013}, Theorem~5.6, applied to the
+$|s|\sqrt T$-Lipschitz function $G\mapsto F(\sqrt TG)$) gives
+\begin{equation}
+ \Pr\bigl(|\log\mathcal Z_{s,T,\omega}-\E\log\mathcal Z_{s,T,\omega}|
+ >\varepsilon T\bigr)\le2e^{-\varepsilon^2T/(2s^2)},
+ \label{eqS:remconc}
+\end{equation}
+which is summable; hence almost surely
+$\limsup_TT^{-1}\log\mathcal Z_{s,T,\omega}\le a+s^2/2$.  Together,
+$\limsup\le\min(a+s^2/2,\,a+ss_c)$; this is $\varphi(s)$ for $s\le s_c$
+but exceeds $\varphi(s)=ss_c$ for $s>s_c$, and the sharp value comes
+from the lower bound.  \emph{Lower bound by truncation.}  Fix
+$0<e<s_c$ and $\delta>0$ with $e+\delta<s_c$, and let $N_T$ be the
+number of records with $-E_{T,\omega}(Y)\in[Te,T(e+\delta)]$, a binomial
+variable with $2^T$ trials and success probability
+$\pi_T=\bar\Phi(\sqrt Te)-\bar\Phi(\sqrt T(e+\delta))
+\ge c'T^{-1/2}e^{-T(e+\delta)^2/2}$ for large $T$ and some $c'>0$.  Then
+$\E N_T=2^T\pi_T\ge c'T^{-1/2}e^{T(a-(e+\delta)^2/2)}$ grows
+exponentially, and Chebyshev's inequality gives
+$\Pr(N_T<\tfrac12\E N_T)\le4\operatorname{Var}N_T/(\E N_T)^2\le4/\E N_T$,
+which is summable.  Almost surely, therefore, for all large $T$,
+$\mathcal Z_{s,T,\omega}\ge N_Te^{sTe}\ge\tfrac12\E N_T\,e^{sTe}$, i.e.\
+$\liminf_TT^{-1}\log\mathcal Z_{s,T,\omega}\ge
+a-(e+\delta)^2/2+se$.  Letting $\delta\downarrow0$ along a sequence and
+taking the supremum over rational $e\in(0,s_c)$ (countably many events,
+each of full probability),
+\begin{align*}
+ \liminf_T\frac1T\log\mathcal Z_{s,T,\omega}
+ &\ge\sup_{0\le e\le s_c}\Bigl(a-\frac{e^2}2+se\Bigr)\\
+ &=\begin{cases}a+s^2/2,&s\le s_c,\\
+ a-s_c^2/2+ss_c=ss_c,&s\ge s_c,\end{cases}
+\end{align*}
+because the concave function $e\mapsto a-e^2/2+se$ is maximized at $e=s$
+when $s\le s_c$ and at the endpoint $e=s_c$ otherwise, and $a=s_c^2/2$.
+Upper and lower bounds agree, which proves Eq.~\eqref{eqS:remphi} for
+each fixed $s$ on an event of probability one.  \emph{Uniformity.}  Each
+$s\mapsto T^{-1}\log\mathcal Z_{s,T,\omega}$ is convex (a log-sum-exp),
+so convergence on the countable dense set $\mathbb Q$ to the finite
+convex function $\varphi$ implies convergence for every real $s$, locally
+uniformly (Ref.~\cite{Rockafellar1970}, Theorem~10.8); the intersection
+of countably many full-probability events has probability one.  The
+stated regularity of $\varphi$ is read off from Eq.~\eqref{eqS:remphi}:
+the two branches and their first derivatives ($s$ and
+$s_c\operatorname{sgn}s$) agree at $|s|=s_c$, the second derivatives do
+not.
+
+(iv) By Eq.~\eqref{eqS:remP},
+$\sum_YP_{T,\omega}(Y)^{1-k}
+=\mathcal Z_{1-k,T,\omega}/\mathcal Z_{1,T,\omega}^{\,1-k}$, so
+$\phi_{T,\omega}(k)=T^{-1}\log\mathcal Z_{1-k,T,\omega}
+-(1-k)T^{-1}\log\mathcal Z_{1,T,\omega}$, and (iii) gives
+Eq.~\eqref{eqS:rempsi} on the same full-probability event,
+simultaneously for all $k$; Eq.~\eqref{eqS:remtau} is the identity
+$\tau(q)=-\psi(1-q)$ of Theorem~7 of the main text with $\varphi(1)
+=a+\tfrac12$ and Eq.~\eqref{eqS:remphi} at $s=q\ge0$.  The regularity
+statements follow from those of $\varphi$; in particular
+$\tau'(q)=a+\tfrac12-q$ on $[0,q_c]$ and $\tau'(q)=a+\tfrac12-s_c$ on
+$[q_c,\infty)$, continuous at $q_c$, and $\tau''=-1$, respectively $0$.
+The quadratic form of $\psi$ on $[k_c,1+s_c]$ is
+$\varphi(1-k)-(1-k)\varphi(1)=a+\tfrac12(1-k)^2-(1-k)(a+\tfrac12)
+=\tfrac12k^2+(a-\tfrac12)k$.
+
+(v) $\psi$ is finite, convex and differentiable on all of $\mathbb R$,
+hence essentially smooth (Ref.~\cite{DemboZeitouni1998},
+Definition~2.3.5), and $0$ is interior to its domain, so all hypotheses
+of Theorem~7 of the main text hold for the sequence $(P_{T,\omega})_T$,
+whose finite-horizon log-MGFs are $\phi_{T,\omega}$ by (i).  The
+Legendre transform of the quadratic branch $\tfrac12k^2+(a-\tfrac12)k$
+is $\tfrac12(h-h^*)^2$ with $h^*=a-\tfrac12$, attained at $k=h-h^*$,
+which lies in $[k_c,1+s_c]$ exactly when $h\in[h_{\min},h_{\max}]$ with
+$h_{\min}=k_c+h^*=a+\tfrac12-s_c$ and $h_{\max}=1+s_c+h^*=a+\tfrac12+s_c$.
+On the affine branches $\psi(k)=h_{\min}k+(\psi(k_c)-h_{\min}k_c)$ for
+$k<k_c$ and $\psi(k)=h_{\max}k+(\psi(1+s_c)-h_{\max}(1+s_c))$ for
+$k>1+s_c$ (the slopes are $\psi'(k_c)$ and $\psi'(1+s_c)$ by continuity
+of $\psi'$), so $\sup_k[kh-\psi(k)]=+\infty$ for $h<h_{\min}$ and for
+$h>h_{\max}$.  This gives $I$ as stated and, by
+$f(\alpha)=\alpha-I(\alpha)$ (Theorem~7 of the main text),
+$f(\alpha)=\alpha-I(\alpha)$;
+$f(h_{\min})=h_{\min}-\tfrac12(h_{\min}-h^*)^2=h_{\min}-\tfrac12k_c^2$,
+and indeed $h_{\min}-\tfrac12k_c^2=(a+\tfrac12-s_c)-\tfrac12(1-s_c)^2
+=a-\tfrac12s_c^2=0$.  The concentration statement is the meaning of
+$f(h_{\min})=0$ together with Eq.~\eqref{eqS:remtau}: for $q>q_c$,
+$\tau(q)=qh_{\min}$, so $Z_{q,\omega}(T)=e^{-Tqh_{\min}+o(T)}$ is
+carried by the records of minimal surprisal rate.
+\end{proof}
+
+\section{Proof of the finite-population normalization property
+(Proposition of the main text)}
+\label{sm:smcproof}
+
+The main text defines the bootstrap estimator for the record SCGF and
+states its finite-population normalization property, deferring the proof
+here.  For a fixed time-homogeneous environment with outcome kernel
+$K_\omega(x,dy)$, update $F_\omega(x,y)$ and additive increment
+$g_\omega(x,y)$ (in the record application, $g=-\log r$), the
+Feynman--Kac operator of the main text is
+\begin{equation}
+ (\mathcal Q_{k,\omega}f)(x)=\int K_\omega(x,dy)\,
+ e^{kg_\omega(x,y)}f(F_\omega(x,y)).
+ \label{eqS:FK}
+\end{equation}
+The estimator: initialize $N$ normalized conditional states; at event
+$t$, independently for each particle $i$, sample $Y_t^i$ from its Born
+predictor, update and normalize the state, and set
+$\ell_t^i=-k\log r_t^i$ (for a compound block, $r_t^i$ is the product of
+its sequential conditional Born probabilities and $-\log r_t^i$ their
+sum).  With resampling at every declared event, compute
+\begin{align}
+ m_t&=\max_i\ell_t^i,\qquad
+ \log c_t=m_t+\log\Bigl(\frac1N\sum_i e^{\ell_t^i-m_t}\Bigr),\qquad
+ \bar w_t^i=\frac{e^{\ell_t^i-m_t}}{\sum_j e^{\ell_t^j-m_t}},\nonumber
+\end{align}
+then resample with a conditionally unbiased scheme and reset weights.
+The estimates are
+\begin{equation}
+ \widehat Z_T(k)=\prod_{t=1}^Tc_t,\qquad
+ \widehat\psi_{L,\omega}(k)=\frac1T\sum_{t=1}^T\log c_t.
+ \label{eqS:SMC}
+\end{equation}
+Under conditionally unbiased resampling, $\widehat Z_T(k)$ in
+Eq.~\eqref{eqS:SMC} is unbiased for $Z_T(k)=\E_{P_\omega}e^{k\mathcal A_T}$
+at every finite $N,T$~\cite{DelMoral2004}; in general
+$\log\widehat Z_T$ is biased; and if outcomes are drawn from an auxiliary
+proposal $Q_t$ rather than the Born kernel $K_t$, the incremental weight
+must be
+\begin{equation}
+ w_t=e^{kg(x,y)}\,\frac{K_t(x,dy)}{Q_t(x,dy)}.
+ \label{eqS:RN}
+\end{equation}
+
+\begin{proof}
+Let $\gamma_t(f)=\E_{P_\omega}[f(X_t)e^{k\mathcal A_t}]$ be the
+unnormalized Feynman--Kac measure, so that $Z_t(k)=\gamma_t(1)$ and
+$\gamma_t(f)=\gamma_{t-1}(\mathcal Q_{k,\omega}f)$ with the operator of
+Eq.~\eqref{eqS:FK} (the increment $g=-\log r$ gives $e^{kg}=e^{\ell}$).
+Let $\eta_t^N=N^{-1}\sum_i\delta_{x_t^i}$ be the equally weighted
+particle measure after resampling at event $t$,
+$\widehat\eta_t^N=\sum_i\bar w_t^i\delta_{x_t^i}$ the weighted one before
+resampling, and $\mathcal F_{t-1}$ the history up to the resampling at
+event $t-1$.  Because particle $i$ draws $Y_t^i$ from its own Born
+predictor independently of the others,
+$\E[e^{\ell_t^i}f(x_t^i)\mid\mathcal F_{t-1}]
+=(\mathcal Q_{k,\omega}f)(x_{t-1}^i)$; averaging over $i$ and using
+$c_t\widehat\eta_t^N(f)=N^{-1}\sum_ie^{\ell_t^i}f(x_t^i)$ gives
+$\E[c_t\widehat\eta_t^N(f)\mid\mathcal F_{t-1}]
+=\eta_{t-1}^N(\mathcal Q_{k,\omega}f)$.  Conditionally unbiased
+resampling means
+$\E[\eta_t^N(f)\mid\widehat\eta_t^N]=\widehat\eta_t^N(f)$.  Multiplying
+by the $\mathcal F_{t-1}$-measurable
+$\widehat Z_{t-1}=\prod_{s<t}c_s$ and combining the two conditional
+expectations,
+\begin{equation*}
+ \E\bigl[\widehat Z_t\,\eta_t^N(f)\bigr]
+ =\E\bigl[\widehat Z_{t-1}\,\eta_{t-1}^N(\mathcal Q_{k,\omega}f)\bigr].
+\end{equation*}
+By induction from $\widehat Z_0=1$ and
+$\eta_0^N=\delta_{x_0}=\gamma_0$ this gives
+$\E[\widehat Z_t\eta_t^N(f)]=\gamma_0(\mathcal Q_{k,\omega}^tf)=\gamma_t(f)$
+for every bounded $f$, and $f=1$ yields $\E\widehat Z_T=Z_T$
+(Ref.~\cite{DelMoral2004}, Theorem~7.4.2).  Jensen's inequality gives
+$\E\log\widehat Z_T\le\log Z_T$, with equality only if $\widehat Z_T$ is
+almost surely constant, so the logarithm is biased in general.
+Equation~\eqref{eqS:RN} is the Radon--Nikodym change-of-measure identity:
+with outcomes drawn from $Q_t$, the conditional expectation of
+$w_tf(x')$ is
+$\int Q_t(x,dy)\,e^{kg(x,y)}\frac{K_t(x,dy)}{Q_t(x,dy)}f(F(x,y))
+=(\mathcal Q_{k,\omega}f)(x)$, and without the ratio the proposal
+expectation is not the target Feynman--Kac integral.
+\end{proof}
+
+\section{The Clifford record-count runs}
+\label{sm:cliffordruns}
+
+This section documents the runs behind the main-text
+Sec.~IV.F (the disorder SCGF of the Clifford record count): the exact
+evolution and its calibration, the trajectory simulator and its
+validation, the production ladder, the estimator definitions, and the
+reproduction commands.
+
+\subsection{The exact $3^L$ algebra evolution and the deposit calibration}
+
+The annealed quantities are computed exactly by evolving the two-replica
+state on the per-site algebra $\{e_0,e_+,e_-\}^{\otimes L}$ (the $3^L$
+product basis): the gate-bond twirl is the exact factorised projection
+$\alpha I+\beta S$ with $\alpha=(4t_it_j-s_is_j)/60$,
+$\beta=(4s_is_j-t_it_j)/60$ ($d=2$; per-site $(t,s)$: $e_0\colon(2,2)$,
+$e_+\colon(1,1)$, $e_-\colon(1,-1)$), the measurement layer is diagonal
+($e_0\mapsto e_0$, $e_\pm\mapsto(1-p)e_\pm$: the measure/no-measure
+choice is a single event shared by both replicas---the naive $(1-p)^2$
+damping was caught and corrected by the deposit calibration below), and
+the initial state $|0\cdots0\rangle\langle0\cdots0|^{\otimes2}$ maps,
+after the (inert) first measurement layer and the first gate layer, to
+$\otimes_{\text{even bonds}}[(e_0+e_+)^{\otimes2}+e_-^{\otimes2}]/10$
+(trace $1$ exactly).  The observables are linear functionals:
+$Z_2=\sum_a c_a\prod_k t_{a_k}$ and
+$P_{2,A}=\sum_a c_a\prod_k t_{a_k}\prod_{k\in A}\varepsilon_{a_k}$ with
+$\varepsilon=(1,1,-1)$, the last being the exact algebraic form of the
+replica swap $S_A$.
+
+\begin{table}[t]
+\caption{Calibration of the exact evolution and of the trajectory
+simulator against the deposited tilt chain (script
+\texttt{mipt\_scgf\_exact.py}, run logs
+\texttt{mipt\_scgf\_exact.log}, \texttt{mipt\_born\_scgf.log}).  The
+deposited exact values are reproduced to their rounding at both sizes.}
+\label{tabS:calib}
+\begin{ruledtabular}
+\begin{tabular}{lllll}
+quantity & $L=8$, $t=4$ & deposit & $L=12$, $t=6$ & deposit\\
+\colrule
+$Z_2$ (exact evolution) & $1.479639\times10^{-2}$ & $1.4796\times10^{-2}$
+ & $3.81731\times10^{-5}$ & ---\\
+$\tilde S_2$ (exact) & $2.1547$ & $2.155$ & $3.1281$ & $3.128$\\
+$\E[2^{-N_{\rm rand}}]$ ($4\times10^4$ traj.) & $1.4689\times10^{-2}$
+ & $1.4942\times10^{-2}$ & $3.8399\times10^{-5}$ & ---\\
+$\E S_{L/2}$ (traj.) & $2.015(4)$ & $2.019(4)$ & $2.632(5)$ & $2.394(5)$\\
+ESS (tilt) & $6339$ & $5935$ & $478$ & $454$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+The calibration (Table~\ref{tabS:calib}) fixes the deposited chain's
+time convention: the deposited chain runs at $t=L/2$ periods ($t=4$ at
+$L=8$, $t=6$ at $L=12$); the deposited log's own ``$t=4L$'' reading of
+this chain is a mis-transcription (at $t=4L=32$ one instead gets
+$Z_2=4.57\times10^{-18}$, twenty-nine orders away).  The deposited
+$L=12$ quenched entropy $2.394(5)$ is not reproduced at either
+convention (our chains: $2.497(7)$ at $t=4$, $2.632(5)$ at $t=6$) while
+both deposited annealed values are matched at $t=6$; it is quoted in the
+main-text Appendix~B as deposited and flagged here as a provenance
+exception on which nothing in the main text depends.  The trajectory
+ensemble is an independent implementation (vectorised phase-free
+stabilizer tableau, uint64 $x/z$ words, the $720$ two-qubit Clifford
+actions as lookup tables, M--A--M--B period order, new PCG64 seed
+contract $\mathit{seed0}=20260529+\text{cell}$) and reproduces both the
+exact $Z_2$ (relative deviation $0.73\%$ and $0.59\%$ at $L=8,12$) and
+the deposited quenched chain at $L=8$.
+
+\subsection{Exact anchors and the production ladder}
+
+\begin{table}[t]
+\caption{Exact $\beta=1$ anchors of $\Lambda_L$
+(\texttt{scgf\_exact.json}, \texttt{scgf\_exact\_addendum.json}):
+finite-$t$ values at $t=\tau L$ from the $3^L$ evolution ($L\le16$), the
+asymptotic $\log\lambda_1(L)/(2L)$, and the tail amplitude
+$A(L)=\bar Z_2(t)\lambda_1^{-t}$ (constant to six digits for
+$t\gtrsim3L$; \texttt{z2\_tail} in \texttt{scgf\_exact.json}).}
+\label{tabS:anchors}
+\begin{ruledtabular}
+\begin{tabular}{llllll}
+$L$ & $p$ & $t$ & $2Lt\,\Lambda_L(1)$ fin.\ $t$ & $\log\lambda_1/(2L)$ &
+$A(L)$\\
+\colrule
+$8$ & $0.16$ & $32$ & $-0.077984$ & $-0.079735$ & $2.4512$\\
+$12$ & $0.16$ & $48$ & $-0.079362$ & $-0.080615$ & $4.2354$\\
+$16$ & $0.16$ & $64$ & $-0.079901$ & $-0.080867$ & $7.2288$\\
+$24$ & $0.16$ & $96$ & $-0.080325^{\rm a}$ & $-0.080989$ &
+$\approx21.4^{\rm b}$\\
+$8$ & $0.22$ & $32$ & $-0.106382$ & $-0.108701$ & $3.2786$\\
+$12$ & $0.22$ & $48$ & $-0.108278$ & $-0.109947$ & $6.8326$\\
+\end{tabular}
+\end{ruledtabular}
+$^{\rm a}$Amplitude-corrected $\lambda_1$ anchor,
+$\log\lambda_1/(2L)+\log A/(2Lt)$.  $^{\rm b}$Extrapolated from
+$\log A(L)\approx0.135\,L$ ($\log A=0.896,1.443,1.979$ at $L=8,12,16$).
+\end{table}
+
+\begin{table*}[t]
+\caption{The production ladder (\texttt{scgf\_born.json}; $t=4L$;
+$\bar x_L$ and $\operatorname{Var}/(2Lt)$ in bits per site and bits$^2$
+per site; $\Lambda_L$ values in nats per site; bootstrap s.e.\ ($200$
+resamples) on $\bar x_L$ at the $10^{-3}$ level).  $g_L$ uses the exact
+finite-$t$ anchors of Table~\ref{tabS:anchors} ($L\le16$) and the
+amplitude-corrected value at $L=24$.  The ESS column is the within-sample
+collision-tilt effective sample size at $\beta=1$.}
+\label{tabS:ladder}
+\begin{ruledtabular}
+\begin{tabular}{llllllllll}
+$L$ & $p$ & $B$ & $\bar x_L$ & $\operatorname{Var}/(2Lt)$ &
+$\Lambda_L(0.25)$ & $\Lambda_L(0.5)$ & $\Lambda_L(1)$ & $g_L$ &
+ESS$_{\beta=1}$\\
+\colrule
+$8$ & $0.16$ & $40000$ & $0.14479$ & $0.10547$ & $-0.02357$ & $-0.04440$
+ & $-0.07798$ & $0.02238$ & $11.7$\\
+$12$ & $0.16$ & $40000$ & $0.14703$ & $0.10441$ & $-0.02392$ & $-0.04495$
+ & $-0.07936$ & $0.02255$ & $3.9$\\
+$16$ & $0.16$ & $30000$ & $0.14803$ & $0.10581$ & $-0.02412$ & $-0.04586$
+ & $-0.07990$ & $0.02270$ & $1.4$\\
+$24$ & $0.16$ & $15000$ & $0.14890$ & $0.10481$ & $-0.02428$ & $-0.04689$
+ & $-0.08033^{\rm a}$ & $0.02288$ & $1.0$\\
+$8$ & $0.22$ & $40000$ & $0.19280$ & $0.12532$ & $-0.03158$ & $-0.05988$
+ & $-0.10638$ & $0.02726$ & $18.2$\\
+$12$ & $0.22$ & $40000$ & $0.19512$ & $0.12415$ & $-0.03203$ & $-0.06110$
+ & $-0.10828$ & $0.02697$ & $2.7$\\
+$16$ & $0.22$ & $30000$ & $0.19614$ & $0.12409$ & $-0.03219$ & $-0.06165$
+ & --- & --- & $1.1$\\
+$24$ & $0.22$ & $15000$ & $0.19706$ & $0.12365$ & $-0.03225$ & $-0.06274$
+ & --- & --- & $1.0$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+The $\beta=1$ trajectory estimates degrade with the ESS collapse
+(e.g.\ $-0.08037$ at $L=8$ against the exact $-0.07798$, the bias growing
+with $L$), which is why Table~\ref{tabS:ladder} reports the exact anchors
+in the $\Lambda_L(1)$ column; the trajectory columns are used only for
+$\beta\le0.75$, where the moment estimates are well conditioned.  The
+$\Lambda_L(2)$ trajectory estimates ($L=8,12,16$ at $p=0.16$:
+$-0.14486$, $-0.15891$, $-0.17019$; at $p=0.22$: $-0.20652$,
+$-0.22329$, $-0.23247$) underlie the ESS law of the main text;
+$\Lambda_L(2)$ is exactly the $n=3$ annealed moment
+$(2Lt)^{-1}\ln\bar Z_3(t)$ of the main-text Eq.~(dyadicmoments) and is in
+principle computable exactly by the three-replica operator.
+
+\subsection{Estimators, error model, and reproduction}
+
+The trajectory estimator of $\Lambda_L(\beta)$ at fixed $(L,p,t)$ is the
+logarithm of the sample mean of $2^{-\beta N_b}$ over $B$ independent
+disorder draws $b$ (each draw contributing one record under its own Born
+measure; $N_b=N_{\rm rand}(\omega_b)$ is $\omega_b$-measurable, so one
+record per draw suffices), with bootstrap standard errors over $200$
+trajectory resamples; the tilted densities are the weighted means
+$\tilde m(\beta)=\sum_b2^{-\beta N_b}N_b/\sum_b2^{-\beta N_b}/(2Lt)$; the
+ESS is the within-sample ratio
+$(\sum_bw_b)^2/\sum_bw_b^2$.  The raw arrays ($X_R$ and $S_{L/2}$ per
+trajectory, all eight production cells) are deposited as
+\texttt{scgf\_born\_raw\_L\{8,12,16,24\}\_p\{16,22\}.npz}.
+
+Reproduction (from the \texttt{research/scripts/} directory):
+\begin{center}
+\begin{tabular}{ll}
+command & purpose\\
+\hline
+\texttt{python3 mipt\_scgf\_exact.py} & the $3^L$ evolution: calibration,
+anchors, $A(L)$ tails (Table~\ref{tabS:calib},~\ref{tabS:anchors})\\
+\texttt{python3 mipt\_born\_scgf.py} & the trajectory suite: validation,
+production ladder, ESS, tilted densities
+(Table~\ref{tabS:ladder})\\
+\end{tabular}
+\end{center}
+Dependencies: \texttt{numpy} (PCG64).  Wall time: the full suite is
+minutes on one core except the $L=16$ exact evolution ($3^{16}$
+configurations, hours).  The files of this round are hashed in
+\texttt{certificate\_sha256\_v8.txt} (round files) and
+\texttt{certificate\_sha256\_v3\_scgf.txt} (the parallel-line ledger of
+the record-SCGF suite itself).
+
+
+\subsection{The v22 exact-closure runs}
+\label{sm:v22closure}
+
+\paragraph{The reconstructed library.}
+The shared module \texttt{gap\_utils.py} (the Weingarten channel
+$W_{p,n}$ of Eq.~(Wpn), the group utilities, and the dense bond-label
+operators \texttt{bond\_ops}) on which the deposited v17--v19 script
+suites all depend was missing from the repository: the deposit's
+reproduction chain was silently broken.  It is rebuilt exactly from
+Eq.~(Wpn) (inverse of the Gram $D^{c(\sigma^{-1}\tau)}$ for $D\ge n$,
+Moore--Penrose pseudo-inverse otherwise), placed both in
+\texttt{scripts/v22-exactZ3-n5L8/} and as copies into
+\texttt{v17-annealed-n3/}, \texttt{v18-n4n5-smc/} and
+\texttt{v19-n5L6-nofreeze/}, and validated by re-running the deposited
+batteries unmodified: \texttt{n3\_annealed\_validate\_v1.py} V1--V6 all
+PASS (the Sec.~9 benchmarks to $0.0\times10^{0}$ at six decimals, the
+Gram similarity $1.7\times10^{-16}$, the Kaufman closed form to
+$4\times10^{-11}$, the momentum-block union $1.3\times10^{-16}$, the
+colour sectors to $2\times10^{-6}$, the product rows exact) and
+\texttt{n45\_annealed\_validate\_v1.py} V1--V8 ALL OK (including the
+$n=5$ $p=1$ bond eigenvalue $1/14$ through the pseudo-inverse channel and
+the pinv property $G\,\mathrm{Wg}\,G=G$ to $3\times10^{-15}$).
+
+\paragraph{The conjugation-design test.}
+\texttt{v22\_clifford\_3design\_v1.py} enumerates the two-qubit Clifford
+group by BFS closure from $\{H\otimes I, I\otimes H, S\otimes I,
+I\otimes S, \mathrm{CNOT}_{01}, \mathrm{CNOT}_{10}\}$: $92{,}160$
+unitaries, the phase extension $\{e^{ik\pi/4}\}\times\mathrm{Cl}_2$;
+phase classes are deduplicated by the injective phase-invariant key
+$U\mapsto U\otimes\bar U$ ($11{,}520$ classes), and the census of the
+unsigned-Pauli actions gives exactly the $720$ symplectic classes with
+$16$ elements each.  The test averages $C^{\otimes n}XC^{\dagger\otimes
+n}$ over the classes and compares with the Haar twirl
+$\sum_\pi U_\pi y_\pi$, $\mathsf Gy=t$,
+$\mathsf G[\pi,\rho]=(d^2)^{c(\pi^{-1}\rho)}$, on six random $X$ at each
+$n$: $n=2$ deviates $2.1\times10^{-14}$, $n=3$ deviates
+$1.6\times10^{-14}$ (the identification of Remark rem:cliff3design),
+$n=4$ deviates $0.578$ (the negative control).
+
+\paragraph{The exact $\bar Z_3$ cells and ladder.}
+\texttt{v22\_z3\_exact\_v1.py} implements the boundary-vector formula of
+Prop.~prop:z3closure on the compressed bond space with the
+\texttt{ring\_gemm\_v2} kernels.  Validation: the $n=2$ anchors of
+\texttt{scgf\_exact.json} to $2.6\times10^{-15}$, the $A$-tail
+$2.4509\to2.4512$, the layer-parity invariance to $0.0$.  Production
+cells ($t=4L$): Table tab:z3exact of the main text.  The ladder:
+$\lambda_1^{(3)}$ by power iteration (validated against the dense $L=8$
+spectrum to $1.9\times10^{-10}$), with amplitudes $A_3(L)$ constant to
+six digits for $t\ge L$ and subexponential in $t$.
+
+\paragraph{The $\beta=2$ identification cross-check.}
+\texttt{v22\_traj\_beta2\_v1.py} runs the deposited tableau simulator at
+$t=L/2$ with $B=4\times10^6/2.4\times10^6/1.6\times10^6$ trajectories at
+$L=8/12/16$ (fresh PCG64 seeds, recorded): $\hat\E[2^{-2N_{\rm rand}}]$
+against the exact $\bar Z_3(t)$ and $\hat\E[2^{-N_{\rm rand}}]$ against
+$\bar Z_2(t)$, with bootstrap standard errors and the empirical tilted
+ESS.  The results are quoted in the main text (Prop.~prop:z3closure).
+
+\paragraph{The marginal $q=4$ log-correction fits.}
+\texttt{v22\_n4\_eps\_topup\_v1.py} recomputes the missing $L=8$
+$\lambda_\varepsilon$ values ($p=0.39,0.40,0.41$; the deposited $p=0.38$
+value reproduced to $5.7\times10^{-16}$ first).
+\texttt{v22\_q4\_logcorr\_v1.py} then evaluates $R_L$, the slopes and
+the gaps at the common reference $p^*=0.383$, and fits the marginal
+forms: $R_L=1/4-0.90/\ln L+0.46/\ln^2L$ (residual $\le8\times10^{-4}$,
+against the corrected $q=4$ target $x_\sigma/x_\varepsilon=1/4$);
+$\mathrm{d}X_L/\mathrm{d}p=C\,L^{3/2}(1+0.45/\ln L)$; the $n=3$ control
+converging cleanly to $1/6$.  The crossing table is recomputed with the
+top-up ($p_c$ crossings $0.3582/0.3790/0.3823$; $1/\nu_{\rm eff}$
+$1.00\to1.38\to1.57$).
+
+\paragraph{The tilted-variance profile family.}
+\texttt{v22\_tiltvar\_uniform\_v1.py} measures
+$\mathrm{Var}_s(\log X)$ on $s\in[0,1.5]$ (61 points, tilted empirically, 200
+bootstrap resamples): Part A, exactly enumerated Haar $p=1$ collision
+partition functions ($k^\ast=-1$) over the grid $L=3$--$6$,
+$T=2L,4L,8L$, $6000$ circuits per cell; Part B, fresh Clifford disorder
+trajectories at $t=L/2$ (the same well-conditioned cells as the
+$\beta=2$ cross-check).  Metrics per cell: the per-period variance rate
+$v(0)=\mathrm{Var}_0/T$ (T-independent within each $L$ to $3\%$), the
+sub-Gaussian profile ratio $\rho=2\int_0^1(1-s)v(s)\,\mathrm
+ds/v(0)$, the initial decay rate $\kappa$, and the interpolation identity
+as a per-cell validation ($\le2.5\times10^{-6}$).  Part A:
+$\rho=1.02\pm0.03$ across the whole grid (a flat-to-mildly-rising
+profile, $(L,T)$-uniform in shape); Part B (Clifford disorder):
+$\rho=0.872/0.878/0.888$ at $L=8/12/16$, $p=0.16$ ($0.890/0.894/0.897$
+at $p=0.22$): the sub-Gaussian decaying profile of the v21 Discussion,
+confirmed on well-conditioned data and mildly de-sub-Gaussianizing with
+$L$.  The raw production $t=4L$ arrays are NOT used for
+Part B: their tilted ESS collapses to $1$, the same estimator difficulty
+as the $\beta=2$ moment (the within-sample profiles are reported in the
+JSON for completeness, flagged).
+
+\paragraph{The symmetry-reduced $n=5$ $L=8$ block route.}
+\texttt{v22\_n5\_L8\_block\_v1.py} assembles the momentum-zero
+colour-trivial block of $\Ccomp^{(5)}$ at $L=8$ exactly: the orbit basis
+of the symmetry group $(S_5\times S_5)\rtimes\mathbb Z_4$ on
+$(S_5)^4$ (canonical forms $=$ the minimum over conjugators and shifts of
+the encoded lkey tuple; the orbit table is $p$-independent and
+memmapped), the block elements
+$B[\alpha,\beta]=\sqrt{n_\alpha/n_\beta}\sum_{\tau\in O_\beta}
+M[\mathrm{rep}_\alpha,\tau]$ by a chunked pass (segment sums over
+orbit-sorted chunks), and $C_{\rm block}=B_{M_1}B_{M_2}$.  Validation:
+the deposited $n=5$ $L=4$ \texttt{triv3} rows reproduced to
+$1.6\times10^{-14}$ ($p=0.44$ and $0.32$), and the $L=6$ blocks against
+fresh unrestricted colour-restricted Arnoldi solves.  The $L=8$ rung
+runs the block at the locator grid.
+
+Reproduction: run the scripts in this order (each writes its JSON to
+\texttt{results/v22-exactZ3-n5L8/} and its log to
+\texttt{logs/v22-exactZ3-n5L8/}): \texttt{v22\_clifford\_3design\_v1.py},
+\texttt{v22\_z3\_exact\_v1.py all},
+\texttt{v22\_traj\_beta2\_v1.py},
+\texttt{v22\_n4\_eps\_topup\_v1.py},
+\texttt{v22\_q4\_logcorr\_v1.py},
+\texttt{v22\_tiltvar\_uniform\_v1.py},
+\texttt{v22\_n5\_L8\_block\_v1.py validate},
+\texttt{v22\_n5\_L8\_block\_v1.py ids},
+\texttt{v22\_n5\_L8\_block\_v1.py run --pgrid 0.44,0.46,0.47,0.48,0.50}.
+Dependencies: \texttt{numpy}, \texttt{scipy} (dense eigensolvers); the
+wall time is minutes per script except the $L=8$ block assembly (hours;
+the canonical-id pass is $p$-independent and done once).  The files of
+this round are hashed in \texttt{certificate\_sha256\_v9.txt}.
+
+\begin{thebibliography}{9}
+
+\bibitem{BLM2013} S.~Boucheron, G.~Lugosi, and P.~Massart,
+\emph{Concentration Inequalities: A Nonasymptotic Theory of Independence}
+(Oxford University Press, Oxford, 2013).
+
+\bibitem{Rockafellar1970} R.~T.~Rockafellar, \emph{Convex Analysis}
+(Princeton University Press, Princeton, 1970).
+
+\bibitem{DemboZeitouni1998} A.~Dembo and O.~Zeitouni, \emph{Large
+Deviations Techniques and Applications}, 2nd ed.\ (Springer, New York,
+1998).
+
+\bibitem{DelMoral2004} P.~Del~Moral, \emph{Feynman--Kac Formulae:
+Genealogical and Interacting Particle Systems with Applications}
+(Springer, New York, 2004).
+
+\end{thebibliography}
+
+\end{document}

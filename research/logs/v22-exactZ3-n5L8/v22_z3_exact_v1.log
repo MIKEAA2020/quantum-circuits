@@ -1,0 +1,38 @@
+== A: exact Zbar_2 via the compressed operator vs the deposited anchors (scgf_exact.json) ==
+   L=8 t=4 p=0.16: Z2 = 1.479638693744e-02 vs deposit 1.479638693744e-02  rel 2.58e-15  [OK]
+   L=12 t=6 p=0.16: Z2 = 3.817309905718e-05 vs deposit 3.817309905718e-05  rel 2.18e-14  [OK]
+   L=8 t=8 p=0.22: Z2 = 2.971398859563e-06 vs deposit 2.971398859563e-06  rel 1.71e-15  [OK]
+   z2_tail check (Z2/lambda1^t, lambda1 from the Kaufman lib):
+     t=8: Z2/lam1^t = 2.4508841805 vs deposit 2.4508841805  rel 5.80e-15  [OK]
+     t=12: Z2/lam1^t = 2.4511989714 vs deposit 2.4511989714  rel 8.88e-15  [OK]
+     t=16: Z2/lam1^t = 2.4512049553 vs deposit 2.4512049553  rel 1.12e-14  [OK]
+   layer-parity invariance (A-first vs B-first, L=8 t=4): 1.479638693744e-02 vs 1.479638693744e-02 rel 0.00e+00  [OK]
+== B: exact Zbar_3 at the production cells (t = 4L, the trajectory-ladder convention) ==
+   L= 8 p=0.16 t=32: Z3 = 7.745437985134e-28  Lambda(1) = -0.077984  Lambda(2) = -0.121924  exponent = 0.034043
+        traj: Xi1 -0.080374  Xi2 -0.144861  exponent 0.01588760599621228  ESS(beta1) 11.73  gap-closure 0.0224
+   L=12 p=0.16 t=48: Z3 = 1.080456618559e-62  Lambda(1) = -0.079362  Lambda(2) = -0.123857  exponent = 0.034868
+        traj: Xi1 -0.083458  Xi2 -0.158906  exponent 0.00801011995733314  ESS(beta1) 3.93  gap-closure 0.0226
+   L=16 p=0.16 t=64: Z3 = 1.748391658473e-111  Lambda(1) = -0.079901  Lambda(2) = -0.124526  exponent = 0.035277
+        traj: Xi1 -0.087528  Xi2 -0.170189  exponent 0.0048668992259423005  ESS(beta1) 1.41  gap-closure 0.0227
+== A: exact Zbar_2 via the compressed operator vs the deposited anchors (scgf_exact.json) ==
+   L=8 t=4 p=0.16: Z2 = 1.479638693744e-02 vs deposit 1.479638693744e-02  rel 2.58e-15  [OK]
+   L=12 t=6 p=0.16: Z2 = 3.817309905718e-05 vs deposit 3.817309905718e-05  rel 2.18e-14  [OK]
+   L=8 t=8 p=0.22: Z2 = 2.971398859563e-06 vs deposit 2.971398859563e-06  rel 1.71e-15  [OK]
+   z2_tail check (Z2/lambda1^t, lambda1 from the Kaufman lib):
+     t=8: Z2/lam1^t = 2.4508841805 vs deposit 2.4508841805  rel 5.80e-15  [OK]
+     t=12: Z2/lam1^t = 2.4511989714 vs deposit 2.4511989714  rel 8.88e-15  [OK]
+     t=16: Z2/lam1^t = 2.4512049553 vs deposit 2.4512049553  rel 1.12e-14  [OK]
+   layer-parity invariance (A-first vs B-first, L=8 t=4): 1.479638693744e-02 vs 1.479638693744e-02 rel 0.00e+00  [OK]
+== B: exact Zbar_3 at the production cells (t = 4L, the trajectory-ladder convention) ==
+   L= 8 p=0.22 t=32: Z3 = 1.928130389988e-38  Lambda(1) = -0.106382  Lambda(2) = -0.169613  exponent = 0.043151
+        traj: Xi1 -0.110772  Xi2 -0.206518  exponent 0.01502616740695642  ESS(beta1) 18.23  gap-closure 0.0273
+   L=12 p=0.22 t=48: Z3 = 3.749354440272e-87  Lambda(1) = -0.108278  Lambda(2) = -0.172746  exponent = 0.043811
+        traj: Xi1 -0.115808  Xi2 -0.223293  exponent 0.008322625778742265  ESS(beta1) 2.74  gap-closure 0.0270
+   L=16 p=0.22 t=64: Z3 = 2.118863112276e-155  Lambda(1) = -0.109095  Lambda(2) = -0.173901  exponent = 0.044288
+        traj: Xi1 -0.118736  Xi2 -0.232472  exponent 0.00500017224244273  ESS(beta1) 1.07  gap-closure 0.0269
+   written /home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/../../results/v22-exactZ3-n5L8/v22_z3_exact.json
+== C: lambda_1^{(3)} ladders + amplitudes A_3(L) ==
+   L=8 p=0.16 n=3 lambda1: dense 0.135822439792 vs power 0.135822439766 (rel 1.94e-10)
+   n=3 L= 8 p=0.16: lam1 = 0.1358224398  ln lam1/(2L) = -0.124775  A3(t) = {8: 4.3036, 16: 4.3048, 32: 4.3048}  [0.1s]
+   n=3 L=12 p=0.16: lam1 = 0.0487684348  ln lam1/(2L) = -0.125861  A3(t) = {12: 10.0669, 24: 10.068, 48: 10.068}  [5.0s]
+   n=3 L=16 p=0.16: lam1 = 0.0177121524  ln lam1/(2L) = -0.126047  A3(t) = {16: 22.5563, 32: 22.5567, 64: 22.5566}  [219.9s]

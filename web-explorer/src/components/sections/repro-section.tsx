@@ -100,7 +100,12 @@ export function ReproSection() {
               two-size first-order confirmation, the no-freeze theorem, the
               replica interpolation identity) → v20 (the alignment pass +
               supplement v3) → v21 — Clifford record-count closure: disorder
-              SCGF, self-averaging, annealed–quenched gap; supplement v4 —
+              SCGF, self-averaging, annealed–quenched gap; supplement v4 →
+              v22 — exact Λ(2) closure via the three-replica operator (Cl₂
+              verified as an exact conjugation 3-design), the ESS-law
+              exponent corrected (0.034–0.035 nats/site exact), the marginal
+              q = 4 log-correction re-read (target 1/4), and the
+              tilted-variance profile family measured across (L,T) —
               every revision a new version file, nothing overwritten. Under
               three external audit rounds (10 remaining points, all
               adjudicated; none requiring a change to any theorem, proof, or

@@ -1,0 +1,7 @@
+== C: lambda_1^{(3)} ladders + amplitudes A_3(L) ==
+   L=8 p=0.16 n=3 lambda1: dense 0.135822439792 vs power 0.135822439766 (rel 1.94e-10)
+   n=3 L= 8 p=0.22: lam1 = 0.0621922739  ln lam1/(2L) = -0.173595  A3(t) = {8: 7.678, 16: 7.6837, 32: 7.6837}  [0.1s]
+   n=3 L=12 p=0.22: lam1 = 0.0147780863  ln lam1/(2L) = -0.175609  A3(t) = {12: 27.039, 24: 27.0572, 48: 27.0572}  [5.7s]
+   n=3 L=16 p=0.22: lam1 = 0.0035698147  ln lam1/(2L) = -0.176101  A3(t) = {16: 90.5002, 32: 90.5274, 64: 90.5274}  [507.4s]
+   written /home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/../../results/v22-exactZ3-n5L8/v22_z3_ladder.json
+total 515.9s

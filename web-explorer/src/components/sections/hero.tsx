@@ -54,7 +54,8 @@ export function Hero() {
           measurements — the stabilizer-entropy locator, the Gullans–Huse purification
           protocol, the free-fermion solution of the annealed sector and its replica
           ladder p_c⁽²⁾ = 0.233810 &lt; p_c⁽³⁾ = 0.305(3) &lt; p_c⁽⁴⁾ ≈ 0.383 &lt;
-          p_c⁽⁵⁾ ≈ 0.47–0.48, the record SCGF in the disorder direction, Haar record
+          p_c⁽⁵⁾ ≈ 0.47–0.48, the record SCGF in the disorder direction — β = 1
+          and β = 2 endpoints closed exactly, Haar record
           multifractality, and a live Gottesman–Knill simulator you can run yourself.
         </motion.p>
 

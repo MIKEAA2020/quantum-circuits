@@ -1,0 +1,19 @@
+L= 8 p=0.16 t=4 B=4000000:
+   beta=1: E[2^-X] = 1.480471e-02 vs exact 1.479639e-02  rel 5.63e-04  (z 0.5 sigma; ESS 605529)
+   beta=2: E[2^-2X] = 1.447856e-03 vs exact 1.445036e-03  rel 1.95e-03  (z 0.4 sigma; ESS(w^2) 36987)
+L=12 p=0.16 t=6 B=2400000:
+   beta=1: E[2^-X] = 3.802281e-05 vs exact 3.817310e-05  rel 3.94e-03  (z 0.6 sigma; ESS 25195)
+   beta=2: E[2^-2X] = 1.377182e-07 vs exact 1.340932e-07  rel 2.70e-02  (z 0.3 sigma; ESS(w^2) 88)
+L=16 p=0.16 t=8 B=1600000:
+   beta=1: E[2^-X] = 6.936708e-09 vs exact 7.332202e-09  rel 5.39e-02  (z 1.7 sigma; ESS 935)
+   beta=2: E[2^-2X] = 8.230362e-14 vs exact 2.174382e-13  rel 6.21e-01  (z 2.1 sigma; ESS(w^2) 4)
+L= 8 p=0.22 t=4 B=4000000:
+   beta=1: E[2^-X] = 3.098276e-03 vs exact 3.096040e-03  rel 7.22e-04  (z 0.5 sigma; ESS 340721)
+   beta=2: E[2^-2X] = 1.126940e-04 vs exact 1.121153e-04  rel 5.16e-03  (z 0.4 sigma; ESS(w^2) 6975)
+L=12 p=0.22 t=6 B=2400000:
+   beta=1: E[2^-X] = 9.020643e-07 vs exact 8.982776e-07  rel 4.22e-03  (z 0.4 sigma; ESS 7576)
+   beta=2: E[2^-2X] = 2.577913e-10 vs exact 2.740316e-10  rel 5.93e-02  (z 0.3 sigma; ESS(w^2) 36)
+L=16 p=0.22 t=8 B=1600000:
+   beta=1: E[2^-X] = 8.046618e-12 vs exact 7.515577e-12  rel 7.07e-02  (z 0.7 sigma; ESS 105)
+   beta=2: E[2^-2X] = 9.863409e-19 vs exact 2.338335e-18  rel 5.78e-01  (z 1.1 sigma; ESS(w^2) 3)
+written /home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/../../results/v22-exactZ3-n5L8/v22_traj_beta2.json

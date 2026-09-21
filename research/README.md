@@ -107,3 +107,36 @@ anchors, ladder, reproduction).  Companion docs: changelog_v21.md,
 README_v21_clifford.md, mipt_numerical_report_v9.md (Secs. 16–20, the
 framing-correction record and the corrected ladder), ledger
 certificate_sha256_v8.txt.
+
+## v22 — the exact Z̄₃ closure of Λ(2), the q=4 log-correction re-read, the tilted-variance family, the n=5 L=8 rung (round summary)
+
+The deposit-integrity repair first: **gap_utils.py was missing from the
+repository** (the shared Weingarten-channel library of the whole
+v17–v19 suite — the reproduction chain was silently broken); it is
+reconstructed from Eq. (Wpn) and re-validated (the deposited V1–V8
+batteries all pass).  Then the four directives: (1) the **exact Z̄₃
+closure of Λ(2)** — the two-qubit Clifford group is verified to be an
+exact conjugation 3-design (1.6e-14 against the Haar twirl; n=4 fails
+0.578, the negative control), so Λ(2) = (2Lt)⁻¹ ln Z̄₃ is an identity;
+the exact production cells (t=4L, the round's convention finding) give
+Λ(2) = −0.1219/−0.1239/−0.1245 at L=8/12/16 and **correct the ESS-law
+exponent to 0.0340/0.0349/0.0353 nats/site** (L-independent) — the v21
+trajectory estimates (0.0159/0.0080/0.0049) were biased low by the ESS
+collapse (exact ESS/B = 2.7e-8 at L=8), cross-checked by a
+well-conditioned β=2 trajectory run (rel 2e-3 at 0.4σ) and by the
+λ₁⁽³⁾ ladder with subexponential amplitudes A₃; (2) the
+**marginal-q=4 log-correction analysis** — the target is x_σ/x_ε = 1/4
+(not the Ising 1/8 of the v18–v21 caption), the drift 0.1315→0.2378 is
+logarithmically slow convergence (two-term marginal fit, residual ≤
+8e-4) with the n=3 control clean on 1/6, and the missing L=8 λ_ε values
+are recomputed (5.7e-16 vs the deposit); (3) the **tilted-variance
+(L,T)-uniformity family** — Haar p=1 exactly enumerated (flat profile
+ρ = 1.02±0.03, (L,T)-uniform) vs the Clifford disorder direction
+(sub-Gaussian ρ ≈ 0.875, L-stable on well-conditioned t=L/2 data);
+(4) the **n=5 L=8 rung** by the symmetry-reduced dense block (orbit
+basis of (S₅×S₅)⋊Z₄; validated to 1.6e-14 against the deposited L=4
+spectrum; the p-grid checkpointed).  Manuscript
+manuscript_revised_v22_exactZ3.tex/.pdf (38 pp) + supplement v5 (11 pp)
++ changelog_v22.md + README_v22_exactZ3.md + mipt_numerical_report_v10.md
+(Secs. 21–25) + ledger certificate_sha256_v9.txt; web explorer updated
+in both copies (Task 2-a).

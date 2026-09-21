@@ -309,7 +309,7 @@ export const REPLICA_LADDER: ReplicaRung[] = [
     pcLabel: "0.305(3)",
     cls: "three-state Potts",
     order: "continuous",
-    note: "Potts amplitude ratio x_σ/x_ε → 1/6 and slope exponent 1/ν_eff = 1.15(10) (Potts 6/5); exact sector-resolved transfer-matrix spectra, L = 4–12. Crossings: (4,6) 0.27114, (6,8) 0.29678, (8,10) 0.30244, (10,12) 0.30403.",
+    note: "Potts amplitude ratio converges cleanly: R_L(0.305) = 0.108 → 0.141 → 0.157 → 0.167 on the q = 3 target x_σ/x_ε = 1/6 (at L = 10); slope exponent 1/ν_eff = 1.15(10) (Potts 6/5); exact sector-resolved transfer-matrix spectra, L = 4–12. Crossings: (4,6) 0.27114, (6,8) 0.29678, (8,10) 0.30244, (10,12) 0.30403.",
   },
   {
     n: 4,
@@ -317,7 +317,7 @@ export const REPLICA_LADDER: ReplicaRung[] = [
     pcLabel: "≈ 0.383",
     cls: "marginal q = 4 Potts",
     order: "continuous",
-    note: "Multiplicative log corrections (amplitude-ratio diagnostic degrades — honest finding); full S₄ colour resolution, four sizes L = 4, 6, 8, 10; crossings 0.35820, 0.37899, 0.3823; drift collapses 0.0208 → 0.0033 (vs 0.68 for a 1/ν = 1.28 power law); 1/ν_eff = 1.28 rising toward the q = 4 value 3/2. N = 24⁵ = 7,962,624 bond labels at L = 10 (dense would need 6.3×10¹³ entries ≈ 500 TB; iterative ring route < 1.8 GB).",
+    note: "Multiplicative log corrections; full S₄ colour resolution, four sizes L = 4, 6, 8, 10 (the previously missing L = 8 λ_ε values recomputed); crossings 0.35820, 0.37899, 0.3823; drift collapses 0.0208 → 0.0033 (vs 0.68 for a 1/ν = 1.28 power law); the amplitude ratio R_L(p* = 0.383) = 0.1315 / 0.1829 / 0.2142 / 0.2378 converges logarithmically to the q = 4 target x_σ/x_ε = 1/4 — the two-term marginal form 1/4 − 0.90/ln L + 0.46/ln²L fits with residual ≤ 8×10⁻⁴ (the diagnostic does NOT degrade — it converges with exactly the multiplicative-logarithmic slowness the marginal point predicts; the target is 1/4, not the Ising 1/8, which would require x_ε = 1: at q = 4, 1/ν = 3/2 so x_ε = d − 1/ν = 1/2); the slope exponent rises 1.00 → 1.38 → 1.57 through the q = 4 value 3/2 with the expected 1/ln L correction. N = 24⁵ = 7,962,624 bond labels at L = 10 (dense would need 6.3×10¹³ entries ≈ 500 TB; iterative ring route < 1.8 GB).",
   },
   {
     n: 5,
@@ -438,12 +438,29 @@ export const RECORD_SCGF = {
     note: "subexponential in t, constant to 6 digits for t ≳ 3L; A(24) ≈ 21.4 extrapolated",
   },
   // collision-tilt ESS — exact law ESS/B = exp[-2Lt·(Λ(2) − 2Λ(1))];
-  // measured exponent (nats/site) at L = 8/12/16
+  // exact (v22, via the three-replica operator) vs the superseded trajectory
+  // estimates — the t=4L moments are biased low by the ESS collapse
   essExponent: [
-    { L: 8, exponent: 0.0159 },
-    { L: 12, exponent: 0.0080 },
-    { L: 16, exponent: 0.0049 },
+    { L: 8, exponent: 0.0340, traj: 0.0159 },
+    { L: 12, exponent: 0.0349, traj: 0.0080 },
+    { L: 16, exponent: 0.0353, traj: 0.0049 },
   ],
+  // v22 — the exact Λ(2) = (2Lt)⁻¹ ln Z̄₃ closure via the three-replica
+  // transfer operator (the v17 object), and the Cl₂ conjugation-3-design
+  // identification that makes it exact.
+  z3closure: {
+    design3: { n2: 2.1e-14, n3: 1.6e-14, n4: 0.578, note: "two-qubit Cliffords are an exact conjugation 3-design — verified against the Haar twirl; the design property fails at n=4 exactly where d² ≥ n still holds" },
+    cells: [
+      { L: 8, lambda2: -0.121924, exponent: 0.0340, trajExponent: 0.0159, essTrueFrac: 2.8e-8 },
+      { L: 12, lambda2: -0.123857, exponent: 0.0349, trajExponent: 0.0080, essTrueFrac: 3.7e-11 },
+      { L: 16, lambda2: -0.124526, exponent: 0.0353, trajExponent: 0.0049, essTrueFrac: 5.1e-13 },
+    ],
+    note: "p = 0.16, t = 4L; Λ(2) = (2Lt)⁻¹ ln Z̄₃ computed exactly by the three-replica transfer operator (the v17 object); the exact ESS-law exponent is ~0.034–0.035 nats/site, L-independent — twice to seven times the biased trajectory estimates",
+    ladderP16: [-0.124775, -0.125861, -0.126047], // ln λ₁⁽³⁾/(2L), L = 8/12/16
+    ladderP22: [-0.173595, -0.175609, -0.176101],
+    a3: [4.3048, 10.068, 22.5566], // amplitudes Z̄₃(t)/λ₁^t, L = 8/12/16, p = 0.16, constant in t for t ≥ L
+    beta2check: "rel 1.95e-3 (0.4σ, ESS(w²) 3.7×10⁴) at L=8 t=L/2 with B=4×10⁶; 2.7e-2 (0.3σ) at L=12 — the identification holds empirically",
+  },
   // tilted density of the annealed-endpoint dominating minority vs typical (L = 8, p = 0.16)
   tiltedDensity: { atypical: 0.097, typical: 0.145 },
   // freezing: tilted-vs-quenched entropy gap (exact, t = 4L, p = 0.16)

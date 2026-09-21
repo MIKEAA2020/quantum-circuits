@@ -82,13 +82,13 @@ const RUNG_FACTS: { n: number; head: string; body: string; accent: string }[] = 
   {
     n: 3,
     head: "0.305(3) · continuous",
-    body: "Crossings 0.27114 / 0.29678 / 0.30244 / 0.30403 (L = 4–12) · 1/ν_eff = 1.15(10) (Potts 6/5) · x_σ/x_ε → 1/6.",
+    body: "Crossings 0.27114 / 0.29678 / 0.30244 / 0.30403 (L = 4–12) · 1/ν_eff = 1.15(10) (Potts 6/5) · R_L(0.305) 0.108 → 0.141 → 0.157 → 0.167 on the target 1/6.",
     accent: "text-emerald-300/90",
   },
   {
     n: 4,
     head: "≈ 0.383 · continuous",
-    body: "Crossings 0.35820 / 0.37899 / 0.3823 · drift collapse 0.0208 → 0.0033 · 1/ν_eff = 1.28 → 3/2 · L = 10 at N = 24⁵ = 7,962,624 labels (< 1.8 GB vs ≈ 500 TB dense).",
+    body: "Crossings 0.35820 / 0.37899 / 0.3823 · R_L(0.383) 0.1315 / 0.1829 / 0.2142 / 0.2378 → 1/4 logarithmically (1/4 − 0.90/ln L + 0.46/ln²L, residual ≤ 8×10⁻⁴ — not degrading) · slope exponent 1.00 → 1.38 → 1.57 through 3/2 · L = 10 at N = 24⁵ = 7,962,624 labels (< 1.8 GB vs ≈ 500 TB dense).",
     accent: "text-emerald-300/90",
   },
   {

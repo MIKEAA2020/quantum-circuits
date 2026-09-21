@@ -1,0 +1,9 @@
+== Cl2 enumeration (BFS from H,S,CNOT generators) ==
+   |<H,S,CNOT>| = 92160 (= 8 x 11520: the phase-extended Clifford group)
+   phase classes = 11520 (expected 11520)
+   distinct Sp(4,2) actions = 720 (expected 720); class sizes min 16 max 16 (expected 16 each)
+   structure: [OK]
+   n=2: max ||T_Cl - T_Haar||/||T_Haar|| over 6 random X = 2.085e-14   [PASS (exact design)]
+   n=3: max ||T_Cl - T_Haar||/||T_Haar|| over 6 random X = 1.617e-14   [PASS (exact design)]
+   n=4: max ||T_Cl - T_Haar||/||T_Haar|| over 3 random X = 5.784e-01   [FAIL (not a 4-design)]
+   written /home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/../../results/v22-exactZ3-n5L8/v22_clifford_3design.json  (549.6s)

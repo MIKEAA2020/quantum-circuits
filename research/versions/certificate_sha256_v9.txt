@@ -1,0 +1,40 @@
+# certificate_sha256_v9.txt — ledger v9 (v22, the exact Zbar_3 closure round)
+# generated: 2026-09-21T11:36:49Z
+# v8 (v21) and earlier kept unmodified.
+# includes the gap_utils.py copies that repair the v17-v19 reproduction chain.
+be3c3c0c2b290c116d385cd5d057dba22d8f044a0ece904b8d9cea12e08249e5  manuscript_revised_v22_exactZ3.tex
+ed961db2e69aa8da3d999c0e52d1210633e7308af0fff05c68e0ec6ad0197a06  manuscript_revised_v22_exactZ3.pdf
+7699e8c295f84f19594d141138b082329393cac4ebb76d9b9e49b7a259e9b7e8  supplement_v5.tex
+580bb674fa1de08fb2514db1d9ce4c52aa752399e0f3c0b5e56e6877ae401ac1  supplement_v5.pdf
+b53cdc71fc30ce7d83a8ca93d4dfff6e30851cd807dea5771b12a5f3b31de554  changelog_v22.md
+ab58fd457f405027e40ebaec3a20d6400091ddfeaa4b51f37ec5a2ef122d727b  README_v22_exactZ3.md
+4e182a346a3d05f80391e3912a911615ca6404361a13450dc714a1b5ca638a74  mipt_numerical_report_v10.md
+
+# the v22 exact-closure suite (results):
+b19534ffd2b79d1a16fce0894b0fad236514d94d52e8053a8b12d345d10c1086  ../results/v22-exactZ3-n5L8/v22_clifford_3design.json
+a29c892e5b0a2e6d9f7b04e10c997c32292aceda80ded46417cf108d5d4d1b39  ../results/v22-exactZ3-n5L8/v22_n4_eps_topup.json
+8730bb19c35692d45d86b5203ea36a8ff20ad99ccc309d082b819a8c19a506f8  ../results/v22-exactZ3-n5L8/v22_q4_logcorr.json
+54082732dee048a76a2972b1bdcc7c68f359c3964316d727ce216c800c80ed94  ../results/v22-exactZ3-n5L8/v22_tiltvar_clifford.json
+ccf89f4ec10cc820f0b494ab53344fd6b4c5b3dbfc80795d557c8183ff7a8c13  ../results/v22-exactZ3-n5L8/v22_tiltvar_haar_p1.json
+83d35fc9ad3f567ec7d46a5b77d615ddea56f4f413c27458b8d65b9164395227  ../results/v22-exactZ3-n5L8/v22_traj_beta2.json
+6a8984d8b12eaae99aeb46d21ba6cd227cf9ee9ba922532e3f530189f2dc7fe5  ../results/v22-exactZ3-n5L8/v22_z3_exact.json
+779838eab1c4d5614b20a21db430d8e8a19a1d488d3e42b326d032a1c0664dcd  ../results/v22-exactZ3-n5L8/v22_z3_ladder.json
+16d78362684792cef31f4bb28548b5f87cc0a46cf4f37ec48e09e2d41ab73ffe  ../results/v22-exactZ3-n5L8/v22_z3_validate.json
+
+# the v22 exact-closure suite (scripts):
+a22b7fb1352fc5dd46824bace95de37a32916fa7e3c0d58762ad456d7f1c18db  ../scripts/v22-exactZ3-n5L8/gap_utils.py
+7aa041e56f66f357ba00f3892db72ca3ba0ccdfe4f7496e4e94cc01342ce344f  ../scripts/v22-exactZ3-n5L8/patch_v22_exactZ3.py
+955e18f3e27047d785b07f6e34fd83bace01e23faec3c05fedc11412e0b49540  ../scripts/v22-exactZ3-n5L8/patch_v22_supplement.py
+e5dafc2f26ad22a5b1d1e040ea0dd45a6fe26f69ae0a6faf902f6f38e747cdff  ../scripts/v22-exactZ3-n5L8/run_chain.sh
+9fb7e73279e7f50f49a6ff9198416d105f3099ae8d168f7eb620c2810409c405  ../scripts/v22-exactZ3-n5L8/v22_clifford_3design_v1.py
+329b38efffb9e71d1acb751b9514ca47dc283cb2a03d1d0e376b9d1eda5ab4d8  ../scripts/v22-exactZ3-n5L8/v22_n4_eps_topup_v1.py
+53a013e2e807da79a7e834b2d9c7fde8cd0d2f2843aa408a86dd9e21b72f0834  ../scripts/v22-exactZ3-n5L8/v22_n5_L8_block_v1.py
+15487dc9c73d68c719b889161bc6ba6b98524eb025e6c50a75670793cccd4fb9  ../scripts/v22-exactZ3-n5L8/v22_q4_logcorr_v1.py
+933cfa5b75778d655df401a0b83fa1f269bb28619ffed2eaccef7f9ff83edeb4  ../scripts/v22-exactZ3-n5L8/v22_tiltvar_uniform_v1.py
+6b6699076614e36ddc0a0e8842cc563f1b256357e4a4187934ebf21a59173578  ../scripts/v22-exactZ3-n5L8/v22_traj_beta2_v1.py
+be5731674ca3606a145009cf2d34252658898e84c84f2bb1589b93a8e6a4bcb6  ../scripts/v22-exactZ3-n5L8/v22_z3_exact_v1.py
+
+# the reproduction-chain repair (identical copies):
+a22b7fb1352fc5dd46824bace95de37a32916fa7e3c0d58762ad456d7f1c18db  ../scripts/v17-annealed-n3/gap_utils.py
+a22b7fb1352fc5dd46824bace95de37a32916fa7e3c0d58762ad456d7f1c18db  ../scripts/v18-n4n5-smc/gap_utils.py
+a22b7fb1352fc5dd46824bace95de37a32916fa7e3c0d58762ad456d7f1c18db  ../scripts/v19-n5L6-nofreeze/gap_utils.py

@@ -1,0 +1,21 @@
+== Part A: Haar p=1 exact-enumeration profile family ==
+   L=3 T= 6: v0=0.0582  rho=1.074(0.009)  kappa=-0.211(-0.211)  ESSmin=2061  identity 1.7e-06  [5.7s]
+   L=3 T=12: v0=0.0531  rho=1.044(0.012)  kappa=-0.127(-0.127)  ESSmin=985  identity 1.1e-06  [10.4s]
+   L=3 T=24: v0=0.0511  rho=1.045(0.013)  kappa=-0.135(-0.135)  ESSmin=398  identity 1.0e-06  [20.1s]
+   L=4 T= 8: v0=0.1018  rho=1.036(0.011)  kappa=-0.107(-0.107)  ESSmin=883  identity 8.5e-07  [19.8s]
+   L=4 T=16: v0=0.1031  rho=1.025(0.018)  kappa=-0.077(-0.077)  ESSmin=205  identity 5.2e-07  [39.5s]
+   L=4 T=32: v0=0.0964  rho=1.021(0.025)  kappa=-0.065(-0.065)  ESSmin=29  identity 4.2e-07  [77.0s]
+   L=5 T=10: v0=0.1044  rho=1.018(0.012)  kappa=-0.054(-0.054)  ESSmin=625  identity 4.7e-07  [46.0s]
+   L=5 T=20: v0=0.1020  rho=1.001(0.017)  kappa=-0.003(-0.003)  ESSmin=133  identity 3.0e-08  [91.7s]
+   L=5 T=40: v0=0.1014  rho=1.055(0.046)  kappa=-0.151(-0.151)  ESSmin=4  identity 1.5e-06  [182.1s]
+   L=6 T=12: v0=0.1589  rho=1.092(0.040)  kappa=-0.242(-0.242)  ESSmin=20  identity 2.5e-06  [292.2s]
+   L=6 T=24: v0=0.1518  rho=1.036(0.030)  kappa=-0.109(-0.109)  ESSmin=32  identity 6.3e-07  [509.1s]
+   L=6 T=48: v0=0.1525  rho=0.972(0.031)  kappa=0.074(0.074)  ESSmin=10  identity 8.6e-07  [767.8s]
+== Part B: Clifford disorder direction (FRESH t = L/2 trajectories -- well conditioned, unlike the t = 4L production npz whose tilted ESS collapses to 1) ==
+   L= 8 p=0.16 t=4 B=4000000: v0=0.0458  rho=0.872(0.000)  kappa=0.429(0.429)  ESSmin=141542  identity 3.7e-06
+   L=12 p=0.16 t=6 B=2400000: v0=0.0477  rho=0.878(0.002)  kappa=0.402(0.402)  ESSmin=1251  identity 3.5e-06
+   L=16 p=0.16 t=8 B=1600000: v0=0.0485  rho=0.888(0.006)  kappa=0.365(0.365)  ESSmin=23  identity 3.3e-06
+   L= 8 p=0.22 t=4 B=4000000: v0=0.0563  rho=0.890(0.001)  kappa=0.361(0.361)  ESSmin=42498  identity 3.1e-06
+   L=12 p=0.22 t=6 B=2400000: v0=0.0577  rho=0.894(0.002)  kappa=0.340(0.340)  ESSmin=364  identity 3.2e-06
+   L=16 p=0.22 t=8 B=1600000: v0=0.0584  rho=0.897(0.008)  kappa=0.327(0.327)  ESSmin=16  identity 3.3e-06
+done

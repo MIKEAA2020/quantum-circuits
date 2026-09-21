@@ -1,0 +1,1 @@
+./run_chain.sh: line 5: 11182 Killed                  python3 -u v22_z3_exact_v1.py all >> $L/v22_z3_exact_v1.log 2>&1

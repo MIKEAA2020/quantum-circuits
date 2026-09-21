@@ -1,0 +1,13 @@
+== phase validate: blocks vs deposited + unrestricted route ==
+      [ids nb=2] 14400/14400: K=7 (0s)
+   [ids nb=2] K = 7 orbits (0s)
+      [block p=0.44] chunk 1/1  0s  (eta 0s)
+   nb=2 p=0.44: K=7  block ['0.0213148848', '0.0038094232', '0.0006574938']  vs deposited [0.02131488480242762, 0.0038094231613833634, 0.0006574937833921616]  max rel 1.60e-14  [OK]
+      [ids nb=2] 14400/14400: K=7 (0s)
+   [ids nb=2] K = 7 orbits (0s)
+      [block p=0.32] chunk 1/1  0s  (eta 0s)
+   nb=2 p=0.32: K=7  block ['0.0705711525', '0.0110463069', '0.0030288838']  vs deposited [0.07057115250213783, 0.011046306918533864, 0.0030288838114481582]  max rel 5.70e-15  [OK]
+      [ids nb=3] 200000/1728000: K=57 (0s)
+   [ids nb=3] K = 57 orbits (3s)
+      [block p=0.44] chunk 1/14  2s  (eta 21s)
+      [block p=0.44] chunk 9/14  15s  (eta 8s)
