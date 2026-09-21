@@ -1,0 +1,27 @@
+V1  n=2 iterative vs Kaufman closed form (L=8, top-8):
+    p=0.1: max rel err 2.10e-15  [OK] lam1 0.44928583 vs 0.44928583
+    p=0.2: max rel err 5.15e-15  [OK] lam1 0.20464193 vs 0.20464193
+    p=0.3: max rel err 2.59e-15  [OK] lam1 0.09728342 vs 0.09728342
+V2  n=3 solve_record vs deposited n3_annealed_scan_dense (L=6):
+    p=0.25: lam1 0.09696260/0.09696260 (2.6e-15)  sig 0.08728238/0.08728238 (1.1e-15, block std.std vs std.std,i+)  eps 0.029516/0.029516 (1.4e-15)  [OK]
+    p=0.3: lam1 0.06009863/0.06009863 (2.9e-15)  sig 0.05116550/0.05116550 (6.8e-16, block std.std vs std.std,i+)  eps 0.018369/0.018369 (1.5e-15)  [OK]
+V3  n=4 iterative vs dense C (L=4; value-set match, degeneracy tolerated):
+    p=0.2: value-set err 3.58e-15  lam1 0.24057032 vs 0.24057032  [OK]
+    p=0.36: value-set err 3.52e-15  lam1 0.06703156 vs 0.06703156  [OK]
+V4/V5  S_4 colour blocks (L=4): completeness + idempotency:
+    completeness 2.52e-16  idempotency 1.68e-15  [OK]  (25 blocks)
+V6  p=1: lam1(nb) == [d^2 G(d^2)G(n+1)/G(d^2+n)]^{2*nb}, rank 1:
+    n=2 nb=1: lam 0.1600000000 vs 0.1600000000  rank 1  [OK]
+    n=2 nb=2: lam 0.0256000000 vs 0.0256000000  rank 1  [OK]
+    n=3 nb=1: lam 0.0400000000 vs 0.0400000000  rank 1  [OK]
+    n=3 nb=2: lam 0.0016000000 vs 0.0016000000  rank 1  [OK]
+    n=4 nb=1: lam 0.0130612245 vs 0.0130612245  rank 1  [OK]
+    n=4 nb=2: lam 0.0001705956 vs 0.0001705956  rank 1  [OK]
+    n=5 nb=1: lam 0.0051020408 vs 0.0051020408  rank 1  [OK]
+    n=5 nb=2: lam 0.0000260308 vs 0.0000260308  rank 1  [OK]
+V7  Weingarten pinv (n=5, D=4): G Wg G = G:
+    ||G Wg G - G||/||G|| = 3.24e-15  rank(G) = 119/120  [OK]
+V8  timing:
+    n=4 L=8: matvec 2.60s, solve_record(12) 249.4s -> lam1 0.003093 sig 0.002792 (std.std) eps None
+    n=5 L=6 timing: skipped (measured separately: ~85 s per M2 ring application; a full solve exceeds the budget)
+=== n45 validation: ALL OK ===

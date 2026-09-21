@@ -44,7 +44,13 @@ cd ../versions && tectonic manuscript_revised_v14_audit3.tex
 Versioning policy: revisions are always new version files (v13 -> v14,
 report v2 -> v3); nothing is overwritten.
 
-## v16 (record SCGF): the four theorem-level items closed
+## v16 (record SCGF): the four theorem-level items closed  *(parallel line, merged)*
+
+> The v16 lineage had two parallel rounds (both preserved, nothing
+> overwritten): `manuscript_revised_v16_recovered.*` (the recovered-data
+> round) and `manuscript_revised_v16_scgf.*` (the record-SCGF round below).
+> The canonical chain continues v16_recovered -> v17 -> v18 -> v19 -> v20;
+> the v16_scgf theorem closures are integrated by v21.
 
 - `versions/manuscript_revised_v16_scgf.tex/.pdf` — v15 + new Sec. 7 (the
   record SCGF: thermodynamic limit, freezing realization, disorder–replica
@@ -62,3 +68,17 @@ report v2 -> v3); nothing is overwritten.
   L-independent (the annealed–quenched free-energy gap persists).
 - `versions/changelog_v16.md` (§R), `versions/mipt_numerical_report_v5.md`
   (§11–12), `logs/certificate_sha256_v3.txt` (ledger v3).
+
+## v18 addendum (this release): research/versions/README_v18_n4n5-smc.md
+
+The v18 round (n=4 full S₄ colour resolution at L=4,6,8; the n=5
+first-order diagnostics; the Haar SMC record-multifractality run — grok's
+Target C) lives in `scripts/v18-n4n5-smc/`, `results/v18-n4n5-smc/`,
+`logs/v18-n4n5-smc/`, and `versions/` (manuscript v18, report v7,
+changelog v18, certificate v5).  See
+`versions/README_v18_n4n5-smc.md` for the summary and
+`versions/changelog_v18.md` for the full record.  Main results:
+p_c^{(2)}=0.233810 < p_c^{(3)}=0.305(3) < p_c^{(4)}=0.40(2) <
+p_c^{(5)}≈0.48–0.50 vs quenched 0.1597(8); 1/ν_eff 1.15 → 1.28 (rising
+toward the q=4 Potts 3/2); Haar record multifractality measured for the
+first time (D(q) nonconstant), freezing bounded away for q ≤ 3 at L ≤ 12.

@@ -1,0 +1,4 @@
+--- [C,P]=0 check, n=5 nb=2 ---
+||PC v - CP v|| / ||CP v|| = 1.06e-14  (commutes)
+--- the v18 budget-breaking cases ---
+n=5 nb=3 (L=6) N=1.728e+06 colour=('triv', 'triv') beta=8: build 2.9s, first 123.60s, steady 121.15s/matvec, ~2.5 GFlop -> 0.0 GFLOPS, peak RSS 942 MB

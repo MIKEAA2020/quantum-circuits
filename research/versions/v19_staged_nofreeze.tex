@@ -1,0 +1,136 @@
+% ---------------------------------------------------------------------------
+% v19 staged LaTeX fragments: the no-freezing theorem + replica interpolation
+% identity (to be patched into manuscript v19 by patch_v19_twosize.py).
+% Anchored insertion after the freezing-scope remark (rem:rem-scope).
+% ---------------------------------------------------------------------------
+
+\subsection{No freezing for finite reachable sets, and the replica interpolation identity}
+\label{sec:nofreeze}
+
+The freezing question raised by Theorem~\ref{thm:rem} can be closed for a
+defined class of monitored processes, and the disorder-replica interchange
+can be reduced to an exact identity with a measurable criterion.  Call the
+monitored process \emph{finite reachable} if its tilted Feynman--Kac
+dynamics closes on a finite state set $S$, the operators
+$\mathcal Q_{k,t}$ of Eq.~\eqref{eq:FK} being $|S|\times|S|$ nonnegative
+matrices, and \emph{allowable} if the i.i.d.\ tilted matrices are almost
+surely entrywise strictly positive (some finite product in the support of
+the disorder law is strictly positive, in the sense of Ruelle and
+Peres~\cite{Ruelle1979,Peres1992}) and strongly irreducible.  Clifford
+circuits with stabilizer inputs are finite reachable with degenerate
+(zero-variance) record statistics (Remark~\ref{rem:clifford}); the fully
+monitored point $p=1$ with layer-refreshed gates is finite reachable and,
+under Haar refreshment, allowable, since every tilted period matrix is
+almost surely entrywise strictly positive.
+
+\begin{theorem}[No finite-$q$ freezing for allowable finite-reachable processes]
+\label{thm:nofreeze}
+Let the monitored process be finite reachable with i.i.d.\ tilted
+operators $\mathcal Q_{k,t}$ that are allowable for every $k$ in a compact
+interval and satisfy $\E|\log\min_{ij}(\mathcal Q_{k,1})_{ij}|<\infty$ and
+$\E\log^+\|\mathcal Q_{k,1}\|<\infty$.  Then:
+(i) for almost every $\omega$ and all fixed positive vectors $u,v$,
+$\psi_{L,\omega}(k)=\lim_{T\to\infty}T^{-1}\log\langle
+u|\mathcal Q_{k,T}\cdots\mathcal Q_{k,1}|v\rangle$ exists, is
+deterministic, and equals the top Lyapunov exponent $\gamma(k)$ of the
+i.i.d.\ cocycle: products of almost-surely strictly positive matrices
+contract the positive cone in the Hilbert projective metric, so every
+positive functional shares the norm growth rate
+\cite{FurstenbergKesten1960};
+(ii) $k\mapsto\gamma(k)$ is real-analytic on all of $\mathbb R$ under the
+stated allowability \cite{LePage1974,Ruelle1979,Peres1992};
+(iii) consequently $\tau_L^{\rm q}(q)=-\gamma(1-q)$ is real-analytic on
+$\mathbb R$, and no finite-$q$ freezing transition of the kind exhibited
+by Theorem~\ref{thm:rem} occurs.  For if $\psi_L''(0)>0$ (nondegenerate
+records), an analytic function affine on an open interval would be affine
+everywhere by the identity theorem, contradicting strict convexity at
+$k=0$; in the degenerate case $\tau$ is affine everywhere with no
+finite-$q$ onset.  If the reachable set decomposes into $r\ge2$ invariant
+communicating classes with allowable restrictions, then
+$\psi=\max_{1\le i\le r}\gamma_i$ develops corners at exchanges---a
+quenched dynamical phase transition detected by jumps of $\tau'$, realizable
+by projectively consistent local dynamics with a conserved sector---but
+every branch is analytic on all of $\mathbb R$, so still no affine branch
+arises.  Freezing requires an \emph{unbounded} reachable set, as in the
+random-energy sequence of Theorem~\ref{thm:rem}.
+\end{theorem}
+
+\begin{corollary}[The fully monitored point, unconditional]
+\label{cor:p1closure}
+At $p=1$ with Haar-refreshed gates the tilted period matrices are almost
+surely entrywise strictly positive with
+$\E|\log\min_{ij}K_{ij}|<\infty$, so
+Theorem~\ref{thm:nofreeze} applies: the quenched record SCGF of that
+family exists for every $k$, is deterministic and real-analytic on
+$\mathbb R$, and its $\tau$ has no affine branch.  The analyticity
+conditionality flagged above is removed for this family.
+\end{corollary}
+
+\begin{proposition}[Replica interpolation identity]
+\label{prop:replica-int}
+Let $X>0$ be a random variable with $\E|\log X|<\infty$ and $\E X^r<\infty$
+for $r$ in a neighbourhood of $[0,m]$, and set $g(r)=\log\E X^r$, with
+$\operatorname{Var}_r$ the variance under the $r$-tilted law $\Pr_r(\mathrm dx)\propto
+X^r\Pr(\mathrm dx)$.  Then exactly
+\begin{equation}
+ g(r)-r\,\E\log X=\int_0^r (r-s)\,\operatorname{Var}_s(\log X)\,\mathrm ds,
+ \label{eq:repint}
+\end{equation}
+$r\mapsto g(r)/r$ is nondecreasing on $(0,\infty)$ with
+$\lim_{r\downarrow0}g(r)/r=\E\log X$ and
+$\lim_{r\to\infty}g(r)/r=\log\operatorname*{ess\,sup}X$ for bounded $X$,
+and $\partial_r\E X^r|_{r=0}=\E\log X$.
+\end{proposition}
+
+\begin{proof}
+$g$ is $C^\infty$ near $[0,m]$ with $g(0)=0$, $g'(r)=\E_r\log X$ and
+$g''(r)=\operatorname{Var}_r(\log X)\ge0$, the classical exponential-family identities;
+Eq.~\eqref{eq:repint} is Taylor's formula with integral remainder.
+Monotonicity of $g(r)/r$ is Lyapunov's inequality (the power means
+$(\E X^r)^{1/r}$ are nondecreasing in $r$), the $r\downarrow0$ limit is
+l'H\^opital's rule with $g(0)=0$, the $r\to\infty$ limit for bounded $X$
+is classical, and the final identity is dominated convergence.
+\end{proof}
+
+Applied to $X=Z_{q,\omega}(T)$ at fixed $(L,T)$,
+Proposition~\ref{prop:replica-int} organizes the disorder-replica
+structure: the annealed replica free energies
+$f_m=(1/m)\log\E_\omega Z_{q,\omega}^m$ form a monotone family squeezed
+between the quenched value $\E_\omega\log Z_{q,\omega}$, approached
+quadratically as $m\downarrow0$ ($f_m=\E\log Z+\tfrac m2\operatorname{Var}_0(\log Z)
++O(m^2)$), and the extremal value $\log\operatorname*{ess\,sup}_\omega Z$
+as $m\to\infty$.  The replica derivative
+$\partial_m\E_\omega Z^m|_{m=0}=\E_\omega\log Z$ is exact at finite
+$(L,T)$; what remains open is its interchange with $L,T\to\infty$, and
+Eq.~\eqref{eq:repint} reduces that interchange to the tilted-variance
+profile $\operatorname{Var}_s$ along $s\in[0,m]$: a sufficient condition is the
+self-averaging bound $\sup_{T}\operatorname{Var}\!\big(T^{-1}\log Z_{q,\omega}(T)\big)
+<\infty$, a measurable quantity for the sequential Monte Carlo machinery
+of the next subsection, while the naive $m\to\infty$ replica limit
+overshoots the quenched object to the extremal value and is not an
+interchange at all.
+
+\emph{Numerical verification} (script \texttt{no\_freeze\_theory\_v1.py},
+all checks pass).  (i)~Deterministic, i.i.d.-random, and reducible
+allowable chains: $\psi$ smooth and strictly convex on
+$k\in[-3,3]$, $\tau$ with no affine segment (the longest run of
+$|\tau''|$ below $5\%$ of its median is a single grid point); the
+reducible two-sector chain shows the corner ($\tau'$ jump $0.57$ in slope
+units) with both branches curved.  (ii)~The random-energy benchmark
+reproduces the opposite behaviour exactly: the closed form
+$\varphi(s)=\min$-piecewise of Theorem~\ref{thm:rem} has a terminal
+affine branch ($|\varphi''|\le9\times10^{-16}$ above $s_c$ against
+$10^{-4}$ below) with $\varphi'$ continuous at $s_c$---the side-by-side
+dichotomy.  (iii)~The $p=1$ Haar-refreshed family ($L=4$, $12$ sweeps,
+$400$ exact enumerations): $\psi$ smooth and strictly convex over
+$k\in[-2.5,2.5]$ (Corollary~\ref{cor:p1closure} empirically).  (iv)~The
+interpolation identity~\eqref{eq:repint} holds to $4\times10^{-8}$
+relative on an exact synthetic law and to $6\times10^{-7}$ relative on
+$6000$ exactly-enumerated $p=1$ Haar record partition functions
+($\E\log Z=13.256$, $\operatorname{Var}\log Z=0.037$); the quadratic small-$m$ rate
+$(f_m-\E\log Z)/(m\operatorname{Var}_0/2)$ measures $0.994$--$0.998$ at
+$m\in\{0.125,0.25,0.5\}$; the replica derivative matches $\E\log Z$ to
+$1.2\%$; and $f_8=13.390<\log\max Z=13.869$ exhibits the extremal
+overshoot.  Lyapunov monotonicity is exact on a $400$-point $m$-grid with
+the two one-sided limits matching their predicted values including the
+$(\log p_{\max})/m$ finite-$m$ correction.

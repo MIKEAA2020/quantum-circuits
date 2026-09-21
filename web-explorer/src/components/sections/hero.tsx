@@ -52,7 +52,8 @@ export function Hero() {
         >
           A complete exploration of the hybrid random Clifford circuit with projective
           measurements — the stabilizer-entropy locator, the Gullans–Huse purification
-          protocol, the free-fermion solution of the annealed sector, and a live
+          protocol, the free-fermion solution of the annealed sector and its replica
+          ladder n = 2…5, Haar record multifractality, and a live
           Gottesman–Knill simulator you can run yourself.
         </motion.p>
 
@@ -162,7 +163,7 @@ export function Hero() {
           >
             <ChevronDown className="size-4" />
           </motion.span>
-          scroll — six sections, one transition
+          scroll — seven sections, one transition
         </motion.a>
       </div>
     </section>

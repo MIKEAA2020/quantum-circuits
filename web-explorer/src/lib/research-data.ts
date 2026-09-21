@@ -268,3 +268,132 @@ export const REPRO = {
   tauGrid: "τ = t/L ∈ {0.25, 0.5, 1, 2, 4}",
   seedBlock: "purification seeds offset by +500,000,000 — disjoint from the pure-state blocks",
 };
+
+// ---------------------------------------------------------------------------
+// v19 — annealed replica ladder (n = 2…5), the two-size first-order test,
+// the Haar record SCGFs, and the no-freeze theorem.
+// All values are quoted verbatim from manuscript v19 / deposited results.
+// ---------------------------------------------------------------------------
+
+/** Quenched reference point for the ladder (Clifford, Born-weighted). */
+export const REPLICA_QUENCHED = {
+  pc: 0.1597,
+  err: 0.0008,
+  label: "0.1597(8)",
+  note: "I₃ locator; purification locator 0.1601–0.1604",
+};
+
+export type ReplicaRung = {
+  n: number;
+  pc: number;
+  /** verbatim label, e.g. "0.305(3)" */
+  pcLabel: string;
+  cls: string;
+  order: "continuous" | "first order";
+  note: string;
+};
+
+/** Annealed critical points (d = 2), replica number n = 2…5 — all verified. */
+export const REPLICA_LADDER: ReplicaRung[] = [
+  {
+    n: 2,
+    pc: 0.23381,
+    pcLabel: "0.233810",
+    cls: "Ising (Houtappel triangular-lattice)",
+    order: "continuous",
+    note: "EXACT closed form — the condition a − c = 2b. Continuous, Ising class.",
+  },
+  {
+    n: 3,
+    pc: 0.305,
+    pcLabel: "0.305(3)",
+    cls: "three-state Potts",
+    order: "continuous",
+    note: "Potts amplitude ratio x_σ/x_ε → 1/6 and slope exponent 1/ν_eff = 1.15(10) (Potts 6/5); exact sector-resolved transfer-matrix spectra, L = 4–12. Crossings: (4,6) 0.27114, (6,8) 0.29678, (8,10) 0.30244, (10,12) 0.30403.",
+  },
+  {
+    n: 4,
+    pc: 0.383,
+    pcLabel: "≈ 0.383",
+    cls: "marginal q = 4 Potts",
+    order: "continuous",
+    note: "Multiplicative log corrections (amplitude-ratio diagnostic degrades — honest finding); full S₄ colour resolution, four sizes L = 4, 6, 8, 10; crossings 0.35820, 0.37899, 0.3823; drift collapses 0.0208 → 0.0033 (vs 0.68 for a 1/ν = 1.28 power law); 1/ν_eff = 1.28 rising toward the q = 4 value 3/2. N = 24⁵ = 7,962,624 bond labels at L = 10 (dense would need 6.3×10¹³ entries ≈ 500 TB; iterative ring route < 1.8 GB).",
+  },
+  {
+    n: 5,
+    pc: 0.475,
+    pcLabel: "≈ 0.47–0.48",
+    cls: "first order",
+    order: "first order",
+    note: "Confirmed at the two-size level (L = 4 → 6): closing factor ×2.12, L·gap12 falls below the continuous envelope, plateau narrows by the full size ratio 4/6, X-curves cross at p ≈ 0.449 with slope ratio 2.18 vs n = 3's 1.69 ≈ (6/4)^1.15; locator stable 0.48 (L = 4) / 0.47 (L = 6). Two sizes cannot yet separate exponential from power-law closing; L = 8 (120⁴ = 2.1×10⁸ bond labels) is the next rung.",
+  },
+];
+
+/** Headline trend (verbatim): the annealed points recede from the quenched point. */
+export const REPLICA_TREND =
+  "0.1597(8) quenched < 0.233810 < 0.305(3) < 0.383 < 0.47 — annealed points move AWAY from the quenched transition as n grows (no annealed sequence converges to the Born-weighted point from above); q = n-Potts universality at n = 2, 3, 4, first order at n = 5.";
+
+/** Two-size test rows (L = 4 → 6, matched locators). */
+export const N5_TWOSIZE = [
+  { n: 3, locator: "0.30", gapL4: 2.147, gapL6: 1.185, closing: 1.81, lgap: "8.59 → 7.11", cls: "continuous baseline" },
+  { n: 4, locator: "0.38", gapL4: 1.919, gapL6: 0.990, closing: 1.94, lgap: "7.67 → 5.94", cls: "marginal q = 4" },
+  { n: 5, locator: "0.47", gapL4: 1.711, gapL6: 0.806, closing: 2.12, lgap: "6.85 → 4.85", cls: "first order — confirmed" },
+];
+
+/** First numerical quenched record SCGFs — Haar circuits (manuscript v19, Sec. smcnumerics). */
+export const SMC_HAAR = {
+  params: "N = 384 particles, T = 2L periods, systematic resampling, 8 circuits/point, L = 6–12",
+  pValues: [0.10, 0.1597, 0.2338, 0.4],
+  k: [-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2],
+  /** ψ(k) at p = 0.2338, nats per period */
+  psiL8: [-4.08, -3.16, -2.18, -1.13, 0.0, 1.24, 2.6, 4.13, 5.78],
+  psiL8se: [0.12, 0.09, 0.06, 0.03, 0, 0.04, 0.09, 0.15, 0.2],
+  psiL12: [-6.03, -4.66, -3.21, -1.67, 0.0, 1.82, 3.8, 6.02, 8.41],
+  psiL12se: [0.27, 0.21, 0.15, 0.08, 0, 0.1, 0.23, 0.39, 0.57],
+  /** D(q) spread over q ∈ [−1, 3] at L = 8, at the four p values (Clifford: exactly constant) */
+  dSpreadL8: [0.2, 0.32, 0.85, 1.96],
+  /** D-spread at L = 12, p = 0.2338 — grows with L */
+  dSpreadL12: 1.19,
+  /** record entropy rate ψ′(0) per period at L = 8, nats, at the four p values */
+  entropyRatesL8: [1.02, 1.5, 2.36, 3.62],
+  /** per-site rate, L-independent to 5% over L = 6–10 at p = 0.2338 */
+  perSite: { p: 0.2338, L: [6, 8, 10], rates: [0.287, 0.295, 0.288] },
+  /** annealed vs quenched, L = 8, p = 0.2338, k = 1 — disorder average does not commute with the logarithm */
+  annealedVsQuenched: { annealed: 2.75, quenched: 2.6, level: "≈6%, growing with L and p" },
+  noFreezing: "no finite-q freezing up to q = 3 at L ≤ 12 — τ remains strictly convex (no linear branch, the freezing signature)",
+  validation: [
+    "exact enumeration at L = 4 within 2σ across four decades of Z",
+    "p = 1 exact Markov chain within 1.4σ up to Z ~ 4×10¹⁰",
+    "ψ(0) = 0 exactly",
+    "ψ″(0) = Var/T identity: 0.428 vs 0.427",
+    "N = 1536 top-up confirms the k = +2 column",
+  ],
+};
+
+/** No-freeze theorem + replica interpolation identity (manuscript v19, Sec. nofreeze). */
+export const NO_FREEZE = {
+  theorem:
+    "No allowable finite-reachable monitored process — deterministic, i.i.d.-random, or reducible — can exhibit finite-q freezing. Freezing requires an unbounded reachable set.",
+  proofRoute: [
+    "Furstenberg–Kesten + Hilbert-metric cone contraction — existence + determinism",
+    "Le Page / Ruelle / Peres analyticity of the top Lyapunov exponent",
+    "identity-theorem corollary: an analytic ψ affine on an interval is affine everywhere, contradicting strict convexity",
+    "reducible chains give corners (jumps of τ′), not affine branches",
+  ],
+  rem: {
+    qc: "√(2 log 2)",
+    note: "the random-energy construction realizes freezing at q_c = √(2 log 2) with τ′ continuous at the onset — the side-by-side counterexample",
+  },
+  corollary: "the fully monitored p = 1 Haar-refreshed family's analyticity is unconditional",
+  machine: "8/8 PASS",
+  interpolation: {
+    formula: "g(r) − r·E log X = ∫₀ʳ (r−s)·Var_s(log X) ds",
+    consequences: [
+      "m ↓ 0: quenched value, quadratically",
+      "m → ∞: overshoots to extremal — not an interchange",
+      "interchange ⟺ measurable self-averaging criterion",
+    ],
+    criterion: "sup_T Var(T⁻¹ log Z) < ∞",
+    ladder: "replica free energies f_m form a monotone ladder; m → ∞ overshoots to the extremal value log ess sup X — the naive replica limit is not an interchange",
+  },
+};

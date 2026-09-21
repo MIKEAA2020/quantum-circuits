@@ -1,0 +1,361 @@
+{
+ "cases": 44,
+ "bitexact": 44,
+ "mismatches": 0,
+ "elapsed_s": 5.377048969268799,
+ "contract": "run_sample(L, p, rec, SP4, seed0 + k), legacy MT19937 (np.random.seed)",
+ "rows": [
+  {
+   "file": "mipt_data/L16_p0.1600.npz",
+   "L": 16,
+   "p": 0.16,
+   "k": 0,
+   "seed": 142716393,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L16_p0.1600.npz",
+   "L": 16,
+   "p": 0.16,
+   "k": 1,
+   "seed": 142716394,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L16_p0.1600.npz",
+   "L": 16,
+   "p": 0.16,
+   "k": 1999,
+   "seed": 142718392,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L16_p0.1600.npz",
+   "L": 16,
+   "p": 0.16,
+   "k": 3999,
+   "seed": 142720392,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L24_p0.1550.npz",
+   "L": 24,
+   "p": 0.155,
+   "k": 0,
+   "seed": 146756917,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L24_p0.1550.npz",
+   "L": 24,
+   "p": 0.155,
+   "k": 1,
+   "seed": 146756918,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L24_p0.1550.npz",
+   "L": 24,
+   "p": 0.155,
+   "k": 2000,
+   "seed": 146758917,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L24_p0.1550.npz",
+   "L": 24,
+   "p": 0.155,
+   "k": 3999,
+   "seed": 146760916,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L32_p0.1500.npz",
+   "L": 32,
+   "p": 0.15,
+   "k": 0,
+   "seed": 150797441,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L32_p0.1500.npz",
+   "L": 32,
+   "p": 0.15,
+   "k": 1,
+   "seed": 150797442,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L32_p0.1500.npz",
+   "L": 32,
+   "p": 0.15,
+   "k": 2000,
+   "seed": 150799441,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L32_p0.1500.npz",
+   "L": 32,
+   "p": 0.15,
+   "k": 3999,
+   "seed": 150801440,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L48_p0.1650.npz",
+   "L": 48,
+   "p": 0.165,
+   "k": 0,
+   "seed": 178675989,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L48_p0.1650.npz",
+   "L": 48,
+   "p": 0.165,
+   "k": 1,
+   "seed": 178675990,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L48_p0.1650.npz",
+   "L": 48,
+   "p": 0.165,
+   "k": 2000,
+   "seed": 178677989,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L48_p0.1650.npz",
+   "L": 48,
+   "p": 0.165,
+   "k": 3999,
+   "seed": 178679988,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L64_p0.1700.npz",
+   "L": 64,
+   "p": 0.17,
+   "k": 0,
+   "seed": 198635537,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L64_p0.1700.npz",
+   "L": 64,
+   "p": 0.17,
+   "k": 1,
+   "seed": 198635538,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L64_p0.1700.npz",
+   "L": 64,
+   "p": 0.17,
+   "k": 2000,
+   "seed": 198637537,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L64_p0.1700.npz",
+   "L": 64,
+   "p": 0.17,
+   "k": 3999,
+   "seed": 198639536,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L96_p0.1500.npz",
+   "L": 96,
+   "p": 0.15,
+   "k": 0,
+   "seed": 214797633,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L96_p0.1500.npz",
+   "L": 96,
+   "p": 0.15,
+   "k": 1,
+   "seed": 214797634,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L96_p0.1500.npz",
+   "L": 96,
+   "p": 0.15,
+   "k": 1499,
+   "seed": 214799132,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L96_p0.1500.npz",
+   "L": 96,
+   "p": 0.15,
+   "k": 2999,
+   "seed": 214800632,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L128_p0.1600.npz",
+   "L": 128,
+   "p": 0.16,
+   "k": 0,
+   "seed": 254716729,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L128_p0.1600.npz",
+   "L": 128,
+   "p": 0.16,
+   "k": 1,
+   "seed": 254716730,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L128_p0.1600.npz",
+   "L": 128,
+   "p": 0.16,
+   "k": 1499,
+   "seed": 254718228,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L128_p0.1600.npz",
+   "L": 128,
+   "p": 0.16,
+   "k": 2999,
+   "seed": 254719728,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L192_p0.1450.npz",
+   "L": 192,
+   "p": 0.145,
+   "k": 0,
+   "seed": 306838421,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L192_p0.1450.npz",
+   "L": 192,
+   "p": 0.145,
+   "k": 1,
+   "seed": 306838422,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L192_p0.1450.npz",
+   "L": 192,
+   "p": 0.145,
+   "k": 999,
+   "seed": 306839420,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L192_p0.1450.npz",
+   "L": 192,
+   "p": 0.145,
+   "k": 1999,
+   "seed": 306840420,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L256_p0.1550.npz",
+   "L": 256,
+   "p": 0.155,
+   "k": 0,
+   "seed": 378757613,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L256_p0.1550.npz",
+   "L": 256,
+   "p": 0.155,
+   "k": 1,
+   "seed": 378757614,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L256_p0.1550.npz",
+   "L": 256,
+   "p": 0.155,
+   "k": 999,
+   "seed": 378758612,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L256_p0.1550.npz",
+   "L": 256,
+   "p": 0.155,
+   "k": 1999,
+   "seed": 378759612,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L384_p0.1800.npz",
+   "L": 384,
+   "p": 0.18,
+   "k": 0,
+   "seed": 526555497,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L384_p0.1800.npz",
+   "L": 384,
+   "p": 0.18,
+   "k": 1,
+   "seed": 526555498,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L384_p0.1800.npz",
+   "L": 384,
+   "p": 0.18,
+   "k": 400,
+   "seed": 526555897,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L384_p0.1800.npz",
+   "L": 384,
+   "p": 0.18,
+   "k": 799,
+   "seed": 526556296,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L512_p0.1600.npz",
+   "L": 512,
+   "p": 0.16,
+   "k": 0,
+   "seed": 638717881,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L512_p0.1600.npz",
+   "L": 512,
+   "p": 0.16,
+   "k": 1,
+   "seed": 638717882,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L512_p0.1600.npz",
+   "L": 512,
+   "p": 0.16,
+   "k": 200,
+   "seed": 638718081,
+   "bitexact": true
+  },
+  {
+   "file": "mipt_data/L512_p0.1600.npz",
+   "L": 512,
+   "p": 0.16,
+   "k": 399,
+   "seed": 638718280,
+   "bitexact": true
+  }
+ ]
+}
