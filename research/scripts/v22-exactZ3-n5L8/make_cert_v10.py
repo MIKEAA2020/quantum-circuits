@@ -20,7 +20,9 @@ FILES_RES = ['v22_n5_L8_rung.json',
 FILES_SCR = ['patch_v23_rung.py', 'make_cert_v10.py', 'followup_v23.sh',
              'run_chain.sh', 'v22_n5_L8_block_v1.py']
 FILES_LOG = ['v22_n5_L8_block_ids.log', 'v22_n5_L8_block_run.log',
-             'chain.log']
+             'v22_n5_L8_block_run_p0.44.log', 'v22_n5_L8_block_run_p0.46.log',
+             'v22_n5_L8_block_run_p0.47.log', 'v22_n5_L8_block_run_p0.48.log',
+             'v22_n5_L8_block_run_p0.50.log', 'chain.log']
 
 
 def sha(p):
@@ -54,9 +56,13 @@ for f in FILES_SCR:
         continue
     out.append(f"{sha(os.path.join(SCR, f))}  ../scripts/v22-exactZ3-n5L8/{f}")
 out.append('')
-out.append('# the chain completion logs:')
+out.append('# the chain completion logs (per-p logs may be absent on a partial grid):')
 for f in FILES_LOG:
-    out.append(f"{sha(os.path.join(LOG, f))}  ../logs/v22-exactZ3-n5L8/{f}")
+    fp = os.path.join(LOG, f)
+    if not os.path.exists(fp):
+        out.append(f'ABSENT  ../logs/v22-exactZ3-n5L8/{f}')
+        continue
+    out.append(f"{sha(fp)}  ../logs/v22-exactZ3-n5L8/{f}")
 txt = '\n'.join(out) + '\n'
 open(os.path.join(VER, 'certificate_sha256_v10.txt'), 'w').write(txt)
 print(txt[:1500])

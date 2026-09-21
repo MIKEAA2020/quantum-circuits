@@ -173,8 +173,15 @@ def orbit_table(nb, chunk=200_000):
 
 # ---------------------------------------------------------------------------
 def assemble_block(n, d, p, nb, ids, reps, counts, K, chunk=125_000,
-                   dtype=np.float64, progress_every=8):
-    """B_M1, B_M2 (K x K) in the orbit basis (exact restriction)."""
+                   dtype=np.float64, progress_every=8, R=64,
+                   state_path=None, save_every=0):
+    """B_M1, B_M2 (K x K) in the orbit basis (exact restriction).
+
+    state_path/save_every: optional chunk-level checkpointing.  The cron-era
+    sandbox reaps background processes a few minutes after launch, so the
+    run phase is driven in FOREGROUND segments by the watcher; the partial
+    B1/B2 and the chunk cursor survive across segments (atomic save via
+    .tmp + os.replace).  The arithmetic is IDENTICAL either way."""
     P, idx, W = W_tensor(n, d, p)
     g = len(P)
     Wf = np.ascontiguousarray(W.reshape(g, g * g), dtype=dtype)
@@ -194,7 +201,24 @@ def assemble_block(n, d, p, nb, ids, reps, counts, K, chunk=125_000,
     norm = np.outer(sqrtc, 1.0 / sqrtc)
     t0 = time.time()
     nch = (N + chunk - 1) // chunk
+    ci_start = 0
+    if state_path and os.path.exists(state_path):
+        try:
+            st = np.load(state_path)
+            if int(st['K']) == K and abs(float(st['p']) - p) < 1e-9 \
+                    and int(st['chunk']) == chunk:
+                B1[:] = st['b1']
+                B2[:] = st['b2']
+                ci_start = int(st['ci']) + 1
+                log(f"   [block p={p}] RESUMED at chunk {ci_start + 1}/{nch} "
+                    f"(state {time.strftime('%H:%M:%S', time.localtime(st['ts']))})")
+            else:
+                log(f"   [block p={p}] stale state file ignored")
+        except Exception as e:
+            log(f"   [block p={p}] unreadable state ({e}) — starting fresh")
     for ci, i0 in enumerate(range(0, N, chunk)):
+        if ci < ci_start:
+            continue
         i1 = min(i0 + chunk, N)
         C = i1 - i0
         c = np.arange(i0, i1, dtype=np.int64)
@@ -212,8 +236,15 @@ def assemble_block(n, d, p, nb, ids, reps, counts, K, chunk=125_000,
         orb_s = orb[order]
         bounds = np.searchsorted(orb_s, np.arange(K + 1))
         starts = bounds[:-1]
-        empty = starts == bounds[1:]
-        R = 64
+        # orbit ids are assigned by FIRST APPEARANCE in the space scan, so a
+        # chunk (a narrow slice of (S_5)^nb) can miss the high ids entirely:
+        # for every orbit k absent from this chunk searchsorted gives
+        # bounds[k] == C, and np.add.reduceat raises IndexError for indices
+        # >= C (hit at nb=4, chunk 0: 125000 out-of-bounds).  Keep only the
+        # orbits present in the chunk; absent ones contribute exactly 0
+        # (what the old seg[:, empty] = 0.0 patch meant, now structural).
+        nemp = np.flatnonzero(starts < bounds[1:])
+        starts_nz = starts[nemp]      # strictly increasing, all < C
         for r0 in range(0, K, R):
             r1 = min(r0 + R, K)
             rb = reps[r0:r1]
@@ -222,14 +253,20 @@ def assemble_block(n, d, p, nb, ids, reps, counts, K, chunk=125_000,
                 for k in range(nb):
                     vals *= A[k][rb[:, k]]
                 vso = vals[:, order]
-                seg = np.add.reduceat(vso, starts, axis=1)
-                if empty.any():
-                    seg[:, empty] = 0.0
+                seg = np.zeros((r1 - r0, K), dtype=dtype)
+                if nemp.size:
+                    seg[:, nemp] = np.add.reduceat(vso, starts_nz, axis=1)
                 Bm[r0:r1] += seg
         if ci % progress_every == 0:
             el = time.time() - t0
             log(f"      [block p={p}] chunk {ci+1}/{nch}  {el:.0f}s  "
                 f"(eta {el/(ci+1)*(nch-ci-1):.0f}s)")
+        if state_path and save_every and (ci % save_every == 0 or ci == nch - 1):
+            tmpf = state_path + '.tmp.npy'
+            with open(tmpf, 'wb') as fh:
+                np.savez(fh, b1=B1, b2=B2, ci=ci, p=p, K=K,
+                         chunk=chunk, ts=time.time())
+            os.replace(tmpf, state_path)
     B1 *= norm
     B2 *= norm
     return B1, B2
@@ -307,7 +344,17 @@ def phase_run(args):
         if round(p, 4) in done:
             continue
         t0 = time.time()
-        B1, B2 = assemble_block(5, 2, p, 4, ids, reps, counts, K)
+        # chunk=25k + R=512: peak anon ~0.85 GB (the 4 GiB cgroup shared
+        # with the dev server; the 125k profile OOM'd once) and the r-loop
+        # re-streams A ~8x less.  state_path makes the assembly RESUMABLE
+        # at chunk granularity: the cron-era sandbox reaps background
+        # processes, so the watcher drives the run in foreground segments
+        # (see followup_v23.sh driving mode); arithmetic is identical.
+        B1, B2 = assemble_block(5, 2, p, 4, ids, reps, counts, K,
+                                chunk=25_000, R=512,
+                                state_path=os.path.join(
+                                    TMP, f'run_nb4_p{round(p, 4):.4f}_state.npz'),
+                                save_every=8)
         ev = block_eigs(B1, B2, k_want=6)
         gap12 = math.log(ev[0] / ev[1]) if ev[1] > 0 else None
         row = {'p': p, 'L': 8, 'n': 5, 'K': int(K),
@@ -317,6 +364,11 @@ def phase_run(args):
                'secs': round(time.time() - t0, 1)}
         rows.append(row)
         json.dump(rows, open(ckpt, 'w'), indent=1)
+        try:  # the chunk-state file for this point is obsolete now
+            os.remove(os.path.join(
+                TMP, f'run_nb4_p{round(p, 4):.4f}_state.npz'))
+        except OSError:
+            pass
         log(f"   p={p}: lam1={ev[0]:.8e} lam2={ev[1]:.8e} "
             f"gap12={gap12:.5f}  [{row['secs']}s]")
 
