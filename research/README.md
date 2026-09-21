@@ -82,3 +82,28 @@ p_c^{(2)}=0.233810 < p_c^{(3)}=0.305(3) < p_c^{(4)}=0.40(2) <
 p_c^{(5)}≈0.48–0.50 vs quenched 0.1597(8); 1/ν_eff 1.15 → 1.28 (rising
 toward the q=4 Potts 3/2); Haar record multifractality measured for the
 first time (D(q) nonconstant), freezing bounded away for q ≤ 3 at L ≤ 12.
+
+## v21 (Clifford record-count closure): the parallel line integrated
+
+The v16_scgf theorem-closure line (preserved as
+`versions/manuscript_revised_v16_scgf.tex` and merged from the parallel
+git line) is integrated into the canonical chain by
+`versions/manuscript_revised_v21_clifford.tex` — with the framing
+corrected: its "quenched SCGF" is the **disorder-direction SCGF**
+(annealed record moment at fractional order q=1+β; for fixed Clifford ω
+the record surprisal is ω-measurable, so the trajectory direction is
+trivial and all nontrivial record statistics are disorder statistics,
+with E_ω[2^{(1-n)N_rand}] = Z̄_n at integer order).  New Sec. IV.F:
+exact β=1 anchors with the Houtappel closure −0.08101 nats/site;
+self-averaging Var/(2Lt)=0.105 (the measurable criterion, verified);
+the L-independent annealed–quenched gap **g = 0.0226(2) nats/site**
+(the r=1 interpolation remainder; sub-Gaussian 13%); the collision-tilt
+ESS law ESS/B = exp[−2Lt(Λ(2)−2Λ(1))] (estimator difficulty, not a
+transition — consistent with Theorem no-freeze); the
+Gottesman–Knill/2-design/Haar complexity trichotomy.  Supplement v4
+gains the deferred proofs (Theorem rem, Prop. SMC) and the
+record-count runs (Sec. S7: calibration with the t=L/2 convention fix,
+anchors, ladder, reproduction).  Companion docs: changelog_v21.md,
+README_v21_clifford.md, mipt_numerical_report_v9.md (Secs. 16–20, the
+framing-correction record and the corrected ladder), ledger
+certificate_sha256_v8.txt.

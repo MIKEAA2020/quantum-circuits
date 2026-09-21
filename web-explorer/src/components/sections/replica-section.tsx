@@ -335,6 +335,16 @@ export function ReplicaSection() {
             No annealed sequence converges to the Born-weighted point from above — the quenched
             transition is genuinely non-perturbative in the measurement noise.
           </p>
+          <p className="mt-1.5 text-xs text-zinc-500 leading-relaxed">
+            The n = 3 rung reappears as the Λ(2) tilt of the record SCGF —{" "}
+            <a
+              href="#record-scgf"
+              className="text-emerald-400/90 hover:text-emerald-300 underline decoration-dotted underline-offset-2 whitespace-nowrap"
+            >
+              cf. the Record SCGF section
+            </a>
+            : the same Z̄₂ anchor and the n = 3 operator.
+          </p>
 
           {/* rung fact cells */}
           <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">

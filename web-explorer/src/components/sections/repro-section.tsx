@@ -8,7 +8,7 @@ export function ReproSection() {
   return (
     <section id="repro" className="scroll-mt-20 py-16 sm:py-20 border-t border-zinc-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <SectionHeading num="07" id="repro" kicker="Reproducibility" title={<>Bit-exact by contract, honest by design</>} />
+        <SectionHeading num="08" id="repro" kicker="Reproducibility" title={<>Bit-exact by contract, honest by design</>} />
 
         <div className="mt-10 grid lg:grid-cols-2 gap-6">
           <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-6 min-w-0">
@@ -90,8 +90,21 @@ export function ReproSection() {
               Versioning &amp; audit trail
             </div>
             <p className="mt-3 text-sm text-zinc-400 leading-relaxed [overflow-wrap:anywhere]">
-              The manuscript progressed v13 → v14 under three external audit rounds (10 remaining points,
-              all adjudicated; none requiring a change to any theorem, proof, or exact number). Every
+              The manuscript progressed v13 → v14 (audit-3 plan) → v15 (spinor
+              factorisation derived and verified) → v16 (record-SCGF theorem
+              layer: thermodynamic limit, freezing realization, replica
+              interchange, Born-average hardness) → v17 (the annealed n = 3
+              critical point — three-state Potts universality) → v18 (n = 4
+              full S₄ colour resolution, the n ≥ 5 first-order test, Haar
+              record SCGFs by sequential Monte Carlo) → v19 (the n = 5
+              two-size first-order confirmation, the no-freeze theorem, the
+              replica interpolation identity) → v20 (the alignment pass +
+              supplement v3) → v21 — Clifford record-count closure: disorder
+              SCGF, self-averaging, annealed–quenched gap; supplement v4 —
+              every revision a new version file, nothing overwritten. Under
+              three external audit rounds (10 remaining points, all
+              adjudicated; none requiring a change to any theorem, proof, or
+              exact number). Every
               analysis step is a versioned script with a JSON result and a log:{" "}
               <span className="font-mono text-zinc-300 text-xs">
                 mipt_purif_sim.py → mipt_data_purif/*.npz → mipt_purif_analysis.py → purif_summary.json

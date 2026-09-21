@@ -6,6 +6,7 @@ import { FssSection } from "@/components/sections/fss-section";
 import { ResultsSection } from "@/components/sections/results-section";
 import { TheorySection } from "@/components/sections/theory-section";
 import { ReplicaSection } from "@/components/sections/replica-section";
+import { RecordScgfSection } from "@/components/sections/record-scgf-section";
 import { ReproSection } from "@/components/sections/repro-section";
 import { SiteFooter } from "@/components/sections/footer";
 import { BackToTop } from "@/components/sections/back-to-top";
@@ -22,6 +23,7 @@ export default function Home() {
         <ResultsSection />
         <TheorySection />
         <ReplicaSection />
+        <RecordScgfSection />
         <ReproSection />
       </main>
       <SiteFooter />

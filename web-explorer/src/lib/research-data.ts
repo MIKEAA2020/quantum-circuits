@@ -397,3 +397,73 @@ export const NO_FREEZE = {
     ladder: "replica free energies f_m form a monotone ladder; m → ∞ overshoots to the extremal value log ess sup X — the naive replica limit is not an interchange",
   },
 };
+
+// ---------------------------------------------------------------------------
+// Record SCGF (v16 data, v21 framing) — the disorder-direction SCGF of the
+// record count: the annealed record moment family at fractional order
+// q = 1 + β; the β = 1 endpoint is exactly the annealed collision Z̄₂ (the
+// two-replica transfer matrix). Values produced and verified in the present
+// workspace (research/scripts/mipt_scgf_exact.py = exact two-replica algebra
+// evolution; mipt_born_scgf.py = vectorised tableau trajectories;
+// results/scgf_exact.json, scgf_born.json).
+// ---------------------------------------------------------------------------
+
+export const RECORD_SCGF = {
+  // p = 0.16, tau = 4 (t = 4L); xbar = quenched record-entropy density
+  // (bits/site); xi1 = exact beta=1 anchor: finite-t 3^L evolution at
+  // L <= 16; amplitude-corrected lambda_1 at L = 24 (A(24) ~ 21.4 from
+  // A(L) = 2.4512/4.2354/7.2288 at L = 8/12/16); lambda_1-asymptotic at
+  // L = 32. varPerSite = Var(X)/(2Lt); ess = effective sample size of the
+  // collision tilt out of essB trajectories; gap = Lambda(1) + ln2*xbar
+  // (nats/site).
+  ladder: [
+    { L: 8, xbar: 0.14479, xi1Exact: -0.077984, xi1Inf: -0.079735, varPerSite: 0.1055, ess: 11.7, essB: 40000, gap: 0.0224, sMean: 2.036 },
+    { L: 12, xbar: 0.14703, xi1Exact: -0.079362, xi1Inf: -0.080615, varPerSite: 0.1044, ess: 3.9, essB: 40000, gap: 0.0226, sMean: 2.675 },
+    { L: 16, xbar: 0.14803, xi1Exact: -0.079901, xi1Inf: -0.080867, varPerSite: 0.1058, ess: 1.4, essB: 30000, gap: 0.0227, sMean: 3.116 },
+    { L: 24, xbar: 0.14890, xi1Exact: -0.080325, xi1Inf: -0.080989, varPerSite: 0.1048, ess: 1.0, essB: 15000, gap: 0.0229, sMean: 3.732 },
+    { L: 32, xbar: null as number | null, xi1Exact: -0.081009, xi1Inf: -0.081009, varPerSite: null as number | null, ess: null as number | null, essB: 0, gap: null as number | null, sMean: null as number | null },
+  ],
+  houtappelPerSite: -0.08101, // nats/site at p = 0.16 (the beta=1 thermodynamic limit)
+  houtappelP22: -0.11082, // nats/site at p = 0.22
+  xbarLimit: 0.1489, // bits/site (quenched record-entropy density, p = 0.16, L -> inf)
+  xbarP22: 0.1971, // bits/site at p = 0.22
+  gapValue: "0.0226(2)", // nats/site, L-independent (ladder values 0.0224/0.0226/0.0227/0.0229)
+  gapP22: 0.027, // nats/site at p = 0.22, L-independent
+  varP22: "0.124–0.125", // Var(X)/(2Lt) at p = 0.22 (0.105 at p = 0.16), L-independent for L = 8–24
+  gaussianCumulant: 0.0252, // leading Gaussian cumulant — overestimates g by ≈13% (sub-Gaussian tail)
+  // Z2(t) = A(L) * lambda_1^t — A subexponential in t, constant to 6 digits for t >= 3L
+  aFactors: {
+    L: [8, 12, 16],
+    A: [2.4512, 4.2354, 7.2288],
+    note: "subexponential in t, constant to 6 digits for t ≳ 3L; A(24) ≈ 21.4 extrapolated",
+  },
+  // collision-tilt ESS — exact law ESS/B = exp[-2Lt·(Λ(2) − 2Λ(1))];
+  // measured exponent (nats/site) at L = 8/12/16
+  essExponent: [
+    { L: 8, exponent: 0.0159 },
+    { L: 12, exponent: 0.0080 },
+    { L: 16, exponent: 0.0049 },
+  ],
+  // tilted density of the annealed-endpoint dominating minority vs typical (L = 8, p = 0.16)
+  tiltedDensity: { atypical: 0.097, typical: 0.145 },
+  // freezing: tilted-vs-quenched entropy gap (exact, t = 4L, p = 0.16)
+  tiltedGap: [
+    { L: 8, gap: 0.19, sTildeInf: 2.2243, sQuench: 2.036 },
+    { L: 12, gap: 0.57, sTildeInf: 3.2496, sQuench: 2.675 },
+  ],
+  // exact-vs-deposit calibration of the two-replica algebra evolution
+  calibration: {
+    note: "t = L/2 periods (convention fixed by this calibration)",
+    rows: [
+      { q: "Z₂ (exact evolution)", L8: "1.479639e-2", deposit8: "1.4796e-2", L12: "3.81731e-5", deposit12: "—" },
+      { q: "S̃₂ (exact)", L8: "2.1547", deposit8: "2.155", L12: "3.1281", deposit12: "3.128" },
+      { q: "E[2^−X] (4×10⁴ traj)", L8: "1.4689e-2", deposit8: "1.4942e-2", L12: "3.8399e-5", deposit12: "—" },
+      { q: "E S_{L/2} (traj)", L8: "2.015(4)", deposit8: "2.019(4)", L12: "2.632(5)", deposit12: "2.394(5)" },
+      { q: "ESS (tilt)", L8: "6339", deposit8: "5935", L12: "478", deposit12: "454" },
+    ],
+  },
+  cumulantCheck: [
+    { L: 8, predicted: -0.02351, measured: -0.0236 },
+    { L: 24, predicted: -0.02423, measured: -0.0243 },
+  ],
+};

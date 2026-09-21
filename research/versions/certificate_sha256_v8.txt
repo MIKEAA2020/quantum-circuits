@@ -1,0 +1,19 @@
+# certificate_sha256_v8.txt — ledger v8 (v21, the Clifford record-count closure round)
+# generated: 2026-09-21T07:37:45Z
+# v7 (v20) and earlier kept unmodified; the parallel-line suite ledger
+# is certificate_sha256_v3_scgf.txt (logs/).
+
+732cde2295a9d2b981a3a7badea4769701c866e83385f1c13afdf77e7ed72d43  manuscript_revised_v21_clifford.tex
+7d4ab7a107a9e4fe0a8889cf11fb1bae050a2990257d006ee67854bc808b8e57  manuscript_revised_v21_clifford.pdf
+2078170f76f36887d73817b35df4541b6af43466d875d6ea6900151255ccd0d9  supplement_v4.tex
+4b5dcada94be1ff7efffa6015bf1035cf20428754e93246771f281e50cafe375  supplement_v4.pdf
+193d2044e0d6a0ccea8e467368d0e02c532649317771e8e343c89fccdce8238b  changelog_v21.md
+946aa8708a27f2018fa8959f88998e27104e7785ea6cf5aa494782256ed02629  README_v21_clifford.md
+d8e126ae7a7c99468ff402bb7130dabe83d0d5247f3ae779446bb5665654a420  mipt_numerical_report_v9.md
+
+# the record-count suite (results + scripts, from the parallel line, now canonical):
+91a780edf897c34fdc14fb9a38075c9e259cb03f416764c751842d790ae1392d  ../results/scgf_exact.json
+20f3a39d131ab7da6ca9d5adee3e2d4e7a448eed0ca0f8478ac200dce03718a1  ../results/scgf_exact_addendum.json
+b3bfcf21e6f325d97044c4d5401dfc36c49cb5c406ccf9e8bc0f215c26b53237  ../results/scgf_born.json
+3f2e433cfcd55bed2af4bb4c932f2cae6ad877309008072569e817c5fd2739bb  ../scripts/mipt_scgf_exact.py
+1402b410fb5d2239540a9076cf228cfb3dce8a090682a7def3b28a9f40700ab1  ../scripts/mipt_born_scgf.py

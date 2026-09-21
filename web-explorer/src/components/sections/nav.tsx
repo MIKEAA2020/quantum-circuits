@@ -10,6 +10,7 @@ const LINKS = [
   { href: "#results", label: "Results", id: "results" },
   { href: "#theory", label: "Exact theory", id: "theory" },
   { href: "#replica", label: "Replica ladder", id: "replica" },
+  { href: "#record-scgf", label: "Record SCGF", id: "record-scgf" },
   { href: "#repro", label: "Reproducibility", id: "repro" },
 ];
 
