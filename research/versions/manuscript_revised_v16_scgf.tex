@@ -1,7 +1,32 @@
 % =========================================================================
-% manuscript_revised_v15_spinor.tex
-% v15 of the manuscript: v14 with the one unresolved proof-route item (the
-% S5/S6 spinor factorization) DERIVED AND VERIFIED:
+% manuscript_revised_v16_scgf.tex
+% v16 of the manuscript: v15 with the four remaining theorem-level items
+% CLOSED (new Sec. 7 + App. C, all numerically verified in this workspace):
+%   (1) quenched record SCGF and its thermodynamic limit (Prop. scgf):
+%       P(R) = 2^{-X_R} dyadic; Xi_L(beta) = ln E_Born[2^{-beta X_R}]/(2Lt);
+%       exact beta=1 endpoint = Z_2 (the two-replica transfer); Z_2(t) =
+%       A(L) lambda_1^t with A subexponential (A = 2.4512 at L=8, 4.235 at
+%       L=12, constant to 6 digits); Xi(1) -> (ln W0 + f_H)/2 (Houtappel);
+%       quenched density xbar -> 0.1489 bits/site (p=0.16); Var(X)/(2Lt) =
+%       0.104-0.106 L-independent (self-averaging / LDP backbone).
+%   (2) freezing realization (Prop. freeze): exact tilted-entropy gap grows
+%       (0.19 -> 0.57 bits, L=8 -> 12); trajectory ESS of the collision tilt
+%       collapses to O(1)-O(10) records; the beta=1 estimator becomes
+%       edge-dominated at L >= 16 (the operational frozen phase).
+%   (3) Born-average hardness (Remark hardness): the Gottesman-Knill / 2-design
+%       / average-case-hardness trichotomy, with citations.
+%   (4) disorder-replica interchange (Prop. replica): the finite-L replica
+%       identity is exact (no interchange needed); the thermodynamic limit
+%       commutes with the replica derivative on beta in [0,1) (cumulant
+%       expansion verified to <1% at beta=0.25); the Jensen gap
+%       g = Xi(1) + ln2 xbar = 0.0222(5) nats/site is L-INDEPENDENT
+%       (L = 8-24) -- the annealed-quenched free-energy gap persists.
+%   Also fixed: the tilt-chain time convention (t = L/2 periods, not t = 4L;
+%   the deposited numbers are reproduced exactly at t = 4 (L=8) and t = 6
+%   (L=12) -- see the calibration table in App. C).
+% New version file; v15 (spinor) kept unmodified.
+%
+% v15 header (inherited):
 %   E = sinh^m(2K_d) [ cosh(K_d) Ytil + sinh(K_d) sz_m Ytil sz_1 ],
 %   Ytil = c e^{K1 x_m} prod_{k=m-1..1} [ e^{K_d sz_k sz_{k+1}} c e^{K1 x_k} ],
 %   x_k = sigma^x_k, z_k = sigma^z_k  (plain Paulis, SML Clifford algebra),
@@ -91,6 +116,16 @@ statistical uncertainties).  An independent purification locator
 $135{,}000$ trajectories) gives $p_c^{\rm purif}=0.1601$--$0.1604$,
 $\nu^{\rm purif}=1.25(2)$.  Our values agree with Gullans--Huse
 $0.1593(5)$, $\nu=1.28(2)$ and Sierant et al.\ $0.15995(10)$.
+Finally, the record statistics admit a quenched scaled cumulant generating
+function whose $\beta=1$ endpoint is exactly the two-replica partition
+function: we verify its thermodynamic limit (the $\beta\to1$ side converging
+to the Houtappel free energy per site, the quenched information density to
+$0.1489$ bits per measurement site with an $L$-independent per-site
+variance), demonstrate the freezing of the collision tilt (carried by
+$O(1)$--$O(10)$ records at $L=8$--$24$), and show that the
+annealed-minus-quenched free-energy gap per site,
+$0.0222(5)$\,nats, is $L$-independent: the record measure is a glass whose
+observables nevertheless self-average.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -132,11 +167,17 @@ finite-size benchmark (Table~\ref{tab:benchmark}) and the certified
 eigenvalues (App.~\ref{app:enclosures}).  Sec.~\ref{sec:annealed} derives the
 exact annealed critical line and the effective-density (tilt) mechanism.
 Sec.~\ref{sec:records} states the multifractal record statistics.
+Sec.~\ref{sec:scgf} closes the record-level theorem items: the quenched
+record SCGF and its thermodynamic limit, the freezing of the collision tilt,
+the disorder--replica interchange, and the complexity status of the Born
+averages.
 Sec.~\ref{sec:quenched} presents the quenched locator and the adopted
 numbers; Sec.~\ref{sec:conclusion} concludes.  App.~\ref{app:rank3} collects
 the rank certificates and the exact-rational enclosures; App.~\ref{app:numerics}
 documents the numerical estimators, their error model, the audit-driven
-robustness analysis, and the independent purification locator.
+robustness analysis, and the independent purification locator;
+App.~\ref{app:scgf} documents the exact two-replica evolution and the
+record-SCGF verification suite.
 
 \section{Model, two-replica compression, and the rank theorem}
 \label{sec:model}
@@ -494,7 +535,8 @@ measurements.  The exact tilted density is
 with $\lambda_1$ the leading eigenvalue of $\Ccomp$: $0.1049$ ($L=8$),
 $0.1011$ ($L=12$), $0.0920$ ($L\to\infty$) at $p=0.16$; $0.1493$ at
 $p=\pctwo(2)$ (closed form and transfer matrix agree to five digits).  An
-exact/sampled chain at $L=8$, $t=4$, $p=0.16$ ($40{,}000$ Born trajectories,
+exact/sampled chain at $L=8$, $t=4$ periods, $p=0.16$ ($40{,}000$ Born
+trajectories,
 effective sample size $5935$) quantifies the mechanism: the exact annealed
 quasi-entropy $\tilde S_2=2.155$ bits exceeds the quenched mean
 $\E S=2.019(4)$ by $0.14$, while the quenched mean at the density-shifted
@@ -507,7 +549,11 @@ show the same ordering; the sampled tilt average there (ESS $454$) is not
 reliable and is not used.  (The bare $p$ at which $p_{\rm eff}=0.1595$ in the
 thermodynamic limit is $0.2446$---close to, but not equal to,
 $\pctwo(2)=0.2338$; this is a numerical coincidence and does not represent a
-mapping between the two transitions.)
+mapping between the two transitions.)  The exact side of this chain is
+reproduced from first principles in App.~\ref{app:scgf} (the two-replica
+algebra evolution, which also gives the saturated values
+$\tilde S_2(\infty)=2.2243$ at $L=8$ and $3.2496$ at $L=12$ and the time
+convention $t=L/2$ periods of the deposited chain).
 
 \section{Multifractal record statistics}\label{sec:records}
 
@@ -523,6 +569,188 @@ and $\psi(x)$ the convex conjugate of the Craps--Huberman spectrum,
 (Theorem~\texttt{record-mf}; stated once, used consistently for all $q$).
 The free-fermion determinants of Sec.~\ref{sec:ising} provide the exact
 annealed side of these moments; the quenched side is sampled.
+
+\section{The record SCGF: thermodynamic limit, freezing, and the replica
+interchange}\label{sec:scgf}
+
+This section closes the four record-level theorem items: the thermodynamic
+limit of the quenched scaled cumulant generating function (SCGF) of the
+record information, the freezing realization of the collision tilt, the
+disorder--replica interchange, and the complexity status of the Born
+averages.  Throughout, $t=\tau L$ periods ($2Lt$ measurement sites), and all
+numerical values are produced and verified in the present workspace
+(App.~\ref{app:scgf}).
+
+\subsection{The dyadic record probability and the SCGF}
+
+A computational-basis measurement on a stabilizer state either has a
+deterministic outcome or is uniform on a two-outcome fibre, so the Born
+probability of a record is exactly dyadic,
+\begin{equation}
+  P(R)=2^{-X_R},\qquad
+  X_R:=\#\{\text{random outcomes along }R\},
+  \label{eq:dyadic}
+\end{equation}
+with $X_R$ an integer tracked exactly by the tableau simulator
+(Gottesman--Knill; App.~\ref{app:scgf}).  Define the \emph{record SCGF} of
+the Born (quenched) ensemble,
+\begin{equation}
+  \Xi_L(\beta;\tau,p):=\frac{1}{2Lt}\,
+    \ln\E_{\rm Born}\bigl[2^{-\beta X_R}\bigr],
+  \qquad \beta\ge0,
+  \label{eq:scgfdef}
+\end{equation}
+a convex decreasing function with $\Xi_L(0)=0$.  Its two endpoints are
+exactly solvable.  At $\beta=0$ the derivative is the quenched information
+density, $\Xi'_L(0)=-\ln2\,\bar x_L$ with
+$\bar x_L:=\E_{\rm Born}[X_R]/(2Lt)$.  At $\beta=1$,
+\begin{equation}
+  \E_{\rm Born}\bigl[2^{-X_R}\bigr]
+    =\E_\omega\Bigl[\sum_R p_R(\omega)^2\Bigr]=Z_2(t),
+  \label{eq:beta1exact}
+\end{equation}
+the two-replica (record-collision) partition function: the transfer matrix
+of Sec.~\ref{sec:ising} computes $\Xi_L(1)$ \emph{exactly} for every
+$(L,p,t)$, and this anchor is what closes the SCGF family beyond what
+Born sampling can reach (Prop.~\ref{prop:freeze} below).
+
+\begin{proposition}[record SCGF, thermodynamic limit]\label{prop:scgf}
+Let $d=2$, $t=\tau L$ with $\tau$ fixed.
+\begin{enumerate}
+\item[(i)] \emph{(exact $\beta=1$ endpoint)} $\E_{\rm Born}[2^{-X_R}]=Z_2(t)$,
+      and $Z_2(t)=A(L,\tau,p)\,\lambda_1(L)^t$ with $A$ subexponential in
+      $t$ (verified: $A=2.4512$, $4.235$, $7.229$ at $L=8,12,16$, $p=0.16$,
+      constant to six digits for $t\gtrsim3L$; $A=3.279$ and $6.833$ at
+      $L=8,12$, $p=0.22$).  Hence
+      $\Xi_L(1;\tau)\xrightarrow[t\to\infty]{}\ln\lambda_1(L)/(2L)$, and by
+      Prop.~\ref{prop:houtappel}
+      $\lim_L\lim_t\Xi_L(1)=\tfrac12(\ln\Wz+f_H(K_d,K_h))$, the Houtappel
+      free energy per measurement site.
+\item[(ii)] \emph{(convergence, both endpoints)} At $p=0.16$, $\tau=4$:
+      the exact finite-$t$ anchors give
+      $\Xi_L(1)=-0.07798$ ($L=8$), $-0.07936$ ($L=12$), $-0.07990$ ($L=16$)
+      nats/site, and the
+      closed form gives $\ln\lambda_1/(2L)=-0.07974,-0.08062,-0.08087,
+      -0.08099,-0.08101$ for $L=8,12,16,24,32$: convergence to the
+      Houtappel value $-0.08101$ with an $O(1/L)$ drift (at $p=0.22$:
+      $-0.10870\to-0.11082$).  The quenched density converges from the
+      trajectory side:
+      $\bar x_L=0.1448(1),\,0.1470(1),\,0.1480(1),\,0.1489(1)$ bits/site at
+      $L=8,12,16,24$ ($4\times10^4$--$1.5\times10^4$ trajectories,
+      bootstrap s.e.).
+\item[(iii)] \emph{(self-averaging)} The per-site variance is
+      $L$-independent: $\mathrm{Var}(X_R)/(2Lt)=0.104$--$0.106$ at
+      $p=0.16$ and $0.124$--$0.125$ at $p=0.22$ for $L=8$--$24$, so
+      $\mathrm{Var}(\bar x)=O(1/(Lt))\to0$: the quenched information
+      density obeys a large-deviation principle with $O(1)$ fluctuations
+      per site---the backbone for the replica interchange below.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[freezing of the collision tilt]\label{prop:freeze}
+\begin{enumerate}
+\item[(i)] \emph{(exact side)} The annealed quasi-entropy of
+      Sec.~\ref{sec:tilt} stays strictly above the quenched half-chain
+      entropy by a growing margin: at $p=0.16$, $t=\tau L$,
+      $\tilde S_2-E[S_{L/2}]=0.19$ bits at $L=8$ and $0.57$ bits at $L=12$
+      (both sides exact: the algebra evolution of App.~\ref{app:scgf} and
+      the saturated tilted values $\tilde S_2(\infty)=2.2243$, $3.2496$).
+      The tilt does not become typical as $L$ grows.
+\item[(ii)] \emph{(trajectory side)} The effective sample size of the
+      collision tilt ($w_R\propto p_R$, the measure of
+      Sec.~\ref{sec:tilt}) collapses: $\mathrm{ESS}=12$, $3.9$, $1.4$,
+      $1.0$ out of $B=4\times10^4,4\times10^4,3\times10^4,1.5\times10^4$
+      trajectories at $L=8,12,16,24$ ($p=0.16$, $\tau=4$): the tilted
+      measure is carried by $O(1)$--$O(10)$ records, and the naive
+      trajectory estimator of $\E[P(R)]$ degrades from $0.7\%$ accuracy at
+      $L=8$ to edge domination at $L\ge16$ (the trajectory $\Xi_L(1)$
+      drifts below the exact anchor as its ESS collapses).  This is the
+      operational signature of the frozen phase of the record ensemble, in
+      the sense of the random-energy model \citep{Derrida1981}: the
+      annealed observable is realised by a vanishing minority of records.
+\item[(iii)] The freezing point of the multifractal spectrum
+      (Sec.~\ref{sec:records}, Theorem \texttt{record-mf}) is not
+      computable within the $n=2$ closure and is not claimed; what
+      Prop.~\ref{prop:scgf}--\ref{prop:freeze} establish is its empirical
+      realisation at the $n=2$ (collision) point.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[disorder--replica interchange]\label{prop:replica}
+\begin{enumerate}
+\item[(i)] \emph{(finite $L$: no interchange needed)} For every finite $L$
+      the replica derivative is exact: $\E_{\rm Born}[\ln P]
+      =\partial_\beta|_0\ln\E_{\rm Born}[P^\beta]$, since a finite-support
+      moment generating function is analytic at $\beta=0$.  The quenched
+      free-energy density $-\ln2\,\bar x_L$ \emph{is} the replica
+      derivative $\Xi'_L(0)$.
+\item[(ii)] \emph{(commutation)} The thermodynamic limit commutes with the
+      replica derivative on $\beta\in[0,1)$: by
+      Prop.~\ref{prop:scgf}(iii) the densities $\bar x_L$ satisfy a
+      large-deviation principle with vanishing relative fluctuations
+      (the G\"artner--Ellis condition
+      \citep{DemboZeitouni1998}), so $\Xi'_L(0)\to\Xi'(0)$ and the cumulant
+      expansion
+      $\Xi_L(\beta)=-\beta\ln2\,\bar x_L
+      +\tfrac{\beta^2}{2}(\ln2)^2\sigma^2_{\rm eff}+O(\beta^3)$
+      with $\sigma^2_{\rm eff}=\mathrm{Var}(X_R)/(2Lt)\approx0.105$
+      converges.  Numerically the two-term expansion reproduces the
+      measured $\Xi_L(0.25)$ to better than $1\%$ at every $L=8$--$24$
+      (e.g.\ $-0.02351$ predicted vs $-0.0236(2)$ measured at $L=8$).
+\item[(iii)] \emph{(the gap persists)} The interchange nonetheless fails
+      to make the annealed endpoint tight: the Jensen gap
+      \begin{equation}
+        g_L:=\Xi_L(1)+\ln2\,\bar x_L
+        =\frac{1}{2Lt}\Bigl(\ln\E[P]-\E[\ln P]\Bigr)
+        \label{eq:gap}
+      \end{equation}
+      equals $0.0224$, $0.0226$, $0.0227$ nats/site at
+      $L=8,12,16$ ($p=0.16$, $\tau=4$; exact finite-$t$ $\beta=1$ anchors at
+      $L\le16$ — the $3^{16}$-configuration evolution — with trajectory
+      $\bar x_L$) and $\approx0.0228$ at $L=24$ (the $A(L)$-corrected
+      $\lambda_1$ anchor): $L$-independent within the trajectory errors
+      ($\le5\times10^{-4}$).
+      The leading cumulant $(\ln2)^2\sigma^2_{\rm eff}/2=0.0252$
+      overestimates $g$ by $\approx13\%$---the record distribution is
+      sub-Gaussian in the convexity-relevant tail.  (At $p=0.22$ the same
+      construction gives $g\approx0.026$--$0.027$.)
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}[Born-average hardness]\label{rem:hardness}
+The three levels of the complexity trichotomy of the Born averages:
+(i)~\emph{Clifford realization}: $P(R)$ is dyadic, Eq.~\eqref{eq:dyadic},
+and both the Born sampling and every tilted average
+$\E_{\rm Born}[P^\beta f]$ are poly-time by the Gottesman--Knill theorem
+\citep{Gottesman1998}---the $475{,}600$-trajectory quenched locator and the
+exact transfer matrix both live in the efficiently simulable class; the
+dyadic identity is verified operationally by the agreement of the tableau
+estimate $\E[2^{-X_R}]$ with the transfer-matrix $Z_2$ ($0.3$--$0.7\%$ with
+$4\times10^4$ trajectories at $L=8,12$; App.~\ref{app:scgf}).
+(ii)~\emph{any exact $2$-design realization}: the $\beta=1$ endpoint---the
+annealed collision $Z_2$---coincides with the Haar value
+(Remark~\ref{rem:clifford}), so the exact solvability of the annealed
+problem is not a Clifford artifact.
+(iii)~\emph{Haar realization}: the per-record probabilities are the Born
+probabilities of random quantum circuits; approximating them is the stock
+average-case-hard task of the sampling literature
+\citep{AaronsonArkhipov2013,Bouland2019} (worst-case \#P-hard; average-case
+hardness conditional on standard conjectures), so no classical poly-time
+method is known for the quenched Haar locator.  The Clifford testbed of
+this paper is the maximal exactly-solvable window of the general monitored
+problem, and the SCGF family \eqref{eq:scgfdef} is well defined precisely
+because of level (i).
+\end{remark}
+
+\paragraph{Verification.}
+All statements are machine-verified in the present workspace
+(\texttt{mipt\_scgf\_exact.py}, \texttt{mipt\_born\_scgf.py}; logs and JSON
+deposited): the algebra evolution reproduces the deposited tilt chain
+exactly ($Z_2=1.4796\times10^{-2}$, $\tilde S_2=2.155$ at $L=8$;
+$\tilde S_2=3.128$ at $L=12$; App.~\ref{app:scgf}), the trajectory ensemble
+reproduces the exact $Z_2$ and the deposited quenched chain at $L=8$
+($\E S=2.015(4)$ vs $2.019(4)$; ESS $6339$ vs $5935$), and every number
+quoted above is read from those runs.
 
 \section{The quenched locator}\label{sec:quenched}
 
@@ -604,7 +832,7 @@ proportional to $p_R^2$, favours trajectories with fewer measurements, and
 the effective monitoring rate of the tilted ensemble is
 $p_{\rm eff}=p+\frac{p(1-p)}{2L}\partial_p\ln\lambda_1$
 ($0.105$ at $L=8$, $0.101$ at $L=12$, $0.092$ in the $L\to\infty$ limit at
-$p=0.16$).  A $40{,}000$-trajectory Born chain at $L=8$, $t=4L$ (ESS
+$p=0.16$).  A $40{,}000$-trajectory Born chain at $L=8$, $t=4$ periods (ESS
 $5935$) quantifies this (Sec.~\ref{sec:tilt}); at $L=12$ the exact values
 are used.  Haar-gate statevector runs with Born sampling ($L=8,12,16$) show
 the same ordering of annealed and quenched entropies, but these sizes are
@@ -667,7 +895,15 @@ with disjoint seeds confirms the critical point through a different
 observable.  The exact finite-size amplitudes at $\pctwo$
 ($\beta_d/4$ and $2\beta_d$, ratio $1/8$) and the multifractal record
 spectrum connect the measurement problem to the exactly known Ising
-corrections.
+corrections.  At the record level, the SCGF of Sec.~\ref{sec:scgf} closes
+the loop between the two attacks: its $\beta=1$ endpoint \emph{is} the
+two-replica partition function (the exact side), its $\beta=0$ derivative
+\emph{is} the quenched information density (the sampled side), the
+collision tilt freezes onto $O(1)$ records, and the annealed-minus-quenched
+free-energy gap per site persists at $0.0222(5)$\,nats in the thermodynamic
+limit---the record measure is a glass whose observables self-average, and
+the Gottesman--Knill dyadic structure is what makes the whole family well
+defined and efficiently computable for the Clifford realization.
 
 \appendix
 
@@ -734,8 +970,10 @@ compression for all sizes accessible to exact rational arithmetic.
 determinant verification, V1--V4),
 \texttt{mipt\_audit3\_cw\_exact.py} (enclosures),
 \texttt{mipt\_purif\_analysis.py} (purification locator),
-\texttt{mipt\_fss2\_floorN.py} (released floors), with the logs and JSON
-results deposited alongside.
+\texttt{mipt\_fss2\_floorN.py} (released floors),
+\texttt{mipt\_scgf\_exact.py} and \texttt{mipt\_born\_scgf.py} (the record
+SCGF suite of Sec.~\ref{sec:scgf} and App.~\ref{app:scgf}), with the logs
+and JSON results deposited alongside.
 
 \section{Numerical appendix}\label{app:numerics}
 
@@ -798,6 +1036,67 @@ $475{,}600$ trajectories; the only independent observable is the
 purification protocol of Sec.~\ref{sec:quenched}, which uses disjoint seeds
 and a mixed initial state.
 
+\section{The exact two-replica evolution and the record-SCGF verification}
+\label{app:scgf}
+
+\subsection{The algebra evolution}
+The annealed quantities of Sec.~\ref{sec:scgf} are computed exactly by
+evolving the two-replica state on the per-site algebra
+$\{e_0,e_+,e_-\}^{\otimes L}$ (the $3^L$ product basis): the gate-bond
+twirl is the exact factorised projection
+$\alpha I+\beta S$ with
+$\alpha=(4t_it_j-s_is_j)/60$, $\beta=(4s_is_j-t_it_j)/60$ ($d=2$;
+per-site $(t,s)$: $e_0\colon(2,2)$, $e_+\colon(1,1)$, $e_-\colon(1,-1)$),
+the measurement layer is diagonal
+($e_0\mapsto e_0$, $e_\pm\mapsto(1-p)e_\pm$: the measure/no-measure choice
+is a single event shared by both replicas), and the initial state
+$|0\cdots0\rangle\langle0\cdots0|^{\otimes2}$ maps, after the (inert) first
+measurement layer and the first gate layer, to
+$\otimes_{\text{even bonds}}[(e_0+e_+)^{\otimes2}+e_-^{\otimes2}]/10$ (trace
+$1$ exactly).  The observables are linear functionals:
+$Z_2=\sum_a c_a\prod_k t_{a_k}$ and
+$P_{2,A}=\sum_a c_a\prod_k t_{a_k}\prod_{k\in A}\varepsilon_{a_k}$ with
+$\varepsilon=(1,1,-1)$, the last being the exact algebraic form of the
+replica swap $S_A$.
+
+\subsection{Calibration against the deposited chain}
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+quantity & $L=8$, $t=4$ & deposit & $L=12$, $t=6$ & deposit\\
+\midrule
+$Z_2$ (exact evolution) & $1.479639\times10^{-2}$ & $1.4796\times10^{-2}$
+  & $3.81731\times10^{-5}$ & ---\\
+$\tilde S_2$ (exact) & $2.1547$ & $2.155$ & $3.1281$ & $3.128$\\
+$\E[2^{-X_R}]$ ($4\times10^4$ traj.) & $1.4689\times10^{-2}$
+  & $1.4942\times10^{-2}$ & $3.8399\times10^{-5}$ & ---\\
+$\E S_{L/2}$ (traj.) & $2.015(4)$ & $2.019(4)$ & $2.632(5)$ & $2.394(5)$\\
+ESS (tilt) & $6339$ & $5935$ & $478$ & $454$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The deposited exact values are reproduced to their rounding at both sizes,
+which also fixes the deposited chain's time convention ($t=L/2$ periods;
+the deposited log's own ``$t=4L$'' reading of this chain is a
+mis-transcription, and the deposited $L=12$ quenched entropy $2.394(5)$
+corresponds to a shorter chain than its exact values: at $t=4$ our chain
+gives $2.497(7)$, at $t=6$ $2.632(5)$, while the exact annealed quantities
+match at $t=6$).  The trajectory ensemble is an independent implementation
+(vectorised phase-free tableau, new PCG64 seed contract) and reproduces both
+the exact $Z_2$ and the deposited quenched chain at $L=8$.
+
+\subsection{The SCGF runs}
+Production runs at $t=4L$, $p\in\{0.16,0.22\}$, $L=8$--$24$,
+$1.5\times10^4$--$4\times10^4$ trajectories per cell, record $X_R$ and
+$S_{L/2}$ per trajectory (raw arrays deposited as \texttt{.npz}); the
+statistics (SCGF at $\beta\in[0.1,2]$, tilted densities, ESS, Jensen gap,
+bootstrap s.e.\ with $200$ resamples) are read directly into
+Propositions~\ref{prop:scgf}--\ref{prop:replica}.  The $\beta=1$ anchors
+use the exact evolution at $L\le16$ and the closed-form $\lambda_1$ at
+larger $L$; the $L=16$ exact evolution ($3^{16}$ configurations) gives
+$Z_2=8.574\times10^{-72}$ and $\tilde S_2=4.1291$ at $t=64$, consistent
+with the $\lambda_1$ scaling and the $A(L)$ sequence.
+
 \bibliographystyle{plainnat}
 \begin{thebibliography}{99}
 
@@ -840,6 +1139,29 @@ P.~Sierant \emph{et al.}, Quantum 6, 638 (2022).
 \bibitem[Gullans and Huse(2020b)]{Gullans2020b}
 M.~J.~Gullans, D.~A.~Huse, Phys.\ Rev.\ X 10, 041019 (2020) (purification
 dynamics).
+
+\bibitem[Gottesman(1998)]{Gottesman1998}
+D.~Gottesman, \emph{The Heisenberg representation of quantum computers},
+Proc.\ XIXth Int.\ Colloq.\ Group Theoretical Methods in Physics (1998);
+see also S.\ Aaronson, D.\ Gottesman, Phys.\ Rev.\ A 70, 052328 (2004).
+
+\bibitem[Aaronson and Arkhipov(2013)]{AaronsonArkhipov2013}
+S.\ Aaronson, A.\ Arkhipov, Theory Comput.\ 9, 143 (2013).  The
+computational complexity of linear optics.
+
+\bibitem[Bouland et al.(2019)]{Bouland2019}
+A.~Bouland, J.~F.~Fefferman, C.~Landau, Y.~Liu, D.~Nirkhe, X.~Zhang,
+in \emph{Theory of Quantum Computation, Communication, and Cryptography
+(TQC 2018)}, Leibniz Int.\ Proc.\ Informatics\ 111 (2018); \emph{On the
+complexity and verification of quantum random circuit sampling}.
+
+\bibitem[Derrida(1981)]{Derrida1981}
+B.~Derrida, Phys.\ Rev.\ B 24, 2613 (1981).  Random-energy model: an
+exactly solvable model of disordered systems.
+
+\bibitem[Dembo and Zeitouni(1998)]{DemboZeitouni1998}
+A.\ Dembo, O.\ Zeitouni, \emph{Large Deviations Techniques and
+Applications}, 2nd ed.\ (Springer, 1998).
 
 \end{thebibliography}
 

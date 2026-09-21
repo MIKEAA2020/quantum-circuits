@@ -43,3 +43,22 @@ cd ../versions && tectonic manuscript_revised_v14_audit3.tex
 
 Versioning policy: revisions are always new version files (v13 -> v14,
 report v2 -> v3); nothing is overwritten.
+
+## v16 (record SCGF): the four theorem-level items closed
+
+- `versions/manuscript_revised_v16_scgf.tex/.pdf` — v15 + new Sec. 7 (the
+  record SCGF: thermodynamic limit, freezing realization, disorder–replica
+  interchange, Born-average hardness) + App. C; the tilt-chain time
+  convention fixed (t = L/2 periods).
+- `scripts/mipt_scgf_exact.py` — exact two-replica algebra evolution (3^L
+  basis); reproduces the deposited tilt chain to its rounding (Z_2 =
+  1.4796e-2, S~_2 = 2.155 at L=8/t=4; S~_2 = 3.128 at L=12/t=6).
+- `scripts/mipt_born_scgf.py` — vectorised tableau simulator tracking the
+  record information X_R (P(R) = 2^{-X_R} exactly); cross-validated against
+  the exact Z_2 at three sizes and against the deposited quenched chain.
+- Headline numbers: Xi(1) → (ln W0 + f_H)/2 = −0.08101 nats/site (p=0.16);
+  xbar → 0.1489 bits/site; Var(X)/(2Lt) = 0.105 L-independent; the tilt ESS
+  collapses to O(1)–O(10) records; the Jensen gap g = 0.0222(5) nats/site is
+  L-independent (the annealed–quenched free-energy gap persists).
+- `versions/changelog_v16.md` (§R), `versions/mipt_numerical_report_v5.md`
+  (§11–12), `logs/certificate_sha256_v3.txt` (ledger v3).

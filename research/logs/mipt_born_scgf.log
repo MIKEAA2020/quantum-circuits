@@ -1,0 +1,62 @@
+== validation (deposit tilt-chain points, t = L/2 periods) ==
+  L=8 t=4 p=0.16: E[2^-X] = 1.4689e-02 (exact 1.4796e-02, deposit-sampled 0.014942); ESS = 6339 (deposit 5935.0); E[S] = 2.015(0.004) (deposit 2.019)  [0.7s]
+  L=12 t=6 p=0.16: E[2^-X] = 3.8399e-05 (exact 3.8173e-05, deposit-sampled None); ESS = 478 (deposit 454.0); E[S] = 2.632(0.005) (deposit 2.394)  [1.9s]
+== production (t = 4L) ==
+  L=  8 p=0.16: xbar=0.14479 bits/site, Xi(0.5)=-4.44e-02, Xi(1)=-8.04e-02, ESS%=0.029, gap=2.00e-02, Var(x)L=0.8438, E[S]=2.036  [4.9s]
+  L= 12 p=0.16: xbar=0.14703 bits/site, Xi(0.5)=-4.49e-02, Xi(1)=-8.35e-02, ESS%=0.010, gap=1.85e-02, Var(x)L=1.2529, E[S]=2.675  [15.0s]
+  L= 16 p=0.16: xbar=0.14803 bits/site, Xi(0.5)=-4.59e-02, Xi(1)=-8.75e-02, ESS%=0.005, gap=1.51e-02, Var(x)L=1.6929, E[S]=3.116  [26.6s]
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:240: RuntimeWarning: invalid value encountered in scalar divide
+  ess = float(w.sum() ** 2 / (w ** 2).sum())
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:236: RuntimeWarning: divide by zero encountered in log
+  out[f"Xi_{beta}"] = float(np.log(m)) / nsite
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:238: RuntimeWarning: invalid value encountered in scalar divide
+  out[f"mtilt_{beta}"] = float((w * X).mean() / m) / nsite
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:265: RuntimeWarning: overflow encountered in scalar power
+  ess = w1.sum() ** 2 / (w1 ** 2).sum()
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:265: RuntimeWarning: overflow encountered in square
+  ess = w1.sum() ** 2 / (w1 ** 2).sum()
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:265: RuntimeWarning: invalid value encountered in scalar divide
+  ess = w1.sum() ** 2 / (w1 ** 2).sum()
+  L= 24 p=0.16: xbar=0.14890 bits/site, Xi(0.5)=-4.69e-02, Xi(1)=-9.17e-02, ESS%=nan, gap=1.15e-02, Var(x)L=2.5155, E[S]=3.732  [38.1s]
+== validation (deposit tilt-chain points, t = L/2 periods) ==
+  L=8 t=4 p=0.16: E[2^-X] = 1.4689e-02 (exact 1.4796e-02, deposit-sampled 0.014942); ESS = 6339 (deposit 5935.0); E[S] = 2.015(0.004) (deposit 2.019)  [0.7s]
+  L=12 t=6 p=0.16: E[2^-X] = 3.8399e-05 (exact 3.8173e-05, deposit-sampled None); ESS = 478 (deposit 454.0); E[S] = 2.632(0.005) (deposit 2.394)  [1.9s]
+== production (t = 4L) ==
+  L=  8 p=0.16: xbar=0.14479 bits/site, Xi(0.5)=-4.44e-02, Xi(1)=-8.04e-02, ESS%=0.029, gap=2.00e-02, Var(x)L=0.8438, E[S]=2.036  [4.8s]
+  L= 12 p=0.16: xbar=0.14703 bits/site, Xi(0.5)=-4.49e-02, Xi(1)=-8.35e-02, ESS%=0.010, gap=1.85e-02, Var(x)L=1.2529, E[S]=2.675  [15.0s]
+  L= 16 p=0.16: xbar=0.14803 bits/site, Xi(0.5)=-4.59e-02, Xi(1)=-8.75e-02, ESS%=0.005, gap=1.51e-02, Var(x)L=1.6929, E[S]=3.116  [25.5s]
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:240: RuntimeWarning: invalid value encountered in scalar divide
+  ess = float(w.sum() ** 2 / (w ** 2).sum())
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:236: RuntimeWarning: divide by zero encountered in log
+  out[f"Xi_{beta}"] = float(np.log(m)) / nsite
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:238: RuntimeWarning: invalid value encountered in scalar divide
+  out[f"mtilt_{beta}"] = float((w * X).mean() / m) / nsite
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:265: RuntimeWarning: overflow encountered in scalar power
+  ess = w1.sum() ** 2 / (w1 ** 2).sum()
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:265: RuntimeWarning: overflow encountered in square
+  ess = w1.sum() ** 2 / (w1 ** 2).sum()
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:265: RuntimeWarning: invalid value encountered in scalar divide
+  ess = w1.sum() ** 2 / (w1 ** 2).sum()
+  L= 24 p=0.16: xbar=0.14890 bits/site, Xi(0.5)=-4.69e-02, Xi(1)=-9.17e-02, ESS%=nan, gap=1.15e-02, Var(x)L=2.5155, E[S]=3.732  [36.4s]
+  L=  8 p=0.22: xbar=0.19280 bits/site, Xi(0.5)=-5.99e-02, Xi(1)=-1.11e-01, ESS%=0.046, gap=2.29e-02, Var(x)L=1.0025, E[S]=1.737  [5.1s]
+  L= 12 p=0.22: xbar=0.19512 bits/site, Xi(0.5)=-6.11e-02, Xi(1)=-1.16e-01, ESS%=0.007, gap=1.94e-02, Var(x)L=1.4898, E[S]=2.085  [15.0s]
+  L= 16 p=0.22: xbar=0.19614 bits/site, Xi(0.5)=-6.16e-02, Xi(1)=-1.19e-01, ESS%=0.004, gap=1.72e-02, Var(x)L=1.9854, E[S]=2.264  [24.0s]
+  L= 24 p=0.22: xbar=0.19706 bits/site, Xi(0.5)=-6.27e-02, Xi(1)=-1.23e-01, ESS%=nan, gap=1.31e-02, Var(x)L=2.9676, E[S]=2.448  [36.2s]
+wrote ../results/scgf_born.json
+== validation (deposit tilt-chain points, t = L/2 periods) ==
+  L=8 t=4 p=0.16: E[2^-X] = 1.4689e-02 (exact 1.4796e-02, deposit-sampled 0.014942); ESS = 6339 (deposit 5935.0); E[S] = 2.015(0.004) (deposit 2.019)  [1.1s]
+  L=12 t=6 p=0.16: E[2^-X] = 3.8399e-05 (exact 3.8173e-05, deposit-sampled None); ESS = 478 (deposit 454.0); E[S] = 2.632(0.005) (deposit 2.394)  [3.1s]
+== production (t = 4L) ==
+  L=  8 p=0.16: xbar=0.14479 bits/site, Xi(0.25)=-2.36e-02, Xi(1)=-8.04e-02, ESS%=2.93e-02, gap=2.00e-02, Var(X)/nsite=0.1055, E[S]=2.036  [7.5s]
+  L= 12 p=0.16: xbar=0.14703 bits/site, Xi(0.25)=-2.39e-02, Xi(1)=-8.35e-02, ESS%=9.83e-03, gap=1.85e-02, Var(X)/nsite=0.1044, E[S]=2.675  [25.8s]
+  L= 16 p=0.16: xbar=0.14803 bits/site, Xi(0.25)=-2.41e-02, Xi(1)=-8.75e-02, ESS%=4.69e-03, gap=1.51e-02, Var(X)/nsite=0.1058, E[S]=3.116  [41.4s]
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:237: RuntimeWarning: divide by zero encountered in log
+  out[f"Xi_{beta}"] = float(np.log(m)) / nsite
+/home/z/my-project/quantum-circuits/research/scripts/mipt_born_scgf.py:239: RuntimeWarning: invalid value encountered in scalar divide
+  out[f"mtilt_{beta}"] = float((w * X).mean() / m) / nsite
+  L= 24 p=0.16: xbar=0.14890 bits/site, Xi(0.25)=-2.43e-02, Xi(1)=-9.17e-02, ESS%=6.68e-03, gap=1.15e-02, Var(X)/nsite=0.1048, E[S]=3.732  [55.6s]
+  L=  8 p=0.22: xbar=0.19280 bits/site, Xi(0.25)=-3.16e-02, Xi(1)=-1.11e-01, ESS%=4.56e-02, gap=2.29e-02, Var(X)/nsite=0.1253, E[S]=1.737  [8.0s]
+  L= 12 p=0.22: xbar=0.19512 bits/site, Xi(0.25)=-3.20e-02, Xi(1)=-1.16e-01, ESS%=6.86e-03, gap=1.94e-02, Var(X)/nsite=0.1241, E[S]=2.085  [24.6s]
+  L= 16 p=0.22: xbar=0.19614 bits/site, Xi(0.25)=-3.22e-02, Xi(1)=-1.19e-01, ESS%=3.57e-03, gap=1.72e-02, Var(X)/nsite=0.1241, E[S]=2.264  [38.3s]
+  L= 24 p=0.22: xbar=0.19706 bits/site, Xi(0.25)=-3.23e-02, Xi(1)=-1.23e-01, ESS%=6.98e-03, gap=1.31e-02, Var(X)/nsite=0.1236, E[S]=2.448  [55.1s]
+wrote ../results/scgf_born.json
