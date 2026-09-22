@@ -111,28 +111,66 @@ def decode_rep(u, nb):
     return [0] + r        # sigma_1 = e;  sigma_{k+1} = l_{k+1}
 
 
-def orbit_table(nb, chunk=200_000):
+def orbit_table(nb, chunk=200_000, state_path=None, save_every=0):
     """Full pass over (S_5)^nb.  Returns (ids (int32, memmap for nb=4),
-    reps (K,nb), counts (K,), K)."""
+    reps (K,nb), counts (K,), K).
+
+    state_path/save_every: optional chunk-level checkpoint/resume for the
+    big (memmap) tables.  The cron-era sandbox reaps background processes,
+    so the ~780 s nb=4 ids pass cannot survive a single 520 s foreground
+    driving window; the checkpoint makes every window RESUME the scan
+    exactly.  The first-appearance traversal is deterministic, so a
+    resumed pass yields a table identical to an uninterrupted one; the
+    state file is removed at completion."""
     N = G5 ** nb
     big = N * 4 > 400_000_000
     ids_path = os.path.join(TMP, f'ids_nb{nb}.npy')
-    if big and os.path.exists(ids_path):
+    reps_path = os.path.join(TMP, f'reps_nb{nb}.npy')
+    if big and os.path.exists(ids_path) and os.path.exists(reps_path):
         ids = np.load(ids_path, mmap_mode='r')
-        reps = np.load(os.path.join(TMP, f'reps_nb{nb}.npy'))
+        reps = np.load(reps_path)
         counts = np.load(os.path.join(TMP, f'counts_nb{nb}.npy'))
         return ids, reps, counts, len(reps)
+    # a partial ids memmap from a killed pre-checkpoint attempt must NOT
+    # hit the fast path (reps file absent => incomplete => fall through)
+    resuming = bool(big and state_path and os.path.exists(state_path)
+                    and os.path.exists(ids_path))
     seen = {}
     reps = []
     t0 = time.time()
     if big:
-        ids = np.lib.format.open_memmap(ids_path, mode='w+',
-                                        dtype=np.int32, shape=(N,))
+        ids = np.lib.format.open_memmap(
+            ids_path, mode='r+' if resuming else 'w+',
+            dtype=np.int32, shape=(N,))
     else:
         ids = np.empty(N, dtype=np.int32)
     cnt = np.zeros(1 << 20, dtype=np.int64)
     K = 0
-    for i0 in range(0, N, chunk):
+    ci_start = 0
+    if resuming:
+        try:
+            st = np.load(state_path)
+            if int(st['chunk']) == chunk:
+                seen = {int(k): int(v)
+                        for k, v in zip(st['skey'], st['sval'])}
+                reps = [list(map(int, r)) for r in st['reps']]
+                K = len(reps)
+                cnt[:K] = st['cnt']
+                ci_start = int(st['ci']) + 1
+                log(f"   [ids nb={nb}] RESUMED at chunk {ci_start + 1} "
+                    f"(K={K}, state {time.strftime('%H:%M:%S', time.localtime(float(st['ts'])))})")
+            else:
+                resuming = False
+                log(f"   [ids nb={nb}] stale state file ignored")
+        except Exception as e:
+            resuming = False
+            seen = {}
+            reps = []
+            K = 0
+            log(f"   [ids nb={nb}] unreadable state ({e}) — starting fresh")
+    for ci, i0 in enumerate(range(0, N, chunk)):
+        if ci < ci_start:
+            continue
         i1 = min(i0 + chunk, N)
         c = np.arange(i0, i1, dtype=np.int64)
         digs = np.empty((i1 - i0, nb), dtype=np.int64)
@@ -159,14 +197,26 @@ def orbit_table(nb, chunk=200_000):
         if (i0 // chunk) % 10 == 0:
             log(f"      [ids nb={nb}] {i1}/{N}: K={K} "
                 f"({time.time()-t0:.0f}s)")
+        if save_every and big and state_path and ci % save_every == 0:
+            ids.flush()
+            tmpf = state_path + '.tmp.npy'
+            with open(tmpf, 'wb') as fh:
+                np.savez(fh, ci=ci, K=K, chunk=chunk, ts=time.time(),
+                         skey=np.array(list(seen.keys()), dtype=np.int64),
+                         sval=np.array(list(seen.values()), dtype=np.int32),
+                         reps=np.array(reps, dtype=np.int64),
+                         cnt=cnt[:K].copy())
+            os.replace(tmpf, state_path)
     reps = np.array(reps, dtype=np.int64)
     counts = cnt[:K].copy()
     if big:
         ids.flush()
         del ids
         ids = np.load(ids_path, mmap_mode='r')
-    np.save(os.path.join(TMP, f'reps_nb{nb}.npy'), reps)
+    np.save(reps_path, reps)
     np.save(os.path.join(TMP, f'counts_nb{nb}.npy'), counts)
+    if state_path and os.path.exists(state_path):
+        os.remove(state_path)
     log(f"   [ids nb={nb}] K = {K} orbits ({time.time()-t0:.0f}s)")
     return ids, reps, counts, K
 
@@ -211,7 +261,7 @@ def assemble_block(n, d, p, nb, ids, reps, counts, K, chunk=125_000,
                 B2[:] = st['b2']
                 ci_start = int(st['ci']) + 1
                 log(f"   [block p={p}] RESUMED at chunk {ci_start + 1}/{nch} "
-                    f"(state {time.strftime('%H:%M:%S', time.localtime(st['ts']))})")
+                    f"(state {time.strftime('%H:%M:%S', time.localtime(float(st['ts'])))})")
             else:
                 log(f"   [block p={p}] stale state file ignored")
         except Exception as e:
@@ -290,7 +340,10 @@ def fresh_reference(n, d, p, nb, k_want=4):
 # ---------------------------------------------------------------------------
 def phase_ids(args):
     log("== phase ids: canonical orbit table at nb=4 (p-independent) ==")
-    orbit_table(4)
+    # checkpoint/resume: the ~780 s pass exceeds one 520 s driving window;
+    # the state carries (ci, seen, reps, cnt) so every window resumes exactly
+    orbit_table(4, state_path=os.path.join(TMP, 'ids_nb4_state.npz'),
+                save_every=100)
 
 
 def phase_validate(args):
