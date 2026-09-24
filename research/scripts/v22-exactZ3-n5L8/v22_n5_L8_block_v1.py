@@ -36,7 +36,7 @@ deposited n45_annealed route).
 Phases: ids (canonical-id table at nb=4, p-independent, memmapped),
 validate, run (L=8 p-grid, checkpointed).
 """
-import sys, os, json, math, time, argparse
+import sys, os, json, math, time, argparse, fcntl
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -62,6 +62,33 @@ CONJ5 = np.array([[MT5[c][MT5[t][INV5[c]]] for t in range(G5)]
 
 def log(*a):
     print(*a, flush=True)
+
+
+def _ckpt_write(ckpt, p, row):
+    """Race-safe rung-checkpoint write.
+
+    Two run segments launched in the same driving window can complete in
+    that same window; each process loaded `rows` once at ITS start, so the
+    later json.dump clobbered the earlier point's entry (lost update,
+    observed 2026-09-25 02:42: p=0.46's completed entry was overwritten by
+    p=0.44's).  Fix: under an exclusive flock, RE-READ the file fresh,
+    merge by p, dump to a temp file and os.replace (atomic for readers).
+    Deterministic per-point physics is untouched -- this only hardens the
+    checkpoint protocol.
+    """
+    lockf = open(ckpt + '.lock', 'w')
+    try:
+        fcntl.flock(lockf, fcntl.LOCK_EX)
+        cur = json.load(open(ckpt)) if os.path.exists(ckpt) else []
+        merged = {round(r['p'], 4): r for r in cur}
+        merged[round(p, 4)] = row
+        tmp = ckpt + '.tmp'
+        with open(tmp, 'w') as f:
+            json.dump(list(merged.values()), f, indent=1)
+        os.replace(tmp, ckpt)
+    finally:
+        fcntl.flock(lockf, fcntl.LOCK_UN)
+        lockf.close()
 
 
 def shift_lkeys(ls, s, nb):
@@ -415,8 +442,7 @@ def phase_run(args):
                'lam1': float(ev[0]), 'lam2': float(ev[1]),
                'gap12': gap12, 'growth': float(ev[0]) ** (1.0 / 8),
                'secs': round(time.time() - t0, 1)}
-        rows.append(row)
-        json.dump(rows, open(ckpt, 'w'), indent=1)
+        _ckpt_write(ckpt, p, row)
         try:  # the chunk-state file for this point is obsolete now
             os.remove(os.path.join(
                 TMP, f'run_nb4_p{round(p, 4):.4f}_state.npz'))

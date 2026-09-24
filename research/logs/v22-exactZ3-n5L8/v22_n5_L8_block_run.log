@@ -1,0 +1,13 @@
+# v22_n5_L8_block_v1.py run phase — DRIVEN mode.
+# The cron-era sandbox reaps background children a few minutes after launch
+# (verified 2026-09-21), so the 5-point grid (p = 0.44, 0.46, 0.47, 0.48,
+# 0.50) is NOT advanced by one long background process writing here; it is
+# advanced by bounded foreground windows driven by followup_v23.sh, each
+# appending to the per-point logs:
+#   v22_n5_L8_block_run_p0.44.log  v22_n5_L8_block_run_p0.46.log
+#   v22_n5_L8_block_run_p0.47.log  v22_n5_L8_block_run_p0.48.log
+#   v22_n5_L8_block_run_p0.50.log
+# (chunk-checkpointed and resumable: a window that ends in timeout(124) is
+# normal — progress lives in run_nb4_p<xxxx>_state.npz under tmp_n5L8block/).
+# This file exists so the one-shot chain layout slot stays valid and
+# followup_v23.sh's unconditional `git add` of it succeeds.
