@@ -2000,3 +2000,19 @@ Stage Summary:
 - User mandate fully delivered: PAT persisted (never in the public repo — local copies only, re-supply from the conversation if a future rollback wipes them), all recoverable content recovered AND PUSHED (f96bde8 + ce30695 on origin/main), computation re-driven and continuing under the push-every-round precedent.
 - Restarted-pair outlook: ~201 firings to grid 5/5 at ~121 chunks/firing (3-4 windows); v23 self-routes at grid 5/5 exactly as before; the p=0.46 verification target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059) is now a fully independent second redo.
 - Nothing was pushed outside /home/z/my-project/quantum-circuits; no python process was killed at any point; v21/v22 manuscripts untouched.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 18:12 +08 / 10:14 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609251815) — standard driving round under the NEW push-every-round rule (first full round after the rollback recovery), single-agent this firing.
+
+Work Log:
+- Pre-checks (10:14 UTC): NO driver running (as the recovery round predicted), cursors last-log 121/121 exactly (both points tied — the pre-rollback p=0.47 +8 lead was lost with the state files and did not survive the restart), marker absent, grid 1/5 = [(0.44, gap12 0.50523)], no CHAIN_DONE, HEAD ce30695, sync 0/0, clean tree, 2.7 GB RAM available.
+- Drove 3 windows via followup_v23.sh, all exit 0, +40/point each: last-log 121->161->201->241 on BOTH points (dead tied all round) — matching the recovery round's prediction (->241/241) exactly. Driving-mode guard correct; grid 1/5 at every check.
+- Post-verify: no driver/python residue, 0 Traceback/Killed/MemoryError in last 250 lines of both run logs, marker absent, rung JSON unchanged (grid 1/5), git: only the two expected ` M` run logs.
+- PUSHED per the new standing rule: run-log deltas + refreshed worklog snapshot committed and pushed to origin/main (see commit below); worklog snapshot file refreshed from the live worklog.
+
+Stage Summary:
+- Round complete: +120/point from zero-restart baseline 121 -> 241/241 (1.46% -> 2.91% per point); grid at 1.10% of the remaining 4 points' work (33,180/33,180-chunk scope remaining for 0.46+0.47+0.48+0.50: 32,940 chunks left on the pair, then 16,590 x2).
+- Pair (0.46+0.47) completes in ~68 more firings (~1.4 days) at 3-window cadence; then 0.48/0.50 pair (~69 firings); full grid ~4.5-5 days.
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (18:42): expect cursors ~241/241 idle; drive 3 windows (expect ~->361/361); v23 self-routes at grid 5/5 (web-explorer alignment only if rung JSON contains p=0.47; skip if uncertain). Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
