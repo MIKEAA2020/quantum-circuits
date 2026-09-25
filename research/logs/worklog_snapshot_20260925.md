@@ -2305,3 +2305,20 @@ Stage Summary:
 - Pair (0.46+0.47) completes in ~48 more firings (~1 day) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~2.8-4.5 days depending on firing continuity.
 - Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (04:42): expect cursors ~2521/2521 idle; drive 3 windows (expect ~->2641/2641); v23 self-routes at grid 5/5 (web-explorer alignment only if rung JSON contains p=0.47; skip if uncertain). Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 04:42 +08 / 20:43 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609260443) — standard driving round; ALSO answered a substantive science-direction question from the user (are the calculations worth it / science vs pipeline) by reading the v22 abstract and mapping the current L=8 grid onto the paper's central n=5 first-order claim.
+
+Work Log:
+- Science question (answered in chat, not in repo): read manuscript_revised_v22_exactZ3.tex title+abstract. Central relevant claim: annealed n=5 replica transition is first-order; evidence so far = n=2 Ising (exact benchmark), n=3 3-state-Potts continuous, n=4 marginal q=4, n=5 two-size test (L=4->6 gap closing 2.12 vs 1.81 continuous baseline). Current L=8 rung = the third size that turns the two-size test into a three-size FSS test; p=0.47 closing factor 0.806/gap12(L6->L8) is the decision number. Confirmed to user: certificates are provenance not peer review; replication target is a regression guard, not the claim; recommended literature scan + independent cross-check + domain-expert consult before publication posture. Computation continues (marginal cost ~2 days; decision-relevant in both outcome directions).
+- Pre-checks (20:43 UTC): NO driver running, cursors last-log 2521/2521 exactly (both points dead tied), marker absent, grid 1/5 = [(0.44, gap12 0.50523)], no CHAIN_DONE, HEAD cbf768a, sync 0/0, clean tree, 2.62 GB RAM available.
+- Drove 3 windows via followup_v23.sh, all exit 0, +40/point each: last-log 2521->2561->2601->2641 on BOTH points (dead tied all round) — matching the 04:12 round's prediction (->2641/2641) exactly.
+- Post-verify: no driver/python residue, 0 Traceback/Killed/MemoryError in last 250 lines of both run logs, marker absent, rung JSON unchanged (grid 1/5), sync 0/0 pre-commit.
+- PUSHED per the standing rule: run-log deltas + refreshed worklog snapshot (worklog_snapshot_20260925.md) committed and pushed to origin/main. No v23 build (grid 1/5); no web-explorer step (rung JSON contains no p=0.47).
+
+Stage Summary:
+- Round complete: +120/point; progress 31.85% (2641/8295) per point; grid at 31.89% (13,577/41,475); remaining ~27,898 chunks.
+- Pair (0.46+0.47) completes in ~47 more firings (~0.98 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~2.8-4.5 days.
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (05:12): expect cursors ~2641/2641 idle; drive 3 windows (expect ~->2761/2761); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
