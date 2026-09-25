@@ -2209,3 +2209,19 @@ Stage Summary:
 - Pair (0.46+0.47) completes in ~54 more firings (~1.13 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~2.8-4.5 days depending on firing continuity.
 - Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (01:42): expect cursors ~1801/1801 idle; drive 3 windows (expect ~->1921/1921); v23 self-routes at grid 5/5 (web-explorer alignment only if rung JSON contains p=0.47; skip if uncertain). Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 01:42 +08 / 17:43 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609260143) — standard driving round under the push-every-round rule, single-agent this firing.
+
+Work Log:
+- Pre-checks (17:43 UTC): NO driver running (as the 01:12 round-end predicted), cursors last-log 1801/1801 exactly (both points dead tied), marker absent, grid 1/5 = [(0.44, gap12 0.50523)], no CHAIN_DONE, HEAD 592c745, sync 0/0, clean tree, 2.62 GB RAM available.
+- Drove 3 windows via followup_v23.sh, all exit 0, +40/point each: last-log 1801->1841->1881->1921 on BOTH points (dead tied all round) — matching the 01:12 round's prediction (->1921/1921) exactly. Driving-mode guard correct; grid 1/5 at every check.
+- Post-verify: no driver/python residue, 0 Traceback/Killed/MemoryError in last 250 lines of both run logs, marker absent, rung JSON unchanged (grid 1/5), git: only the two expected ` M` run logs, sync 0/0 pre-commit.
+- PUSHED per the standing rule: run-log deltas + refreshed worklog snapshot (worklog_snapshot_20260925.md) committed and pushed to origin/main. No v23 build (grid 1/5); no web-explorer step (rung JSON contains no p=0.47).
+
+Stage Summary:
+- Round complete: +120/point; progress 23.16% (1921/8295) per point; grid at 29.01% (12,137/41,475); remaining ~29,338 chunks.
+- Pair (0.46+0.47) completes in ~53 more firings (~1.1 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~2.8-4.5 days depending on firing continuity.
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (02:12): expect cursors ~1921/1921 idle; drive 3 windows (expect ~->2041/2041); v23 self-routes at grid 5/5 (web-explorer alignment only if rung JSON contains p=0.47; skip if uncertain). Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
