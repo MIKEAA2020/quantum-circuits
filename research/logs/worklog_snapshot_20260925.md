@@ -2630,6 +2630,24 @@ Stage Summary:
 - Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (14:12): expect cursors ~4801/4801 idle; drive 3 windows (expect ~->4921/4921); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
 ---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 14:13 +08 / 06:13 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609261413) — standard driving round PLUS direct user Q&A (pipeline merits, deeper manuscript read; data-loss/recovery audit vs repo/releases).
+
+Work Log:
+- USER Q&A (answered in-round, before driving): (1) Data-loss audit — downloaded the fuller_workspace release asset (workspace-phys2.zip, 116,411,529 bytes, 876 files) via the authenticated API; it CONTAINS versions/manuscript_revised_v13_entropy.tex/.pdf, v5-v12 versions, gap_utils.py, supplement, all audit logs => the v13-era "loss" was NOT genuine: the release was there all along and the first-principles reconstruction (v14) initially missed it (later reconciled in b2428dc "recovered-data round"). The tag TREE holds only a placeholder file "1" (commit 8461760) — the data lives in release ASSETS, invisible to plain git clone; that is why it was initially overlooked. The Sep 25 sandbox rollback WAS genuine loss of unpushed/gitignored state (1ab068e local-only, ids_nb4.npy 830 MB + 240 MB states excluded from git by the 100 MB limit, ~27 h driving) — clone could NOT restore those; repo restore from origin/main + deterministic recompute was the correct and only path, validated byte-identical (K=3865). Second release quantum_circuits (workspace-physics.frontier.gap.zip, 88.8 MB) noted, not downloaded. (2) Pipeline merits — read v22 manuscript sec:n4n5 + Discussion in depth: the manuscript itself ends the n=5 case with "two sizes cannot yet separate an exponential from a power-law closing and L=8 is the natural next rung", and lists "the L=8 rung (the symmetry-reduced block route) in preparation" among open problems; n=4 precedent shows the third size MOVED the answer (drift 0.0208->0.0033, p_c revised to bracket edge 0.383). L=8 grid deliverables: closing factor 0.806/gap12(L=8) (exponential vs power-law discriminator; decision rule: >=~2.1 with L*gap12 falling below 4.85 => first-order confirmed at three sizes; ~1.8-1.9 with saturation => claim downgraded), (6,8) crossing => third p* and slope-ratio chain, plateau-width fixed-xi test (expect ~x0.75), K=orbit-count record.
+- Pre-checks (06:13 UTC): NO driver running, cursors last-log 4801/4801 exactly (both points dead tied), marker absent, grid 1/5 = [(0.44, gap12 0.50523)], no CHAIN_DONE, HEAD 9f16396, sync 0/0, clean tree, 2.60 GB RAM available.
+- Drove 3 windows via followup_v23.sh, all exit 0, +40/point each: last-log 4801->4841->4881->4921 on BOTH points (dead tied all round) — matching the 13:43 round's prediction (->4921/4921) exactly. Driving-mode guard correct; grid 1/5 at every check.
+- Post-verify: no driver/python residue, 0 Traceback/Killed/MemoryError in last 250 lines of both run logs, marker absent, rung JSON unchanged (grid 1/5), git: only the two expected ` M` run logs, sync 0/0 pre-commit.
+- PUSHED per the standing rule: run-log deltas + refreshed worklog snapshot (worklog_snapshot_20260925.md) committed and pushed to origin/main. No v23 build (grid 1/5); no web-explorer step (rung JSON contains no p=0.47).
+- Release-audit artifacts kept under scripts/release_audit/ (zip + gh_releases.json; NOT pushed — outside quantum-circuits push scope).
+
+Stage Summary:
+- Round complete: +120/point; progress 59.32% (4921/8295) per point; grid at 43.73% (18,137/41,475, exact); remaining ~23,338 chunks.
+- Pair (0.46+0.47) completes in ~29 more firings (~0.60 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~2.0 days at perfect cadence (~2.8-4.5 days with realistic firing continuity).
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (14:42): expect cursors ~4921/4921 idle; drive 3 windows (expect ~->5041/5041, crossing the 5000-chunk milestone); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
+---
 Task ID: user-qa-2
 Agent: main (Z.ai Code)
 Task: Direct user question (trace 1a0dc588cc5ab7c1, ~14:06 +08): (1) deeper manuscript read to answer "merits of the ongoing computing pipeline"; (2) adjudicate "data-loss/recovery" narrative vs "everything is already on repo" — user points at github.com/MIKEAA2020/quantum-circuits/tags releases.
