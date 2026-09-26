@@ -2943,3 +2943,17 @@ Stage Summary:
 - Pair (0.46+0.47) completes in ~13 more firings (~0.27 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~1.7 days at perfect cadence (~2.7-4.4 days with realistic firing continuity).
 - Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (22:43 +08 / 14:43 UTC): expect cursors ~6721/6721 idle (unless the 22:13 stand-down round already drove — check first); drive 3 windows (expect ~->6841/6841); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
+Task: Watch round, cron 403325, firing 22:13 +08 / 14:13 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609262213) — watch-only round; STOOD DOWN (live driver from the user's direct "go on" turn detected mid-round), monitored to completion, verified bookkeeping.
+
+Work Log:
+- Pre-checks (14:13:33 UTC): found a LIVE driver — bash followup_v23.sh (PID 21253, started 14:12:28 UTC from a sibling tool-shell) + timeout-520 windows on both points, RESUMED at chunk 6602, RAM 563 MB mid-window; identified as the user's direct "go on" turn (trace 1a0de0f26d21b0d1, confirmed by its subsequent worklog entry, which pre-logged that this 22:13 firing would find it live). Marker absent; grid 1/5 (p=0.44); no CHAIN_DONE; HEAD 1791a9a, sync 0/0. Per the stand-down rule (pgrep 'v22_n5_L8_block_v1' positive), drove NOTHING, spawned NOTHING, killed NOTHING.
+- Monitored the "go on" round to completion: window 1 (->~6642), window 2 (->~6682), window 3 finished ~14:39 UTC — final cursors 6721/6721 dead tied (+120/point, matching the 21:43 round's prediction ->6721/6721 exactly); 0 Traceback/Killed/MemoryError/ERROR in last 250 lines of both run logs.
+- Bookkeeping verified: the "go on" turn's own worklog entry appended (line 2945) and its checkpoint commit 8b5a691 "Checkpoint (driven run): ... 6721/8295 (3 windows, exit 0, points tied)" pushed; sync 0/0 after fetch.
+- v23 follow-up correctly NOT triggered: no CHAIN_DONE, marker absent, rung JSON still grid 1/5 (no p=0.47 point) — no v23 build, no web-explorer step; v21/v22 files untouched; this firing drove no windows (quota consumed by the overlapping "go on" round, per its watch-only instruction).
+
+Stage Summary:
+- STAND-DOWN round: the overlapping "go on" round (3 windows, +120/point, push 8b5a691) covered this slot's driving; no double-drive attempted; this firing added only monitoring + this record.
+- Progress 81.03% (6721/8295) per point — past four-fifths; grid at 52.40% (21,737/41,475, exact); remaining ~19,738 chunks.
+- Pair (0.46+0.47) completes in ~13 more firings (~0.27 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~1.7 days at perfect cadence (~2.8-4.5 days with realistic firing continuity).
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (22:43 +08 / 14:43 UTC): expect cursors ~6721/6721 idle; drive 3 windows (expect ~->6841/6841); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
