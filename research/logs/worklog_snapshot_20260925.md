@@ -3235,3 +3235,20 @@ Stage Summary:
 - (0.48+0.50) pair at 81/8295 per point: ~8214 chunks/point remain -> ~69 firings (~1.4 days) at 3-window cadence to finish the grid; then CHAIN_DONE + grid 5/5 -> v23 follow-up self-routes.
 - v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
 - Next firing (05:43 +08 / 21:43 UTC): expect cursors ~81/81 idle on the NEW pair logs (p0.48/p0.50); drive 3 windows (expect ~->201/201 per point, +40/window); verify the rung.json.lock residue stays untracked; v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 05:43 +08 / 21:43 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609270543) — standard driving round under the push-every-round rule, single-agent this firing; first full round on the new (0.48+0.50) pair.
+
+Work Log:
+- Pre-checks (21:44 UTC): NO driver running (as the 05:13 round-end predicted), cursors last-log 81/81 on the NEW pair logs (p0.48/p0.50, both points dead tied), marker absent, grid 3/5 = [(0.44, 0.50523), (0.46, 0.48059), (0.47, 0.48115)], no CHAIN_DONE, HEAD 5062147, sync 0/0, clean tree (rung.json.lock residue untracked as expected), 2.52 GB RAM available.
+- Drove 3 windows via followup_v23.sh (21:44->22:11 UTC), all exit 0, +40/point each: last-log 81->121->161->201 on BOTH new points (dead tied all round) — matching the 05:13 round's prediction (->201/201) exactly. Driving-mode guard correct; grid 3/5 at every check.
+- Post-verify (22:11 UTC): no driver/python residue, 0 Traceback/Killed/MemoryError/ERROR in last 250 lines of both new-pair run logs, marker absent, rung JSON unchanged (grid 3/5), git: only the two expected ` M` new-pair logs + the untracked lock residue.
+- PUSHED per the standing rule: run-log deltas + FULL worklog snapshot (byte-exact cp, cmp-verified) committed and pushed to origin/main. No v23 build (grid 3/5, gate is 5/5 + CHAIN_DONE); no web-explorer step.
+
+Stage Summary:
+- Round complete: +120/point on the (0.48+0.50) pair; per-point progress 201/8295 (2.42%); grid at 60.97% (25,287/41,475, exact); remaining ~16,188 chunks.
+- (0.48+0.50) pair completes in ~68 more firings (~1.37 days) at 3-window cadence; then CHAIN_DONE + grid 5/5 -> the tested v23 follow-up self-routes.
+- v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Verification anchor: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059) confirmed in the rung JSON at the 05:13 milestone. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (06:13 +08 / 22:13 UTC): expect cursors ~201/201 idle on p0.48/p0.50 logs; drive 3 windows (expect ~->321/321 per point); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
