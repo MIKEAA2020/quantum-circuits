@@ -2873,3 +2873,20 @@ Stage Summary:
 - Novelty verdict: core exact clusters (feature closure/leakage algebra, annealed n=3/4/5 chain, Z3 rank certificates, Born-record LD framework, no-freezing theorem) have no published counterparts found; the q=n-Potts annealed correspondence circulates as folklore — citation additions neutralize the referee risk; the trajectory-LD (Garrahan school) and log-REM freezing literatures were the genuine citation gaps.
 - Venue recommendation: PRB first (or SciPost), single paper, AFTER the L=8 rung lands (v23) so the n=5 first-order claim enters review at three sizes; two-paper split is the fallback under breadth pressure.
 - Compute state unchanged: cursors 6121/6121 idle, grid 1/5, no marker, no CHAIN_DONE; the 19:43 cron firing drives next. Standing offers are now CLOSED (delivered).
+
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Direct user turn "proceed with cron loop" (trace 1a0ddb83cd3ec799, 16:07 Tehran / 12:37 UTC) — manual driving round between cron firings, same protocol as the 30-min watcher rounds (job 403325).
+
+Work Log:
+- Pre-checks (12:37 UTC): NO driver running; cursors 6241/6241 dead tied; marker absent; grid 1/5 (p=0.44 gap12=0.50523); error scan clean; HEAD 79ec3ca, sync 0/0, clean tree.
+- Drove 3 windows via followup_v23.sh, all exit 0, +40/point each: 6241->6281->6321->6361 on BOTH points (dead tied all round) — exactly the previous round's prediction. Grid 1/5 at every check.
+- Post-verify (13:05 UTC): no residue; 0 errors in last 250 lines of both run logs; marker absent; rung JSON unchanged; only the two expected run-log deltas in git.
+- Checkpoint pushed: run-log deltas + this snapshot appended, committed and pushed to origin/main. No v23 build (grid 1/5); no web-explorer step (no p=0.47 in rung JSON yet).
+
+Stage Summary:
+- Round complete: +120/point; progress 76.68% (6361/8295) per point; grid at 50.67% (21,017/41,475, exact).
+- Pair (0.46+0.47) completes in ~16 more firings (~0.34 days); then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~1.8 days at perfect cadence.
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (~13:11/13:41 UTC): expect cursors 6361/6361 idle; drive 3 windows (expect ~->6481/6481); v23 self-routes at grid 5/5. Stand-down rule unchanged.
