@@ -3119,3 +3119,20 @@ Stage Summary:
 - Pair (0.46+0.47) completes in ~5 more firings (~0.11 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~1.5 days at perfect cadence (~2.7-4.4 days with realistic firing continuity).
 - Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (02:43 +08 / 18:43 UTC): expect cursors ~7681/7681 idle; drive 3 windows (expect ~->7801/7801); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Direct user turn "go on - respond in english" (trace 1a0deeb9c32a9755, 02:13 +08 / 18:13 UTC) — STAND-DOWN watch round: pre-check at 18:13:06 found the box idle at 7561/7561, but a 75s re-check caught the 02:13 cron firing's driver going LIVE at 18:14 (bash followup_v23.sh PID 24287, RESUMED 7562/7562) — per the never-double-drive rule this turn drove nothing; monitored all 3 windows to completion and verified the firing's bookkeeping.
+
+Work Log:
+- Pre-checks (18:13:06 UTC): NO driver, cursors 7561/7561 exactly (as the 01:43 round-end predicted), marker absent, grid 1/5, no CHAIN_DONE, HEAD d07368c, sync 0/0, 2.54 GB RAM. Collision-avoidance wait of 75s (02:13 firing was due): found the firing's driver live at 18:14:29 (driver script + timeout-520 + 2 python processes, RESUMED at chunk 7562) -> STOOD DOWN; drove nothing, killed nothing.
+- Monitored the firing's 3 windows (18:14->18:41 UTC): window boundaries at last-log 7601/7601 (18:21:50), 7641/7641 (18:30:37), final 7681/7681 (~18:39) — +40/point per window, points dead tied all round, 4 driver/python processes present in every window, RAM ~0.8 GB available mid-window (normal envelope for 2 parallel python processes).
+- Bookkeeping verified (18:41-18:42 UTC): the firing's worklog entry appended (identifies itself as the COMBINED round for cron trace ...202609270213 + this turn's trace 1a0deeb9c32a9755 — the gateway appears to have delivered the "go on" message to its session as well; operationally correct either way: exactly ONE driver, no double-drive); its checkpoint commit 8158843 "Checkpoint (driven run): p=0.46/0.47 advanced to chunk 7681/8295 (3 windows, exit 0, points tied)" pushed, sync 0/0 after fetch; mirror = FULL byte-exact cp (3121 lines, cmp-identical — the tail-cut anomaly did NOT recur); 0 Traceback/Killed/MemoryError/ERROR in last 250 lines of both run logs; marker absent; rung JSON unchanged (grid 1/5).
+- No v23 build (correct: grid 1/5, no CHAIN_DONE); no web-explorer step (rung JSON contains no p=0.47); v21/v22 files untouched; nothing pushed outside quantum-circuits; this record + refreshed FULL mirror pushed as the watch-round commit.
+
+Stage Summary:
+- STAND-DOWN watch round: the 02:13 firing's 3 windows (+120/point, push 8158843) covered this slot's driving; this turn added collision-avoidance monitoring + bookkeeping verification + this record.
+- Progress 92.57% (7681/8295) per point; grid at 57.04% (23,657/41,475, exact); remaining ~17,818 chunks.
+- Pair (0.46+0.47) completes in ~5 more firings (~0.11 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~1.5 days at perfect cadence (~2.7-4.4 days with realistic firing continuity).
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (02:43 +08 / 18:43 UTC): expect cursors ~7681/7681 idle; drive 3 windows (expect ~->7801/7801); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
