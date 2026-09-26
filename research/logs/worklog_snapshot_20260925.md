@@ -2824,6 +2824,39 @@ Stage Summary:
 - Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (19:43): expect cursors ~6121/6121 idle; drive 3 windows (expect ~->6241/6241); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
 ---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 19:43 +08 / 11:43 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609261943) — standard driving round, INTERLEAVED with the user's direct go-ahead for the standing offers (literature scan + claims-evidence map + venue shortlist; see next section).
+
+Work Log:
+- Pre-checks (11:43 UTC): NO driver running (as the 19:13 round-end predicted), cursors last-log 6121/6121 exactly (both points dead tied), marker absent, grid 1/5 = [(0.44, gap12 0.50523)], no CHAIN_DONE, HEAD acf7d44, sync 0/0, clean tree, 2.57 GB RAM available.
+- Drove 3 windows via followup_v23.sh, all exit 0, +40/point each: last-log 6121->6161->6201->6241 on BOTH points (dead tied all round) — matching the 19:13 round's prediction (->6241/6241) exactly. Driving-mode guard correct; grid 1/5 at every check.
+- Post-verify: no driver/python residue, 0 Traceback/Killed/MemoryError in last 250 lines of both run logs, marker absent, rung JSON unchanged (grid 1/5), git: only the two expected ` M` run logs + new research/docs/, sync 0/0 pre-commit.
+- PUSHED per the standing rule: run-log deltas + refreshed worklog snapshot + the three new research/docs/ deliverables (see next section) committed and pushed to origin/main. No v23 build (grid 1/5); no web-explorer step (rung JSON contains no p=0.47).
+
+Stage Summary:
+- Round complete: +120/point; progress 75.25% (6241/8295) per point; grid at 50.10% (20,777/41,475, exact) — CROSSED THE HALFWAY MARK of the total grid; remaining ~20,698 chunks.
+- Pair (0.46+0.47) completes in ~17 more firings (~0.36 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~2.0 days at perfect cadence.
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (20:13): expect cursors ~6241/6241 idle; drive 3 windows (expect ~->6361/6361); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
+---
+Task ID: lit-scan-claims-venues
+Agent: main (Z.ai Code)
+Task: Direct user go-ahead (trace 1a0dd86ab7ee7a41, ~19:30 +08): "do the literature-scan. respond in english. also claims-evidence map / venue shortlist" — the three standing offers, executed in-round between driving windows (same firing as the v23-followup round above).
+
+Work Log:
+- Read v22 manuscript structure (1929 lines): full section/table map, sec:n4n5 in depth (tab:n4annealed, tab:n5twosize), Discussion/open problems, Declarations, full bibitem list (55 keys — Giardina2006/DelMoral2004/Derrida1981/ZhuKraemerGross2016/Cardy1986 already present).
+- Invoked web-search skill; ran 10 targeted searches (raw JSON in scripts/litscan/, NOT pushed — outside quantum-circuits scope for intermediates, but the curated md IS in-repo): replica MIPT exact, Clifford MIPT, annealed/quenched, first-order MIPT, 2-qubit Clifford 3-design, q=4 Potts log corrections, REM freezing, cloning/SMC, PostBQP complexity, purification locator.
+- Deliverable 1 — novelty scan (research/docs/novelty_scan_20260926.md): verdict NO SCOOP; nearest competition = Delmonte et al PRR 7, 023082 (2025) + Suzuki Quantum 9, 1627 (2025) (approximate/numerical replica lines, differentiable by exactness); missing refs flagged (Fyodorov 2010 + Fyodorov-Le Doussal 2014 freezing; Webb multiqubit 3-design; Moghaddam PRL 2023; Brewer-Clark 2017; Hoke et al Nature 2023 experiment); all uncertain IDs marked [to-verify].
+- Deliverable 2 — claims-evidence map (research/docs/claims_evidence_map_v22_20260926.md): 17 claims C1-C17 with location/evidence/independent-checks/status/gap; proof-backed core vs exact-computation backbone vs numerics layer separated; single soft point = C8 two-size status (closed by running L=8 grid, pre-registered rule); single infrastructure debt = figshare placeholder DOI.
+- Deliverable 3 — venue shortlist (research/docs/venue_shortlist_20260926.md): Step 0 arXiv (endorsement warning for independent author); Tier 1 PRR / Quantum / SciPost Physics Core; Tier 2 JSTAT / J.Phys.A / PRE; Tier 3 PRX Quantum letter (only after L=8 verdict) + CPC methods spin-off; recommendation = arXiv -> PRR primary; blockers = DOI, L=8, refs.
+- Combined docx (pandoc) for the user: /home/z/my-project/download/lit_scan_claims_map_venue_shortlist_20260926.docx (local only, not pushed).
+- Appended this section; pushing with the round's checkpoint so the record survives sandbox loss.
+
+Stage Summary:
+- All three standing offers delivered and pushed in-repo (research/docs/); user answer posted in chat (English). Verdict: no scoop, clean differentiation; submission route arXiv -> PRR; pre-submission blockers = figshare DOI, L=8 rung (in progress), reference additions.
+- L=8 grid at 50.10% (20,777/41,475) — halfway; pair completes ~17 firings (~0.36 days).
+---
 Task ID: literature-scan
 Agent: main (Z.ai Code)
 Task: Direct user request (trace 1a0dd86ab7ee7a41, ~19:40 +08): execute the standing offers — dedicated literature scan, claims-evidence map, and venue shortlist for the v22 manuscript. Response in English requested.
