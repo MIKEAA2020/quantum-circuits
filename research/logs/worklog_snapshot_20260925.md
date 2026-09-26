@@ -3218,3 +3218,20 @@ Stage Summary:
 - v23 trigger still gated on grid 5/5 + CHAIN_DONE (not yet); p=0.47 landing next round enables web-explorer alignment ONLY after a successful v23 build per the standing procedure.
 - Race patch (8fb4e2e) active — do NOT revert. Verification target intact.
 - Next firing (05:13 +08 / 21:13 UTC): expect cursors ~8281/8281 idle; drive 3 windows (window 1 completes the pair -> grid 3/5; windows 2-3 start the 0.48/0.50 pair, expect ~->80/80 on the new points, i.e. last-log chunk ~81/8295 per new point log); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 05:13 +08 / 21:13 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609270513) — PAIR-COMPLETION round: the (0.46+0.47) pair finished in window 1 exactly as predicted; the chain auto-advanced to the (0.48+0.50) pair; rung JSON grid 1/5 -> 3/5.
+
+Work Log:
+- Pre-checks (21:14 UTC): NO driver running (as the 04:43 round-end predicted), cursors last-log 8281/8281 exactly (both points dead tied, 14 chunks/point to go), marker absent, grid 1/5, no CHAIN_DONE, HEAD ac886f0, sync 0/0, clean tree, 2.52 GB RAM available.
+- Window 1 COMPLETED THE PAIR (exit 0): p=0.46 finished [207.8s] with lam1=1.71595722e-04 lam2=1.06117945e-04 gap12=0.48059 — the redo verification target reproduced EXACTLY (lam1, lam2 and gap12 all match to full precision); p=0.47 finished [211.5s] with lam1=1.38362069e-04 lam2=8.55173350e-05 gap12=0.48115. Both points checkpointed into the rung JSON -> grid 3/5 = [(0.44, gap12 0.50523), (0.46, gap12 0.48059), (0.47, gap12 0.48115)].
+- Windows 2-3 OPENED THE NEW PAIR: the driver auto-switched to p=0.48 + p=0.50 (new run logs v22_n5_L8_block_run_p0.48.log / p0.50.log created); window 2 -> 41/41 per point (exit 0), window 3 -> 81/81 per point (exit 0), +40/point dead tied.
+- Post-verify (21:41 UTC): no driver/python residue, 0 Traceback/Killed/MemoryError/ERROR in last 250 lines of ALL FOUR run logs (0.46/0.47/0.48/0.50), marker absent, git: 3 ` M` (0.46 log, 0.47 log, rung JSON) + 3 untracked (0.48 log, 0.50 log, rung.json.lock — checkpoint lock residue, left untracked, the chain reuses it for the 0.48/0.50 checkpoints).
+- PUSHED per the standing rule: all four run logs + rung JSON (grid 3/5 — the critical checkpoint) + FULL worklog snapshot committed and pushed to origin/main. No v23 build (grid 3/5, gate is 5/5 + CHAIN_DONE); no web-explorer step yet (v23 build must succeed first).
+
+Stage Summary:
+- MILESTONE: (0.46+0.47) pair COMPLETE and checkpointed; p=0.46 redo verification target reproduced EXACTLY (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059); p=0.47 lands gap12=0.48115. Grid 3/5; total 60.39% (25,047/41,475, exact); remaining ~16,428 chunks.
+- (0.48+0.50) pair at 81/8295 per point: ~8214 chunks/point remain -> ~69 firings (~1.4 days) at 3-window cadence to finish the grid; then CHAIN_DONE + grid 5/5 -> v23 follow-up self-routes.
+- v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Next firing (05:43 +08 / 21:43 UTC): expect cursors ~81/81 idle on the NEW pair logs (p0.48/p0.50); drive 3 windows (expect ~->201/201 per point, +40/window); verify the rung.json.lock residue stays untracked; v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.

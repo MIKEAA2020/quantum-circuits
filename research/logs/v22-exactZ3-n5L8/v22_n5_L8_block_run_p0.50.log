@@ -1,0 +1,16 @@
+== phase run: the n=5 L=8 rung ==
+   K = 3865 orbits; grid [0.5]
+      [block p=0.5] chunk 1/8295  12s  (eta 102404s)
+      [block p=0.5] chunk 9/8295  91s  (eta 83771s)
+      [block p=0.5] chunk 17/8295  176s  (eta 85791s)
+      [block p=0.5] chunk 25/8295  265s  (eta 87587s)
+      [block p=0.5] chunk 33/8295  354s  (eta 88688s)
+      [block p=0.5] chunk 41/8295  448s  (eta 90160s)
+== phase run: the n=5 L=8 rung ==
+   K = 3865 orbits; grid [0.5]
+   [block p=0.5] RESUMED at chunk 42/8295 (state 21:25:04)
+      [block p=0.5] chunk 49/8295  92s  (eta 15456s)
+      [block p=0.5] chunk 57/8295  187s  (eta 26967s)
+      [block p=0.5] chunk 65/8295  278s  (eta 35216s)
+      [block p=0.5] chunk 73/8295  369s  (eta 41517s)
+      [block p=0.5] chunk 81/8295  452s  (eta 45786s)
