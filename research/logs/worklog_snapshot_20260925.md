@@ -2695,3 +2695,19 @@ Work Log:
 Stage Summary:
 - Verdict delivered to user: research data was never permanently lost (user's uploads: transcripts + 2 release zips + growing repo); genuine losses were environmental (phys2 sandbox death, one sandbox rollback); the v14/v15 transcript reconstruction WAS a detour caused by missing the fuller_workspace release asset — already conceded and corrected in-repo at v16 (release used directly, zero-difference re-runs, 44/44 bit-exact seeds); NEW: the second release (quantum_circuits tag / workspace-physics.frontier.gap.zip, 84.7 MB) remains unused by any round — flagged to user.
 - Merits answer (manuscript-grounded): the L=8 rung closes the Discussion's named open item — the two-size caveat "cannot yet separate an exponential from a power-law closing"; third size decides via closing factor 0.806/gap12(0.47), scaled-gap trajectory 4/6/8*gap12 vs the n=3 envelope, plateau width at fixed xi; verification target = reproducibility contract; v23 pre-built/tested = pre-registration; engineering (2.1e8 bond labels exact on a 4 GB/2-core box) follows the paper's established impossible-dense pattern. Honest limits: annealed mechanics, not the quenched transition; novelty uncertified (literature scan still offered).
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 15:43 +08 / 07:43 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609261543) — standard driving round under the push-every-round rule, single-agent this firing.
+
+Work Log:
+- Pre-checks (07:43 UTC): NO driver running (as the 15:13 round-end predicted), cursors last-log 5161/5161 exactly (both points dead tied), marker absent, grid 1/5 = [(0.44, gap12 0.50523)], no CHAIN_DONE, HEAD b619a4a, sync 0/0, clean tree, 2.57 GB RAM available.
+- Drove 3 windows via followup_v23.sh, all exit 0, +40/point each: last-log 5161->5201->5241->5281 on BOTH points (dead tied all round) — matching the 15:13 round's prediction (->5281/5281) exactly. Driving-mode guard correct; grid 1/5 at every check.
+- Post-verify: no driver/python residue, 0 Traceback/Killed/MemoryError in last 250 lines of both run logs, marker absent, rung JSON unchanged (grid 1/5), git: only the two expected ` M` run logs, sync 0/0 pre-commit.
+- PUSHED per the standing rule: run-log deltas + refreshed worklog snapshot (worklog_snapshot_20260925.md) committed and pushed to origin/main. No v23 build (grid 1/5); no web-explorer step (rung JSON contains no p=0.47).
+
+Stage Summary:
+- Round complete: +120/point; progress 63.68% (5281/8295) per point; grid at 45.47% (18,857/41,475, exact); remaining ~22,618 chunks.
+- Pair (0.46+0.47) completes in ~25 more firings (~0.52 days) at 3-window cadence; then the 0.48/0.50 pair (~69 firings, ~1.4 days); full grid ~2.0 days at perfect cadence (~2.8-4.5 days with realistic firing continuity).
+- Verification target intact: p=0.46 redo must reproduce lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059. Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (16:13): expect cursors ~5281/5281 idle; drive 3 windows (expect ~->5401/5401); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end.
