@@ -3822,3 +3822,20 @@ Stage Summary:
 - v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
 - Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (23:13 +08 / 15:13 UTC nominal, dispatch ~15:15-15:22): expect cursors ~3561/3561 idle; drive 3 windows (expect ~->3681/3681 per point); if a driver IS active, stand down and monitor per the no-double-drive rule. v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Direct user turn "go on in english" (trace 1a0e36c46f13357d) — standard driving round, single-agent this turn (the 22:43 cron firing had completed its stand-down round and pushed 9ad7277; no driver active at pre-check).
+
+Work Log:
+- Pre-checks (15:12 UTC): NO driver/python running, cursors last-log 3561/3561 on the p0.48/p0.50 pair logs (dead tied, where the sibling user-turn round left them at ~15:00 and the 22:43 stand-down verified), marker absent, no CHAIN_DONE (grep 0), grid 3/5 = [(0.44, 0.50523), (0.46, 0.48059), (0.47, 0.48115)], HEAD 9ad7277 = origin/main (sync 0/0), clean tree (lock residue untracked), 2.4 GB RAM available, 0 errors in the last 250 lines of both run logs.
+- Drove 3 windows via followup_v23.sh (15:13->15:41 UTC), +40/point each: last-log 3561->3601->3641->3681 on BOTH points (dead tied all round). All 3 windows ended in the designed 520s timeout cutoff (steady-state pattern); +40/point target hit exactly in every window. Inner per-point processes self-terminated within ~95s after each window (verified before each next window; never killed manually); cursors unchanged at the boundaries, dead tied preserved.
+- Post-verify (15:43 UTC): no driver/python residue, 0 Traceback/Killed/MemoryError/ERROR in last 250 lines of both run logs, marker absent, no CHAIN_DONE, rung JSON unchanged (grid 3/5, mtime 2026-09-26 21:17 UTC, anchor p=0.46 gap12=0.48059 intact), git: only the two expected ` M` logs + untracked lock residue.
+- PUSHED per the standing rule: run-log deltas + FULL worklog snapshot (byte-exact cp into research/logs/worklog_snapshot_20260925.md, cmp-verified) committed and pushed to origin/main. No v23 build (grid 3/5, gate is 5/5 + CHAIN_DONE); no web-explorer step.
+
+Stage Summary:
+- Round complete: +120/point on the (0.48+0.50) pair (this turn covering the 23:13 slot cadence — that firing dispatched ~15:15-15:22 while my windows 1-3 ran 15:13->15:41, so it either dropped server-side or will stand down / drive after this turn ends); per-point progress 3681/8295 (44.37%); grid at 77.75% (32,247/41,475, exact); remaining ~9,228 chunks.
+- (0.48+0.50) pair completes in ~38 more effective firings (~0.75-0.8 days at the observed cadence); then CHAIN_DONE + grid 5/5 -> the tested v23 follow-up self-routes.
+- v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (23:43 +08 / 15:43 UTC nominal, dispatch ~15:45-15:55): this turn's bookkeeping ends ~15:45-15:50 — that firing may overlap the tail or find cursors ~3681/3681 idle; either way per the no-double-drive rule it drives only if NO driver is active (expect ~->3801/3801 per point if it drives). The 00:13 firing (16:13 UTC nominal) otherwise finds cursors idle; v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
