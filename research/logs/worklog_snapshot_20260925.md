@@ -4130,6 +4130,24 @@ Stage Summary:
 ---
 Task ID: v23-followup
 Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 07:13 +08 (dispatch logged 07:13:49 +08 / 23:13 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609280713) — standard single-point driving round (third round under the user-approved V23_SINGLE_POINT=1 mode; second consecutive zero-anomaly round).
+
+Work Log:
+- Pre-checks (23:14 UTC): NO driver/python running (pgrep exit 1), cursors last-log 5433/5001 (durable ci 5432/5000, exactly as the 06:43 entry predicted), marker absent, no CHAIN_DONE (grep 0), grid 3/5 (rung JSON mtime 2026-09-26 21:17 UTC, anchor p=0.46 gap12=0.48059 intact), HEAD b822f5c = origin/main (sync 0/0), clean tree (lock residue untracked), 2.36 GB RAM available, 0 errors in both run logs.
+- Drove 3 windows in single-point mode (V23_SINGLE_POINT=1), all on p=0.48 (grid order), ALL ended in the designed 520s cutoff (exit 0, no FAILED): log cursor 5433->5497->5561->5617 (+64/+64/+56; window 3's cutoff landed at 454s with slightly less progress — normal variance); durable ci 5432->5616 (+184 net, checkpoints flushed at each window end). ZERO OOM events; NO_RESIDUE verified between windows (pgrep exit 1 each time); never killed anything.
+- Post-verify (23:42 UTC): no residue, rung JSON unchanged (grid 3/5, mtime 2026-09-26 21:17 UTC, anchor intact), 0 Traceback/MemoryError/ERROR in both run logs, no CHAIN_DONE, marker absent, RAM 2.38 GB available, git: only the expected ` M` p0.48 log + untracked lock residue (p0.50 log correctly unmodified — its point not driven).
+- PUSHED per the standing rule: run-log deltas + FULL worklog snapshot (byte-exact cp into research/logs/worklog_snapshot_20260925.md, cmp-verified) committed and pushed to origin/main. No v23 build (grid 3/5, gate is 5/5 + CHAIN_DONE); no web-explorer step.
+
+Stage Summary:
+- Round complete: +184 durable on p=0.48 (5616/8295 = 67.70%); p=0.50 rests at 5000/8295 (60.28%); grid at 85.59% (35,501/41,475, exact); remaining ~5,974 chunks (2,679 on p0.48 + 3,295 on p0.50).
+- Cadence math holding: ~+61-64/window, 3 windows/round -> ~184-192/round; pair completes in ~32 effective rounds (~0.65 days); p=0.48 completes in ~15 rounds (~44 windows), then p=0.50 runs alone.
+- STANDING INSTRUCTION unchanged: drive with V23_SINGLE_POINT=1 on every call; no 2-parallel reversion without user approval; English-only replies to the user.
+- v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (07:43 +08 / 23:43 UTC nominal, dispatch ~23:45-23:55): expect cursors p0.48 log ~5617 (durable ci 5616), p0.50 5001 (ci 5000, untouched); if no driver active, drive 3 SINGLE-point windows (V23_SINGLE_POINT=1, p=0.48 continues; expect ~+184 round total -> durable ci ~5800, log ~5801); if a driver IS active, stand down and monitor per the no-double-drive rule. v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
 Task: Direct user turn (trace 1a0e4ec83be7e2c1) — stand-down/monitor round: the user's two directives (English-only replies permanently; single-point sequential fallback APPROVED) were registered and executed by the bundled 06:13 firing (sibling agent, dispatched 22:14 UTC); this turn stood down per the no-double-drive rule, monitored both driving rounds live, verified their bookkeeping, and records a concurrent-edit near-miss as a new standing rule.
 
 Work Log:
