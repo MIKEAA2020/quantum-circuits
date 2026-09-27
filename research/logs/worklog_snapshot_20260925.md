@@ -3947,3 +3947,21 @@ Stage Summary:
 - v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
 - Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (02:43 +08 / 18:43 UTC nominal, dispatch ~18:45-18:55): if delivered past this bookkeeping tail, it finds cursors ~4281/4281 idle; drive 3 windows (expect ~->4401/4401 per point); if a driver IS active, stand down and monitor per the no-double-drive rule. v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 02:43 +08 (dispatch logged 02:43:45 +08 / 18:43 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609280245) — standard driving round, single-agent this firing (delivered just past the 02:13 round's bookkeeping tail exactly as its entry anticipated; no driver active at pre-check).
+
+Work Log:
+- Pre-checks (18:45 UTC): NO driver/python running (only the platform's own main.py service), cursors last-log 4281/4281 on the p0.48/p0.50 pair logs (dead tied, where the 02:13 firing round left them at ~18:43; log tails show its window-3 block RESUMED 18:34:31-33 -> 4281 at 466-480s), marker absent, no CHAIN_DONE (grep 0), grid 3/5 = [(0.44, 0.50523), (0.46, 0.48059), (0.47, 0.48115)] (rung JSON mtime 2026-09-26 21:17 UTC, anchor p=0.46 gap12=0.48059 intact), HEAD bd4cee0 = origin/main (sync 0/0), clean tree (lock residue untracked), 2.4 GB RAM available, 0 Traceback/Killed/MemoryError/ERROR in both run logs (full-log grep).
+- Drove 3 windows via followup_v23.sh (18:47->19:11 UTC), +40/point each: last-log 4281->4321->4361->4401 on BOTH points (dead tied all round). All 3 windows ended in the designed 520s timeout cutoff (steady-state pattern, script exit 0); +40/point target hit exactly in every window (segments 455-480s). Inner per-point processes self-terminated within the ~95s pattern after each window (NO_RESIDUE verified before each next window; never killed manually); cursors unchanged at the boundaries, dead tied preserved.
+- Post-verify (19:12 UTC): no driver/python residue, 0 Traceback/Killed/MemoryError/ERROR in both run logs (full-log grep), marker absent, no CHAIN_DONE, rung JSON unchanged (grid 3/5, mtime 2026-09-26 21:17 UTC, anchor intact), git: only the two expected ` M` logs + untracked lock residue.
+- PUSHED per the standing rule: run-log deltas + FULL worklog snapshot (byte-exact cp into research/logs/worklog_snapshot_20260925.md, cmp-verified) committed and pushed to origin/main. No v23 build (grid 3/5, gate is 5/5 + CHAIN_DONE); no web-explorer step.
+
+Stage Summary:
+- Round complete: +120/point on the (0.48+0.50) pair (covering the 02:43 slot); per-point progress 4401/8295 (53.07%); grid at 81.22% (33,687/41,475, exact); remaining ~7,788 chunks.
+- (0.48+0.50) pair completes in ~33 more effective firings (~0.62 days at the observed cadence); then CHAIN_DONE + grid 5/5 -> the tested v23 follow-up self-routes.
+- The 03:13 firing (19:13 UTC nominal, dispatch ~19:15-19:25) lands right at this round's bookkeeping tail — it may drop, stand down, or (if delivered a few minutes later) find cursors ~4401/4401 idle and drive.
+- v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (03:13 +08 / 19:13 UTC nominal, dispatch ~19:15-19:25): if delivered past this bookkeeping tail, it finds cursors ~4401/4401 idle; drive 3 windows (expect ~->4521/4521 per point); if a driver IS active, stand down and monitor per the no-double-drive rule. v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
