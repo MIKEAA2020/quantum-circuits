@@ -3699,3 +3699,21 @@ Stage Summary:
 - v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
 - Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (20:13 +08 / 11:43 UTC nominal, i.e. the NEXT nominal slot after the covered one is 20:13 / 12:13 UTC): this turn ends ~12:18 UTC, so the 20:13 firing (dispatch ~12:15-12:22) may land mid-round and stand down or drop; expect the 20:43 firing (12:43 nominal) to find cursors ~3081/3081 idle; drive 3 windows (expect ~->3201/3201 per point); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 19:43 +08 / 11:43 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609271943) — STAND-DOWN round #2: on arrival the direct-user-turn loop (trace 1a0e2ac1da171f71, "go on in english") was already mid-round; per the no-double-drive rule this firing drove ZERO windows and monitored the active round to completion.
+
+Work Log:
+- Pre-checks (11:43-11:44 UTC): ACTIVE DRIVER found (window 1 just resumed at 2962/2962, state saved 11:29 during the previous round's window 3; cursors starting from 2961 where the 18:43-coverage round ended), marker absent, no CHAIN_DONE, grid 3/5, HEAD cabe34c, sync 0/0, 2.45->0.55 GB RAM (two block processes active — expected mid-window). STOOD DOWN immediately; no window started.
+- Monitored the active round to completion (11:44->12:20 UTC): window 1 ->3001/3001 (dead tied), ~90s inter-window gap, window 2 ->3041/3041, window 3 started 12:03:18 ->3081/3081 (dead tied, exit 124, +40/point exact in every window; crossed the 3000-chunk milestone). Live-agent pacing verified at each boundary via pgrep before any takeover decision; NO takeover needed — the loop completed its own bookkeeping (worklog entry "Direct user turn (trace 1a0e2ac1da171f71)" + push 0066940).
+- Verified the completed round (12:20 UTC): worklog entry present, mirror FULL-cp byte-exact (cmp pass), HEAD 0066940 = origin/main, sync 0/0, tree clean except untracked lock residue, 0 Traceback/Killed/MemoryError/ERROR in last 250 lines of both run logs, marker absent, rung JSON unchanged (grid 3/5, anchor p=0.46 gap12=0.48059 intact).
+- This entry appended and pushed per the push-every-round rule (sequential after 0066940; mirror refreshed). No drive, no rung change, no v23 gate change this firing.
+
+Stage Summary:
+- 19:43 firing stood down by design: the "go on in english" user-turn round drove the standard 3 windows (2962->3081, +120/point, dead tied) covering this slot's cadence; checkpoint secured at 3081/8295 (37.15%) per point; grid at 74.86% (30,927/41,475, exact); remaining ~10,548 chunks.
+- Concurrent-loop pattern now seen twice in a row (19:13, 19:43 firings): user-direct turns and cron firings interleave; the no-double-drive stand-down + monitoring protocol handled both cleanly (zero conflicts, both rounds completed with full bookkeeping). NOTE for future firings: a user "go on" message arriving just before a cron slot makes the cron instance the natural stand-down/monitor — keep this division of labor.
+- (0.48+0.50) pair completes in ~44 more effective firings (~0.92 days); then CHAIN_DONE + grid 5/5 -> the tested v23 follow-up self-routes.
+- v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (20:13 +08 / 12:13 UTC): NOTE it dispatched at ~12:13:38 while this entry was being written (session busy) — likely DROPPED server-side (pattern confirmed); expect the 20:43 firing (12:43 nominal) to find cursors ~3081/3081 idle; drive 3 windows (expect ~->3201/3201 per point); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
