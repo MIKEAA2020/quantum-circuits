@@ -3593,3 +3593,20 @@ Stage Summary:
 - Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059) confirmed in the rung JSON at the 05:13 milestone. Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (16:43 +08 / 08:43 UTC): expect cursors ~2481/2481 idle on p0.48/p0.50 logs; drive 3 windows (expect ~->2601/2601 per point); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
 
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 17:13 +08 / 09:13 UTC (trace 1a0c408d6b2935d1-cron-agent-loop-202609271713) — standard driving round under the push-every-round rule, single-agent this firing. NOTE: the 16:43 firing was NOT handled (no worklog entry; cursors idle at 2481/2481 across its whole slot — same missed-slot pattern as 11:13/14:43); this round ran the standard 3 windows one slot late.
+
+Work Log:
+- Pre-checks (09:13-09:14 UTC): NO driver/python running; cursors last-log 2481/2481 on the p0.48/p0.50 pair logs (both points dead tied, exactly where the 16:13 round left them — confirming the 16:43 slot never drove), marker absent, grid 3/5 = [(0.44, 0.50523), (0.46, 0.48059), (0.47, 0.48115)], no CHAIN_DONE, HEAD 9660deb, sync 0/0, clean tree (lock residue untracked), 2.47 GB RAM available. Investigated the alarming chain.log tail ("11182 Killed python3 -u v22_z3_exact_v1.py all"): chain.log mtime is 2026-09-25 09:30 UTC — that kill event is OLD (the original chain 'all' process died long ago, which is precisely why the per-round driving SOP exists); no new kill, nothing to react to, run logs unaffected.
+- Drove 3 windows via followup_v23.sh (09:14->09:47 UTC), +40/point each: last-log 2481->2521->2561->2601 on BOTH points (dead tied all round) — one slot late for the missed 16:43 firing, no catch-up mechanism per protocol; crossed the 2500-chunk mark. All 3 windows returned outer exit 124 (the designed 520s timeout cutoff, steady-state pattern); +40/point target hit exactly in every window. Inner per-point processes self-terminated within ~95s after each window (verified before each next window; never killed manually); cursors unchanged at the boundaries, dead tied preserved.
+- Post-verify (09:47 UTC): no driver/python residue, 0 Traceback/Killed/MemoryError/ERROR in last 250 lines of both run logs, marker absent, rung JSON unchanged (grid 3/5, anchor p=0.46 lam1=1.71595722e-04 intact, top-level list structure re-verified), git: only the two expected ` M` logs + untracked lock residue.
+- PUSHED per the standing rule: run-log deltas + FULL worklog snapshot (byte-exact cp, cmp-verified) committed and pushed to origin/main. No v23 build (grid 3/5, gate is 5/5 + CHAIN_DONE); no web-explorer step.
+
+Stage Summary:
+- Round complete: +120/point on the (0.48+0.50) pair (one slot late after the missed 16:43 firing); per-point progress 2601/8295 (31.36%); grid at 72.54% (30,087/41,475, exact); remaining ~11,388 chunks.
+- (0.48+0.50) pair completes in ~48 more firings (~1.00 days) at 3-window cadence; then CHAIN_DONE + grid 5/5 -> the tested v23 follow-up self-routes.
+- v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059) confirmed in the rung JSON (file mtime 2026-09-26 21:17 UTC, unchanged by driving). Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (17:43 +08 / 09:43 UTC): expect cursors ~2601/2601 idle on p0.48/p0.50 logs; drive 3 windows (expect ~->2721/2721 per point); v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.

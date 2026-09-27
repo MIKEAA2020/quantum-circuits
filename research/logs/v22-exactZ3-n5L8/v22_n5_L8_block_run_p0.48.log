@@ -494,3 +494,27 @@
       [block p=0.48] chunk 2465/8295  271s  (eta 642s)
       [block p=0.48] chunk 2473/8295  359s  (eta 845s)
       [block p=0.48] chunk 2481/8295  463s  (eta 1086s)
+== phase run: the n=5 L=8 rung ==
+   K = 3865 orbits; grid [0.48]
+   [block p=0.48] RESUMED at chunk 2482/8295 (state 08:50:36)
+      [block p=0.48] chunk 2489/8295  94s  (eta 220s)
+      [block p=0.48] chunk 2497/8295  190s  (eta 441s)
+      [block p=0.48] chunk 2505/8295  290s  (eta 671s)
+      [block p=0.48] chunk 2513/8295  392s  (eta 902s)
+      [block p=0.48] chunk 2521/8295  489s  (eta 1119s)
+== phase run: the n=5 L=8 rung ==
+   K = 3865 orbits; grid [0.48]
+   [block p=0.48] RESUMED at chunk 2522/8295 (state 09:24:17)
+      [block p=0.48] chunk 2529/8295  83s  (eta 190s)
+      [block p=0.48] chunk 2537/8295  169s  (eta 385s)
+      [block p=0.48] chunk 2545/8295  274s  (eta 619s)
+      [block p=0.48] chunk 2553/8295  374s  (eta 841s)
+      [block p=0.48] chunk 2561/8295  464s  (eta 1040s)
+== phase run: the n=5 L=8 rung ==
+   K = 3865 orbits; grid [0.48]
+   [block p=0.48] RESUMED at chunk 2562/8295 (state 09:34:19)
+      [block p=0.48] chunk 2569/8295  92s  (eta 205s)
+      [block p=0.48] chunk 2577/8295  185s  (eta 411s)
+      [block p=0.48] chunk 2585/8295  266s  (eta 588s)
+      [block p=0.48] chunk 2593/8295  360s  (eta 791s)
+      [block p=0.48] chunk 2601/8295  462s  (eta 1011s)
