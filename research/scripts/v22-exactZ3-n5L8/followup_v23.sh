@@ -31,10 +31,19 @@ fi
 # resumable (chunk-checkpointed) assembly by one bounded foreground segment.
 # A segment that ends in timeout(124) is NORMAL — progress lives in the
 # chunk-state file; re-run this script on the next cron firing.
+# V23_SINGLE_POINT=1 -> drive ONE point per window (sequential; ~1.2 GB peak
+# anon instead of ~2x1.19 GB in parallel).  User-approved 2026-09-28 fallback
+# after a cgroup global OOM killed a 2-parallel window at 88s (dmesg: python3
+# anon-rss 1.19 GB).  Default 0 = historical 2-parallel behavior.
 PGRID=0.44,0.46,0.47,0.48,0.50
 NPTS=$(python3 -c "import json,os; p='$RES/v22_n5_L8_rung.json'; print(len(json.load(open(p))) if os.path.exists(p) else 0)" 2>/dev/null || echo 0)
+NDRV=2; [ "${V23_SINGLE_POINT:-0}" = "1" ] && NDRV=1
 if [ "$NPTS" -lt 5 ]; then
-  echo "== driving mode: $NPTS/5 grid points done — one 8.7-min window (up to 2 points in parallel, 2 cores) =="
+  if [ "$NDRV" -eq 1 ]; then
+    echo "== driving mode: $NPTS/5 grid points done — one 8.7-min window (SINGLE point, sequential mode) =="
+  else
+    echo "== driving mode: $NPTS/5 grid points done — one 8.7-min window (up to 2 points in parallel, 2 cores) =="
+  fi
   # the first (up to) two incomplete points of the grid, in order
   MAP=$(python3 -c "
 import json, os
@@ -42,7 +51,7 @@ grid = [0.44, 0.46, 0.47, 0.48, 0.50]
 p = '$RES/v22_n5_L8_rung.json'
 done = {round(r['p'], 4) for r in (json.load(open(p)) if os.path.exists(p) else [])}
 missing = [g for g in grid if round(g, 4) not in done]
-print(' '.join(f'{g:.2f}' for g in missing[:2]))
+print(' '.join(f'{g:.2f}' for g in missing[:${NDRV}]))
 " 2>/dev/null)
   if [ -z "$MAP" ]; then MAP=0.44; fi
   PIDS=""
