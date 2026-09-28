@@ -1,0 +1,7 @@
+# certificate_sha256_v12.txt -- the v25 TJP targeting pass (manuscript_revised_v25_tjp)
+# generated 2026-09-28T19:55:16Z; patch script patch_v25_tjp.py; companion supplement_v7 unchanged
+a56e4534810d3e166ad32d875f0b9707b61a9c7e6f1d727840f49038458db2e2  manuscript_revised_v25_tjp.tex
+fc5f7beaf7ce60069ca140a862892266898d416da9d663b9fb13c949d7831c83  manuscript_revised_v25_tjp.pdf
+497838fccc43fad24c1cbce3d7824265ff179a8f26508383c95123d998511046  changelog_v25.md
+44696a1cd7a237334d1be8803ef7488b852877a51e850bb254d189bb35d657de  README_v25_tjp.md
+1c6df7a7aedec964e77a9622f9a57c8b71134df2b625ce81808cb9169e05f0ab  ../scripts/v22-exactZ3-n5L8/patch_v25_tjp.py
