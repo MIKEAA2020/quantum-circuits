@@ -4777,3 +4777,17 @@ Stage Summary:
 - V23 FOLLOW-UP ALREADY COMPLETE: the cron watch task (job 403325) is fully discharged — grid 5/5 (41,475/41,475 exact chunks), rung deposited (K=3865, 5 points incl. p=0.47), manuscript v23 + supplement v6 + report v11 + certificate v10 committed (0586ebb), web explorer aligned (d138134), marker in place, HEAD = origin/main, sync 0/0.
 - No pending work remains on this task; future firings need only this same step-6 verification (marker + sync + report) and can stand down immediately unless the user opens a new task.
 - STANDING INSTRUCTION unchanged: English-only replies; never kill python; never re-run run_chain.sh; never touch v21/v22; push only inside quantum-circuits; mirror refresh = FULL cp of the worklog; race patch (8fb4e2e) stays active — do NOT revert.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 00:44 +08 (dispatch logged 00:44:04 +08 / 16:44 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609290044) — post-completion VERIFICATION round (step-6 path: marker exists). Second consecutive stand-down round; no compute, no build, no web changes.
+
+Work Log:
+- Step-6 verification (16:45 UTC): marker /home/z/.v23_rung_done EXISTS (Sep 28 15:51 UTC); HEAD 38a3b52 (the 00:13 verification-round checkpoint) = origin/main after fetch, sync 0/0; tree clean except the two known deliberate untracked residues (v22_n5_L8_rung.json.lock, commit_msg_v23.txt). Nothing changed since the previous firing — all v23 deliverables, the 5/5 rung JSON and the web alignment (d138134) remain as verified at 00:13.
+- NO compute run; no python touched; never ran run_chain.sh; v21/v22 untouched; nothing pushed outside quantum-circuits.
+- Worklog changed (this entry) -> mirror refreshed: FULL byte-exact cp into research/logs/worklog_snapshot_20260925.md, cmp-verified; delta committed and pushed inside quantum-circuits.
+
+Stage Summary:
+- V23 FOLLOW-UP ALREADY COMPLETE (unchanged): grid 5/5, rung deposited (K=3865, p=0.47 present), manuscript v23 + supplement v6 + report v11 + certificate v10 (0586ebb), web explorer aligned (d138134), marker in place, HEAD = origin/main, sync 0/0.
+- The cron watch task remains fully discharged; future firings should continue this minimal step-6 pattern (marker + fetch + sync + short entry + mirror + push only on delta) unless the user opens a new task.
+- STANDING INSTRUCTION unchanged: English-only replies; never kill python; never re-run run_chain.sh; never touch v21/v22; push only inside quantum-circuits; mirror refresh = FULL cp of the worklog; race patch (8fb4e2e) stays active — do NOT revert.
