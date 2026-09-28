@@ -4899,3 +4899,16 @@ Stage Summary:
 - V23 FOLLOW-UP AND V24 EDITORIAL PASS BOTH COMPLETE AND PUSHED (unchanged): grid 5/5, rung deposited (K=3865, p=0.47 present), manuscript v24 + supplement v7 submission-shaped (bec57ee/df91bbd, independently verified 6104b1f), marker in place, HEAD = origin/main, sync 0/0.
 - Remaining author actions unchanged: mint the figshare DOI; choose the venue (PRR/SciPost primary; PRX if split; arXiv first).
 - STANDING INSTRUCTION unchanged: English-only replies; never kill python; never re-run run_chain.sh; never touch v21/v22/v23; push only inside quantum-circuits; mirror refresh = FULL cp of the worklog; race patch (8fb4e2e) stays active — do NOT revert.
+---
+Task ID: v25-tjp
+Agent: main (Z.ai Code)
+Task: Direct user request, received during the cron 403325 firing 03:44 +08 (dispatch 19:45 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609290344): (a) proceed with the three approved compute extensions — d=3 rung at L=8, finer p-grid, interface-tension extraction; (b) TJP-targeted referee-proofing of the full manuscript with a dedicated Conclusion section, target Turkish Journal of Physics. This entry CLAIMS part (b) — the v25 editorial pass — for this instance.
+
+Work Log:
+- Cron 03:44 +08 step-6 verification FOLDED IN (19:45 UTC): marker present, HEAD d1fc549 = origin/main after fetch, sync 0/0, tree clean except the two known residues — 'v23 follow-up already complete' for this firing.
+- Parallel-dispatch check (race discipline per the v24-race note): found UNTRACKED research/scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py (created 19:40 UTC) — the v25 extension compute covering (a) almost exactly (phases validate-d3 / locate-d3 / run-d3 / run-fine; reuses the deposited p- AND d-independent orbit table ids_nb4.npy; OOM-safe single-segment driving under external timeout), with the validate-d3 segment RUNNING (pgrep confirmed, timeout 580). This instance therefore launches NO python compute this round and takes the editorial half.
+- CLAIM: the version number v25 is reserved for the TJP editorial pass by this instance — patch_v25_tjp.py -> manuscript_revised_v25_tjp.tex (+ changelog_v25.md, README_v25_tjp.md, certificate_sha256_v12.txt), built from v24 (v21-v24 preserved). supplement_v7 remains the companion (no SM changes required by this pass). The compute extension's future manuscript promotion should take v26 or later — coordinate here BEFORE building.
+- Interface-tension/latent-heat extraction is NOT covered by v25_n5_L8_ext_v1.py; it is planned as a follow-up phase under the same single-segment protocol once the d=3/fine-grid campaign completes (no python started here).
+
+Stage Summary:
+- v25 TJP editorial pass claimed and started by this instance; the compute extensions (d=3 rung, fine grid, d=3 locators) are owned by the parallel dispatch with validate-d3 in flight. No python launched by this instance; no manuscript files modified yet; v21-v24 untouched.
