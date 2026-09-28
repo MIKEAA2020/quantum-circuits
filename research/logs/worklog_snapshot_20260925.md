@@ -4871,3 +4871,17 @@ Stage Summary:
 - V23 FOLLOW-UP AND V24 EDITORIAL PASS BOTH COMPLETE AND PUSHED: grid 5/5, rung deposited (K=3865, p=0.47 present), manuscript v23 (0586ebb) + web alignment (d138134), v24 editorial build (bec57ee/df91bbd) independently verified and reconciled (303ccfa/6104b1f), marker in place, HEAD = origin/main, sync 0/0.
 - The cron watch task remains fully discharged; future firings continue the minimal step-6 pattern (marker + fetch + sync + short entry + mirror + push only on delta) unless the user opens a new task.
 - STANDING INSTRUCTION unchanged: English-only replies; never kill python; never re-run run_chain.sh; never touch v21/v22/v23; push only inside quantum-circuits; mirror refresh = FULL cp of the worklog; race patch (8fb4e2e) stays active — do NOT revert.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 02:44 +08 (dispatch logged 02:44:06 +08 / 18:44 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609290244) — post-completion VERIFICATION round (step-6 path: marker exists). Fifth stand-down round; no compute, no build, no web changes.
+
+Work Log:
+- Step-6 verification (18:44 UTC): marker /home/z/.v23_rung_done EXISTS (Sep 28 15:51 UTC); HEAD b864f57 (the 02:14 stand-down checkpoint) = origin/main after fetch, sync 0/0; tree clean except the two known deliberate untracked residues (v22_n5_L8_rung.json.lock, commit_msg_v23.txt). Nothing changed since the previous firing — the v23 + v24 deliverables, the 5/5 rung JSON and the web alignment all remain as verified at 02:14.
+- NO compute run; no python touched; never ran run_chain.sh; v21/v22/v23 untouched; nothing pushed outside quantum-circuits.
+- Worklog changed (this entry) -> mirror refreshed: FULL byte-exact cp into research/logs/worklog_snapshot_20260925.md, cmp-verified; delta committed and pushed inside quantum-circuits.
+
+Stage Summary:
+- V23 FOLLOW-UP AND V24 EDITORIAL PASS BOTH COMPLETE AND PUSHED (unchanged): grid 5/5, rung deposited (K=3865, p=0.47 present), manuscript v24 + supplement v7 submission-shaped (bec57ee/df91bbd, independently verified 6104b1f), marker in place, HEAD = origin/main, sync 0/0.
+- Remaining author actions unchanged: mint the figshare DOI; choose the venue (PRR/SciPost primary; PRX if split; arXiv first).
+- STANDING INSTRUCTION unchanged: English-only replies; never kill python; never re-run run_chain.sh; never touch v21/v22/v23; push only inside quantum-circuits; mirror refresh = FULL cp of the worklog; race patch (8fb4e2e) stays active — do NOT revert.
