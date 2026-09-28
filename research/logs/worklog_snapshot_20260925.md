@@ -4220,3 +4220,21 @@ Stage Summary:
 - v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
 - Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (09:13 +08 / 01:13 UTC nominal, dispatch ~01:15-01:25): expect cursors p0.48 log ~6161 (durable ci 6160), p0.50 dormant (ci 5000); if no driver active, drive 3 SINGLE-point windows (V23_SINGLE_POINT=1, p=0.48 continues; expect ~+176-192 round total -> durable ci ~6336-6352, log ~6337-6353); if a driver IS active, stand down and monitor per the no-double-drive rule. v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 09:13 +08 (dispatch logged 09:13:51 +08 / 01:13 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609280913) — standard single-point driving round (seventh round under the user-approved V23_SINGLE_POINT=1 mode; sixth consecutive zero-anomaly round).
+
+Work Log:
+- Pre-checks (01:15 UTC): NO driver/python running (pgrep exit 1), cursors last-log 6161/5002 (durable ci 6160/5000, exactly as the 08:43 entry predicted), marker absent, no CHAIN_DONE (grep 0), grid 3/5 (rung JSON mtime 2026-09-26 21:17 UTC, anchor p=0.46 gap12=0.48059 intact), HEAD e6e9526 = origin/main (sync 0/0), clean tree (lock residue untracked), 2.34 GB RAM available, 0 errors in both run logs.
+- Drove 3 windows in single-point mode (V23_SINGLE_POINT=1), all on p=0.48 (grid order), ALL ended in the designed 520s cutoff (exit 0, no FAILED): log cursor 6161->6225->6289->6345 (+64/+64/+56); durable ci 6160->6344 (+184 net, last checkpoint flushed 01:39:12 UTC). ZERO OOM events; NO_RESIDUE verified post-round (pgrep exit 1); never killed anything.
+- Post-verify (01:42 UTC): no residue, rung JSON unchanged (grid 3/5, mtime 2026-09-26 21:17 UTC, anchor intact), 0 Traceback/MemoryError/ERROR in both run logs, no CHAIN_DONE, marker absent, RAM 2.35 GB available, dmesg "Out of memory: Killed" count 1 (the single historical event), git: only the expected ` M` p0.48 log + untracked lock residue (p0.50 log correctly unmodified — its point not driven).
+- PUSHED per the standing rule: run-log deltas + FULL worklog snapshot (byte-exact cp into research/logs/worklog_snapshot_20260925.md, cmp-verified) committed and pushed to origin/main. No v23 build (grid 3/5, gate is 5/5 + CHAIN_DONE); no web-explorer step.
+
+Stage Summary:
+- Round complete: +184 durable on p=0.48 (6344/8295 = 76.48%); p=0.50 rests at 5000/8295 (60.28%); grid at 87.34% (36,229/41,475, exact); remaining ~5,246 chunks (1,951 on p0.48 + 3,295 on p0.50).
+- Cadence math holding: ~+56-64/window, 3 windows/round -> ~176-192/round; pair completes in ~28-29 effective rounds (~0.6 days); p=0.48 completes in ~10-11 more rounds (~15:00 +08 today), then p=0.50 runs alone (~8.5 h more).
+- STANDING INSTRUCTION unchanged: drive with V23_SINGLE_POINT=1 on every call; no 2-parallel reversion without user approval; English-only replies to the user; no edits to live scripts while a driver executes them (fresh Read before every Edit).
+- v23 trigger NOT yet due (grid 3/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (09:43 +08 / 01:43 UTC nominal, dispatch ~01:45-01:55): expect cursors p0.48 log ~6345 (durable ci 6344), p0.50 dormant (ci 5000); if no driver active, drive 3 SINGLE-point windows (V23_SINGLE_POINT=1, p=0.48 continues; expect ~+176-192 round total -> durable ci ~6520-6536, log ~6521-6537); if a driver IS active, stand down and monitor per the no-double-drive rule. v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
