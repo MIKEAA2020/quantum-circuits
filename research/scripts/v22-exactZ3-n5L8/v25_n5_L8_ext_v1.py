@@ -33,6 +33,8 @@ profile; NEVER two python segments at once.
 """
 import sys, os, json, math, time, argparse, fcntl
 
+import numpy as np  # module-level: _phase_run_grid loads reps/counts via np.load
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import v22_n5_L8_block_v1 as blk   # deposited, unmodified machinery

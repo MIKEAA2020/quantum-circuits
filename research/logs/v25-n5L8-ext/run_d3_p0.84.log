@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py", line 196, in <module>
+    rc = {'validate-d3': phase_validate_d3,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py", line 181, in phase_run_d3
+    _phase_run_grid('d3', 3, args)
+  File "/home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py", line 141, in _phase_run_grid
+    reps = np.load(os.path.join(TMP, 'reps_nb4.npy'))
+           ^^
+NameError: name 'np' is not defined. Did you mean: 'p'?
+== phase run-d3: d=3 L=8 grid [0.84] ==
+   K = 3865 orbits; done = []
+      [block p=0.84] chunk 1/8295  8s  (eta 66777s)
+      [block p=0.84] chunk 9/8295  68s  (eta 62151s)
+      [block p=0.84] chunk 17/8295  135s  (eta 65632s)
+      [block p=0.84] chunk 25/8295  214s  (eta 70836s)
+      [block p=0.84] chunk 33/8295  281s  (eta 70391s)
+      [block p=0.84] chunk 41/8295  349s  (eta 70263s)
+      [block p=0.84] chunk 49/8295  414s  (eta 69734s)
+      [block p=0.84] chunk 57/8295  490s  (eta 70764s)
