@@ -1,0 +1,23 @@
+== phase validate-d3: block route vs unrestricted Arnoldi (d=3) ==
+      [ids nb=2] 14400/14400: K=7 (0s)
+   [ids nb=2] K = 7 orbits (0s)
+      [block p=1.0] chunk 1/1  0s  (eta 0s)
+   nb=2 p=1: block lam1=2.391419962064e-09 vs (1/143)^4=2.391419962064e-09  rel 1.28e-14  [OK]
+      [ids nb=3] 200000/1728000: K=57 (0s)
+   [ids nb=3] K = 57 orbits (3s)
+      [block p=1.0] chunk 1/14  2s  (eta 26s)
+      [block p=1.0] chunk 9/14  18s  (eta 10s)
+   nb=3 p=1: block lam1=1.169455700554e-13 vs (1/143)^6=1.169455700555e-13  rel 1.60e-14  [OK]
+      [ids nb=2] 14400/14400: K=7 (0s)
+   [ids nb=2] K = 7 orbits (0s)
+      [block p=0.5] chunk 1/1  0s  (eta 0s)
+   nb=2 p=0.5: K=7 block ['0.0044469774', '0.0002151946', '0.0000235741'] vs unrestricted ['0.0044469774', '0.0002151946', '0.0000235741']  max rel 7.94e-15  [OK]
+      [ids nb=2] 14400/14400: K=7 (0s)
+   [ids nb=2] K = 7 orbits (0s)
+      [block p=0.55] chunk 1/1  0s  (eta 0s)
+   nb=2 p=0.55: K=7 block ['0.0019735904', '0.0001051819', '0.0000115828'] vs unrestricted ['0.0019735904', '0.0001051819', '0.0000115828']  max rel 6.58e-15  [OK]
+      [ids nb=3] 200000/1728000: K=57 (0s)
+   [ids nb=3] K = 57 orbits (3s)
+      [block p=0.52] chunk 1/14  2s  (eta 26s)
+      [block p=0.52] chunk 9/14  18s  (eta 10s)
+SCRIPT_EXIT=124

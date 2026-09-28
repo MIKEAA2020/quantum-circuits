@@ -1,0 +1,13 @@
+{
+  "note": "v25 extension queue (n=5). DONE: the d=3 locator scans via the symmetry-reduced block route (nb=2/L=4: 19 points, interior minimum p~0.855, gap12~1.482; nb=3/L=6: 7 points, minimum p=0.85, gap12=0.62105 -- the L4->6 closing factor at d=3 is x2.39 vs x2.12 at d=2, the first-order direction strengthening with local dimension). Remaining: the d=3 L=8 rung grid centered at the expected L=8 locator (no downward drift observed L4->L6, so expect ~0.84-0.85), then the d=2 finer locator grid around the deposited rung minimum [0.46,0.47]. Driven in bounded checkpointed windows (the sandbox reaps background processes -- a supervisor was reaped 2026-09-28 20:16 UTC; single-window mode only). One python segment at a time (single-point OOM-safe profile). Points already merged into the results JSONs are skipped, so this queue is append-safe.",
+  "queue": [
+    {"kind": "grid", "tag": "d3", "p": 0.84},
+    {"kind": "grid", "tag": "fine", "p": 0.465},
+    {"kind": "grid", "tag": "fine", "p": 0.475},
+    {"kind": "grid", "tag": "d3", "p": 0.82},
+    {"kind": "grid", "tag": "d3", "p": 0.86},
+    {"kind": "grid", "tag": "fine", "p": 0.455},
+    {"kind": "grid", "tag": "fine", "p": 0.485}
+  ]
+}
+

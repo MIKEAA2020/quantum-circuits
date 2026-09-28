@@ -9,3 +9,9 @@ research/results/v22-exactZ3-n5L8/tmp_n5L8block/run_nb4_p*_state.npz.tmp.npy
 # the L=8 full canonical-id array (~830 MB, GitHub 100 MB limit)
 research/results/v22-exactZ3-n5L8/tmp_n5L8block/ids_nb4.npy
 __pycache__/
+# v25 extension campaign: transient lock/state/heartbeat files (results are committed on completion)
+research/results/v22-exactZ3-n5L8/*.lock
+research/results/v22-exactZ3-n5L8/tmp_n5L8block/*_state.npz
+research/logs/v25-n5L8-ext/*.lock
+research/logs/v25-n5L8-ext/supervisor_heartbeat.txt
+research/logs/v25-n5L8-ext/supervisor.log

@@ -1,0 +1,29 @@
+# certificate_sha256_v13.txt -- ledger v13 (v26, the closing-rate
+# rates table, the last-digit fix, Supplement v8 with the d=3
+# local-dimension extension; the d=3 L=8 rung and the finer grid follow)
+# generated: 2026-09-28T20:34:18Z
+# v12 (v25, the TJP editorial pass) and earlier kept unmodified.
+# In-flight results (v25_n5_L8_rung_d3.json, v25_n5_L8_finegrid.json)
+# are committed and hashed by the watch rounds as their points
+# complete; the 830 MB canonical-id array ids_nb4.npy is NOT deposited
+# (GitHub 100 MB limit) and is REUSED unchanged from the v23 round
+# (it is d-independent).
+ce0ad9a9445e74ad1f34b8d22832d1346525b057b2e114ae4cbb0aa0a54bfe3f  manuscript_revised_v26.tex
+14b68148cdcdbe44870f88066d2eeb4e634adb0714c111a43c74769005c63934  manuscript_revised_v26.pdf
+a97ac47a1cd30f445fbdec320701708d049e922a6116568b5fe8ea504b3eb679  supplement_v8.tex
+ad43236319c6ff4ebda13d43dcdf7327ab6fb2f12cc1b39eefb97cc2633f41fc  supplement_v8.pdf
+6c6632e92d90115aa7a84dcd2efee90109b15d7b76892d5a8d2fbbd92752e431  changelog_v26.md
+65652b1fa7ea28cdde65b5b3311220557f2af3ca1ce35040dd778ec6a7c536c6  README_v26.md
+
+# the v25 extension results (locator scans complete; queue config):
+3cf84428ebb24129108de143dca7f536bf4f5e54323328c8b51fbf37319bb92c  ../results/v22-exactZ3-n5L8/v25_n5_d3_locator.json
+55deb63d341d97f5ec892ee95901bceb4af0e87ed4fa285c83c297204f144bc5  ../results/v22-exactZ3-n5L8/v25_ext_config.json
+
+# the v26/extension scripts:
+052e781a180d8efec5916c371983eba951c17f74903279f60cc14ab56adc5398  ../scripts/v22-exactZ3-n5L8/patch_v26_closing.py
+3778279890da353bf1099f04e7d163417cef3d9fa08f3606dc726eeae85491a1  ../scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py
+32efe7aadc027961f7822b8308f70d1e937e4f445e7761d27c34a3b299203b72  ../scripts/v22-exactZ3-n5L8/drive_v25_ext.sh
+8d0e1f46d679406058da695b51b805ad05962cf541358fdc616050365c9f4bbf  ../scripts/v22-exactZ3-n5L8/v25_sigma_extract.py
+
+# the d=3 validation log (block route vs Arnoldi + p=1 anchors):
+0b7144102dd6b99268d8b03daee33fafe69edc953edcb0126825702b4d835645  ../logs/v25-n5L8-ext/validate_d3.log
