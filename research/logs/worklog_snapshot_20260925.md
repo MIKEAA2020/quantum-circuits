@@ -4966,3 +4966,19 @@ Stage Summary:
 - The extension campaign is IN FLIGHT under the new watch cron: 7 queued L=8 points (~17 h compute each, driven in 520 s windows), results committed as they complete; the v27 pass integrates them.
 - Author actions for submission unchanged: mint the figshare DOI; optionally transcode to the TJP template; optionally sharpen the title.
 - STANDING INSTRUCTIONS: English-only replies; never kill python; never re-run run_chain.sh; never touch v21-v25 files (revisions only via new patch scripts -> new versions); push only inside quantum-circuits; mirror refresh = FULL cp of the worklog; race patch (8fb4e2e) stays active — do NOT revert; single-segment (single-point) compute mode only — no 2-parallel reversion without user approval.
+---
+Task ID: v25-ext-watch
+Agent: main (Z.ai Code)
+Task: Campaign watch round, cron job 422077, firing 04:37 +08 (20:37 UTC, trace 1a0e978be9beaefd): drive up to two bounded 520 s windows of the v25 extension queue; log the round; commit material events.
+
+Work Log:
+- Pre-flight: marker /home/z/.v25_ext_done ABSENT (driving round); RAM available 2191 MB (> 700 MB, two windows allowed); no python running; HEAD 885bf17 = origin/main, sync 0/0.
+- Window 1 rc=1 — ANOMALY diagnosed: the grid phases of v25_n5_L8_ext_v1.py had never been exercised end-to-end; _phase_run_grid crashed with NameError: name 'np' is not defined (lines 141-142 use np.load while numpy was imported only locally inside np_load_ids). Nothing was lost (crash occurred before any chunk). FIX (minimal, compute-script only, no protected file touched): module-level 'import numpy as np' added; py_compile OK. Verified all three orbit-table files present in tmp_n5L8block (ids_nb4.npy 830 MB, reps_nb4.npy, counts_nb4.npy).
+- Window 2 rc=124 (the NORMAL bounded ending) — fix VALIDATED: d3 p=0.84 assembling, chunk 57/8295 at ~7.4 s/chunk (~19.7 h pure compute per L=8 point), state checkpoint run_d3_p0.8400_state.npz (239 MB). No results-JSON rows yet (expected: rows land only on point completion).
+- Compact round line appended to research/logs/v25-n5L8-ext/watch_rounds.log. Commits inside quantum-circuits: the script fix + the forensic run log (rc=1 traceback + recovery) + the watch log; then the worklog mirror checkpoint. v21-v26 untouched; nothing pushed outside quantum-circuits.
+- ETA arithmetic (for future watchers): ~8295 chunks/point, ~140 chunks per firing (2 x 520 s windows) -> ~29-30 h wall per L=8 point; the 7-point queue is a multi-day campaign, consistent with the v26-closing honest horizon (~27-60 h/point).
+
+Stage Summary:
+- CAMPAIGN UNBLOCKED AND DRIVING: the rc=1 NameError in the never-before-exercised grid phases is fixed and validated in-window; d3 p=0.84 progresses (57/8295 chunks); queue order unchanged (d3@0.84 -> fine@0.465 -> fine@0.475 -> d3@0.82 -> d3@0.86 -> fine@0.455 -> fine@0.485). First JSON row expected in ~29 h wall if every firing drives two clean windows.
+- Watcher guidance unchanged: check pgrep before acting; never two segments at once (driver flock enforces); rc=124/143 endings are NORMAL; commit a row only when a results JSON gains a point; stand down on /home/z/.v25_ext_done.
+- STANDING INSTRUCTIONS unchanged (see the v26-closing entry): English-only; never kill python; never re-run run_chain.sh; never touch v21-v25 (v26 = current candidate; the campaign's future integration takes v27 via a NEW patch script, only on explicit user request); push only inside quantum-circuits; mirror refresh = FULL cp; race patch (8fb4e2e) stays active; single-point sequential compute only.
