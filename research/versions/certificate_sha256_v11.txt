@@ -1,11 +1,6 @@
 # certificate_sha256_v11.txt — ledger v11 (v24, the editorial pass)
-# generated: 2026-09-28T18:02:36Z
+# generated: 2026-09-28T18:02:46Z
 # v10 (v23) and earlier kept unmodified.
-50be4bc8c7094ef382d325340033afaeb3a1f60dece6d68762de60fbf899f6af  manuscript_revised_v24.tex
-285dc3e3f18ea3a096390ede65beb619d6106156968540d113e2614bd81d378d  manuscript_revised_v24.pdf
-3a9b77353c57481157ac61c9ad636ee1f43e97283cb6810be736b2987412ca44  supplement_v7.tex
-b431e49a5f52c2dd1e080996d4b2b36e6a363a0f5cb8a44dd21b10570bd64c61  supplement_v7.pdf
-999b994318ca2426e801cc0e2af446f44300282baf3a4d6e7675d9000e25e10c  changelog_v24.md
 50be4bc8c7094ef382d325340033afaeb3a1f60dece6d68762de60fbf899f6af  manuscript_revised_v24.tex
 285dc3e3f18ea3a096390ede65beb619d6106156968540d113e2614bd81d378d  manuscript_revised_v24.pdf
 3a9b77353c57481157ac61c9ad636ee1f43e97283cb6810be736b2987412ca44  supplement_v7.tex
