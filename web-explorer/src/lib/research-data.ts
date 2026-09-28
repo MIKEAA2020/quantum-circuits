@@ -333,11 +333,11 @@ export const REPLICA_LADDER: ReplicaRung[] = [
 export const REPLICA_TREND =
   "0.1597(8) quenched < 0.233810 < 0.305(3) < 0.383 < 0.47 — annealed points move AWAY from the quenched transition as n grows (no annealed sequence converges to the Born-weighted point from above); q = n-Potts universality at n = 2, 3, 4, first order at n = 5.";
 
-/** Two-size test rows (L = 4 → 6, matched locators). */
+/** Two-size test rows (L = 4 → 6, matched locators); the L = 8 rung (v23) extends n = 5 to three sizes. */
 export const N5_TWOSIZE = [
-  { n: 3, locator: "0.30", gapL4: 2.147, gapL6: 1.185, closing: 1.81, lgap: "8.59 → 7.11", cls: "continuous baseline" },
-  { n: 4, locator: "0.38", gapL4: 1.919, gapL6: 0.990, closing: 1.94, lgap: "7.67 → 5.94", cls: "marginal q = 4" },
-  { n: 5, locator: "0.47", gapL4: 1.711, gapL6: 0.806, closing: 2.12, lgap: "6.85 → 4.85", cls: "first order — confirmed" },
+  { n: 3, locator: "0.30", gapL4: 2.147, gapL6: 1.185, gapL8: null as number | null, closing: 1.81, lgap: "8.59 → 7.11", cls: "continuous baseline" },
+  { n: 4, locator: "0.38", gapL4: 1.919, gapL6: 0.990, gapL8: null as number | null, closing: 1.94, lgap: "7.67 → 5.94", cls: "marginal q = 4" },
+  { n: 5, locator: "0.47", gapL4: 1.711, gapL6: 0.806, gapL8: 0.481, closing: 2.12, lgap: "6.85 → 4.85", cls: "first order — confirmed" },
 ];
 
 /** First numerical quenched record SCGFs — Haar circuits (manuscript v19, Sec. smcnumerics). */

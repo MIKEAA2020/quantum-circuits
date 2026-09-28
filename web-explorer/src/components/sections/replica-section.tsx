@@ -94,10 +94,13 @@ const RUNG_FACTS: { n: number; head: string; body: string; accent: string }[] = 
   {
     n: 5,
     head: "≈ 0.47–0.48 · first order",
-    body: "Closing ×2.12 · L·gap₁₂ 6.85 → 4.85 · plateau 0.060 → 0.040 (fixed ξ) · X-crossing p ≈ 0.449, slope ratio 2.18 · locator 0.48 (L = 4) / 0.47 (L = 6) · next rung L = 8 (120⁴ = 2.1×10⁸ labels).",
+    body: "Closing ×2.12 · L·gap₁₂ 6.85 → 4.85 · plateau 0.060 → 0.040 (fixed ξ) · X-crossing p ≈ 0.449, slope ratio 2.18 · locator 0.48 (L = 4) / 0.47 (L = 6) · L = 8 rung (v23): gap₁₂ 0.481 at p = 0.47, closing ×1.68 from L = 6, L·gap₁₂ 3.85 vs the n = 3 envelope 6.53 — three sizes (K = 3865 orbits).",
     accent: "text-rose-300/90",
   },
 ];
+
+/** v23 — the L = 8 rung grid (verbatim from v22_n5_L8_rung.json / manuscript v23). */
+const N5_L8RUNG_GRID = "p = 0.44: 0.505 · p = 0.46: 0.481 · p = 0.47: 0.481 · p = 0.48: 0.492 · p = 0.50: 0.545";
 
 export function ReplicaSection() {
   return (
@@ -369,12 +372,15 @@ export function ReplicaSection() {
         <div className="mt-6 rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6 min-w-0">
           <div className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
             <Scale className="size-4 text-amber-400" />
-            The two-size test — n = 5 is first order (L = 4 → 6)
+            The two-size test — n = 5 is first order (L = 4 → 6 → 8)
           </div>
           <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
             At the coexistence locator p ≈ 0.47 the two-phase gap log(λ₁/λ₂) closes{" "}
             <span className="font-mono text-zinc-200">1.711 → 0.806</span> — factor ×2.12 — against
             ×1.94 (n = 4) and ×1.81 (n = 3, the continuous baseline) at matched sizes and locators.
+            The L = 8 rung (v23 — the exponential-vs-power-law discriminator, an exact dense block
+            at K = 3865 orbits) extends it: <span className="font-mono text-zinc-200">0.806 → 0.481</span>,
+            factor ×1.68 from L = 6 to L = 8.
           </p>
 
           <div className="mt-4 overflow-x-auto">
@@ -385,6 +391,7 @@ export function ReplicaSection() {
                   <th scope="col" className="py-2 pr-4 font-medium">locator p</th>
                   <th scope="col" className="py-2 pr-4 font-medium">gap₁₂ (L = 4)</th>
                   <th scope="col" className="py-2 pr-4 font-medium">gap₁₂ (L = 6)</th>
+                  <th scope="col" className="py-2 pr-4 font-medium">gap₁₂ (L = 8)</th>
                   <th scope="col" className="py-2 pr-4 font-medium bg-amber-500/[0.07] text-amber-300/90">
                     closing factor
                   </th>
@@ -406,6 +413,9 @@ export function ReplicaSection() {
                     <td className="py-2.5 pr-4 text-zinc-300 tabular-nums">{r.locator}</td>
                     <td className="py-2.5 pr-4 text-zinc-300 tabular-nums">{r.gapL4.toFixed(3)}</td>
                     <td className="py-2.5 pr-4 text-zinc-300 tabular-nums">{r.gapL6.toFixed(3)}</td>
+                    <td className="py-2.5 pr-4 text-zinc-300 tabular-nums">
+                      {r.gapL8 === null ? "—" : r.gapL8.toFixed(3)}
+                    </td>
                     <td className="py-2.5 pr-4 bg-amber-500/[0.07] text-amber-300 font-semibold tabular-nums">
                       ×{r.closing.toFixed(2)}
                     </td>
@@ -423,8 +433,11 @@ export function ReplicaSection() {
             Closing factor monotone across replica number; L·gap₁₂ saturates at n = 3
             (energy-operator amplitude — n = 3 continues 8.59 → 7.11 → 6.53 → 6.21 at 2πx_ε) and
             falls below the continuous envelope at n = 5 — the signature of an exponentially closing
-            tunnelling splitting. Two sizes caveat: they cannot yet separate exponential from
-            power-law closing; L = 8 (120⁴ = 2.1×10⁸ bond labels) is the next rung.
+            tunnelling splitting. The two-size caveat is closed (v23): the L = 8 rung — 120⁴ =
+            2.1×10⁸ bond labels, assembled as an exact dense block at K = 3865 orbits of
+            (S₅×S₅)⋊Z₄ — separates the behaviours: L·gap₁₂ = 3.85 falls further below the
+            continuous envelope (6.53 at L = 8 for the n = 3 baseline), the first-order reading of
+            the q = 5 prediction at the three-size level.
           </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
@@ -436,6 +449,9 @@ export function ReplicaSection() {
             </span>
             <span className="rounded-full border border-zinc-700/80 bg-zinc-950/60 px-3 py-1 font-mono text-[11px] text-zinc-400">
               locator stable — 0.48 (L = 4) / 0.47 (L = 6)
+            </span>
+            <span className="rounded-full border border-zinc-700/80 bg-zinc-950/60 px-3 py-1 font-mono text-[11px] text-zinc-400">
+              L = 8 rung (v23) — closing ×1.68 from L = 6 · {N5_L8RUNG_GRID}
             </span>
           </div>
         </div>

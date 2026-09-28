@@ -105,7 +105,14 @@ export function ReproSection() {
               verified as an exact conjugation 3-design), the ESS-law
               exponent corrected (0.034–0.035 nats/site exact), the marginal
               q = 4 log-correction re-read (target 1/4), and the
-              tilted-variance profile family measured across (L,T) —
+              tilted-variance profile family measured across (L,T) →
+              v23 — the n = 5 L = 8 rung, the exponential-vs-power-law
+              discriminator: exact dense diagonalization at K = 3865 orbits
+              of (S₅×S₅)⋊Z₄, gap₁₂ = 0.505 / 0.481 / 0.481 / 0.492 / 0.545
+              across the p = 0.44–0.50 locator grid, the p = 0.47 closing
+              factor ×1.68 from L = 6 to L = 8 (against ×2.12 from L = 4 to
+              L = 6), and L·gap₁₂ = 3.85 below the n = 3 envelope (6.53) —
+              the first-order test now three-size; supplement v6 —
               every revision a new version file, nothing overwritten. Under
               three external audit rounds (10 remaining points, all
               adjudicated; none requiring a change to any theorem, proof, or
