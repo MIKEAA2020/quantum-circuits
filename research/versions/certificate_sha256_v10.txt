@@ -1,0 +1,33 @@
+# certificate_sha256_v10.txt — ledger v10 (v23, the n=5 L=8 rung completion)
+# generated: 2026-09-28T15:51:37Z
+# v9 (v22) and earlier kept unmodified.
+# the 830 MB canonical-id array ids_nb4.npy is NOT deposited (GitHub 100 MB
+# file limit); regenerate it with `v22_n5_L8_block_v1.py ids` (deterministic).
+126a39a946d72a960372e1bf9f5aeb5ed30b99809ce1b11b79f06a274e9e2f6c  manuscript_revised_v23_rung.tex
+28f441f61e38e05920745dec4f7feef1dbad173072e6e536c8baf4fec5cd5f78  manuscript_revised_v23_rung.pdf
+fa835961178b963019aa5dc76e51aa1d1c5879598785e404fe327083020ff1e2  supplement_v6.tex
+f9cbbb31ac1bac6f03516f3e4eee2a9d658736f8d4ed10196179e10cbe19fcde  supplement_v6.pdf
+c306cc6601a502cf6ce6867a5b4a29cf6db4a7d4a8abbbb6496653143b3a0aad  changelog_v23.md
+3daab3c39a3f35e84c04cf7312f7678e491a357209204102c67efbdf1acc4457  README_v23_rung.md
+ad6335171b96925442a42c2f1c962294c0032ebae73152f6465a50b20c9d10fd  mipt_numerical_report_v11.md
+
+# the v23 rung results (the orbit table reps/counts are deposited):
+06c47cba37d6682ba06474dad06debeedc1f2430dfa658567fde0d28f00af8a6  ../results/v22-exactZ3-n5L8/v22_n5_L8_rung.json
+fecd054ed11fb62e6c6bcea4ad686872361d46039e9f3fa203eb827ce96b16e5  ../results/v22-exactZ3-n5L8/tmp_n5L8block/reps_nb4.npy
+66bd409398748d7739becb6aef3dac0226657a8b4f0cf812f12f6b0267b3d8ea  ../results/v22-exactZ3-n5L8/tmp_n5L8block/counts_nb4.npy
+
+# the v23 scripts:
+8a0a94653f19d454a1cd4460819b681c8a002a978c1172aef5d8c1cb69e4cf6d  ../scripts/v22-exactZ3-n5L8/patch_v23_rung.py
+c0005cfd7c34580140065a895cce9eedf0c3dadf02a6c7caf8134bdb94364667  ../scripts/v22-exactZ3-n5L8/followup_v23.sh
+e5dafc2f26ad22a5b1d1e040ea0dd45a6fe26f69ae0a6faf902f6f38e747cdff  ../scripts/v22-exactZ3-n5L8/run_chain.sh
+c3464bcdd7f094a4c42ddf3c1f373a32bdf406be842a5c4a408c6cb6ee6c0971  ../scripts/v22-exactZ3-n5L8/v22_n5_L8_block_v1.py
+
+# the chain completion logs (per-p logs may be absent on a partial grid):
+e8c96781e6fade7198cfbc6fbc849725842f923aeeb595b04a64877e4d030e02  ../logs/v22-exactZ3-n5L8/v22_n5_L8_block_ids.log
+4e7054bf286d93c1598ae5edfb19822620a80f0e6339dd80e441271a18b5c0a4  ../logs/v22-exactZ3-n5L8/v22_n5_L8_block_run.log
+1e05ba2165d7ee0fbc044a0799b559d931ad9b0625e2320b1ce29ee434d9d9b0  ../logs/v22-exactZ3-n5L8/v22_n5_L8_block_run_p0.44.log
+84c000b34ab22af7f6e29dd37ee4155fbb22bf893659c16b820a806d95972bcb  ../logs/v22-exactZ3-n5L8/v22_n5_L8_block_run_p0.46.log
+7763ba0f7d983b2106c54e2f6e3898975bfad9925aa2505be7d3d181f9db0563  ../logs/v22-exactZ3-n5L8/v22_n5_L8_block_run_p0.47.log
+8942c26773e63e5d9b2c49a1b685eb0bb519a3224ee5e3905aadce834206c892  ../logs/v22-exactZ3-n5L8/v22_n5_L8_block_run_p0.48.log
+f91befafe00070e4bca46c891a46e9e932028197442555bca9b2fb20d0e1ec48  ../logs/v22-exactZ3-n5L8/v22_n5_L8_block_run_p0.50.log
+f34220d65bf6d6410185209e3682785fa1365c88c7bcff27a2f4ae1f81e4721c  ../logs/v22-exactZ3-n5L8/chain.log
