@@ -1558,3 +1558,14 @@
       [block p=0.48] chunk 8217/8295  378s  (eta 4s)
       [block p=0.48] chunk 8225/8295  449s  (eta 4s)
       [block p=0.48] chunk 8233/8295  515s  (eta 4s)
+== phase run: the n=5 L=8 rung ==
+   K = 3865 orbits; grid [0.48]
+   [block p=0.48] RESUMED at chunk 8234/8295 (state 06:41:10)
+      [block p=0.48] chunk 8241/8295  57s  (eta 0s)
+      [block p=0.48] chunk 8249/8295  117s  (eta 1s)
+      [block p=0.48] chunk 8257/8295  182s  (eta 1s)
+      [block p=0.48] chunk 8265/8295  243s  (eta 1s)
+      [block p=0.48] chunk 8273/8295  302s  (eta 1s)
+      [block p=0.48] chunk 8281/8295  361s  (eta 1s)
+      [block p=0.48] chunk 8289/8295  426s  (eta 0s)
+   p=0.48: lam1=1.11951339e-04 lam2=6.84510240e-05 gap12=0.49195  [487.3s]
