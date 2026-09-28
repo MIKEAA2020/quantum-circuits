@@ -4688,3 +4688,21 @@ Stage Summary:
 - v23 trigger NOT yet due (grid 4/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
 - Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
 - Next firing (22:13 +08 / 14:13 UTC nominal, dispatch ~14:15-14:25): expect cursor p0.50 log ~7697 (durable ci 7696), p0.48 frozen, rung JSON 4/5 (mtime 06:52:22 UTC); if no driver active, drive 3 SINGLE-point windows (V23_SINGLE_POINT=1, all on p=0.50; expect ~+176-192 round total -> durable ci ~7872-7888, log ~7873-7889); if a driver IS active, stand down and monitor per the no-double-drive rule. v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 22:13 +08 (dispatch logged 22:14:02 +08 / 14:14 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609282214) — standard single-point driving round (thirty-third round under the user-approved V23_SINGLE_POINT=1 mode; thirty-second consecutive zero-anomaly round).
+
+Work Log:
+- Pre-checks (14:14 UTC): NO driver/python running (pgrep exit 1), cursors last-log 8233-done/7697 (durable ci p0.50 7696, exactly as the 21:43 entry predicted; p0.48 frozen), marker absent, no CHAIN_DONE (grep 0), grid 4/5 (rung JSON mtime 2026-09-28 06:52:22 UTC, anchor p=0.46 gap12=0.48059 intact), HEAD 426704e = origin/main (sync 0/0), clean tree (lock residue untracked), ~2.3 GB RAM available, 0 errors in both run logs (cursor/ci predictions 33-for-33).
+- Drove 3 windows in single-point mode (V23_SINGLE_POINT=1), ALL on p=0.50 (grid order), ALL ended in the designed 520s cutoff (exit 0, no FAILED): log cursor 7697->7761->7825->7889 (+64/+64/+64 — thirteenth all-64 round of the campaign); durable ci 7696->7888 (+192 net, last checkpoint flushed 14:40:13 UTC, final RESUME at chunk 7826 14:31:38 UTC). ZERO OOM events; NO_RESIDUE verified post-round (pgrep exit 1); never killed anything.
+- Post-verify (14:40 UTC): no residue, rung JSON unchanged (grid 4/5, mtime 2026-09-28 06:52:22 UTC, anchor EXACT), 0 Traceback/MemoryError/ERROR in both run logs, no CHAIN_DONE, marker absent, RAM ~2.3 GB available, /proc/vmstat oom_kill count 1 (the single historical event), git: only the expected ` M` p0.50 log + untracked lock residue (p0.48 log frozen).
+- PUSHED per the standing rule: run-log deltas + FULL worklog snapshot (byte-exact cp into research/logs/worklog_snapshot_20260925.md, cmp-verified) committed and pushed to origin/main. No v23 build (grid 4/5, gate is 5/5 + CHAIN_DONE); no web-explorer step.
+
+Stage Summary:
+- Round complete: +192 durable on p=0.50 (7888/8295 = 95.09%); p=0.48 rests DONE at 8295/8295; grid at 99.02% (41,068/41,475, exact); remaining ~407 chunks — ALL on p=0.50.
+- Cadence math holding: ~+56-64/window, 3 windows/round -> ~176-192/round; p=0.50 needs ~2-3 more rounds (~1-1.5 h) -> completes ~23:45-00:00 +08 tonight, then v23 self-routes at grid 5/5.
+- STANDING INSTRUCTION unchanged: drive with V23_SINGLE_POINT=1 on every call; no 2-parallel reversion without user approval; English-only replies to the user; no edits to live scripts while a driver executes them (fresh Read before every Edit).
+- v23 trigger NOT yet due (grid 4/5, no CHAIN_DONE, marker absent); v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Verification anchor intact: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert.
+- Next firing (22:43 +08 / 14:43 UTC nominal — imminent, dispatch ~14:45-14:55): expect cursor p0.50 log ~7889 (durable ci 7888), p0.48 frozen, rung JSON 4/5 (mtime 06:52:22 UTC); if no driver active, drive 3 SINGLE-point windows (V23_SINGLE_POINT=1, all on p=0.50; expect ~+176-192 round total -> durable ci ~8064-8080, log ~8065-8081); if a driver IS active, stand down and monitor per the no-double-drive rule. v23 self-routes at grid 5/5. Stand-down rule unchanged; pgrep pattern must include 'v22_n5_L8_block_v1'; push at every round end; mirror refresh = FULL cp of the worklog.
