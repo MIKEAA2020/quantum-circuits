@@ -4762,3 +4762,18 @@ Stage Summary:
 - STANDING INSTRUCTION discharge: drive with V23_SINGLE_POINT=1 on every call (used for the final window); no 2-parallel reversion without user approval; English-only replies; no edits to live scripts while a driver executes them.
 - Verification anchor intact through completion: p=0.46 target (lam1=1.71595722e-04, lam2=1.06117945e-04, gap12=0.48059). Race patch (8fb4e2e) active — do NOT revert. Untracked residues (rung JSON .lock, commit_msg_v23.txt) deliberately left out of commits.
 - Next firing (00:13 +08 / 16:13 UTC nominal, dispatch ~16:15-16:25): step 6 path — /home/z/.v23_rung_done EXISTS: verify git log/origin sync (expect HEAD d138134 or later, sync 0/0), report 'v23 follow-up already complete', append a short worklog verification entry, refresh the mirror only if the worklog changed, push only if there is a delta, STOP. No further compute; never re-run run_chain.sh; never touch v21/v22; nothing pushed outside quantum-circuits.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 00:13 +08 (dispatch logged 00:14:04 +08 / 16:14 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609290014) — post-completion VERIFICATION round (step-6 path: marker exists). No compute, no build, no web changes.
+
+Work Log:
+- Step-6 verification (16:15 UTC): marker /home/z/.v23_rung_done EXISTS (mtime Sep 28 15:51 UTC, matching the 23:43 round record); git log: HEAD d4b4048 (final-round checkpoint) on top of d138134 (web explorer v23 alignment) on top of 0586ebb (research/ v10 v23); git fetch + rev-list --left-right --count origin/main...HEAD = 0/0 (branch in sync); tree clean except the two known deliberate untracked residues (v22_n5_L8_rung.json.lock, commit_msg_v23.txt).
+- Deliverable spot-checks, all PASS: rung JSON parses as a 5-point list [0.44, 0.46, 0.47, 0.48, 0.50] with p=0.47 present; `git ls-files | grep v23` shows the full v23 set tracked under research/versions/ (manuscript_revised_v23_rung.tex/.pdf, supplement_v6.tex/.pdf, mipt_numerical_report_v11.md, changelog_v23.md, README_v23_rung.md, certificate_sha256_v10.txt) plus followup_v23.sh + patch_v23_rung.py under the script dir; commit message of 0586ebb carries the verbatim grid gaps (0.505/0.481/0.481/0.492/0.545) and the x1.68 / L*gap12=3.85 vs 6.53 rung reading. chain.log still ends with the known historical OOM 'Killed' line (no CHAIN_DONE, by design — gate tripped on grid 5/5).
+- NO compute run this round (no driver needed — grid complete); no python touched; never ran run_chain.sh; v21/v22 files untouched; nothing pushed outside quantum-circuits.
+- Worklog changed (this entry) -> mirror refreshed: FULL byte-exact cp of worklog.md into research/logs/worklog_snapshot_20260925.md, cmp-verified; delta committed and pushed inside /home/z/my-project/quantum-circuits.
+
+Stage Summary:
+- V23 FOLLOW-UP ALREADY COMPLETE: the cron watch task (job 403325) is fully discharged — grid 5/5 (41,475/41,475 exact chunks), rung deposited (K=3865, 5 points incl. p=0.47), manuscript v23 + supplement v6 + report v11 + certificate v10 committed (0586ebb), web explorer aligned (d138134), marker in place, HEAD = origin/main, sync 0/0.
+- No pending work remains on this task; future firings need only this same step-6 verification (marker + sync + report) and can stand down immediately unless the user opens a new task.
+- STANDING INSTRUCTION unchanged: English-only replies; never kill python; never re-run run_chain.sh; never touch v21/v22; push only inside quantum-circuits; mirror refresh = FULL cp of the worklog; race patch (8fb4e2e) stays active — do NOT revert.
