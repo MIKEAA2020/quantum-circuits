@@ -4808,3 +4808,17 @@ Stage Summary:
 - v23 editorial review delivered (5 questions, all answered with line-level citations). Single real content inconsistency found: Sec. I's stale "two-size confirmation" sentence vs. the paper's final three-size claim. Systematic journal-appropriateness defect: internal version tokens (v17-v23, "previous version", "now", "superseded", "mis-transcription", machine specs) visible in both PDF texts (~20 sites; supplement worst: section heading "The v22 exact-closure runs").
 - The physics content, validation rigor, scope discipline, and much of the core prose are submission-grade; the defects are presentational and mechanically fixable. Placeholder figshare DOI is a hard submission blocker.
 - No action taken on the manuscript (read-only mandate). A v24 revision round is the natural next step IF the user approves; it would require a patch_v24_editorial.py + new version files + supplement v7, following the project's no-overwrite convention.
+---
+Task ID: v23-followup
+Agent: main (Z.ai Code)
+Task: Watch round, cron 403325, firing 01:14 +08 (dispatch logged 01:14:04 +08 / 17:14 UTC, trace 1a0c408d6b2935d1-cron-agent-loop-202609290114) — post-completion VERIFICATION round (step-6 path: marker exists). Third consecutive stand-down round; no compute, no build, no web changes.
+
+Work Log:
+- Step-6 verification (17:15 UTC): marker /home/z/.v23_rung_done EXISTS; HEAD a3f789b (the v23-review checkpoint) = origin/main after fetch, sync 0/0; no tracked-file changes (only the two known untracked residues). Nothing changed since the previous firing — the v23 deliverables, the 5/5 rung JSON, the web alignment (d138134) and the editorial-review record (a3f789b) all remain as verified.
+- NO compute run; no python touched; never ran run_chain.sh; v21/v22/v23 untouched; nothing pushed outside quantum-circuits.
+- Worklog changed (this entry) -> mirror refreshed: FULL byte-exact cp into research/logs/worklog_snapshot_20260925.md, cmp-verified; delta committed and pushed inside quantum-circuits.
+
+Stage Summary:
+- V23 FOLLOW-UP ALREADY COMPLETE (unchanged): grid 5/5, rung deposited (K=3865, p=0.47 present), manuscript v23 + supplement v6 + report v11 + certificate v10 (0586ebb), web explorer aligned (d138134), editorial review delivered (v23-review, a3f789b), marker in place, HEAD = origin/main, sync 0/0.
+- The cron watch task remains fully discharged; the minimal step-6 pattern continues unless the user opens a new task (the pending candidate is the v24 editorial pass, which requires explicit user approval).
+- STANDING INSTRUCTION unchanged: English-only replies; never kill python; never re-run run_chain.sh; never touch v21/v22; push only inside quantum-circuits; mirror refresh = FULL cp of the worklog; race patch (8fb4e2e) stays active — do NOT revert.
