@@ -5000,3 +5000,19 @@ Stage Summary:
 - Losses: untracked tmp_n5L8block state npz; download/ re-copied. Zero manuscript loss (v21-v26 restored from git). Stash v25-ext-rollback-insurance kept for forensics.
 - Standing instructions unchanged; watch log self-documents the episode; mirror refreshed + pushed with this entry.
 - ADDENDUM (same episode, completion): the post-reset validation window FAILED rc=1 — FileNotFoundError ids_nb4.npy (an untracked 830 MB orbit-table input the rollback wiped; only counts/reps npy were tracked). Regenerated via the v22 script's standalone checkpointed `ids` phase (NOT run_chain.sh; 2 bounded windows: 164.2M/207.36M rc=124 -> done rc=0, 830 MB table rebuilt 09:37Z). v25 window then VALIDATED end-to-end: p=0.84 restarted from chunk 0 (57/8295, fresh 239 MB state 09:45Z, rc=124). New cost: this round burned ~4 windows on recovery; the point's ~17 h compute restarts from zero. PUSH BLOCKED: the rollback also wiped the GitHub credential store (no ~/.git-credentials / gh / token env) — local commit 2580c52 + this delta await push; no data risk (origin holds everything through b060900). USER ACTION ITEM: re-provision push credentials.
+
+---
+Task ID: v25-ext-watch
+Agent: main (direct round, ~19:05 +08)
+Task: Re-provision GitHub push credentials (user-provided PAT) after the rollback wiped them; push all pending creations; verify nothing was lost.
+
+Work Log:
+- PAT stored in ~/.git-credentials (chmod 600, OUTSIDE all repos — never in any tracked/pushed file) + global credential.helper store -> persistent across sessions. If a future rollback wipes it again, ask the user to re-provision (the token itself must never be written into the worklog or any tracked file).
+- Catch-up push SUCCEEDED: b060900..958cb1f (4 commits: rollback recovery 2580c52 + 4de59fb, watch-log deltas 8eb1c67 + 958cb1f) -> origin/main, git now 0/0.
+- Integrity audit CLEAN (nothing lost): manuscripts v21-v26 all present (.tex+.pdf, 24 v2x files verified on origin); queue config intact (7 points, full science note); v25_n5_d3_locator.json intact; compute state present (ids_nb4.npy 830 MB + run_d3_p0.8400_state.npz 239 MB); download/ holds manuscript_revised_v26.pdf + supplement_v8.pdf; top-level worklog 5002 lines byte-equal to the tracked mirror; rollback-insurance stash still held (superseded v15-era files).
+- Drove this round's 2 windows (both rc=124): p=0.84 (restarted) 409 -> 529/8295.
+
+Stage Summary:
+- PUSH CAPABILITY FULLY RESTORED; future material events (results JSON rows) will commit+push normally per the standing protocol. All pre-credential-loss creations are now on origin.
+- Campaign healthy post-recovery: cadence ~112-128 chunks/round; p=0.84 restarted point at ~6.4% (~31 h wall to first JSON row); queue unchanged (7 points).
+- The only permanent loss from the rollback remains the pre-restart p=0.84 chunk state (~38%, ~7 h) — documented earlier.
