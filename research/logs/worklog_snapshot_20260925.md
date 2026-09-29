@@ -4982,3 +4982,20 @@ Stage Summary:
 - CAMPAIGN UNBLOCKED AND DRIVING: the rc=1 NameError in the never-before-exercised grid phases is fixed and validated in-window; d3 p=0.84 progresses (57/8295 chunks); queue order unchanged (d3@0.84 -> fine@0.465 -> fine@0.475 -> d3@0.82 -> d3@0.86 -> fine@0.455 -> fine@0.485). First JSON row expected in ~29 h wall if every firing drives two clean windows.
 - Watcher guidance unchanged: check pgrep before acting; never two segments at once (driver flock enforces); rc=124/143 endings are NORMAL; commit a row only when a results JSON gains a point; stand down on /home/z/.v25_ext_done.
 - STANDING INSTRUCTIONS unchanged (see the v26-closing entry): English-only; never kill python; never re-run run_chain.sh; never touch v21-v25 (v26 = current candidate; the campaign's future integration takes v27 via a NEW patch script, only on explicit user request); push only inside quantum-circuits; mirror refresh = FULL cp; race patch (8fb4e2e) stays active; single-point sequential compute only.
+
+---
+Task ID: v25-ext-watch
+Agent: main (cron 17:13+08 firing, job 422077)
+Task: Watch/drive v25 ext campaign; handle mid-round sandbox filesystem rollback.
+
+Work Log:
+- 17:13 firing pre-flight clean (RAM 3322 MB, marker absent, git 0/0, no python). W1 driven OK (rc=124).
+- W2 failed: "cd: .../v22-exactZ3-n5L8: No such file or directory" — the sandbox FS had ROLLED BACK to a ~Sep-19 snapshot (HEAD bcc99a9 v15-era; v25 scripts/results/logs absent; top-level worklog.md rewound to 481 lines; download/ emptied). Rollback occurred between 09:05Z (W1 state save) and 09:10Z.
+- Diagnosis (read-only): origin intact at b060900 with the full v25 tree (scripts, driver, watch log, run logs, v25_ext_config.json, d3 locator JSON, v21-v26 manuscripts, mirror). State .npz NOT tracked -> compute state unrecoverable.
+- Recovery: git stash -u (insurance, 160 superseded v15-era dirty files) -> git reset --hard origin/main -> tree restored at b060900; top-level worklog.md rebuilt from mirror research/logs/worklog_snapshot_20260925.md (4984 lines, cmp byte-exact); manuscript_revised_v26.pdf + supplement_v8.pdf re-copied to /home/z/my-project/download/.
+- Anomaly + recovery documented in watch_rounds.log. 1 validation window driven post-recovery (fresh p=0.84 state created).
+
+Stage Summary:
+- CAMPAIGN SURVIVED a sandbox rollback via the pushed-git recovery path: nothing irrecoverable except the in-flight p=0.84 chunk state (~38%, ~7 h compute) — that point restarts from chunk 0 under the normal driver (append-safe queue unchanged, 7 points).
+- Losses: untracked tmp_n5L8block state npz; download/ re-copied. Zero manuscript loss (v21-v26 restored from git). Stash v25-ext-rollback-insurance kept for forensics.
+- Standing instructions unchanged; watch log self-documents the episode; mirror refreshed + pushed with this entry.
