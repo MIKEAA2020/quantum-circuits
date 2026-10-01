@@ -5016,3 +5016,44 @@ Stage Summary:
 - PUSH CAPABILITY FULLY RESTORED; future material events (results JSON rows) will commit+push normally per the standing protocol. All pre-credential-loss creations are now on origin.
 - Campaign healthy post-recovery: cadence ~112-128 chunks/round; p=0.84 restarted point at ~6.4% (~31 h wall to first JSON row); queue unchanged (7 points).
 - The only permanent loss from the rollback remains the pre-restart p=0.84 chunk state (~38%, ~7 h) — documented earlier.
+
+---
+Task ID: v25-ext-watch
+Agent: main (cron 17:13+08 firing, job 422077; round completed under recovery)
+Task: Watch/drive v25 ext campaign; handle sandbox filesystem rollback #2.
+
+Work Log:
+- 17:13 round: W1 rc=124 (p=0.84 -> ~chunk 5825, progress later lost); W2 failed cd -- SANDBOX FS ROLLBACK #2 detected (repo rewound to bcc99a9 v15-era; ~/.git-credentials wiped; untracked assets gone). Same signature as the 2026-09-29 episode.
+- Recovery: fetch confirmed origin intact at 1cfa946 -> stash -u insurance (v15-era dirty set) -> reset --hard origin/main -> tree restored (v25 scripts/queue/logs/mirror/v21-v26 all back). Top-level worklog rebuilt from mirror byte-exact; manuscript_revised_v26.pdf + supplement_v8.pdf re-copied to download/.
+- LOSSES: untracked p=0.84 chunk state (~70%, ~12.5 h compute) and ids_nb4.npy (830 MB orbit table). Zero scientific loss (deterministic recompute).
+- ids REBUILD + NEW FAILURE MODE FOUND: window 1 reached 156.2M rc=124 (state checkpoint 157M saved); window 2 exited instantly -- the orbit_table fast-path (ids+reps both present => complete) was FOOLED because reps_nb4.npy/counts_nb4.npy are git-TRACKED and were restored by the reset, while the partial ids npy existed on disk. DANGEROUS state: a v25 window would silently load a half-zero table. Fix applied without script edits: mv reps_nb4.npy aside -> ids phase RESUMED from state (157M -> 207.36M, 218s, K=3865) -> reps/counts rewritten by the phase with 0-diff vs tracked (deterministic-resume guarantee verified) -> tail sampled valid (0..3864 everywhere) -> state file removed -> .keep cleaned.
+- Verified NO corrupt-table compute occurred (no sibling window ran during the exposure; watch log + run log confirm).
+- v25 validation window rc=124: p=0.84 RESTARTED from chunk 0 -> chunk 57/8295, fresh 239 MB state. Campaign healthy.
+- PUSH BLOCKED: rollback wiped the credential store again. Local commits f0771b8 + 45233b3 (+ this worklog/mirror delta) await push. USER ACTION ITEM: re-provision the GitHub PAT (store in ~/.git-credentials, outside all repos; never in tracked files).
+
+Stage Summary:
+- Campaign survived rollback #2 via the pushed-git recovery path; the only compute loss is the p=0.84 point restarting from chunk 0 (~17 h wall to first JSON row at 2 windows/30 min cadence; first MATERIAL event now ETA ~15:00-16:00 +08 Oct 1).
+- NEW WATCHER GUIDANCE: after any rollback recovery, if ids_nb4.npy is missing/partial AND tracked reps/counts are present, the ids phase will NOT resume (fast-path fooling) -- mv reps_nb4.npy aside first, then run the ids phase; verify reps/counts rewrite 0-diff vs tracked before driving v25 windows.
+- STANDING INSTRUCTIONS unchanged: English-only; never kill python; never re-run run_chain.sh; never touch v21-v25 (v26 = current candidate; v27 integration via NEW patch script only on explicit request); push only inside quantum-circuits; mirror refresh = FULL cp; single-point sequential compute only.
+
+---
+Task ID: v25-ext-watch
+Agent: main (Z.ai Code)
+Task: v25 extension watch round 17:13+08 Oct 1 — SANDBOX FS ROLLBACK #3 detected and recovered
+
+Work Log:
+- Round 17:13+08: W1 driven normally (rc=124), W2 launch failed with `cd: No such file or directory` — investigation showed research/scripts/v22-exactZ3-n5L8/ and the entire v25-era tree GONE; repo rewound to an ancient clone (HEAD bcc99a9 v15-era, reflog = clone + 1 commit, origin/main stale ref 8c6ec2a). ~/.git-credentials wiped. All untracked assets destroyed: 239 MB p=0.84 chunk state (6049/8295 = 72.9%, ~12.5 h compute), 830 MB ids_nb4.npy, watch log lines since Sep 30 17:48+08.
+- Global read-only sweep confirmed zero recoverable campaign files on any mount (/, /tmp PolarFS, upload ossfs, download); /tmp/my-project PolarFS snapshot (Sep 30 09:48 UTC) contained the full 5037-line worklog but an empty quantum-circuits dir.
+- Worklog restored: cp /tmp/my-project/worklog.md -> /home/z/my-project/worklog.md (793141 bytes, ends with the Sep 30 rollback-#2 recovery entry — authoritative).
+- Recovery per the documented playbook: git fetch (anonymous; repo public) confirmed origin/main intact at 1cfa946 ("16:43+08 round, p=0.84 -> chunk 5825") -> git stash -u insurance (v15-era dirty set) -> git reset --hard origin/main -> FULL v25 tree restored: drive_v25_ext.sh + v25_n5_L8_ext_v1.py, v25_ext_config.json (7-pt queue), v25_n5_d3_locator.json, watch_rounds.log (through Sep 30 16:43 round), mirror, manuscripts v14-v26.
+- ids_nb4.npy rebuilt via `v22_n5_L8_block_v1.py ids` (2 bounded windows, ~11 min total, 829440128 bytes, K=3865 orbits); reps_nb4/counts_nb4 rewritten by the phase — git status 0-diff vs tracked (deterministic-resume guarantee verified); no state file leftover. rescue copy of reps_nb4 kept at /tmp/my-project/rescue_reps_nb4.npy.
+- Health window driven: p=0.84 RESTARTED from chunk 0 -> 57/8295, fresh 239 MB state, rc=124 normal. Campaign healthy; first JSON row ETA ~2 days at 2-windows/30-min cadence (third restart of this point).
+- watch_rounds.log reconstructed: appended gap block (Sep 30 17:13 round + rollback #2 recovery + overnight rounds 0->4849, marked RECONSTRUCTED) + all Oct 1 rounds 12:13 -> 16:43 (from session context, exact chunk cursors) + the rollback-#3 incident/recovery line.
+- Mirror refreshed (FULL byte-exact cp of top-level worklog -> research/logs/worklog_snapshot_20260925.md, cmp-verified); manuscript_revised_v26.pdf + supplement_v8.pdf re-copied to download/ per playbook.
+- Committed mirror + watch log inside quantum-circuits. PUSH BLOCKED (credentials wiped again) — local recovery commit awaits PAT.
+
+Stage Summary:
+- Third sandbox FS rollback (Sep 29, Sep 30, Oct 1) — same signature each time: repo rewound, credentials wiped, untracked assets destroyed. The pushed-git recovery path worked again; zero scientific loss (deterministic recompute), but the p=0.84 point has now lost its progress twice (~25 h compute total) and restarts from chunk 0 at 17:47+08 Oct 1.
+- ids rebuild cost ~11 min (fast); the deposited-table fast-path hazard was avoided by the established mv-reps-aside guidance.
+- STANDING USER ACTION: re-provision the GitHub PAT (~/.git-credentials, outside all repos) — pushes have been blocked since Sep 30 and the recovery commit is now pending too.
+- Watcher guidance for future rollbacks: unchanged (playbook in the Sep 30 entry + mv-reps-aside for the ids fast-path; worklog snapshot in /tmp/my-project is the recovery source for the top-level log).
