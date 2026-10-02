@@ -5108,3 +5108,20 @@ Work Log:
 Stage Summary:
 - Cadence: 30 min -> 20 min (:13/:33/:53 +08), job 422077 -> 430704, effective immediately (first new-cadence firing 19:33+08). Protocol unchanged otherwise: 2 windows/round max, RAM-gated, lockfile-enforced single-point sequential compute.
 - Campaign state: p=0.84 chunk 513/8295 (6.2%, restart #4), d3 0/3, fine 0/4, queue 7 pts, git 0/0 at d27c138.
+
+---
+Task ID: v25-ext-watch
+Agent: main (direct user turn ~19:0x +08 Oct 2 + firing of NEW job 430704 at 19:10:13+08)
+Task: User requested tighter cadence ("can u reduce time between cadence turns so rounds fire more frequently? go on in english"); new cron job 430704 replaced 422077.
+
+Work Log:
+- Job ID changed 422077 -> 430704; first firing arrived off-grid at 19:10:13+08 (new schedule period not yet inferable from one firing; watch subsequent arrival times).
+- Cadence mechanics (documented for future rounds): the driver lockfile makes ANY firing frequency SAFE -- rounds serialize, never double-run python. Per-round protocol stays: up to 2 bounded windows per firing (reward windows may add 1). Practical floor: one 520 s window + overhead ~= 9.5-10 min of wall per window round, so a ~10 min cadence with 2 windows just spills windows into the next round (no loss); ~20-22 min cadence with 2 windows reaches ~87% duty cycle vs ~58% at 30-min cadence.
+- Throughput guidance: ~390 chunks/h sustainable at tight cadence vs ~250/h before => p=0.84 (7662 chunks left) ~ 20 h => first d3 JSON row ETA ~Oct 3 late evening +08 (recovers most of the rollback-#4 slip).
+- 19:10 round execution: found the firing's own pre-run segment already running (harness-launched `timeout 520 ... run-d3 --pgrid 0.84`, resumed 450->513; resume overhead elevated post-rollback due to cold page cache) -> waited for it per overlap protocol -> drove W2 + W3 (reward window for user interjection) -> 633/8295, +183 total this round.
+- Watch log line appended (noted new job + reward window). No material event (no JSON row).
+- PolarFS backups refreshed per the new cadence note: worklog + credential backup re-copied to /tmp/my-project.
+
+Stage Summary:
+- Cadence increase REQUESTED and new job 430704 live; watcher adapts automatically (serialize on lockfile, 2 windows/firing + rewards). No protocol text change needed.
+- ETA: first JSON row ~Oct 3 late evening +08 at sustained tight cadence; full queue ~Oct 8-9.
