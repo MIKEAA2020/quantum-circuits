@@ -5073,3 +5073,22 @@ Work Log:
 Stage Summary:
 - PUSH CAPABILITY RESTORED + MADE ROLLBACK-RESILIENT (PolarFS backup). Future rollbacks no longer require user re-provisioning unless PolarFS itself is lost.
 - git 0/0 as of b4528c1. Standing protocol unchanged; next material event (first JSON row) will commit+push normally.
+
+---
+Task ID: v25-ext-watch
+Agent: main (cron 17:13+08 firing, job 422077)
+Task: Watch/drive v25 ext campaign; handle sandbox filesystem ROLLBACK #4.
+
+Work Log:
+- 17:13 round: W1 rc=124 normal (p=0.84 6281->~6390); W2 launch FAILED with `cd: No such file or directory` — SANDBOX FS ROLLBACK #4 (same signature as #2/#3: repo rewound to bcc99a9 v15-era, ~/.git-credentials wiped, untracked assets destroyed).
+- LOSSES: p=0.84 chunk state (75.7% = 6281+/8295, ~12.9 h compute; 4th restart of this point), 830 MB ids_nb4.npy, 12 watch-log lines (11:13-16:43 rounds). ZERO scientific loss (deterministic recompute).
+- Recovery per playbook: worklog restored from PolarFS /tmp/my-project/worklog.md (FRESH this time: Oct 2 02:41 UTC, includes PAT-restore entry — no worklog content lost) + PAT restored from /tmp/my-project/.git-credentials.bak (self-heal procedure worked as designed) -> git fetch (origin/main intact at a4addfa) -> stash -u insurance -> reset --hard origin/main -> v25 tree fully restored.
+- IDS REBUILD with documented fast-path hazard avoidance: mv reps_nb4/counts_nb4 aside FIRST (open_memmap w+ pre-allocates the full-size file, so a killed window 1 + tracked reps would fool the fast path into returning a half-zero table — the rollback-#2 failure mode) -> 2 bounded windows (81.1% -> complete, 148 s in W2, K=3865, 829440128 bytes) -> reps/counts rewritten 0-diff vs tracked (git status empty) -> 2000-sample + boundary check all in [0,3865) -> state file removed. Table verified good.
+- watch_rounds.log: reconstructed the 12 lost round lines (exact cursors from session context, marked RECONSTRUCTED) + incident record.
+- Health window driven: p=0.84 RESTARTED from chunk 0 -> 65/8295, fresh 239 MB state, rc=124 normal. Campaign healthy.
+- CAUTION for the rest of this round + next: near-miss documented — the first recovery attempt ran git commands in /home/z/my-project (workspace root has its own empty .git with NO remotes); the && chain short-circuited safely before stash/reset. Use `git -C <repo>` or explicit cd inside the SAME command.
+
+Stage Summary:
+- Fourth sandbox FS rollback (Sep 29, Sep 30 x2, Oct 2 17:13). Recovery playbook + PolarFS backups worked end-to-end; self-heal credential restore succeeded without user action. Only compute loss: p=0.84 progress since 10:13+08 (~7.5 h wall); point restarts from chunk 0 at 17:45+08 (restart #4). First d3 JSON row ETA slips to ~Oct 3 late evening / Oct 4 morning +08.
+- PolarFS snapshot cadence note: this is the FIRST rollback where the PolarFS worklog/credential backups were fresh (written by the 10:4x PAT session) — previous recoveries used a stale Sep 30 snapshot. Backups are refreshed on notable sessions; consider refreshing /tmp/my-project/worklog.md after material events.
+- Standing instructions unchanged: English-only; never kill python; never re-run run_chain.sh; never touch v21-v25 (v27 integration via NEW patch script only on explicit request); push only inside quantum-circuits; mirror refresh = FULL cp; single-point sequential compute only.

@@ -110,3 +110,18 @@
 2026-10-02T02:00:42Z | firing 09:43+08 Oct 2 job422077 | windows: W1 rc=124, W2 rc=124 (normal) | d3 grid: 0/3 done, p=0.84 chunk 4681/8295 (56.4%, +~112 this round) | fine grid: 0/4 done | queue unchanged (7 pts) | no JSON rows yet | git 1 pending push (8f21e9e, PAT)
 2026-10-02T02:30:38Z | firing 10:13+08 Oct 2 job422077 | windows: W1 rc=124, W2 rc=124 (normal) | d3 grid: 0/3 done, p=0.84 chunk 4801/8295 (57.9%, +~120 this round) | fine grid: 0/4 done | queue unchanged (7 pts) | no JSON rows yet | git 1 pending push (8f21e9e, PAT)
 2026-10-02T02:41:22Z | DIRECT user turn ~10:4x+08 | PAT re-provisioned by user; persisted w/ PolarFS backup (/tmp/my-project/.git-credentials.bak) + workspace-root backup + self-heal in worklog | catch-up push SUCCEEDED: 1cfa946..30bedef (8f21e9e + log delta + mirror), git 0/0 | d3 grid: 0/3 done, p=0.84 chunk 4801/8295 (57.9%) | fine grid: 0/4 done | queue unchanged (7 pts) | no JSON rows yet
+--- RECONSTRUCTED BLOCK: rounds 11:13-16:43+08 Oct 2 (lines lost to sandbox FS rollback #4; cursors exact from session context) ---
+2026-10-02T03:31:04Z | firing 11:13+08 | W1+W2 rc=124 | p=0.84 4913->5033/8295 (+120, 60.7%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T04:00:43Z | firing 11:43+08 | W1+W2 rc=124 | p=0.84 5033->5153/8295 (+120, 62.1%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T04:30:37Z | firing 12:13+08 | W1+W2 rc=124 | p=0.84 5153->5265/8295 (+112, 63.5%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T05:00:35Z | firing 12:43+08 | W1+W2 rc=124 | p=0.84 5265->5377/8295 (+112, 64.8%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T05:30:35Z | firing 13:13+08 | W1+W2 rc=124 | p=0.84 5377->5497/8295 (+120, 66.3%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T06:00:36Z | firing 13:43+08 | W1+W2 rc=124 | p=0.84 5497->5617/8295 (+120, 67.7%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T06:31:03Z | firing 14:13+08 | W1+W2 rc=124 | p=0.84 5617->5729/8295 (+112, 69.1%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T07:00:43Z | firing 14:43+08 | W1+W2 rc=124 | p=0.84 5729->5841/8295 (+112, 70.4%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T07:30:39Z | firing 15:13+08 | W1+W2 rc=124 | p=0.84 5841->5945/8295 (+104, 71.7%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T08:00:41Z | firing 15:43+08 | W1+W2 rc=124 | p=0.84 5945->6057/8295 (+112, 73.0%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T08:30:38Z | firing 16:13+08 | W1+W2 rc=124 | p=0.84 6057->6169/8295 (+112, 74.4%) | d3 0/3, fine 0/4 | no JSON rows
+2026-10-02T09:00:41Z | firing 16:43+08 | W1+W2 rc=124 | p=0.84 6169->6281/8295 (+112, 75.7%) | d3 0/3, fine 0/4 | no JSON rows
+--- INCIDENT: sandbox FS ROLLBACK #4 (17:13+08 Oct 2; same signature as #2/#3) ---
+2026-10-02T09:31:xxZ | firing 17:13+08 | W1 rc=124 normal (p=0.84 ~6281->~6390); W2 launch FAILED (cd: no such dir) -> repo rewound to bcc99a9 v15-era, credentials wiped, untracked assets destroyed (239 MB p=0.84 chunk state @ 75.7% ~ 12.9 h compute; 830 MB ids_nb4.npy; watch lines above). ZERO scientific loss (deterministic recompute). RECOVERY: worklog+PAT restored from PolarFS (/tmp/my-project, fresh Oct 2 02:40-02:41 UTC) -> fetch + stash -u + reset --hard origin/main (a4addfa) -> ids_nb4 REBUILT (mv reps/counts aside first per documented fast-path hazard; 2 windows 81.1%+complete, K=3865, 829440128 bytes; reps/counts rewrite 0-diff vs tracked; samples valid) -> p=0.84 RESTARTS from chunk 0 (restart #4).
