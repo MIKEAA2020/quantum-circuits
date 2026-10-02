@@ -5147,3 +5147,24 @@ Work Log:
 Stage Summary:
 - Campaign healthy: p=0.84 31.4% (restart#4), d3 0/3, fine 0/4, queue 7, no JSON rows yet, git deltas committed+pushed this round (chain machinery).
 - Cadence: still grid 430704 (cannot delete from here) BUT now completion-gated with structured chain logging + watchdog semantics; true +40s chaining is a one-step swap the moment cron tool access returns.
+
+---
+Task ID: v25-ext-watch
+Agent: main (01:07+08 Oct 3 firing of WATCHDOG job 431351 — user-provisioned; watchdog discipline: no windows driven, no python touched)
+Task: Watchdog round: cron-list check, stale-lock cleanup, chain re-arm attempt.
+
+Work Log:
+- DISCOVERY: user bootstrapped the chain PLATFORM-SIDE: watchdog job 431351 (30-min, re-arm only) + authored research/scripts/v22-exactZ3-n5L8/{round_lock.sh, chain_payload.txt} (untracked; now committed by this round). chain_payload.txt line 3: grid job 430704 is RETIRED; a legacy firing arriving anyway must run under chain rules.
+- "cron list" IMPOSSIBLE (no cron tool in agent sessions — verified again). Substituted evidence: no chain round has ever fired (rounds_chain.log had no records; watch log shows grid rounds only) => NO pending chain job => chain NOT alive => cleanup + re-arm per watchdog steps 3.
+- ROUND LOCK: /home/z/.v25_round.lock was HELD by round_id=r20261002T164028Z5499, holder PID 5499 VERIFIED DEAD (ps). Acquired 00:40:28+08 during the user's bootstrap = test acquire, never released; age 1890s < 2640s TTL, but holder-dead proof supersedes the age heuristic (the py=1 seen by the script belongs to the FINAL GRID round, PIDs 5878/5886/5887, which never held the round lock). CLEANED ahead of TTL; event=stale_lock_cleaned logged with evidence. Status now: free. Deviation documented; zero serialization risk (no chain rounds exist).
+- rounds_chain.log CREATED (canonical chain log, key=value format per round_lock.sh; supersedes chain_rounds.log JSONL): migrated round_id=1 (final grid round 00:33+08, 1287s, rc 124/124) + stale_lock_cleaned + watchdog_bootstrap events.
+- RE-ARM: FAILED — creating the one_time chain job requires the cron tool, absent from ALL agent sessions this conversation day. The watchdog will retry each firing but cannot succeed without the tool.
+- CURRENT COMPUTE: the 00:53 grid firing (legacy payload) is mid-turn; its W2 (PIDs 5878/5886/5887, started 01:03+08) ends ~01:12+08. After that, COMPUTE PAUSES until the FIRST chain firing exists. Action needed from USER (one of):
+  (a) create the first one_time job from the dashboard: expr=epoch-ms of now+40s, name 'v25 ext chain round (completion-sequenced)', kind agentTurn, message = chain_payload.txt VERBATIM; the chain then self-sustains (each round schedules its successor at end+40s), or
+  (b) restore the cron tool to agent sessions; the next watchdog or chain firing will re-arm automatically.
+- ATTENTION NEXT AGENT (any firing): if your payload is the legacy 430704 text, you are a chain round under chain_payload.txt rules: round_lock.sh acquire BEFORE driving; rounds_chain.log (not chain_rounds.log) for records; schedule successor at end+40s if cron tool available; if not, log next_scheduled=FAILED and rely on watchdog. If you ARE the chain payload: follow it verbatim.
+
+Stage Summary:
+- Chain infrastructure 100% ready and committed (round_lock.sh, chain_payload.txt, rounds_chain.log); lock free; grid retired; watchdog live (431351).
+- Single remaining gap: FIRST chain firing creation — blocked only by missing cron tool in agent sessions; user action (a) or (b) above starts the chain.
+- Campaign state: p=0.84 chunk 2697+/8295 (~32.5%), d3 0/3, fine 0/4, queue 7 pts, no JSON rows; compute pauses ~01:12+08 until chain start (each idle hour ~ -420 chunks vs chained throughput).
