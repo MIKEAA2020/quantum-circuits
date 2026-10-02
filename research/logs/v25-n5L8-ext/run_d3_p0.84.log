@@ -1932,3 +1932,14 @@ FileNotFoundError: [Errno 2] No such file or directory: '/home/z/my-project/quan
       [block p=0.84] chunk 4785/8295  387s  (eta 284s)
       [block p=0.84] chunk 4793/8295  451s  (eta 330s)
       [block p=0.84] chunk 4801/8295  515s  (eta 375s)
+== phase run-d3: d=3 L=8 grid [0.84] ==
+   K = 3865 orbits; done = []
+      [block p=0.84] chunk 1/8295  8s  (eta 63635s)
+      [block p=0.84] chunk 9/8295  69s  (eta 63167s)
+      [block p=0.84] chunk 17/8295  130s  (eta 63228s)
+      [block p=0.84] chunk 25/8295  189s  (eta 62377s)
+      [block p=0.84] chunk 33/8295  250s  (eta 62677s)
+      [block p=0.84] chunk 41/8295  317s  (eta 63847s)
+      [block p=0.84] chunk 49/8295  380s  (eta 63936s)
+      [block p=0.84] chunk 57/8295  441s  (eta 63752s)
+      [block p=0.84] chunk 65/8295  502s  (eta 63557s)
