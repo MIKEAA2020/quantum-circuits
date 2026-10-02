@@ -130,3 +130,19 @@
 2026-10-02T11:01:47Z round 18:43+08: W1+W2 rc=124 normal, p=0.84 321->449/8295 (+128, 5.4%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows yet | no anomalies
 2026-10-02T11:19:04Z bonus window (user 'go on', ~19:1x+08): rc=124 normal, p=0.84 449->513/8295 | d3 grid 0/3, fine grid 0/4 | no JSON rows yet | CADENCE CHANGE: job 422077 (30-min) deleted -> job 430704 (20-min :13/:33/:53), ~+50% throughput
 2026-10-02T11:37:13Z round 19:10+08 (NEW job 430704, user cadence request): pre-run segment (harness-launched) 450->513, then W2+W3(reward) rc=124 -> 633/8295 (+183 total, 7.6%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02T11:55:37Z round 19:33+08 (job 430704, 20-min cadence confirmed): W1+W2 rc=124 normal, p=0.84 633->761/8295 (+128, 9.2%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows yet | no anomalies
+2026-10-02T12:13:35Z round 19:53+08 (job 430704): W1+W2 rc=124 normal, p=0.84 761->889/8295 (+128, 10.7%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows yet | no anomalies
+2026-10-02T12:31:46Z round 20:13+08 (job 430704): W1+W2 rc=124 normal, p=0.84 889->1017/8295 (+128, 12.3%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows yet | no anomalies
+2026-10-02T12:50:50Z round 20:33+08 (job 430704): W1+W2 rc=124 normal, p=0.84 1017->1129/8295 (+112, 13.6%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows yet | no anomalies
+2026-10-02 13:11:48Z job430704 fired 20:53+08 | d3 0/3, fine 0/4, queue 7 | d3 p=0.84 chunk 1249/8295 (15.1%, restart#4) | +120 this round (2 windows, rc=124 x2; +112 pre-run window in 20:33 slot before handoff) | no JSON row
+2026-10-02 13:30:55Z round 21:13+08 (job 430704): W1+W2 rc=124 normal, p=0.84 1249->1369/8295 (+120, 16.5%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 13:50:42Z round 21:33+08 (job 430704): W1+W2 rc=124 normal, p=0.84 1369->1481/8295 (+112, 17.9%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 14:10:46Z round 21:53+08 (job 430704): W1+W2 rc=124 normal, p=0.84 1481->1601/8295 (+120, 19.3%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 14:30:37Z round 22:13+08 (job 430704): W1+W2 rc=124 normal, p=0.84 1601->1729/8295 (+128, 20.8%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 14:50:36Z round 22:33+08 (job 430704): W1+W2 rc=124 normal, p=0.84 1729->1857/8295 (+128, 22.4%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 15:10:41Z round 22:53+08 (job 430704): W1+W2 rc=124 normal, p=0.84 1857->1985/8295 (+128, 23.9%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 15:30:37Z round 23:13+08 (job 430704): W1+W2 rc=124 normal, p=0.84 1985->2097/8295 (+112, 25.3%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 15:50:43Z round 23:33+08 (job 430704): W1+W2 rc=124 normal, p=0.84 2097->2217/8295 (+120, 26.7%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 16:10:43Z round 23:53+08 (job 430704): W1+W2 rc=124 normal, p=0.84 2217->2345/8295 (+128, 28.3%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 16:30:43Z round 00:13+08 Oct3 (job 430704): W1+W2 rc=124 normal, p=0.84 2345->2473/8295 (+128, 29.8%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies
+2026-10-02 16:55:00Z round 00:33+08 Oct3 (job 430704): W1+W2 rc=124 normal, p=0.84 2473->2601/8295 (+128, 31.4%, restart#4) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies | MIGRATION ROUND: chain machinery installed, see chain_rounds.log
