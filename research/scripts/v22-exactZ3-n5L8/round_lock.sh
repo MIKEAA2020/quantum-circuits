@@ -25,6 +25,12 @@
 #
 # Lock file: /home/z/.v25_round.lock   (outside the repo; wiped on sandbox rollbacks, which
 # is safe: cron jobs live gateway-side and the lock is re-acquired fresh after recovery.)
+# NOTE (2026-10-03 incident hardening): the lock records round_id + start ONLY — NO pid.
+# A round lives in an AGENT TURN, not a process: the acquire shell always exits long before
+# the round ends, so holder-PID liveness MUST NEVER be used as cleanup evidence (a watchdog
+# session used exactly that false proof on 2026-10-03 17:11:30Z to clean a LIVE lock).
+# Cleanup authority is age-only: TTL 2640s, or orphan fast path (age > 900s AND no v25
+# compute process). A lock younger than TTL with compute running is LIVE — leave it.
 
 set -u
 LOCK=/home/z/.v25_round.lock
@@ -55,7 +61,7 @@ case "$cmd" in
       fi
     fi
     rid="r$(date -u +%Y%m%dT%H%M%SZ)$$"
-    printf 'round_id=%s\nstart=%s\npid=%s\n' "$rid" "$t" "$$" > "$LOCK"
+    printf 'round_id=%s\nstart=%s\n' "$rid" "$t" > "$LOCK"
     echo "round_id=$rid start=$t acquired=$t"
     ;;
   release)

@@ -5168,3 +5168,24 @@ Stage Summary:
 - Chain infrastructure 100% ready and committed (round_lock.sh, chain_payload.txt, rounds_chain.log); lock free; grid retired; watchdog live (431351).
 - Single remaining gap: FIRST chain firing creation — blocked only by missing cron tool in agent sessions; user action (a) or (b) above starts the chain.
 - Campaign state: p=0.84 chunk 2697+/8295 (~32.5%), d3 0/3, fine 0/4, queue 7 pts, no JSON rows; compute pauses ~01:12+08 until chain start (each idle hour ~ -420 chunks vs chained throughput).
+
+---
+Task ID: v25-ext-watch
+Agent: main (direct user turn ~00:35-01:20+08 Oct 3)
+Task: Switch trigger model from fixed clock schedule to COMPLETION-SEQUENCED execution (user directive: "next run is triggered by previous run's completion, not by the clock"; 40s cooldown).
+
+Work Log:
+- Job 430704 (recurring 0 13,33,53) DELETED. No clock firings anymore; the old cadence is retired.
+- NEW TRIGGER MODEL live: a self-rescheduling ONE-TIME chain. Each round, AFTER lock release, creates exactly ONE successor one_time job at end+40s (epoch millis), message = research/scripts/v22-exactZ3-n5L8/chain_payload.txt VERBATIM. FIRST LINK: job 431430, fires 1790961484 (01:18:04+08), priority 10. Single-pending-link invariant verified via cron list (exactly one 'v25 ext chain round' job + one watchdog exist).
+- Watchdog REPLACED: old 431351 deleted -> new 431428 (same 0 7,37 * * * ? Asia/Shanghai) with hardened payload: re-arm ONLY (never cadence, never drives), cleans stale locks at age>=2640s ONLY (NEVER by holder-PID liveness), logs event=watchdog_no_cron_tool and stops if its session lacks the cron tool, commits only rounds_chain.log deltas when it actually acted.
+- Round lock: round_lock.sh (acquire/release/log/status), lock at /home/z/.v25_round.lock, structured rounds_chain.log records (round_id, start, end, duration, rc, lock_acquired, lock_released, next_scheduled) + event lines (overlap_skipped / stale_lock_cleaned / orphan_lock_cleaned / watchdog_no_cron_tool). TTL 2640s = 2x max round ~1320s; orphan fast path age>900s AND no v25 compute.
+- INCIDENT (concurrent session, 01:07-01:12+08): the first watchdog firing routed to a SEPARATE agent session (no cron tool there) WHILE my bootstrap turn was mid-round. It cleaned my LIVE bootstrap lock at 17:11:30Z using "holder-PID dead" as proof — a false proof: the lock had recorded the acquire SHELL's pid (5499), which always exits while the round (an agent turn) is still live. Harmless this time (no chain rounds existed yet), but the flaw is now FIXED: locks record round_id+start ONLY, and both payloads forbid PID-liveness cleanup. That session also committed/pushed 550b808 + 66479ad (my infra files, its messages) — git stayed 0/0.
+- Tool-routing discovery documented: firings may land in sessions WITHOUT the cron tool. Chain payload handles it (drive + bookkeeping, log next_scheduled=FAILED_NO_CRON_TOOL, STOP; watchdog re-arms from a tool-capable session). Watchdog fired once at 01:17:15 in a tool-less session and correctly logged event=watchdog_no_cron_tool.
+- Bootstrap round #1 driven under the new protocol: round_id=r20261002T164028Z5499, duration 2271s (includes waiting out the legacy 00:33 firing's W1+W2, which drove 2473->2601); my W1+W2 rc=124 x2 drove 2601->2721/8295 (32.8%, restart#4). Lock released 1790961132, successor scheduled 1790961484 (strictly after release). No JSON rows (d3 0/3, fine 0/4, queue 7).
+- Environment note: PID1 is tini (no systemd); sandbox reaps background supervisors (verified twice) — so daemon loop / OnUnitInactiveSec were not viable; the one_time self-rescheduling chain IS the smallest real event-driven mechanism available.
+- PolarFS backups refreshed (worklog + credentials); mirror refreshed (FULL cp + cmp); this commit pushes round_lock.sh hardening + chain_payload.txt hardening + rounds_chain.log records + watch log line + mirror.
+
+Stage Summary:
+- CHAIN LIVE: rounds are now triggered by completion (end+40s), not by the clock. Effective cadence = round duration + 40s. Expected ~2 windows per cycle, ~118-128 chunks/cycle; measured avg +123 chunks/round at ~20.4 min round duration -> ~421 chunks/h once the chain settles.
+- Concurrency proof: a round starts only after acquiring the round lock (fresh-held -> event=overlap_skipped + 30s requeue); the successor link is created only AFTER lock release; exactly ONE pending link at any time (dedup-delete before create, verified by list); release verifies round_id; the driver lockfile remains the last line of defense for python segments.
+- Campaign state: p=0.84 chunk 2721/8295 (32.8%, restart#4); first d3 JSON row ETA ~Oct 3 afternoon-evening +08; full queue ~Oct 8 (+margin).
