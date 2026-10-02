@@ -5057,3 +5057,19 @@ Stage Summary:
 - ids rebuild cost ~11 min (fast); the deposited-table fast-path hazard was avoided by the established mv-reps-aside guidance.
 - STANDING USER ACTION: re-provision the GitHub PAT (~/.git-credentials, outside all repos) — pushes have been blocked since Sep 30 and the recovery commit is now pending too.
 - Watcher guidance for future rollbacks: unchanged (playbook in the Sep 30 entry + mv-reps-aside for the ids fast-path; worklog snapshot in /tmp/my-project is the recovery source for the top-level log).
+
+---
+Task ID: v25-ext-watch
+Agent: main (direct user turn, ~10:4x +08 Oct 2)
+Task: Re-provision GitHub PAT (user-provided) with PERSISTENCE across sandbox rollbacks; catch-up push of all pending commits.
+
+Work Log:
+- PAT blocked pushes since rollback #3 wiped credentials (Oct 1 17:13+08) — ~33 firings/nudges without push capability. ZERO scientific loss in that window: no material events occurred (first d3 point still in flight), pending content was bookkeeping only (recovery commit 8f21e9e + watch/run log lines); compute state lives on local disk unaffected by push status.
+- PAT now stored with TRIPLE REDUNDANCY: active ~/.git-credentials (chmod 600, git config --global credential.helper store re-set post-wipe) + backup /tmp/my-project/.git-credentials.bak (PolarFS — survived ALL THREE rollbacks) + backup /home/z/my-project/.git-credentials.bak (workspace root, outside all repos). Token value NEVER written into worklog or any tracked file (repo is public).
+- SELF-HEAL (all future rounds): if push fails with auth error or ~/.git-credentials is missing (post-rollback signature) -> restore with: cp /tmp/my-project/.git-credentials.bak /home/z/.git-credentials && chmod 600 /home/z/.git-credentials && git config --global credential.helper store -> retry push immediately. If both backups are somehow gone, ask user to re-provision.
+- Catch-up push SUCCEEDED: 1cfa946..b4528c1 (2 commits: rollback-#3 recovery 8f21e9e + watch/run-log delta through 10:13+08 round, 907 insertions). git fetch + rev-list now 0/0.
+- Campaign state at push: p=0.84 chunk 4801/8295 (57.9%, restart #3), d3 grid 0/3, fine grid 0/4, queue 7 pts, ~118 chunks/round standard cadence; first JSON row ETA ~Oct 3 morning +08.
+
+Stage Summary:
+- PUSH CAPABILITY RESTORED + MADE ROLLBACK-RESILIENT (PolarFS backup). Future rollbacks no longer require user re-provisioning unless PolarFS itself is lost.
+- git 0/0 as of b4528c1. Standing protocol unchanged; next material event (first JSON row) will commit+push normally.
