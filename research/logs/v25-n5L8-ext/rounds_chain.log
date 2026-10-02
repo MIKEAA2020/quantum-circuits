@@ -4,3 +4,9 @@ event=stale_lock_cleaned ts=2026-10-02T17:11:30Z source=watchdog-431351 age=1890
 event=watchdog_bootstrap ts=2026-10-02T17:11:30Z note="chain infrastructure verified: round_lock.sh + chain_payload.txt user-authored, committed; grid 430704 retired per chain_payload; awaiting FIRST chain firing creation (agent sessions lack cron tool)"
 event=watchdog_no_cron_tool ts=2026-10-02T17:17:15Z
 round_id=r20261002T164028Z5499 start=1790959228 end=1790961499 duration=2271s rc=0 lock_acquired=1790959228 lock_released=1790961132 next_scheduled=1790961484 note="bootstrap: trigger model clock->completion-sequenced per user directive; legacy 00:33 firing absorbed (W1+W2 2473->2601); my W1+W2 2601->2721 rc=124x2; lock prematurely cleaned 17:11:30Z by concurrent watchdog session via PID-liveness flaw (fixed: lock now records no pid); first chain link job 431430 fires 1790961484"
+round_id=r20261002T171846Z6356 start=1790961526 end=1790962584 duration=1058s rc=0 lock_acquired=1790961526 lock_released=1790962584 next_scheduled=FAILED_NO_CRON_TOOL note="first chain round; 2 windows rc=124; cursor 2841/8295"
+event=watchdog_no_cron_tool ts=2026-10-02T17:37:19Z
+event=watchdog_no_cron_tool ts=2026-10-02T18:07:08Z
+event=watchdog_no_cron_tool ts=2026-10-02T18:39:48Z
+event=overlap_skipped ts=2026-10-02T18:46:18Z
+round_id=r20261002T184206Z6958 start=1790966526 end=1790967129 duration=603s rc=0 lock_acquired=1790966526 lock_released=1790967129 next_scheduled=1790967180 note="v3 bootstrap (direct user turn): 1 window rc=124, p=0.84 2841->2905/8295; trigger model v3 armed (driver 431600 :13/:33/:53 +08, monitor 431599 :07/:37); chain retired (cron-fired sessions lack cron tool)"

@@ -1,3 +1,13 @@
+# RETIRED 2026-10-02T18:40Z (Task ID v25-ext-watch, direct user turn): the completion-sequenced
+# chain model CANNOT self-sustain in this environment — every cron-fired agent session so far
+# lacked the cron tool (chain round r20261002T171846Z6356 next_scheduled=FAILED_NO_CRON_TOOL;
+# watchdog firings logged event=watchdog_no_cron_tool at 17:17:15Z / 17:37:19Z / 18:07:08Z), so
+# no fired session can ever schedule its successor. The ACTIVE cadence (trigger model v3) is the
+# fixed 20-min recurring driver job 'v25 ext round driver (fixed 20m)' (:13/:33/:53 Asia/Shanghai)
+# with payload driver_payload.txt, plus a log-only monitor (monitor_payload.txt). DO NOT create
+# cron jobs from this file; DO NOT re-arm the chain. The text below is the historical record of
+# the retired v2 protocol.
+
 Watch and drive the v25 extension compute campaign (n=5): the d=3 L=8 rung grid and the finer d=2 locator grid. Read /home/z/my-project/worklog.md (last ~60 lines; the Task ID v25-ext-watch entries describe this campaign) before acting.
 
 TRIGGER MODEL (completion-sequenced chain, since 2026-10-03): this firing was scheduled by the PREVIOUS round's completion (its end + 40s cooldown), NOT by a clock schedule. The old recurring job 430704 (:13/:33/:53) is retired. When this round ends you MUST schedule exactly ONE successor firing (step 6); never pre-schedule more than one. A 30-min watchdog job (re-arm only, never the cadence source) heals the chain if a turn dies before scheduling. If a legacy 430704-payload firing arrives, treat it as a normal chain round under THESE rules. Firings may land in sessions whose toolset lacks the cron tool; in that case do the driving + bookkeeping normally, log next_scheduled=FAILED_NO_CRON_TOOL in step 7, and STOP — a tool-capable watchdog or chain session will re-arm.

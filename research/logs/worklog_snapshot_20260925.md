@@ -5189,3 +5189,39 @@ Stage Summary:
 - CHAIN LIVE: rounds are now triggered by completion (end+40s), not by the clock. Effective cadence = round duration + 40s. Expected ~2 windows per cycle, ~118-128 chunks/cycle; measured avg +123 chunks/round at ~20.4 min round duration -> ~421 chunks/h once the chain settles.
 - Concurrency proof: a round starts only after acquiring the round lock (fresh-held -> event=overlap_skipped + 30s requeue); the successor link is created only AFTER lock release; exactly ONE pending link at any time (dedup-delete before create, verified by list); release verifies round_id; the driver lockfile remains the last line of defense for python segments.
 - Campaign state: p=0.84 chunk 2721/8295 (32.8%, restart#4); first d3 JSON row ETA ~Oct 3 afternoon-evening +08; full queue ~Oct 8 (+margin).
+
+---
+Task ID: v25-ext-watch
+Agent: main (02:39+08 Oct 3 watchdog firing 431428 + direct user consult)
+Task: Watchdog protocol execution + trigger-model decision consult (chain dead — no cron tool in any agent session since bootstrap).
+
+Work Log:
+- Watchdog steps: /home/z/.v25_ext_done absent; cron tool ABSENT (verified in this session); event=watchdog_no_cron_tool ts=2026-10-02T18:39:48Z appended to rounds_chain.log (3rd consecutive: 17:37:19Z, 18:07:08Z, 18:39:48Z). Lock free; no cleanup, no re-arm, no commit (per watchdog rule).
+- CHAIN STATUS: dead since 17:23:04Z — round r20261002T171846Z6356 completed (cursor 2841/8295) but could not self-schedule (no cron tool); job 431430 consumed; no session since can recreate the successor link.
+- USER CONSULT (direct turn): user confirmed (a) dashboard one_time job creation and (b) cron-tool restoration are NOT available to them; offered to revert to fixed 20-min clock firings.
+- RECOMMENDATION GIVEN: user creates ONE recurring agentTurn job, every 20 min (e.g. expr `0 13,33,53 * * * ?` tz Asia/Shanghai, same pattern as retired job 430704), name 'v25 ext clock round' (MUST NOT contain substring 'v25 ext chain round' — the payload dedup in chain_payload.txt steps 3/6 deletes pending jobs with that substring and would kill the clock job if the chain ever re-arms), message = chain_payload.txt VERBATIM (pasted in chat, byte-identical). Rationale: payload is tool-less-tolerant by design — drives full rounds normally, logs next_scheduled=FAILED_NO_CRON_TOOL, clock carries cadence; lock absorbs overlaps (event=overlap_skipped); measured ~+123-144 chunks/round at ~18-22 min ~= chain throughput (~370-420 chunks/h). If cron tool ever returns to agent sessions, chain self-re-arms and clock job no-ops on the lock (auto-upgrade path).
+- Watchdog 431428 disposition: user may keep (harmless; re-arms chain if tool returns) or delete (stale-lock cleanup redundant with round_lock.sh acquire path). Either acceptable.
+- PLAN C offered (if dashboard job creation impossible): manual mode — any user message = one full round driven in that session (~18-22 min, +120-145 chunks). User 'go' = start round immediately.
+
+Stage Summary:
+- No compute driven this session (watchdog discipline). Lock free; cursor 2841/8295 (34.3%, p=0.84, restart#4); d3 0/3, fine 0/4, queue 7 pts, no JSON rows; idle since 17:23:04Z (~77 min, ~540 chunks deferred at ~421/h chained rate). RAM 2634 MB available (2 windows OK when driving resumes).
+- NEXT AGENT: if your firing is the new clock job ('v25 ext clock round' or legacy 430704-style payload), you are a chain round under chain_payload.txt rules — follow it verbatim; only difference: step 6 logs FAILED_NO_CRON_TOOL and the clock re-triggers. In manual mode, one user message = one full round.
+
+---
+Task ID: v25-ext-watch
+Agent: main (direct user turn ~02:34-02:55+08 Oct 3)
+Task: Cadence decision after chain death: user confirmed neither dashboard job creation nor cron-tool restoration is possible platform-side; user approved fallback to fixed 20-min firings. Implement TRIGGER MODEL v3 (fixed recurring, lock-serialized).
+
+Work Log:
+- Diagnosis: completion-sequenced chaining (v2) is structurally impossible here — EVERY cron-fired turn lands in a session WITHOUT the cron tool (chain round r20261002T171846Z6356 next_scheduled=FAILED_NO_CRON_TOOL; watchdog no_cron_tool events 17:17:15Z/17:37:19Z/18:07:08Z), so no fired session can ever schedule its successor. Only direct user turns have the cron tool (this turn: cron list/create/delete all verified working). Chain dead 17:36Z-18:42Z (~-440 chunks idle).
+- TRIGGER MODEL v3 ARMED from this user turn: recurring driver job 431600 'v25 ext round driver (fixed 20m)' (0 13,33,53 * * * ? Asia/Shanghai, priority 10) — same cadence as retired grid job 430704. Payload = research/scripts/v22-exactZ3-n5L8/driver_payload.txt (committed): RAM-gated up to 2x 520s windows per firing; round_lock.sh acquire/release; overlap -> event=overlap_skipped + STOP (next firing retries <=20 min); watch_rounds.log line per round; material commits on new JSON points; round record next_scheduled=RECURRING_20M; NO cron management from fired sessions (sole exception: completion cleanup when the tool happens to be present); NEVER background supervisors (sandbox reaps them — verified twice).
+- Old watchdog 431428 DELETED (obsolete re-arm function; removes the 30-min no_cron_tool noise). Replaced by monitor job 431599 'v25 ext driver monitor (log-only)' (0 7,37 * * * ? Asia/Shanghai, priority 5): done-flag check -> lock-held check -> rounds_chain.log mtime staleness > 45 min => event=driver_stalled + reply; never drives, never cleans locks, never uses the cron tool, no git.
+- chain_payload.txt: RETIRED banner prepended (self-defusing against future chain re-arm attempts). cron list verified from this turn: exactly 2 jobs live (431600 driver, 431599 monitor).
+- LIVE TEST (unexpected but welcome): a driver-payload firing landed ~18:44-46Z while my bootstrap window held the lock -> event=overlap_skipped ts=18:46:18Z appended, no driving, no job creation. Overlap path verified working end-to-end.
+- Bootstrap round (manual driver round under v3 rules): round_id=r20261002T184206Z6958, 1x 520s window (rc=124 normal), p=0.84 2841->2905/8295 (+64, 35.0%, restart#4), lock released 18:52:09Z, next_scheduled=1790967180 (02:53+08 driver firing). d3 0/3, fine 0/4, queue 7, no JSON rows (no material event this round).
+- Bookkeeping: watch_rounds.log line appended; rounds_chain.log record logged; this worklog entry; mirror refreshed (FULL cp + cmp); PolarFS backup refreshed; payloads + banner + log deltas committed and pushed INSIDE quantum-circuits.
+
+Stage Summary:
+- Cadence live: fixed 20-min firings (:13/:33/:53 +08), lock-serialized, RAM-gated; expected duty ~90% vs ~98% for the impossible +40s chain. A user-facing session can tighten to 10-min if ever requested.
+- Jobs: driver 431600 + monitor 431599 (exactly 2, verified). Escalation: driver_stalled events in rounds_chain.log => ping any user-facing session to recreate the driver from driver_payload.txt.
+- Campaign state: p=0.84 2905/8295 (35.0%, restart#4), d3 0/3, fine 0/4, queue 7 pts, no JSON rows; first d3 row ETA ~Oct 3 late +08; full queue ~Oct 8 (+margin).

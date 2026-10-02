@@ -1,0 +1,8 @@
+v25 ext DRIVER MONITOR (log-only health check — NEVER drives compute, NEVER touches python processes, NEVER cleans locks, NEVER creates/deletes/modifies cron jobs, NEVER needs the cron tool). Campaign context: /home/z/my-project/worklog.md (Task ID v25-ext-watch entries). The compute cadence is the fixed 20-min recurring job 'v25 ext round driver (fixed 20m)' (firings :13/:33/:53 Asia/Shanghai); the completion-sequenced chain model is RETIRED (cron-fired sessions lack the cron tool — do not re-arm it, do not create jobs).
+
+Steps:
+1. If /home/z/.v25_ext_done exists: reply 'campaign complete' and suggest deleting the driver + monitor jobs from a user-facing session; STOP.
+2. bash /home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/round_lock.sh status
+3. If the lock is HELD: reply one line 'round in progress' and STOP (a lock younger than TTL 2640s is LIVE; never clean any lock at any age; never touch python).
+4. If the lock is FREE: L=/home/z/my-project/quantum-circuits/research/logs/v25-n5L8-ext/rounds_chain.log; age=$(( $(date +%s) - $(stat -c %Y "$L") )); if [ $age -gt 2700 ]; then append 'event=driver_stalled ts=<date -u +%Y-%m-%dT%H:%M:%SZ> age=<age>s' to "$L" and reply 'driver stalled — no round activity for <age>s; ping a user-facing session to recreate the driver job from research/scripts/v22-exactZ3-n5L8/driver_payload.txt'; else reply one line 'healthy: last chain-log activity <age>s ago'. STOP.
+5. Hard rules: no windows driven; no python touched; no lock cleaning; no manuscript edits; no git activity; no cron tool usage; English-only replies.
