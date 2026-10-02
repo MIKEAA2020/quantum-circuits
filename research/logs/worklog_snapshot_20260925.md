@@ -5092,3 +5092,19 @@ Stage Summary:
 - Fourth sandbox FS rollback (Sep 29, Sep 30 x2, Oct 2 17:13). Recovery playbook + PolarFS backups worked end-to-end; self-heal credential restore succeeded without user action. Only compute loss: p=0.84 progress since 10:13+08 (~7.5 h wall); point restarts from chunk 0 at 17:45+08 (restart #4). First d3 JSON row ETA slips to ~Oct 3 late evening / Oct 4 morning +08.
 - PolarFS snapshot cadence note: this is the FIRST rollback where the PolarFS worklog/credential backups were fresh (written by the 10:4x PAT session) — previous recoveries used a stale Sep 30 snapshot. Backups are refreshed on notable sessions; consider refreshing /tmp/my-project/worklog.md after material events.
 - Standing instructions unchanged: English-only; never kill python; never re-run run_chain.sh; never touch v21-v25 (v27 integration via NEW patch script only on explicit request); push only inside quantum-circuits; mirror refresh = FULL cp; single-point sequential compute only.
+
+---
+Task ID: v25-ext-watch
+Agent: main (direct user turn ~19:1x+08 Oct 2)
+Task: User requested tighter cadence ("reduce time between cadence turns so rounds fire more frequently").
+
+Work Log:
+- Cron job RECREATED: deleted 422077 (0 13,43 * * * ? = every 30 min, 2 windows/round = ~4 windows/h) -> new job 430704 (0 13,33,53 * * * ? = every 20 min at :13/:33/:53 +08, Asia/Shanghai, same name "v25 extension watch (d=3 rung + fine grid)", payload VERBATIM — the gateway appends "Job ID:" on firing, so future firings will show 430704).
+- Rationale: a 2-window round takes ~19-21 min, so a 20-min slot fits a full round; expected throughput ~5.5-6 windows/h (~+50%). 15-min cadence was rejected: rounds would perpetually overlap the next firing (2 windows > 15 min), creating constant concurrent agent turns. The driver lockfile + established wait-for-pre-run-segment protocol covers occasional 20-min overlap.
+- Bonus window driven per the standing "go on in english" = +1 convention: p=0.84 449->513/8295 (+64, 6.2%, restart #4), rc=124 normal.
+- PolarFS backup refreshed (rollback #4 lesson): /tmp/my-project/worklog.md now includes this entry; .git-credentials.bak already present and current.
+- ETA improvement: ~7782 chunks left on p=0.84 at ~168-190 chunks/h (new cadence) -> first d3 JSON row ~Oct 3 evening +08 (was ~Oct 4 early morning); full 7-pt queue ~Oct 8-9 (was Oct 9-10).
+
+Stage Summary:
+- Cadence: 30 min -> 20 min (:13/:33/:53 +08), job 422077 -> 430704, effective immediately (first new-cadence firing 19:33+08). Protocol unchanged otherwise: 2 windows/round max, RAM-gated, lockfile-enforced single-point sequential compute.
+- Campaign state: p=0.84 chunk 513/8295 (6.2%, restart #4), d3 0/3, fine 0/4, queue 7 pts, git 0/0 at d27c138.
