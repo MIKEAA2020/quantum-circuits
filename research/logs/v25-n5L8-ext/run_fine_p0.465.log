@@ -1,0 +1,10 @@
+== phase run-fine: d=2 L=8 grid [0.465] ==
+   K = 3865 orbits; done = []
+      [block p=0.465] chunk 1/8295  8s  (eta 65996s)
+      [block p=0.465] chunk 9/8295  67s  (eta 61659s)
+      [block p=0.465] chunk 17/8295  128s  (eta 62478s)
+      [block p=0.465] chunk 25/8295  192s  (eta 63502s)
+      [block p=0.465] chunk 33/8295  257s  (eta 64340s)
+      [block p=0.465] chunk 41/8295  321s  (eta 64631s)
+      [block p=0.465] chunk 49/8295  388s  (eta 65366s)
+      [block p=0.465] chunk 57/8295  457s  (eta 66103s)
