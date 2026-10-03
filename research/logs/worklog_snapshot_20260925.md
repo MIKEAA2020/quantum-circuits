@@ -5225,3 +5225,18 @@ Stage Summary:
 - Cadence live: fixed 20-min firings (:13/:33/:53 +08), lock-serialized, RAM-gated; expected duty ~90% vs ~98% for the impossible +40s chain. A user-facing session can tighten to 10-min if ever requested.
 - Jobs: driver 431600 + monitor 431599 (exactly 2, verified). Escalation: driver_stalled events in rounds_chain.log => ping any user-facing session to recreate the driver from driver_payload.txt.
 - Campaign state: p=0.84 2905/8295 (35.0%, restart#4), d3 0/3, fine 0/4, queue 7 pts, no JSON rows; first d3 row ETA ~Oct 3 late +08; full queue ~Oct 8 (+margin).
+
+---
+Task ID: v25-ext-watch
+Agent: main (17:33+08 Oct 3 driver firing, job 431600)
+Task: MATERIAL round — first L=8 rung-grid d=3 point (p=0.84) completed; results JSON created; driver advanced to fine grid.
+
+Work Log:
+- Round r20261003T093308Z17393 (2 windows): W1 rc=0 — d3 p=0.84 finished (chunk 8295/8295, restart#4); W2 rc=124 normal, driver rolled into fine-grid point p=0.465 (cursor 57/8295 at window end, fresh state).
+- v25_n5_L8_rung_d3.json CREATED with row 1: p=0.84, L=8, n=5, d=3, K=3865, lam1=6.145707467e-13, lam2=3.906305062e-13, gap12=0.45316193487994, growth=0.0297557900334, secs=121.0. (Reference: L=6 locator min at p=0.85 gap 0.62105 — numbers recorded as computed, interpretation deferred to the v27 manuscript pass.)
+- Grid state: d3 rung grid 1/3, fine grid 0/4; queue file lists 7 pts, 6 remaining to compute (d3 p=0.84 merged). watch_rounds.log + rounds_chain.log deltas included.
+- Material bookkeeping: commit e273540 inside quantum-circuits (results JSON + run_d3_p0.84.log + run_fine_p0.465.log + watch/round logs); this worklog entry; mirror refresh (FULL cp + cmp-verify) + mirror commit + push; PolarFS backup refreshed.
+- All 20-min driver rounds 10:53 through 17:13+08 today ran clean (rc=0, 2 windows each, ~112-128 chunks/round, no anomalies); earlier rounds were material-event-only per protocol, hence no per-round worklog entries.
+
+Stage Summary:
+- FIRST L=8 d=3 point DONE (p=0.84). In-flight: fine grid p=0.465 (8295 chunks, ~17h compute ≈ ~21h wall at 20-min cadence, ETA ~Oct 4 late +08). Remaining queue: 2 d3 + 4 fine points → full queue ETA ~Oct 8-9 (+margin). RAM ample (~2500 MB), lock discipline clean, repo 0/0 after push.
