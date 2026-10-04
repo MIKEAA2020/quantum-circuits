@@ -121,3 +121,6 @@ round_id=r20261004T061305Z27499 start=1791094385 end=1791095439 duration=1054s r
 round_id=r20261004T063303Z27624 start=1791095583 end=1791096636 duration=1053s rc=0 lock_acquired=1791095583 lock_released=1791096636 next_scheduled=RECURRING_20M
 round_id=r20261004T065304Z27749 start=1791096784 end=1791097837 duration=1053s rc=0 lock_acquired=1791096784 lock_released=1791097837 next_scheduled=RECURRING_20M
 round_id=r20261004T071304Z27933 start=1791097984 end=1791098995 duration=1011s rc=0 lock_acquired=1791097984 lock_released=1791098995 next_scheduled=RECURRING_20M note="material_fine_p0.465_first_finegrid_row"
+round_id=r20261004T091305Z30449 start=1791105185 end=1791106650 duration=1465s rc=0 lock_acquired=1791105185 lock_released=1791106650 next_scheduled=(lock note="already"
+round_id=r20261004T083337Z30000 start=1791102817 end=1791103960 duration=1143s rc=0 lock_acquired=1791102817 lock_released=1791103960 next_scheduled=RECURRING_20M note="reconstructed_post_rollback_2win_clean"
+round_id=r20261004T085315Z30223 start=1791103995 end=1791105057 duration=1062s rc=0 lock_acquired=1791103995 lock_released=1791105057 next_scheduled=RECURRING_20M note="reconstructed_post_rollback_2win_clean"

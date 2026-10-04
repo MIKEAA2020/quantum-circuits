@@ -5254,3 +5254,34 @@ Work Log:
 
 Stage Summary:
 - FIRST L=8 fine-grid point DONE (p=0.465). Both L=8 JSONs now live. In-flight at next firing: fine p=0.475 (fresh state, ~17h compute ≈ ~21h wall at 20-min cadence). Remaining queue: 2 d3 + 3 fine points -> full queue ETA ~Oct 8-9 (+margin). All 20-min rounds 12:13-15:13+08 today ran clean (rc=0, 2 windows, +128 chunks/round, zero anomalies).
+
+---
+Task ID: v25-ext-watch
+Agent: main (15:40+08 Oct 4, direct user turn)
+Task: Web app outage report + fix — user reported the web simulation missing from the Preview Panel.
+
+Work Log:
+- Diagnosis: the Next.js dev server (port 3000) died 2026-10-03 ~10:05 UTC (18:05+08) — dev.log mtime frozen there; nothing listening on 3000; sandbox reaps long-lived background processes (same failure mode verified twice for campaign supervisors). Campaign compute was unaffected (cron firings relaunch python fresh each round).
+- Loss assessment: NOTHING LOST. Web code fully committed (my-project repo tree clean, head 724d73c); SQLite db/custom.db intact with all saved SimRun/I3Sweep rows; research repo quantum-circuits at 0/0 after today's material push (f0855a7, 8b36cfe).
+- Fix: dev server relaunched detached (`setsid nohup bun run dev > dev.log 2>&1 < /dev/null &`) — plain `nohup ... &` was reaped when the launching Bash call ended; setsid survives across tool calls (verified).
+- Browser QA (agent-browser): page renders (title "quantum·circuits — MIPT in random Clifford circuits", 58 canvas/svg charts), zero console/page errors, /api/runs and /api/sweeps return saved data (e.g. SimRun "L=16 p=0.160 n=200" purif; I3Sweep "background L=8,16,32,128 · τ=2 · n=24"), simulator section interactive (mode/depth/nTraj controls present).
+- PolarFS backup refreshed (this entry). No research-repo git activity (non-material).
+
+Stage Summary:
+- Web simulation restored and verified end-to-end. If the preview ever goes dark again: it is ONLY the dev process (sandbox reaping) — code/data are never at risk; rerun `cd /home/z/my-project && setsid nohup bun run dev > dev.log 2>&1 < /dev/null &` from any session. Campaign state unchanged: fine 1/4, d3 1/3, queue 5, next point fine p=0.475.
+---
+Task ID: v25-ext-watch
+Agent: main (17:13+08 Oct 4 driver firing, job 431600)
+Task: INCIDENT — sandbox filesystem rollback mid-round wiped local state; campaign recovered from origin with zero material loss; web app core intact and serving, Oct 1-4 web code deltas lost locally.
+
+Work Log:
+- Mid-round (between W2 end and the state check, ~09:23Z), the sandbox filesystem rolled back to the platform snapshot (~Sep 20 vintage): worklog.md 5272->481 lines, quantum-circuits HEAD 8b36cfe->bcc99a9, research/scripts/v22-exactZ3-n5L8/ plus the v25 results/logs subdirs vanished, db/custom.db and web src reverted to Sep 19-20 vintage. Round r20261004T091305Z30449 had acquired the lock and driven 2 clean windows (rc=124) BEFORE the rollback; their chunk progress was wiped with the (never git-tracked) state files.
+- Campaign recovery (one git reset): git fetch + git reset --hard origin/main inside quantum-circuits -> HEAD 8b36cfe; verified v25_n5_L8_rung_d3.json (1 row), v25_n5_L8_finegrid.json (1 row), v25_ext_config.json (queue 7, 5 to compute), all campaign scripts + payloads + logs restored. Lost: 593/8295 uncommitted chunk progress on fine p=0.475 (~5h compute) — the point recomputes from chunk 0 at the next firing.
+- watch_rounds.log + rounds_chain.log lines from the 16:33/16:53 rounds were lost with the rollback and re-appended from session records, marked reconstructed_post_rollback (values verbatim from those rounds' reports).
+- Worklog restored from PolarFS backup: cp /tmp/my-project/worklog.md (5271 lines, mtime Oct 4 07:35Z, complete through the 15:40+08 web entry) -> /home/z/my-project/worklog.md; this entry appended after.
+- Web: the running dev server (bun/next) survived the rollback in memory and still serves the app — title verified 'quantum·circuits — MIPT in random Clifford circuits', HTTP 200. BUT the local platform git repo (/home/z/my-project, NO remote) rolled back to snapshot commit 7369b6e (2026-09-20 22:29Z); the Oct 4 head 724d73c no longer exists locally -> Oct 1-4 web code deltas are NOT locally recoverable. db/custom.db (Sep 19 vintage, git-tracked) retains SimRun 'L=16 p=0.160 n=200' + 5 I3Sweep rows incl. 'background L=8,16,32,128 · τ=2 · n=24' — exactly the rows cited in the Oct 3-4 QA — so no visible data loss. /tmp/my-project mirror matches the same vintage for web files (not an Oct 4 copy); it DID provide the full worklog backup.
+- Mirror refreshed (FULL cp + cmp-verify) + pushed inside quantum-circuits; PolarFS backup refreshed. Repo 0/0 after push.
+- Open item for a user-facing session: if the Oct 1-4 web deltas matter, check whether the platform can restore a newer snapshot of /home/z/my-project than the ~Sep 20 one used here; otherwise accept the current app state (data rows intact, preview live) and re-apply any missing features on request.
+
+Stage Summary:
+- Campaign UNHURT — material was always pushed; recovery cost one git reset. Compute resumes at the next :13/:33/:53 firing from fine p=0.475 chunk 0; ETA shifts ~+5h (p=0.475 ~Oct 5 evening +08, full queue ~Oct 9 + margin). Web preview live on the pre-Sep-20 app core with all QA-cited data rows; Oct 1-4 web deltas lost locally pending a possible platform-side snapshot restore.
