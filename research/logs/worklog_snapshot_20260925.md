@@ -5240,3 +5240,17 @@ Work Log:
 
 Stage Summary:
 - FIRST L=8 d=3 point DONE (p=0.84). In-flight: fine grid p=0.465 (8295 chunks, ~17h compute ≈ ~21h wall at 20-min cadence, ETA ~Oct 4 late +08). Remaining queue: 2 d3 + 4 fine points → full queue ETA ~Oct 8-9 (+margin). RAM ample (~2500 MB), lock discipline clean, repo 0/0 after push.
+
+---
+Task ID: v25-ext-watch
+Agent: main (15:13+08 Oct 4 driver firing, job 431600)
+Task: MATERIAL round — first L=8 fine-grid d=2 point (p=0.465) completed; v25_n5_L8_finegrid.json created.
+
+Work Log:
+- Round r20261004T071304Z27933 (2 windows): W1 rc=124 (cursor 8177->8289); W2 rc=0 — fine p=0.465 finished (chunk 8295/8295), point merged, driver exited cleanly (next queue point starts at the 15:33 firing).
+- v25_n5_L8_finegrid.json CREATED with row 1: p=0.465, L=8, n=5, d=2, K=3865, lam1=1.54022807e-04, lam2=9.53400962e-05, gap12=0.47965022767875914, growth=0.3337706381691864, secs=431.9. (Numbers recorded as computed; interpretation deferred to the v27 manuscript pass.)
+- Grid state: d3 rung grid 1/3, fine grid 1/4; queue 7 pts, 5 remaining to compute (next: fine p=0.475, then d3 0.82, d3 0.86, fine 0.455, fine 0.485).
+- Material bookkeeping: commit f0855a7 inside quantum-circuits (finegrid JSON + run_fine_p0.465.log + watch/round logs) pushed; this worklog entry; mirror refresh (FULL cp + cmp-verify) + mirror commit + push; PolarFS backup refreshed.
+
+Stage Summary:
+- FIRST L=8 fine-grid point DONE (p=0.465). Both L=8 JSONs now live. In-flight at next firing: fine p=0.475 (fresh state, ~17h compute ≈ ~21h wall at 20-min cadence). Remaining queue: 2 d3 + 3 fine points -> full queue ETA ~Oct 8-9 (+margin). All 20-min rounds 12:13-15:13+08 today ran clean (rc=0, 2 windows, +128 chunks/round, zero anomalies).
