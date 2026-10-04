@@ -1,0 +1,178 @@
+Traceback (most recent call last):
+  File "/home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py", line 198, in <module>
+    rc = {'validate-d3': phase_validate_d3,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py", line 187, in phase_run_fine
+    _phase_run_grid('fine', 2, args)
+  File "/home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py", line 142, in _phase_run_grid
+    ids = np_load_ids()
+          ^^^^^^^^^^^^^
+  File "/home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/v25_n5_L8_ext_v1.py", line 179, in np_load_ids
+    return np.load(os.path.join(TMP, 'ids_nb4.npy'), mmap_mode='r')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/.venv/lib/python3.12/site-packages/numpy/lib/_npyio_impl.py", line 459, in load
+    fid = stack.enter_context(open(os.fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/z/my-project/quantum-circuits/research/scripts/v22-exactZ3-n5L8/../../results/v22-exactZ3-n5L8/tmp_n5L8block/ids_nb4.npy'
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+      [block p=0.475] chunk 1/8295  7s  (eta 59569s)
+      [block p=0.475] chunk 9/8295  64s  (eta 58823s)
+      [block p=0.475] chunk 17/8295  125s  (eta 61059s)
+      [block p=0.475] chunk 25/8295  186s  (eta 61536s)
+      [block p=0.475] chunk 33/8295  248s  (eta 61967s)
+      [block p=0.475] chunk 41/8295  309s  (eta 62264s)
+      [block p=0.475] chunk 49/8295  371s  (eta 62485s)
+      [block p=0.475] chunk 57/8295  430s  (eta 62184s)
+      [block p=0.475] chunk 65/8295  492s  (eta 62321s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 66/8295 (state 10:04:54)
+      [block p=0.475] chunk 73/8295  66s  (eta 7418s)
+      [block p=0.475] chunk 81/8295  134s  (eta 13617s)
+      [block p=0.475] chunk 89/8295  201s  (eta 18559s)
+      [block p=0.475] chunk 97/8295  269s  (eta 22712s)
+      [block p=0.475] chunk 105/8295  330s  (eta 25735s)
+      [block p=0.475] chunk 113/8295  391s  (eta 28315s)
+      [block p=0.475] chunk 121/8295  454s  (eta 30695s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 122/8295 (state 10:20:48)
+      [block p=0.475] chunk 129/8295  63s  (eta 4013s)
+      [block p=0.475] chunk 137/8295  131s  (eta 7815s)
+      [block p=0.475] chunk 145/8295  194s  (eta 10929s)
+      [block p=0.475] chunk 153/8295  255s  (eta 13595s)
+      [block p=0.475] chunk 161/8295  315s  (eta 15933s)
+      [block p=0.475] chunk 169/8295  377s  (eta 18136s)
+      [block p=0.475] chunk 177/8295  440s  (eta 20172s)
+      [block p=0.475] chunk 185/8295  503s  (eta 22034s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 186/8295 (state 10:30:19)
+      [block p=0.475] chunk 193/8295  60s  (eta 2538s)
+      [block p=0.475] chunk 201/8295  121s  (eta 4885s)
+      [block p=0.475] chunk 209/8295  181s  (eta 6990s)
+      [block p=0.475] chunk 217/8295  242s  (eta 8996s)
+      [block p=0.475] chunk 225/8295  302s  (eta 10849s)
+      [block p=0.475] chunk 233/8295  366s  (eta 12670s)
+      [block p=0.475] chunk 241/8295  432s  (eta 14447s)
+      [block p=0.475] chunk 249/8295  500s  (eta 16154s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 250/8295 (state 10:41:32)
+      [block p=0.475] chunk 257/8295  60s  (eta 1866s)
+      [block p=0.475] chunk 265/8295  125s  (eta 3793s)
+      [block p=0.475] chunk 273/8295  187s  (eta 5493s)
+      [block p=0.475] chunk 281/8295  250s  (eta 7128s)
+      [block p=0.475] chunk 289/8295  314s  (eta 8712s)
+      [block p=0.475] chunk 297/8295  382s  (eta 10298s)
+      [block p=0.475] chunk 305/8295  445s  (eta 11668s)
+      [block p=0.475] chunk 313/8295  508s  (eta 12957s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 314/8295 (state 10:50:25)
+      [block p=0.475] chunk 321/8295  57s  (eta 1426s)
+      [block p=0.475] chunk 329/8295  119s  (eta 2876s)
+      [block p=0.475] chunk 337/8295  178s  (eta 4214s)
+      [block p=0.475] chunk 345/8295  249s  (eta 5745s)
+      [block p=0.475] chunk 353/8295  309s  (eta 6961s)
+      [block p=0.475] chunk 361/8295  381s  (eta 8372s)
+      [block p=0.475] chunk 369/8295  455s  (eta 9781s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 370/8295 (state 11:00:47)
+      [block p=0.475] chunk 377/8295  58s  (eta 1219s)
+      [block p=0.475] chunk 385/8295  122s  (eta 2512s)
+      [block p=0.475] chunk 393/8295  187s  (eta 3759s)
+      [block p=0.475] chunk 401/8295  253s  (eta 4988s)
+      [block p=0.475] chunk 409/8295  315s  (eta 6069s)
+      [block p=0.475] chunk 417/8295  379s  (eta 7163s)
+      [block p=0.475] chunk 425/8295  445s  (eta 8246s)
+      [block p=0.475] chunk 433/8295  506s  (eta 9189s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 434/8295 (state 11:10:21)
+      [block p=0.475] chunk 441/8295  63s  (eta 1124s)
+      [block p=0.475] chunk 449/8295  129s  (eta 2251s)
+      [block p=0.475] chunk 457/8295  193s  (eta 3310s)
+      [block p=0.475] chunk 465/8295  257s  (eta 4328s)
+      [block p=0.475] chunk 473/8295  331s  (eta 5466s)
+      [block p=0.475] chunk 481/8295  402s  (eta 6526s)
+      [block p=0.475] chunk 489/8295  469s  (eta 7486s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 490/8295 (state 11:20:57)
+      [block p=0.475] chunk 497/8295  62s  (eta 967s)
+      [block p=0.475] chunk 505/8295  123s  (eta 1895s)
+      [block p=0.475] chunk 513/8295  179s  (eta 2721s)
+      [block p=0.475] chunk 521/8295  240s  (eta 3584s)
+      [block p=0.475] chunk 529/8295  299s  (eta 4389s)
+      [block p=0.475] chunk 537/8295  358s  (eta 5174s)
+      [block p=0.475] chunk 545/8295  418s  (eta 5937s)
+      [block p=0.475] chunk 553/8295  474s  (eta 6634s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 554/8295 (state 11:29:45)
+      [block p=0.475] chunk 561/8295  60s  (eta 829s)
+      [block p=0.475] chunk 569/8295  115s  (eta 1568s)
+      [block p=0.475] chunk 577/8295  176s  (eta 2354s)
+      [block p=0.475] chunk 585/8295  236s  (eta 3112s)
+      [block p=0.475] chunk 593/8295  302s  (eta 3925s)
+      [block p=0.475] chunk 601/8295  368s  (eta 4717s)
+      [block p=0.475] chunk 609/8295  435s  (eta 5489s)
+      [block p=0.475] chunk 617/8295  505s  (eta 6284s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 618/8295 (state 11:41:40)
+      [block p=0.475] chunk 625/8295  66s  (eta 814s)
+      [block p=0.475] chunk 633/8295  124s  (eta 1499s)
+      [block p=0.475] chunk 641/8295  180s  (eta 2155s)
+      [block p=0.475] chunk 649/8295  241s  (eta 2837s)
+      [block p=0.475] chunk 657/8295  298s  (eta 3470s)
+      [block p=0.475] chunk 665/8295  359s  (eta 4113s)
+      [block p=0.475] chunk 673/8295  421s  (eta 4765s)
+      [block p=0.475] chunk 681/8295  491s  (eta 5488s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 682/8295 (state 11:50:09)
+      [block p=0.475] chunk 689/8295  58s  (eta 635s)
+      [block p=0.475] chunk 697/8295  115s  (eta 1253s)
+      [block p=0.475] chunk 705/8295  178s  (eta 1914s)
+      [block p=0.475] chunk 713/8295  244s  (eta 2596s)
+      [block p=0.475] chunk 721/8295  303s  (eta 3186s)
+      [block p=0.475] chunk 729/8295  364s  (eta 3774s)
+      [block p=0.475] chunk 737/8295  421s  (eta 4320s)
+      [block p=0.475] chunk 745/8295  480s  (eta 4861s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 746/8295 (state 12:01:09)
+      [block p=0.475] chunk 753/8295  67s  (eta 670s)
+      [block p=0.475] chunk 761/8295  127s  (eta 1255s)
+      [block p=0.475] chunk 769/8295  183s  (eta 1787s)
+      [block p=0.475] chunk 777/8295  244s  (eta 2357s)
+      [block p=0.475] chunk 785/8295  301s  (eta 2883s)
+      [block p=0.475] chunk 793/8295  370s  (eta 3503s)
+      [block p=0.475] chunk 801/8295  433s  (eta 4048s)
+      [block p=0.475] chunk 809/8295  493s  (eta 4565s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 810/8295 (state 12:10:06)
+      [block p=0.475] chunk 817/8295  58s  (eta 527s)
+      [block p=0.475] chunk 825/8295  117s  (eta 1056s)
+      [block p=0.475] chunk 833/8295  173s  (eta 1550s)
+      [block p=0.475] chunk 841/8295  231s  (eta 2051s)
+      [block p=0.475] chunk 849/8295  293s  (eta 2570s)
+      [block p=0.475] chunk 857/8295  353s  (eta 3061s)
+      [block p=0.475] chunk 865/8295  417s  (eta 3578s)
+      [block p=0.475] chunk 873/8295  478s  (eta 4063s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 874/8295 (state 12:21:13)
+      [block p=0.475] chunk 881/8295  67s  (eta 560s)
+      [block p=0.475] chunk 889/8295  125s  (eta 1041s)
+      [block p=0.475] chunk 897/8295  184s  (eta 1514s)
+      [block p=0.475] chunk 905/8295  247s  (eta 2018s)
+      [block p=0.475] chunk 913/8295  306s  (eta 2474s)
+      [block p=0.475] chunk 921/8295  370s  (eta 2961s)
+      [block p=0.475] chunk 929/8295  432s  (eta 3425s)
+      [block p=0.475] chunk 937/8295  494s  (eta 3879s)
