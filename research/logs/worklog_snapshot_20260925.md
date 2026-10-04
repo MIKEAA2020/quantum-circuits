@@ -5300,3 +5300,18 @@ Work Log:
 
 Stage Summary:
 - Campaign fully operational again. All compute deps now have documented recovery paths: lib = git-tracked v18 copy; reps/counts = /tmp rescue copies (now also rebuildable via the verified-deterministic ids/reps build); ids_nb4.npy = 2-window phase_ids rebuild. p=0.475 effectively restarts: ETA ~Oct 5 evening +08; full queue ~Oct 9 (+margin).
+---
+Task ID: v25-ext-watch
+Agent: main (19:11+08 Oct 4, direct user turn 'go on in english')
+Task: Web 500 incident diagnosed and fixed (post-rollback mixed-vintage dev server); preview persistence degraded by sandbox reaper; 15-min webDevReview job created as keepalive/QA loop.
+
+Work Log:
+- User-facing turn used for platform-only checks: cron list verified BOTH campaign jobs alive (431600 driver :13/:33/:53, 431599 monitor :07/:37, both last-succeeded). Campaign state healthy: fine p=0.475 cursor 433/8295 (5.2%), d3 1/3, fine 1/4, queue 5; repo 3096d0f.
+- WEB 500 diagnosed: dev server that survived the 17:23+08 filesystem rollback had pre-rollback modules in memory while node_modules/.next on disk reverted -> recompile of globals.css failed ('Unexpected token Semicolon', GET / 500). The file itself was intact (git-clean, mirror-identical) - the mixed-vintage process was the problem.
+- Fix: killed the dev server (node/bun pids only - NO python touched), rm -rf .next, fresh start -> GET / 200, title 'quantum·circuits - MIPT in random Clifford circuits', /api/runs + /api/sweeps return saved data (SimRun 'L=16 p=0.160 n=200'; I3Sweep 'background L=8,16,32,128 · τ=2 · n=24'). A real user request GET /?sim=purif,16,0.160,2,... also served 200 (9.5s compile).
+- PERSISTENCE REGRESSION: the sandbox reaper now kills detached dev servers at EVERY Bash-call boundary (setsid nohup verified dead 3x today, cross-call and even mid-QA); earlier today (15:53+08) setsid DID survive across calls - behavior regressed after the rollback. No Complete tool available in this session to re-register platform hosting. The platform itself restarted a server once today (17:22+08, snapshot restore) and may again on maintenance.
+- Mitigation created: cron job 435269 'web dev review (15m, preview keepalive + QA)' (0 */15 * * * ? Asia/Shanghai, webDevReview kind, priority 5) - each firing restarts the server fresh in the same Bash call as its QA (start -> poll 200 -> agent-browser snapshot/console), then assesses/fixes/develops per its payload. Offsets :00/:15/:30/:45 interleave with the campaign firings :13/:33/:53 - no collision. Job count now 3 (driver, monitor, webDevReview) - documented here so campaign rounds do not treat the third job as an anomaly.
+- Bookkeeping: this entry; mirror refresh + push inside quantum-circuits; PolarFS backup refreshed.
+
+Stage Summary:
+- Web app verified HEALTHY end-to-end after the 500 fix; preview availability now depends on the 15-min keepalive firings (+ any platform-side restart). Campaign untouched and steady (~120-128 chunks/round; p=0.475 ETA ~Oct 5 evening +08, full queue ~Oct 9). If a user-facing session with the Complete tool becomes available, re-register platform hosting for continuous preview uptime.
