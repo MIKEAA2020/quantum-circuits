@@ -294,3 +294,4 @@
 2026-10-04T20:33:40Z round=r20261004T201316Z9884 d3=1/3 fine=1/4 queue=5 fine_p0.475_cursor=3721->3849(+128,46.4%) rc=0 2win note=clean_round
 2026-10-04T20:54:00Z round=r20261004T203320Z10132 d3=1/3 fine=1/4 queue=5 fine_p0.475_cursor=3849->3977(+128,47.9%) rc=0 2win note=clean_round
 2026-10-04T21:14:00Z round=r20261004T205306Z10346 d3=1/3 fine=1/4 queue=5 fine_p0.475_cursor=3977->4105(+128,49.5%) rc=0 2win note=clean_round
+2026-10-04T21:34:00Z round=r20261004T211305Z10619 d3=1/3 fine=1/4 queue=5 fine_p0.475_cursor=4105->4233(+128,51.0%) rc=0 2win note=clean_round
