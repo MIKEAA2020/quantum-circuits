@@ -502,3 +502,25 @@ FileNotFoundError: [Errno 2] No such file or directory: '/home/z/my-project/quan
       [block p=0.475] chunk 2809/8295  347s  (eta 677s)
       [block p=0.475] chunk 2817/8295  408s  (eta 794s)
       [block p=0.475] chunk 2825/8295  470s  (eta 910s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 2826/8295 (state 17:29:44)
+      [block p=0.475] chunk 2833/8295  67s  (eta 130s)
+      [block p=0.475] chunk 2841/8295  135s  (eta 259s)
+      [block p=0.475] chunk 2849/8295  204s  (eta 391s)
+      [block p=0.475] chunk 2857/8295  273s  (eta 519s)
+      [block p=0.475] chunk 2865/8295  331s  (eta 628s)
+      [block p=0.475] chunk 2873/8295  392s  (eta 739s)
+      [block p=0.475] chunk 2881/8295  454s  (eta 853s)
+      [block p=0.475] chunk 2889/8295  515s  (eta 964s)
+== phase run-fine: d=2 L=8 grid [0.475] ==
+   K = 3865 orbits; done = [0.465]
+   [block p=0.475] RESUMED at chunk 2890/8295 (state 17:41:49)
+      [block p=0.475] chunk 2897/8295  55s  (eta 103s)
+      [block p=0.475] chunk 2905/8295  113s  (eta 209s)
+      [block p=0.475] chunk 2913/8295  178s  (eta 328s)
+      [block p=0.475] chunk 2921/8295  237s  (eta 436s)
+      [block p=0.475] chunk 2929/8295  293s  (eta 538s)
+      [block p=0.475] chunk 2937/8295  361s  (eta 658s)
+      [block p=0.475] chunk 2945/8295  431s  (eta 783s)
+      [block p=0.475] chunk 2953/8295  494s  (eta 893s)
