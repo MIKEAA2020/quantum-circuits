@@ -5285,3 +5285,18 @@ Work Log:
 
 Stage Summary:
 - Campaign UNHURT — material was always pushed; recovery cost one git reset. Compute resumes at the next :13/:33/:53 firing from fine p=0.475 chunk 0; ETA shifts ~+5h (p=0.475 ~Oct 5 evening +08, full queue ~Oct 9 + margin). Web preview live on the pre-Sep-20 app core with all QA-cited data rows; Oct 1-4 web deltas lost locally pending a possible platform-side snapshot restore.
+---
+Task ID: v25-ext-watch
+Agent: main (17:33+08 Oct 4 driver firing, job 431600)
+Task: Rollback aftermath closed — untracked v25 compute deps restored/rebuilt; compute resumed same round.
+
+Work Log:
+- W1 of round r20261004T093919Z1748 failed rc=1: FileNotFoundError on ids_nb4.npy — the rollback had wiped ALL untracked compute deps: the deposited 830 MB ids_nb4.npy, reps_nb4.npy/counts_nb4.npy inputs, and n45_annealed_lib_v1.py (imported by v22_n5_L8_block_v1 at module level, never git-tracked in the v22 dir).
+- n45_annealed_lib_v1.py recovered from the git-tracked copy at research/scripts/v18-n4n5-smc/ (byte-identical to the /tmp/my-project/fuller-workspace/extracted/ copy — provenance cross-checked); copied into the v22 dir. reps_nb4.npy (3865x4) + counts_nb4.npy (3865,) restored from the Oct 1-2 rescue copies in /tmp/my-project.
+- ids_nb4.npy rebuilt via `v22_n5_L8_block_v1.py ids` (phase_ids, checkpoint/resume by design): 520s window to 78% + 146s resumed window -> complete, K=3865 orbits, state file self-removed (done marker). VERIFICATION: counts sum = 207,360,000 = full G5^nb state space; freshly built reps/counts BYTE-IDENTICAL to the rescue copies (deterministic build, provenance proven).
+- Mid-recovery lesson: restoring reps_nb4.npy BEFORE the build completed defeated the builder's fast-path guard ("reps absent => incomplete => fall through") — W2 skipped on a 78%-filled memmap. Fixed by staging reps/counts aside and rerunning; the deterministic resume filled the rest identically. No corruption at any point.
+- v25 compute resumed in-round: one clean window (rc=124), fine p=0.475 cursor 0->65 (fresh state). No JSON gain, no material event.
+- Bookkeeping: watch line + round record appended (duration 1577s incl. rebuild); mirror refreshed + pushed; PolarFS backup refreshed.
+
+Stage Summary:
+- Campaign fully operational again. All compute deps now have documented recovery paths: lib = git-tracked v18 copy; reps/counts = /tmp rescue copies (now also rebuildable via the verified-deterministic ids/reps build); ids_nb4.npy = 2-window phase_ids rebuild. p=0.475 effectively restarts: ETA ~Oct 5 evening +08; full queue ~Oct 9 (+margin).

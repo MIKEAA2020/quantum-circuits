@@ -261,3 +261,4 @@
 2026-10-04T08:52:37Z round=r20261004T083337Z30000 d3=1/3 fine=1/4 queue=5 fine_p0.475_cursor=~369->473(+~104,5.7%) rc=0 2win note=webserver_recovered_after_prev_round_oom (reconstructed_post_rollback)
 2026-10-04T09:11:00Z round=r20261004T085315Z30223 d3=1/3 fine=1/4 queue=5 fine_p0.475_cursor=473->593(+120,7.2%) rc=0 2win note=clean_round (reconstructed_post_rollback)
 2026-10-04T09:37:24Z round=r20261004T091305Z30449 d3=1/3 fine=1/4 queue=5 fine_p0.475_cursor=593->0(state_wiped_by_sandbox_rollback,recompute_from_0) rc=0 2win note=sandbox_fs_rollback_repo_recovered_from_origin_8b36cfe
+2026-10-04T10:05:36Z round=r20261004T093919Z1748 d3=1/3 fine=1/4 queue=5 fine_p0.475_cursor=0->65(fresh_state) rc=0 2win+2builder note=rollback_aftermath_v25_deps_recovered_ids_nb4_rebuilt_830MB_provenance_verified_vs_rescue

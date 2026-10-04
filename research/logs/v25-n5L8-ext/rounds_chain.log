@@ -124,3 +124,4 @@ round_id=r20261004T071304Z27933 start=1791097984 end=1791098995 duration=1011s r
 round_id=r20261004T091305Z30449 start=1791105185 end=1791106650 duration=1465s rc=0 lock_acquired=1791105185 lock_released=1791106650 next_scheduled=(lock note="already"
 round_id=r20261004T083337Z30000 start=1791102817 end=1791103960 duration=1143s rc=0 lock_acquired=1791102817 lock_released=1791103960 next_scheduled=RECURRING_20M note="reconstructed_post_rollback_2win_clean"
 round_id=r20261004T085315Z30223 start=1791103995 end=1791105057 duration=1062s rc=0 lock_acquired=1791103995 lock_released=1791105057 next_scheduled=RECURRING_20M note="reconstructed_post_rollback_2win_clean"
+round_id=r20261004T093919Z1748 start=1791106759 end=1791108336 duration=1577s rc=0 lock_acquired=1791106759 lock_released=1791108336 next_scheduled=RECURRING_20M note="rollback_recovery_round_v25_deps_restored_ids_rebuilt_provenance_verified_compute_resumed_65_chunks"
