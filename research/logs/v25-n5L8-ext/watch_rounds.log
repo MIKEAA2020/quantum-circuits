@@ -194,3 +194,67 @@
 2026-10-03 09:10:52Z round 16:53+08 Oct3 (driver v3 job 431600, round_id=r20261003T085313Z16932): W1+W2 rc=124 normal, p=0.84 8033->8161/8295 (+128, 98.4%) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies | next=RECURRING_20M (17:13+08 firing)
 2026-10-03 09:30:52Z round 17:13+08 Oct3 (driver v3 job 431600, round_id=r20261003T091308Z17192): W1+W2 rc=124 normal, p=0.84 8161->8281/8295 (+120, 99.8%) | d3 grid 0/3, fine grid 0/4 | queue 7 pts | no JSON rows | no anomalies | next=RECURRING_20M (17:33+08 firing)
 2026-10-03 09:45:10Z round 17:33+08 Oct3 (driver v3 job 431600, round_id=r20261003T093308Z17393): W1 rc=0 = d3 p=0.84 COMPLETED (8295/8295), W2 rc=124 normal rolled into fine p=0.465 (57/8295) | MATERIAL: v25_n5_L8_rung_d3.json CREATED, row1 p=0.84 L=8 d=3 K=3865 gap12=0.45316 growth=0.02976 | d3 grid 1/3, fine grid 0/4 | queue 7 listed, 6 left to compute | next=RECURRING_20M (17:53+08 firing)
+2026-10-03T10:11:12Z round r20261003T095318Z17882: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 57->177 (+120) 2x520s windows rc=124,124
+2026-10-03T10:30:55Z round r20261003T101320Z18146: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 177->305 (+128) 2x520s windows rc=124,124
+2026-10-03T10:50:38Z round r20261003T103306Z18299: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 305->433 (+128) 2x520s windows rc=124,124
+2026-10-03T11:10:40Z round r20261003T105308Z18452: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 433->561 (+128) 2x520s windows rc=124,124
+2026-10-03T11:30:38Z round r20261003T111305Z18652: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 561->689 (+128) 2x520s windows rc=124,124
+2026-10-03T11:50:37Z round r20261003T113306Z18793: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 689->817 (+128) 2x520s windows rc=124,124
+2026-10-03T12:10:40Z round r20261003T115308Z18944: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 817->945 (+128) 2x520s windows rc=124,124
+2026-10-03T12:30:39Z round r20261003T121307Z19134: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 945->1073 (+128) 2x520s windows rc=124,124
+2026-10-03T12:50:36Z round r20261003T123305Z19285: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 1073->1201 (+128) 2x520s windows rc=124,124
+2026-10-03T13:10:47Z round r20261003T125305Z19426: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 1201->1329 (+128) 2x520s windows rc=124,124
+2026-10-03T13:30:38Z round r20261003T131307Z19616: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 1329->1457 (+128) 2x520s windows rc=124,124
+2026-10-03T13:50:42Z round r20261003T133308Z19767: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 1457->1585 (+128) 2x520s windows rc=124,124
+2026-10-03T14:10:48Z round r20261003T135314Z19918: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 1585->1713 (+128) 2x520s windows rc=124,124
+2026-10-03T14:30:42Z round r20261003T141309Z20108: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 1713->1841 (+128) 2x520s windows rc=124,124
+2026-10-03T15:11:09Z round r20261003T145324Z20447: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 1905->2033 (+128) 2x520s windows rc=124,124 | NOTE: prior round r20261003T143250Z20258 (22:32 user-turn session) transport-faulted after W1 (+64, cursor 1841->1905), W2 never landed, lock orphan-cleaned at 14:53:24Z py=0, its watch/round records folded here
+2026-10-03T15:30:39Z round r20261003T151306Z20664: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 2033->2161 (+128) 2x520s windows rc=124,124
+2026-10-03T15:50:40Z round r20261003T153307Z20815: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 2161->2289 (+128) 2x520s windows rc=124,124
+2026-10-03T16:10:40Z round r20261003T155306Z20956: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 2289->2417 (+128) 2x520s windows rc=124,124
+2026-10-03T16:30:56Z round r20261003T161319Z21146: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 2417->2545 (+128) 2x520s windows rc=124,124
+2026-10-03T16:50:45Z round r20261003T163311Z21307: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 2545->2673 (+128) 2x520s windows rc=124,124
+2026-10-03T17:10:41Z round r20261003T165307Z21448: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 2673->2801 (+128) 2x520s windows rc=124,124
+2026-10-03T17:30:43Z round r20261003T171307Z21638: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 2801->2929 (+128) 2x520s windows rc=124,124
+2026-10-03T17:50:48Z round r20261003T173310Z21779: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 2929->3057 (+128) 2x520s windows rc=124,124
+2026-10-03T18:10:48Z round r20261003T175313Z21920: d3=1/3 fine=0/4 (no new JSON rows) queue_remain=6 fine_p0.465 cursor 3057->3185 (+128) 2x520s windows rc=124,124
+2026-10-03T18:31:04Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 3185->3313/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T18:50:41Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 3313->3441/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T19:10:41Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 3441->3569/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T19:30:36Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 3569->3697/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T19:50:34Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 3697->3825/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T20:10:38Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 3825->3953/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T20:30:36Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 3953->4081/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T20:50:36Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 4081->4209/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T21:10:35Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 4209->4337/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T21:30:35Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 4337->4465/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T21:50:57Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 4465->4593/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T22:10:36Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 4593->4721/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T22:30:34Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 4721->4849/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T22:50:56Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 4849->4977/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T23:10:35Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 4977->5105/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T23:30:35Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 5105->5233/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-03T23:50:38Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 5233->5361/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T00:10:36Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 5361->5489/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T00:30:39Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 5489->5617/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T00:50:35Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 5617->5745/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T01:10:41Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 5745->5873/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T01:30:43Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 5873->6001/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T01:50:38Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 6001->6129/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T02:10:39Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 6129->6257/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T02:30:39Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 6257->6385/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T02:50:42Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 6385->6513/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T03:10:41Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 6513->6641/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T03:30:45Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 6641->6769/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T03:50:42Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 6769->6897/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T04:13:49Z | d3=1/3 fine=0/4 queue=6 | in-flight fine p=0.465 cursor 6897->7025/8295 (+128) | 2 windows rc=124/124 | no JSON gain, no material
+2026-10-04T04:33:14Z round=r20261004T041459Z26610 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=7025->7153(+128,86.2%) rc=0 2win
+2026-10-04T04:51:29Z round=r20261004T043332Z26756 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=7153->7281(+128,87.8%) rc=0 2win
+2026-10-04T05:10:36Z round=r20261004T045305Z26881 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=7281->7409(+128,89.3%) rc=0 2win
+2026-10-04T05:30:39Z round=r20261004T051303Z27065 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=7409->7537(+128,90.9%) rc=0 2win
+2026-10-04T05:50:35Z round=r20261004T053303Z27190 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=7537->7665(+128,92.4%) rc=0 2win
+2026-10-04T06:10:35Z round=r20261004T055303Z27315 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=7665->7793(+128,94.0%) rc=0 2win
+2026-10-04T06:30:39Z round=r20261004T061305Z27499 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=7793->7921(+128,95.5%) rc=0 2win
+2026-10-04T06:50:36Z round=r20261004T063303Z27624 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=7921->8049(+128,97.1%) rc=0 2win
+2026-10-04T07:10:37Z round=r20261004T065304Z27749 d3=1/3 fine=0/4 queue=6 fine_p0.465_cursor=8049->8177(+128,98.6%) rc=0 2win
+2026-10-04T07:29:55Z round=r20261004T071304Z27933 d3=1/3 fine=1/4(MATERIAL p=0.465 merged, finegrid JSON created) queue=5 fine_p0.465_cursor=8177->8295(DONE) rc=0 W2rc0
