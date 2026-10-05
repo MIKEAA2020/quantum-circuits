@@ -5329,3 +5329,19 @@ Work Log:
 
 Stage Summary:
 - Fine d=2 locator grid: 2/4 done [0.465, 0.475]; remaining fine points 0.455, 0.485; d=3 rung grid 1/3 done, next d3 p=0.82. Queue 4 points to compute (~17 h each) -> full queue ~Oct 9 + margin. Campaign healthy, pace locked (+128/round).
+---
+Task ID: v25-ext-watch
+Agent: main (17:13+08 Oct 5 driver firing, job 431600 — INCIDENT + recovery round)
+Task: SECOND sandbox filesystem rollback mid-round; campaign recovered from origin + PolarFS with zero material loss; ids_nb4.npy rebuilt and re-verified.
+
+Work Log:
+- Mid-round (between W2 end and the state check, ~09:30Z), the sandbox filesystem rolled back to the platform snapshot again: quantum-circuits HEAD b5bdadc->bcc99a9 (Sep 20 vintage), research/scripts+results+logs v22-exactZ3-n5L8 subdirs vanished, worklog.md 5331->481 lines. Identical failure mode to the Oct 4 17:23+08 incident. The round had already driven 2 clean windows (rc=124) — their chunk progress (d3 0.82 393->~520) was wiped with the untracked state files.
+- Recovery (proven playbook, ~4 min): git fetch (origin/main ref was stale at 8c6ec2a from the rolled-back .git) -> origin/main intact at b5bdadc (the 16:53+08 push; ALL material safe, last verified 0/0) -> git reset --hard origin/main -> v22 scripts/results/logs restored (d3 1pt, fine 2pts [0.465,0.475], queue 7). Worklog restored from PolarFS backup /tmp/my-project/worklog.md (5331 lines, refreshed 09:10Z at the 16:53 round).
+- Compute dep lost again: ids_nb4.npy (830 MB, untracked). Rebuilt via `v22_n5_L8_block_v1.py ids`: W1 fresh 520s -> 74.4% (state ckpt ci=700); W2 hit the FAST-PATH TRAP (ids partial + reps_nb4.npy present as a git-TRACKED file -> existence-only check -> clean early return rc=0, build skipped); diagnosed from code, fixed by staging reps/counts aside (Oct 4 playbook) -> W3 resumed from ci=701 and completed in 196s (K=3865). VERIFICATION: counts sum=207,360,000 (full G5^4 space); ids zeros(120)==counts[0](120) -> table fully filled, no holes; max<K; no negatives; rebuilt reps/counts BYTE-IDENTICAL to the pre-rollback tracked copies (determinism re-proven). Staged copies removed.
+- Lesson recorded for the recovery runbook: the orbit_table fast path checks EXISTENCE of ids+reps, not completeness. During any ids rebuild with the tracked reps_nb4.npy present, stage reps/counts aside FIRST, restore only after "K = 3865 orbits" appears (state file self-removes on completion).
+- v25 compute resumed in-round: one clean window (rc=124), d3 p=0.82 restarted from chunk 0 -> cursor 65/8295, fresh state file. Pipeline proven end-to-end post-recovery.
+- Web side: /home/z/my-project top-level rolled back to the Sep 19-20 vintage again (same as Oct 4) — dev server mixed-vintage risk recurs; the webDevReview job (435269) owns restart+QA. No web action taken this round.
+- Bookkeeping: watch line (INCIDENT_ROLLBACK) + round record (duration 2632s incl. recovery) appended; lock file itself was wiped by the rollback — release reported "already absent", rc=0. Mirror refreshed + pushed; PolarFS backup refreshed; repo verified 0/0 with origin.
+
+Stage Summary:
+- Campaign UNHURT again — zero material loss (origin + PolarFS held everything). Cost: d3 p=0.82 recomputes from chunk 0 (~520 chunks lost ≈ 4 rounds ≈ ~1.4h) + one round consumed by recovery. ETA shifts: p=0.82 ~13:45 +08 Oct 6, full queue ~Oct 9 + margin. Recovery runbook now covers: git reset to origin, PolarFS worklog restore, ids_nb4 rebuild WITH the staged-reps fast-path workaround.

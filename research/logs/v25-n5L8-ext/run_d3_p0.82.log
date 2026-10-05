@@ -65,3 +65,14 @@
       [block p=0.82] chunk 377/8295  343s  (eta 7198s)
       [block p=0.82] chunk 385/8295  401s  (eta 8236s)
       [block p=0.82] chunk 393/8295  464s  (eta 9323s)
+== phase run-d3: d=3 L=8 grid [0.82] ==
+   K = 3865 orbits; done = [0.84]
+      [block p=0.82] chunk 1/8295  8s  (eta 69039s)
+      [block p=0.82] chunk 9/8295  65s  (eta 59425s)
+      [block p=0.82] chunk 17/8295  124s  (eta 60336s)
+      [block p=0.82] chunk 25/8295  184s  (eta 60973s)
+      [block p=0.82] chunk 33/8295  249s  (eta 62263s)
+      [block p=0.82] chunk 41/8295  309s  (eta 62158s)
+      [block p=0.82] chunk 49/8295  368s  (eta 61958s)
+      [block p=0.82] chunk 57/8295  437s  (eta 63221s)
+      [block p=0.82] chunk 65/8295  498s  (eta 63062s)
