@@ -5315,3 +5315,17 @@ Work Log:
 
 Stage Summary:
 - Web app verified HEALTHY end-to-end after the 500 fix; preview availability now depends on the 15-min keepalive firings (+ any platform-side restart). Campaign untouched and steady (~120-128 chunks/round; p=0.475 ETA ~Oct 5 evening +08, full queue ~Oct 9). If a user-facing session with the Complete tool becomes available, re-register platform hosting for continuous preview uptime.
+---
+Task ID: v25-ext-watch
+Agent: main (15:53+08 Oct 5 driver firing, job 431600)
+Task: MATERIAL round — fine-grid point p=0.475 completed and merged (finegrid 2/4).
+
+Work Log:
+- Round r20261005T075311Z17541: 2 windows (rc=124, rc=0). W1 drove chunks 8226->8289; W2 resumed at the final 6 chunks and the point completed ([block p=0.475] lam1=1.24401838e-04 lam2=7.65764984e-05 gap12=0.48523). Result merged into v25_n5_L8_finegrid.json -> points [0.465, 0.475]; state file run_fine_p0.4750_state.npz self-removed on completion. Run log finalized at research/logs/v25-n5L8-ext/run_fine_p0.475.log.
+- Physics note (observational): gap12 rises 0.47965 (p=0.465) -> 0.48523 (p=0.475); the d=2 fine locator continues to bracket the transition from above.
+- No new point started this round (W2 closed cleanly rc=0 after the merge); the driver picks d3 p=0.82 (next queue entry) at the 16:13 firing.
+- Path note for future checks: chunk-state files live under research/results/v22-exactZ3-n5L8/tmp_n5L8block/ (v25 script TMP = blk.TMP -> results dir), NOT under research/scripts/. An in-round ls at the wrong base briefly looked like a missing state dir; corrected, no impact.
+- Material commit 6df233b (finegrid JSON + run log) pushed inside quantum-circuits. Watch line + mirror refresh + PolarFS backup done; repo verified 0/0 with origin.
+
+Stage Summary:
+- Fine d=2 locator grid: 2/4 done [0.465, 0.475]; remaining fine points 0.455, 0.485; d=3 rung grid 1/3 done, next d3 p=0.82. Queue 4 points to compute (~17 h each) -> full queue ~Oct 9 + margin. Campaign healthy, pace locked (+128/round).
