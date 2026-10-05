@@ -329,3 +329,4 @@
 2026-10-05T08:02:55Z round=r20261005T075311Z17541 d3=1/3 fine=2/4 MATERIAL fine_p0.475_done(gap12=0.48523) queue=7raw(4 to compute) cursor=complete delta=+70+final rc=124,0 windows=2
 2026-10-05T08:30:49Z round=r20261005T081312Z17853 d3=1/3 fine=2/4 queue=7raw(4 to compute) cursor_d3_p0.82=129/8295(fresh) delta=+129 rc=124,124 windows=2
 2026-10-05T08:50:46Z round=r20261005T083311Z18037 d3=1/3 fine=2/4 queue=7raw(4 to compute) cursor_d3_p0.82=265/8295 delta=+136 rc=124,124 windows=2
+2026-10-05T09:10:43Z round=r20261005T085306Z18219 d3=1/3 fine=2/4 queue=7raw(4 to compute) cursor_d3_p0.82=393/8295 delta=+128 rc=124,124 windows=2
