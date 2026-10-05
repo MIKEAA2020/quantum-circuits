@@ -5364,3 +5364,20 @@ Work Log:
 
 Stage Summary:
 - Campaign healthy and self-driving: d3 p=0.82 at 577/8295 (7.0%), 19:33 round in flight (target ~705); grids: d3 rung 1/3, fine d=2 2/4 [0.465, 0.475]; queue 4 points remaining (d3 0.82 in flight; then d3 0.86, fine 0.455, fine 0.485). ETA at the locked +128/round pace: d3 p=0.82 ~Oct 6 mid-afternoon +08 (barring further rollbacks); full queue ~Oct 9 +08. Web app healthy, keepalive restored. Known risks: recurring sandbox rollbacks (recovery playbook proven twice — git reset to origin, PolarFS worklog restore, ids rebuild with staged reps, .git-credentials restore); occasional missed firings (harmless at the 20-min cadence).
+---
+Task ID: v25-ext-watch
+Agent: main (01:52+08 Oct 6, direct user turn 'go on in english' — verification-only, no self-driving)
+Task: User-facing verification pass: campaign state confirmed healthy and self-driving; vanished webDevReview keepalive job recreated (438284).
+
+Work Log:
+- No compute driven this turn (the fixed :13/:33/:53 rhythm owns driving; user-facing turns stay platform-only per the Oct 4/5 precedent). RAM at check 2458 MB available; done marker absent; round lock FREE.
+- Last round r20261005T173306Z7350 (01:33+08 firing) verified closed cleanly: 2 windows rc=124,124; d3 p=0.82 cursor 2745->2857 (+112); watch line 17:50:40Z; chain record duration 1058s, lock released 1791222640; repo 0/0 with origin.
+- Session-spanning summary since the 22:33+08 Oct 5 session segment: rounds r20261005T143310Z5467 (22:33, +120), r20261005T145306Z5700 (22:53, +112), r20261005T151306Z5938 (23:13, +120), r20261005T153309Z6117 (23:33, +120), r20261005T155305Z6302 (23:53, +128), r20261005T161306Z6547 (00:13, +112), r20261005T163309Z6742 (00:33, +112), r20261005T165307Z6921 (00:53, +120), r20261005T171305Z7158 (01:13, +128), r20261005T173306Z7350 (01:33, +112) — 10 consecutive clean rounds, no gaps, no overlaps, no material events. The 22:13+08 firing had executed in the prior session segment (r20261005T141307Z5255, +112).
+- Monitors 00:07 and 01:07 both healthy (chain age 11-13s, lock FREE).
+- Cron list verified: driver 431600 (:13/:33/:53, last succeeded 01:50+08) and monitor 431599 (:07/:37, last succeeded 01:11+08) alive. The webDevReview keepalive job 437491 (recreated 19:31+08 Oct 5) had VANISHED from the scheduler again (list total=2) — second platform-side disappearance in ~24h (435269 vanished first). Root cause unknown; recurring pattern.
+- Mitigation re-applied: recreated the 15-min webDevReview cron job as 438284 (0 */15 * * * ? Asia/Shanghai, kind webDevReview, priority 5; offsets :00/:15/:30/:45 interleave with campaign firings :13/:33/:53 — no collision). Job count now 3.
+- Web verified healthy: dev server up since 17:29+08 Oct 5 (uptime ~8.4h at check, platform-managed instance stable across Bash boundaries); GET / 200 in 82ms; GET /api/runs 200 serving Prisma data.
+- Bookkeeping: this entry; mirror refreshed (byte-exact cp + cmp verified) and pushed inside quantum-circuits; PolarFS backup refreshed; repo verified 0/0 with origin.
+
+Stage Summary:
+- Campaign healthy and self-driving: d3 p=0.82 at 2857/8295 (34.4%), pace steady ~112-128/round; grids: d3 rung 1/3, fine d=2 2/4 [0.465, 0.475]; queue 4 points remaining (d3 0.82 in flight; then d3 0.86, fine 0.455, fine 0.485). ETA: d3 p=0.82 ~Oct 6 late evening +08; full queue ~Oct 9 +08. Web healthy, keepalive restored (438284). Known risks: recurring sandbox rollbacks (recovery playbook proven twice); recurring platform-side deletion of the webDevReview job (now recreated twice — if it vanishes a third time, consider accepting per-firing manual restarts during user turns only); occasional missed firings (harmless at the 20-min cadence).
