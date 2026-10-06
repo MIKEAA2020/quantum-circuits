@@ -5381,3 +5381,17 @@ Work Log:
 
 Stage Summary:
 - Campaign healthy and self-driving: d3 p=0.82 at 2857/8295 (34.4%), pace steady ~112-128/round; grids: d3 rung 1/3, fine d=2 2/4 [0.465, 0.475]; queue 4 points remaining (d3 0.82 in flight; then d3 0.86, fine 0.455, fine 0.485). ETA: d3 p=0.82 ~Oct 6 late evening +08; full queue ~Oct 9 +08. Web healthy, keepalive restored (438284). Known risks: recurring sandbox rollbacks (recovery playbook proven twice); recurring platform-side deletion of the webDevReview job (now recreated twice — if it vanishes a third time, consider accepting per-firing manual restarts during user turns only); occasional missed firings (harmless at the 20-min cadence).
+---
+Task ID: v25-ext-watch
+Agent: main (16:53+08 Oct 6 driver firing, job 431600 — MATERIAL round: d3 p=0.82 complete)
+Task: d3 p=0.82 completed and merged into the L=8 rung grid; d=3 rung grid now 2/3.
+
+Work Log:
+- Round r20261006T085403Z16629: W1 (rc=124) drove chunks 8217->8282; W2 resumed at 8282/8295, finished the final 13 chunks and the point completed cleanly (W2 rc=0). Merge: v25_n5_L8_rung_d3.json -> 2/3 [0.84, 0.82]; state file run_d3_p0.8200_state.npz self-removed on completion; run log finalized at research/logs/v25-n5L8-ext/run_d3_p0.82.log.
+- Result: p=0.82 lam1=3.28429324e-12 lam2=1.27228469e-12 gap12=0.94834 (final block 115.3s; full point 8295 chunks).
+- Physics note (observational): gap12 falls 0.94834 (p=0.82) -> 0.45316 (p=0.84); the L=8 d=3 rung grid now brackets the transition from below, consistent with the d=3 locator minima (L=6 p=0.85 gap 0.62105; L=4 p~0.855 gap 1.482). Next point d3 p=0.86 sits above the bracket.
+- No new point started this round (W2 closed cleanly rc=0 after the merge; tmp_n5L8block holds no state files); the driver picks d3 p=0.86 (next queue entry) at the 17:13 firing.
+- Session segment note: rounds 15:13/15:33/15:53/16:13/16:33 (r20261006T071428Z15643 +120, r20261006T073321Z15849 +112, r20261006T075307Z16029 +128, r20261006T081308Z16259 +112, r20261006T083308Z16443 +120) all clean non-material rounds, 2 windows each, no gaps/overlaps; pending 15:07 monitor answered healthy (chain age 213s), 16:07 monitor healthy (11s).
+
+Stage Summary:
+- d=3 rung grid 2/3 [0.84, 0.82]; fine d=2 grid 2/4 [0.465, 0.475]; queue 3 to compute (d3 0.86 next, then fine 0.455, fine 0.485) -> full queue ~Oct 9 + margin. Pace steady +112-128/round. Material commit pushed inside quantum-circuits; PolarFS backup refreshed.
