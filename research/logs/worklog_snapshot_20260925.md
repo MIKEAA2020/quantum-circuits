@@ -5395,3 +5395,19 @@ Work Log:
 
 Stage Summary:
 - d=3 rung grid 2/3 [0.84, 0.82]; fine d=2 grid 2/4 [0.465, 0.475]; queue 3 to compute (d3 0.86 next, then fine 0.455, fine 0.485) -> full queue ~Oct 9 + margin. Pace steady +112-128/round. Material commit pushed inside quantum-circuits; PolarFS backup refreshed.
+---
+Task ID: v25-ext-watch
+Agent: main (21:52+08 Oct 6, direct user turn 'go on in enlgish' — verification-only, no self-driving)
+Task: User-facing verification pass: d3 p=0.82 completion confirmed materialized and pushed; campaign healthy on d3 p=0.86; vanished webDevReview keepalive job recreated (440111).
+
+Work Log:
+- No compute driven this turn (the fixed :13/:33/:53 rhythm owns driving; user-facing turns stay platform-only per the Oct 4/5 precedent). RAM at check 2419 MB available; done marker absent; round lock FREE.
+- MATERIAL round verified: the 16:53+08 firing (r20261006T085403Z16629) completed d3 p=0.82 — gap12=0.94834 (lam1=3.28429324e-12, lam2=1.27228469e-12), rung d3 grid -> 2/3 [0.84, 0.82]. Full material protocol executed: commit 35580f0 pushed (JSON + run log + watch/chain logs + mirror), repo 0/0 with origin, PolarFS backup refreshed. Physics: gap12 falls 0.94834 (p=0.82) -> 0.45316 (p=0.84), bracketing the transition from below.
+- Since that completion: 5 clean non-material rounds (17:13 start d3 p=0.86 from chunk 0; then 17:33/17:53/18:13/18:33/18:53/19:13/19:33/19:53/20:13/20:33/20:53/21:13/21:33 — cursor 121->...->1665, pace +112..+128/round, 20.1%). No gaps, no overlaps, no anomalies. Monitors 16:07-21:07 all healthy (chain age 10-16s).
+- Cron list verified: driver 431600 (last succeeded 21:51+08) and monitor 431599 (last succeeded 21:11+08) alive. The webDevReview keepalive 438284 (recreated 01:52+08) had VANISHED from the scheduler a THIRD time (list total=2) — platform-side deletion pattern continues (435269 -> 437491 -> 438284 all vanished within ~24h each).
+- Mitigation: recreated the 15-min webDevReview cron job as 440111 (0 */15 * * * ? Asia/Shanghai, kind webDevReview, priority 5; offsets :00/:15/:30/:45 interleave with campaign firings :13/:33/:53 — no collision). Job count now 3. If 440111 vanishes a fourth time, accept manual per-user-turn restarts instead of re-creating.
+- Web verified healthy: dev server up (GET / 200 in 74ms; GET /api/runs 200 in 14ms serving Prisma data; dev.log clean).
+- Bookkeeping: this entry; mirror refreshed (byte-exact cp + cmp verified) and pushed inside quantum-circuits; PolarFS backup refreshed; repo verified 0/0 with origin.
+
+Stage Summary:
+- Campaign healthy and self-driving: d3 p=0.86 at 1665/8295 (20.1%), pace steady +112-128/round; grids d3 rung 2/3 [0.84, 0.82], fine d=2 2/4 [0.465, 0.475]; queue 3 points remaining (d3 0.86 in flight; then fine 0.455, fine 0.485). ETA: d3 p=0.86 ~Oct 7 ~16:45 +08; full queue ~Oct 9 +08. Web healthy, keepalive restored (440111). Known risks: recurring sandbox rollbacks (recovery playbook proven twice); recurring platform-side deletion of the webDevReview job (recreated 3x — 440111 current); occasional missed firings (harmless at the 20-min cadence).
