@@ -5411,3 +5411,17 @@ Work Log:
 
 Stage Summary:
 - Campaign healthy and self-driving: d3 p=0.86 at 1665/8295 (20.1%), pace steady +112-128/round; grids d3 rung 2/3 [0.84, 0.82], fine d=2 2/4 [0.465, 0.475]; queue 3 points remaining (d3 0.86 in flight; then fine 0.455, fine 0.485). ETA: d3 p=0.86 ~Oct 7 ~16:45 +08; full queue ~Oct 9 +08. Web healthy, keepalive restored (440111). Known risks: recurring sandbox rollbacks (recovery playbook proven twice); recurring platform-side deletion of the webDevReview job (recreated 3x — 440111 current); occasional missed firings (harmless at the 20-min cadence).
+---
+Task ID: v25-ext-watch
+Agent: main (16:33+08 Oct 7 driver firing, job 431600 — MATERIAL round: d3 p=0.86 complete, rung d=3 grid 3/3)
+Task: d3 p=0.86 completed and merged into the L=8 rung grid; d=3 rung grid CLOSED (3/3).
+
+Work Log:
+- Round r20261007T083319Z30338 (2 windows, rc=124,0): W1 drove chunks 8177->8241; W2 finished the final 54 chunks and the point completed cleanly (W2 rc=0, 8295/8295). Merge: v25_n5_L8_rung_d3.json -> 3/3 [0.84, 0.82, 0.86]; state file run_d3_p0.8600_state.npz self-removed; no new point started (W2 had <90s left after the merge).
+- Result: p=0.86 lam1=1.38538955e-13 lam2=8.24568487e-14 gap12=0.51888 (final block 435.7s; full point 8295 chunks, ~17h wall).
+- Physics: d=3 L=8 gap12 profile now 0.94834 (p=0.82) -> 0.45316 (p=0.84) -> 0.51888 (p=0.86) — the minimum is bracketed in (0.82, 0.86) near p~0.84-0.85, consistent with the d=3 locator minima (L=6 p=0.85 gap 0.62105; L=4 p~0.855 gap 1.482). The rung d=3 grid is CLOSED.
+- Session segment note: rounds 15:33/15:53/16:13 (r20261007T073355Z29718 +120, r20261007T075313Z29920 +112, r20261007T081310Z30160 +120) all clean non-material; 16:07 monitor healthy (chain age 30s). Pace steady +112-128/round. Anomaly check: supervisor_heartbeat.txt in the log dir is the driver's own per-window heartbeat (timestamps match W1/W2 starts exactly) — benign, no rogue process.
+- Next: driver picks fine d=2 p=0.455 (next queue entry) at the 16:53 firing; remaining queue 2 points (fine 0.455, fine 0.485).
+
+Stage Summary:
+- d=3 rung grid CLOSED 3/3 [0.84, 0.82, 0.86]; fine d=2 grid 2/4 [0.465, 0.475]; queue 2 to compute -> full queue ~Oct 9 + margin. Material commit pushed inside quantum-circuits; mirror refreshed; PolarFS backup refreshed.
