@@ -5454,3 +5454,4 @@ Work Log:
 
 Stage Summary:
 - Rollback recovered in-round; repo at 573896d (origin/main), worklog current through the 14:33 material entry + this entry; grids rung d3 3/3 CLOSED, fine d2 3/4; queue 1 point (fine p=0.485 from chunk 0). Driver resumes at the next fixed firing; no scheduling actions taken.
+- Recovery addendum: the rollback also wiped ~/.git-credentials (push auth failed post-restore). Restored from the surviving PolarFS copy /tmp/my-project/.git-credentials.bak + set git config --global credential.helper store; push 243fb4e verified 0/0 with origin. UPDATED RECOVERY PLAYBOOK (4 steps): 1) git fetch + reset --hard origin/main inside quantum-circuits; 2) restore worklog.md from /tmp/my-project/worklog.md; 3) restore ~/.git-credentials from /tmp/my-project/.git-credentials.bak + credential.helper=store; 4) verify v25 tree + 0/0 push state.
