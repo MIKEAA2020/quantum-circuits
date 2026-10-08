@@ -5425,3 +5425,17 @@ Work Log:
 
 Stage Summary:
 - d=3 rung grid CLOSED 3/3 [0.84, 0.82, 0.86]; fine d=2 grid 2/4 [0.465, 0.475]; queue 2 to compute -> full queue ~Oct 9 + margin. Material commit pushed inside quantum-circuits; mirror refreshed; PolarFS backup refreshed.
+---
+Task ID: v25-ext-watch
+Agent: main (14:33+08 Oct 8 driver firing, job 431600 — MATERIAL round: fine d=2 p=0.455 complete, finegrid 3/4)
+Task: fine d=2 p=0.455 completed and merged into the L=8 fine grid; queue 1 point left (fine 0.485).
+
+Work Log:
+- Round r20261008T063315Z9754 (2 windows, rc=0,124): W1 finished the final 46 chunks of fine p=0.455 (8295/8295), point completed and merged cleanly, W1 closed rc=0; W2 started the next queue point fine p=0.485 from chunk 0 and drove to chunk 65 (rc=124).
+- Result: p=0.455 lam1=1.91315005e-04 lam2=1.17931819e-04 gap12=0.48381 (final block 361.9s; full point 8295 chunks, ~17h wall; final-chunk slow tail ~8s/chunk observed over the last ~600 chunks as with prior completions).
+- Physics: d=2 L=8 fine grid gap12 now 0.47965 (p=0.465) / 0.48523 (p=0.475) / 0.48381 (p=0.455) — minimum currently bracketed near p~0.465-0.47; the final point p=0.485 closes the grid (brackets the transition from above).
+- Session segment note (since the prior material entry, Oct 7 16:33+08): 20 consecutive clean non-material driver rounds (05:53 Oct 7 16:53-firing start of fine p=0.455 from chunk 0 ... 14:13 Oct 8 firing), cursor 0->8249 on p=0.455, pace +112..+144/round, all 2-window rc=124, no gaps/overlaps; monitors 17:07-14:07 all healthy (chain age 10-30s).
+- Material protocol: commit f11735f pushed inside quantum-circuits (finegrid JSON + run_fine_p0.455.log + watch/chain logs); mirror refresh + push; PolarFS backup refresh follow in this round.
+
+Stage Summary:
+- Fine d=2 grid 3/4 [0.465 gap 0.47965, 0.475 gap 0.48523, 0.455 gap 0.48381]; d=3 rung grid CLOSED 3/3 [0.84, 0.82, 0.86]; queue 1 to compute (fine 0.485 in flight from chunk 0). ETA: fine p=0.485 ~Oct 9 ~07:00-09:00 +08 (~17h at +128..136/round) -> full queue Oct 9 + margin; done marker then triggers the step-2 verification round.
