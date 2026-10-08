@@ -537,3 +537,4 @@
 2026-10-08T06:11:31Z round=r20261008T055320Z9367 d3=3/3 fine=2/4 queue=7raw(2 to compute) cursor_fine_p0.455=8121/8295 delta=+136 rc=124,124 windows=2
 2026-10-08T06:30:57Z round=r20261008T061313Z9602 d3=3/3 fine=2/4 queue=7raw(2 to compute) cursor_fine_p0.455=8249/8295 delta=+128 rc=124,124 windows=2
 2026-10-08T06:48:58Z round=r20261008T063315Z9754 d3=3/3 fine=3/4 MATERIAL(p0.455 gap12=0.48381) queue=7raw(1 to compute) cursor_fine_p0.485=65/8295 rc=0,124 windows=2
+2026-10-08T09:39:33Z round=r20261008T091425Z11212->11226 SANDBOX_ROLLBACK: repo+worklog reset to v15-era mid-round; recovered via git reset --hard origin/main (573896d) + PolarFS worklog restore; fine p0.485 state file LOST (was ~1001/8295) -> restarts chunk 0; 7 non-material watch/chain lines (14:53-16:53) lost; grids intact rung 3/3 fine 3/4

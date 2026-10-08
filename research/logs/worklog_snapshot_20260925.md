@@ -5439,3 +5439,18 @@ Work Log:
 
 Stage Summary:
 - Fine d=2 grid 3/4 [0.465 gap 0.47965, 0.475 gap 0.48523, 0.455 gap 0.48381]; d=3 rung grid CLOSED 3/3 [0.84, 0.82, 0.86]; queue 1 to compute (fine 0.485 in flight from chunk 0). ETA: fine p=0.485 ~Oct 9 ~07:00-09:00 +08 (~17h at +128..136/round) -> full queue Oct 9 + margin; done marker then triggers the step-2 verification round.
+
+---
+Task ID: v25-ext-watch
+Agent: main (17:13+08 Oct 8 driver firing, job 431600 — SANDBOX ROLLBACK discovered + recovered)
+Task: Mid-round sandbox rollback reset quantum-circuits/ and worklog.md to the v15 era; recovery playbook executed in-round; fine p=0.485 state lost (restarts chunk 0).
+
+Work Log:
+- Round r20261008T091425Z11226: lock acquired 17:14:25+08, both windows ran full 520s (rc=124/124) against the then-intact tree; FINALLY block then found research/logs/, results JSONs, tmp_n5L8block/ and the scripts dir GONE — git HEAD was bcc99a9 (v15 era, ~Sept 25), worklog.md also rolled back to v15-era content. No v25 python process survived (ps clean).
+- Recovery (proven playbook, 3rd execution): git fetch origin (8c6ec2a..573896d) -> git reset --hard origin/main (HEAD now 573896d = mirror refresh after f11735f) -> worklog.md restored byte-exact from the intact PolarFS backup /tmp/my-project/worklog.md (856672 bytes, 5441 lines, 14:33-material tail verified).
+- Post-restore verification: finegrid 3 points [0.465, 0.475, 0.455], rung d3 3 points, v25 driver/lock/ext scripts + monitor/driver payloads present, run logs restored through run_fine_p0.455.log, cached orbit tables (counts/reps nb=2,3,4) git-tracked and intact, queue config intact (1 point to compute). State dir results/.../tmp_n5L8block present (git-tracked tables; script makedirs for the rest).
+- Losses: per-point state file run_fine_p0.4850_state.npz (last observed cursor 1001/8295, 12.1%) — point RESTARTS from chunk 0 at the next firing (~2.5h compute lost); 7 non-material watch_rounds.log + rounds_chain.log lines (rounds 14:53-16:53+08) — never committed, unrecoverable; acceptable.
+- ETA impact: fine p=0.485 restarts -> full point ~62 rounds ~17.5h from the 17:53+08 firing -> completes ~Oct 9 ~11:30+08; full queue Oct 9 + margin.
+
+Stage Summary:
+- Rollback recovered in-round; repo at 573896d (origin/main), worklog current through the 14:33 material entry + this entry; grids rung d3 3/3 CLOSED, fine d2 3/4; queue 1 point (fine p=0.485 from chunk 0). Driver resumes at the next fixed firing; no scheduling actions taken.
