@@ -1,0 +1,31 @@
+# certificate_sha256_v14.txt -- ledger v14 (v27, the extension-integration
+# pass: the completed extension campaign integrated -- the d=3 L=8 rung and
+# the finer d=2 locator grid at L=8)
+# generated: 2026-10-09T11:23:22Z
+# v13 (v26) and earlier kept unmodified.
+# The 830 MB canonical-id array ids_nb4.npy is NOT deposited (GitHub
+# 100 MB limit) and is REUSED unchanged from the v23 round (it is
+# d-independent; the post-rollback rebuild was verified byte-identical).
+
+7acf10cd45d6b76a06946056c8ebfca2802ee4cb37aef4894761ad41f4b36a90  manuscript_revised_v27.tex
+9b317ec8ff66c21859c8012bd14d2b431eb2288156524c58bd7d3cd402e42b7f  manuscript_revised_v27.pdf
+2d218e93688e387bf50bc829544616dcfb09119f758de35201445883bfa74160  supplement_v9.tex
+61474aa94713775565cf182338a79bc2c8f6d22837c4beedadf5431c22c6c0bf  supplement_v9.pdf
+e547f6bcbc6b0f94d379b25f92e52d549f98a688bf5e226e505efd6576097e12  changelog_v27.md
+064763d7a9c284620281dd51d856995d8a29885156ac3f56fdd97bbc66b2ef1b  README_v27.md
+
+# the completed extension results (both grids):
+859b2f1929027020c30268424ee3d39cd29ceeb72c3326a6562f23a23832a34b  ../results/v22-exactZ3-n5L8/v25_n5_L8_rung_d3.json
+2de43a569168d517424f2f2511a4cebd673780c027ef38cec39138051c1981e2  ../results/v22-exactZ3-n5L8/v25_n5_L8_finegrid.json
+
+# the integration patch script:
+5061d2fddb31e57a4f1ed47617785b465fc2f33e307bd411cf33c42bcf3d2aaa  ../scripts/v22-exactZ3-n5L8/patch_v27_extL8.py
+
+# the per-point run logs of the extension campaign:
+0ffd558dde873f8906aaf69388bf228f443a17e021fc4235c9c5ec03d1005e55  ../logs/v25-n5L8-ext/run_d3_p0.82.log
+baa6ed13d0aa984ac29d7887016a74682e421cc5397b4c56715144d5d592f0fb  ../logs/v25-n5L8-ext/run_d3_p0.84.log
+aac514107a3bf6d9b20034b8a88f2ce444b357fa3fdd95f4c4217ee4e978d7e2  ../logs/v25-n5L8-ext/run_d3_p0.86.log
+81eb3efa1397acd9c8c1cc6f57010b31b25ed005486632f89c80201471e2d81b  ../logs/v25-n5L8-ext/run_fine_p0.455.log
+fdfc999349b1f543a7870355e21bd4b33f09d5ca1c9adb947a21c68b3adebd47  ../logs/v25-n5L8-ext/run_fine_p0.465.log
+8dbf44a4d333b6f3b53be3175a40758da75e4fd45e83fa131ba1b74a1cf081e2  ../logs/v25-n5L8-ext/run_fine_p0.475.log
+3ed6388cb1f301fdba36c92452b982834f5da88ea3bd837f83c32c4c9a17cf6c  ../logs/v25-n5L8-ext/run_fine_p0.485.log
