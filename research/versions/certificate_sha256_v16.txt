@@ -1,0 +1,27 @@
+# certificate_sha256_v16.txt -- ledger v16 (v29, the layout-polish +
+# metaphysics + data-availability pass: the four column-overflowing
+# tables (IV/V/VI/IX) promoted to two-column table* floats with
+# byte-identical tabulars; the two clipped displays of the
+# closed-form spectrum (eqs. (48)/(50)) re-set with every token
+# preserved; Proposition 11's item label detached from the header;
+# Sec. VII refers to the standing metaphysics as metaphysics
+# throughout (established once as the working assumption); data
+# availability names preprints.org and states the supplementary's
+# web simulation formally; companion supplement_v10: the clipped SMC
+# display split, the calibration table promoted, the reproduction
+# block re-set as a list, six literal label-name references replaced
+# by explicit main-text numbers)
+# generated: 2026-10-09T20:38:07+03:00
+# v15 (v28) and earlier kept unmodified.
+# The 830 MB canonical-id array ids_nb4.npy is NOT deposited (GitHub
+# 100 MB limit) and is REUSED unchanged from the v23 round (it is
+# d-independent; the post-rollback rebuild was verified
+# byte-identical).
+dd8cb6eb5ec6e951ebde96440151b22a50cae9a04ccc719d3213dc9c6178a368  manuscript_revised_v29.tex
+f6826c7dee5131d89d56838ff07f6ab2d8016d9167b18270f777a750f67eb92c  manuscript_revised_v29.pdf
+9eed109a2915fc1a0a91d6fc3a9d25d86b0bdb16d37f3ca1a7ad93e94445bd8f  supplement_v10.tex
+204d420e5bbf29242039190817e93530553eacd57c52d4d97a19bf318b72589c  supplement_v10.pdf
+0ae6488d10d8e57ed56f42d6121b7558b53a7bc6d1044b831d198c5be0c430d7  changelog_v29.md
+65d2abf8fd68f48678e00752334daa502332bf52044613d6697290f29cdff059  README_v29.md
+4aa074d19cab5f6a80c54605e6f870d16190b2755c5e38e04fa71b2f13d66db0  ../../absolute.txt
+a461e1896f362546b95e7548bcb7d8ce610054553a114a6ace9e27884fe79791  ../scripts/v22-exactZ3-n5L8/patch_v29_layout_polish.py
