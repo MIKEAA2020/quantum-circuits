@@ -1,0 +1,25 @@
+# certificate_sha256_v15.txt -- ledger v15 (v28, the demotion +
+# interpretive-status pass: Sec. III worst-case complexity
+# demoted verbatim to Appendix C with a summary subsection left in
+# the main text (zero content loss, asserted in the patch script);
+# new Sec. VII "Interpretive status of the record formalism"; the
+# standing working assumption deposited as absolute.txt at the
+# repository root)
+# generated: 2026-10-09T16:20:51Z
+# v14 (v27) and earlier kept unmodified.
+# The supplement is unchanged this pass (v9 remains the companion).
+# The 830 MB canonical-id array ids_nb4.npy is NOT deposited (GitHub
+# 100 MB limit) and is REUSED unchanged from the v23 round (it is
+# d-independent; the post-rollback rebuild was verified byte-identical).
+eaa908aea7d138922c642622646f27d67382eaac2d40fa463c68ec7c4be1056d  manuscript_revised_v28.tex
+700e394fce3b4ebdbb1393166a3dc3487e480cf655ddba1c67ab7d567ebd2bd7  manuscript_revised_v28.pdf
+2d218e93688e387bf50bc829544616dcfb09119f758de35201445883bfa74160  supplement_v9.tex
+61474aa94713775565cf182338a79bc2c8f6d22837c4beedadf5431c22c6c0bf  supplement_v9.pdf
+4df5a4a3e4ad09475ea4eb0721e198dbd154e2e5f040b3adae4c9a09689d455d  changelog_v28.md
+1e147681308fa4410c53504dac16190b1db4b374f9dfcc43dd84d3c270937160  README_v28.md
+
+# the standing document (research record, not submitted text):
+4aa074d19cab5f6a80c54605e6f870d16190b2755c5e38e04fa71b2f13d66db0  ../../absolute.txt
+
+# the v28 patch script (contains the no-content-loss assertions):
+e919dee914e44dae6c6055f0c28c59127ad6bd10c05ae6ff76da5db5ad8eca46  ../scripts/v22-exactZ3-n5L8/patch_v28_absolute_interpret.py
