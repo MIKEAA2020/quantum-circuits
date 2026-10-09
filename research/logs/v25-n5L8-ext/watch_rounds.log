@@ -607,3 +607,4 @@
 2026-10-09T08:10:55Z round=r20261009T075309Z13866 rung_d3=3/3 fine_d2=3/4 queue_remaining=1(fine p0.485) cursor=8161/8295(98.4%) delta=+128 windows=2 rc=124,124 non-material
 2026-10-09T08:31:14Z round=r20261009T081322Z14065 rung_d3=3/3 fine_d2=3/4 queue_remaining=1(fine p0.485) cursor=8289/8295(99.9%) delta=+128 windows=2 rc=124,124 non-material
 2026-10-09T08:36:17Z round=r20261009T083321Z14208 rung_d3=3/3 fine_d2=4/4 queue_remaining=0 cursor=8295/8295(100%) delta=+6 windows=1 rc=0 MATERIAL
+2026-10-09T08:53:43Z round=r20261009T085331Z14459 rung_d3=3/3 fine_d2=4/4 queue_remaining=0 windows=1 rc=0 non-material done-marker-touched

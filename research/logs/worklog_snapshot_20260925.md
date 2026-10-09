@@ -5472,3 +5472,18 @@ Work Log:
 
 Stage Summary:
 - CAMPAIGN COMPUTE COMPLETE: all queue points done — validate-d3, d=3 locators (L=4 min p~0.855 gap 1.482; L=6 min p=0.85 gap 0.62105), L=8 rung d=3 3/3 CLOSED [0.82 gap 0.94834 / 0.84 gap 0.45316 / 0.86 gap 0.51888], L=8 fine d=2 4/4 CLOSED (min gap12 0.47965 near p~0.465). Remaining: step-2 verification round at the 16:53+08 firing; cron cleanup (driver 431600 + monitor 431599) needs a user-facing session if the cron tool stays absent.
+
+---
+Task ID: v25-ext-watch
+Agent: main (17:13+08 Oct 9 driver firing, job 431600 — STEP-2 VERIFICATION ROUND: campaign complete)
+Task: post-completion verification per driver payload step 2; no compute driven.
+
+Work Log:
+- Done marker /home/z/.v25_ext_done present (touched 16:53:34+08 by the driver's first empty-queue call, round r20261009T085331Z14459); verification round executed at the 17:13+08 firing.
+- git fetch + rev-list --left-right --count origin/main...HEAD -> 0/0 (HEAD = 73128f3, the material commit 'fine d=2 p=0.485 complete'). Queue completeness: v25_ext_config.json holds exactly the 7 L=8 grid points and ALL 7 verified present in the results JSONs — rung d3 3/3 [0.82, 0.84, 0.86], fine d=2 4/4 [0.455, 0.465, 0.475, 0.485]; ALL_QUEUE_POINTS_PRESENT=True.
+- Final physics (L=8): d=3 gap12 0.94834 (0.82) / 0.45316 (0.84) / 0.51888 (0.86) — min bracketed (0.82, 0.86) near p~0.84-0.85, consistent with locators (L=6 p=0.85 gap 0.62105; L=4 p~0.855 gap 1.482). d=2 gap12 0.48381 (0.455) / 0.47965 (0.465) / 0.48523 (0.475) / 0.50135 (0.485) — min near p~0.465-0.47.
+- Bookkeeping: verification event appended to rounds_chain.log; mirror refreshed (byte-exact cp + cmp); PolarFS backup refreshed; delta committed + pushed inside quantum-circuits (watch/chain logs + mirror).
+- Cron tool NOT available in this cron-fired session (as verified repeatedly) — job cleanup (driver 431600 'v25 ext round driver' + monitor 431599 'v25 ext driver monitor') needs a user-facing session. DO NOT schedule anything.
+
+Stage Summary:
+- CAMPAIGN COMPLETE: v25 extension (n=5, L=8) fully computed, merged, verified 0/0 with origin, and pushed. Both L=8 grids CLOSED. No further driver rounds will do work (queue empty; done marker present). Remaining manual step: delete jobs 431600 + 431599 from a user-facing session.
