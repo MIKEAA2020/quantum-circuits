@@ -1,0 +1,26 @@
+# certificate_sha256_v17.txt -- ledger v17 (v30, the web-simulation
+# hosting pass: the data availability statement gives the hosted URL
+# of the web simulation -- https://mikeaa2020.github.io/
+# quantum-circuits/web-simulation/ -- replacing the v29
+# supplementary-inclusion framing; every description clause carried
+# verbatim, asserted; the deposited-artifact list and the preprints.org
+# DOI sentence untouched; the companion supplement_v10 carries no
+# such reference and passes forward unchanged; the web simulation
+# artifact itself is committed at web-simulation/ (one
+# self-contained offline index.html, 737 KB, browser-verified via
+# file://, plus web_simulation.zip for archival upload, .nojekyll
+# markers for Pages serving))
+# generated: 2026-10-09T23:50:49+03:00
+# v16 (v29) and earlier kept unmodified.
+# The 830 MB canonical-id array ids_nb4.npy is NOT deposited (GitHub
+# 100 MB limit) and is REUSED unchanged from the v23 round (it is
+# d-independent; the post-rollback rebuild was verified
+# byte-identical).
+a44fff9c90c169f6bb13463f180547964f68585b4ecc3260c48727eaacf40edd  manuscript_revised_v30.tex
+467a144e595b5fba9971493fa6bd7ec526eca42aac600f8516ad209fb9be0a1c  manuscript_revised_v30.pdf
+9eed109a2915fc1a0a91d6fc3a9d25d86b0bdb16d37f3ca1a7ad93e94445bd8f  supplement_v10.tex
+204d420e5bbf29242039190817e93530553eacd57c52d4d97a19bf318b72589c  supplement_v10.pdf
+c899345788b24920238788726b9c2a454a8d2a6079e68f0bb20aa0ea3447cac6  changelog_v30.md
+3cc57a3a1804aa9022ed8ce71ee34df720d2f9c595f2a673ed9e552fa349dc92  README_v30.md
+4aa074d19cab5f6a80c54605e6f870d16190b2755c5e38e04fa71b2f13d66db0  ../../absolute.txt
+bee90831049259cd44a30ee9828e09ab940857cf10a66d39a12c1b48e54665a2  ../scripts/v22-exactZ3-n5L8/patch_v30_webhost.py
