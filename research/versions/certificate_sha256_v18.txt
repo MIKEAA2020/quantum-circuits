@@ -1,0 +1,35 @@
+# certificate_sha256_v18.txt -- ledger v18 (v31, the appearance-terms
+# pass: Sec VII rewritten per the author's category-error diagnosis --
+# the four analogies/identifications mapping attributes of the Absolute
+# onto appearance-level features of the formalism are removed (the
+# self-existence analogy for the primitive Born rule; the no-go read as
+# an echo of the Absolute's undividedness; self-averaging framed as a
+# one/many coincidence condition; the exactness program identified with
+# virtuous circularity), together with the mirror pattern ("timeless
+# characterizations", "immutable law", "appearance-stream",
+# "self-appearance"); appearance is now described in its own terms --
+# the Absolute's display: not a copy of it and not a mirror of it
+# (maya: neither real nor unreal, neither identical with nor different
+# from the Absolute), its structure its own (division, relation, time,
+# change), no feature of it taken to reflect an attribute of the
+# Absolute; the author's metaphysics statement (para 1) carried
+# verbatim; every theorem reference, number, and citation preserved
+# (asserted); line-multiset 1775->1775 visible lines, exactly 7 edited;
+# tectonic: 42 pages (v30: 42), 605.20 KiB, zero new warnings (fresh
+# v30 probe reproduces the identical warning classes), zero ?? refs;
+# companion supplement_v10 carries no metaphysics content and passes
+# forward unchanged)
+# generated: 2026-10-10T03:08:50+03:00
+# v17 (v30) and earlier kept unmodified.
+# The 830 MB canonical-id array ids_nb4.npy is NOT deposited (GitHub
+# 100 MB limit) and is REUSED unchanged from the v23 round (it is
+# d-independent; the post-rollback rebuild was verified
+# byte-identical).
+6613f285bdf879b42d1b4001b6f8c65fa3c649ba844983f3fadf8ab41a5ee82c  manuscript_revised_v31.tex
+585b4f275c03ea974142e0881333992aa2589161029d80cdc9df2eaf7ff5472a  manuscript_revised_v31.pdf
+9eed109a2915fc1a0a91d6fc3a9d25d86b0bdb16d37f3ca1a7ad93e94445bd8f  supplement_v10.tex
+204d420e5bbf29242039190817e93530553eacd57c52d4d97a19bf318b72589c  supplement_v10.pdf
+bcc167d12ba659e3747f6e2c7341a6611098429484333edb67d32fd4802d99c3  changelog_v31.md
+77fc1d357bf608c6441ca7d812bff6f57ae1c939af40d922c395db9d05e5a4b5  README_v31.md
+4aa074d19cab5f6a80c54605e6f870d16190b2755c5e38e04fa71b2f13d66db0  ../../absolute.txt
+ed9b470da7041fd399ff0ffdac3445280c076c747c99192c887ead04b615fde8  ../scripts/v22-exactZ3-n5L8/patch_v31_appearance_terms.py
