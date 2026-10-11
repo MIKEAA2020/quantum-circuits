@@ -1,0 +1,45 @@
+# certificate_sha256_v23.txt -- ledger v23 (Tier-2 note correction
+# round, author's call). The v33 proposal recorded in
+# research/versions/tier2_interface_tension_20261012.md is corrected
+# IN PLACE and withdrawn as a version-triggering edit: no new
+# manuscript version (v32 stands). What changed: presentation only.
+# The computation deposits are byte-identical to ledger v22 (script
+# ccefc6a2..., JSON e76d21f6... -- every number re-verified against
+# the JSON: power-law continuation sigma_eff(8->10) = 0.20548 ->
+# 0.205; flip threshold 0.21271 -> 0.213; controls at Lbar=9:
+# 0.13693/0.16197 -> 0.137/0.162; controls at Lbar=11: 0.10874
+# measured / 0.120 extrapolated -> 0.109 / ~0.12). Corrections
+# shipped: (i) section 4 consequence 2 -- the original "controls'
+# extrapolated sigma_eff ~ 0.10-0.13 at the same Lbar" was their
+# next-interval level, not the Lbar=9 value (0.137/0.162), and the
+# decay branch is n=5's own c/Lbar continuation, not the controls';
+# the corrected text states the single-point limit up front (the two
+# branches ~0.007 apart at the fourth size; at the flip threshold the
+# first-order reading degenerates to the power law, Sigma=0 being
+# c/Lbar; the branches separate only at the next interval:
+# power-law ~0.17 vs a positive Sigma holding its level); (ii)
+# section 6 -- the proposed v33 sentence's overlapping branches
+# ("hold at or above ~0.21" vs "toward ~0.21 and below") replaced by
+# the author-supplied conditional verbatim ("The three-size trend is
+# consistent with first-order, but does not yet establish it. If the
+# trend is genuinely first-order, a fourth size (L = 10) will show
+# the effective closing rate sigma_eff saturating at a positive
+# interface tension Sigma; if the asymptotic is a slowly-decaying
+# power law, sigma_eff will continue to decay. The current data
+# cannot distinguish these."), the proposal withdrawn (no v33
+# minted), and the surviving quantitative content recorded for the
+# future edit that ships with a Tier-1 run; (iii) the header and
+# section 7 updated to the author's call. Abstract/body/conclusion
+# alignment on the conditional VERIFIED this round, no edit required:
+# abstract line 90 (compressed registered conditional), body line 890
+# (full conditional + "the current data cannot distinguish these
+# outcomes"), conclusion line 1773 (summary register) -- all three
+# sites state the same claim at the same strength; no overclaim verb
+# ("confirms/establishes the first-order", "does separate") anywhere
+# in the manuscript. The manuscript hash below proves v32 untouched.
+# generated: 2026-10-12T01:55:00+03:30
+# v22 and earlier kept unmodified.
+ccefc6a2d854bce1f0744a7a6906adbbe310364725cdbdadb956be1c2b6ff8a8  research/scripts/v22-exactZ3-n5L8/tier2_interface_tension_v1.py
+e76d21f6885ea457c7a22457245f81f4cd4b6069b6ba78303070639906f1de55  research/results/tier2_interface_tension_v1.json
+18b8a5195cc4d82a0573ab79b9a9762f7dba1d53a945561c403d439aff1f2844  research/versions/tier2_interface_tension_20261012.md
+edb741d8209acc1fcbc07b41e17176d84e619ccb2678857b580cca4210620a8d  research/versions/manuscript_revised_v32.tex

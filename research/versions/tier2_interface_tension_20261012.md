@@ -3,11 +3,15 @@
 
 **Date:** 2026-10-12 · **Round:** research v23 (deposits:
 `research/scripts/v22-exactZ3-n5L8/tier2_interface_tension_v1.py`,
-`research/results/tier2_interface_tension_v1.json`; ledger v22).
-**Manuscript of record:** `manuscript_revised_v32.tex` — **not edited
-this round** (the v32 registered conditional stands; this deposit
-quantifies its completion test and proposes the v33 sentence for the
-author's call).
+`research/results/tier2_interface_tension_v1.json`; ledger v22 —
+corrected in place the same day per the author's call: ledger v23).
+**Manuscript of record:** `manuscript_revised_v32.tex` — **not edited;
+no new version needed** (the v32 registered conditional stands; this
+deposit quantifies its completion test. The proposed v33 sentence was
+corrected per the author's call — §6, same day — and withdrawn as a
+version-triggering edit: the corrected conditional is already the v32
+body's own statement. Script and JSON deposits unchanged; only this
+note's presentation corrected — ledger v23.)
 
 The question this round answers: of the three-tier strengthening
 program for the n=5 first-order test (extend to L=10; extract the
@@ -99,10 +103,28 @@ Consequences, stated plainly:
    the decisive observable is the **trend** of σ_eff across intervals
    (does it break the c/L̄ decay?) — and, per Tier 3, the fifth size.
 2. The v32 registered conditional ("stabilizing at a positive
-   interface tension" vs "continue to decay") now carries numbers:
-   stabilization means σ_eff(8→10) holding at ≳ 0.21 while the
-   controls' extrapolated σ_eff at the same L̄ is ≈ 0.10–0.13; decay
-   means following the controls toward ≈ 0.20 and below.
+   interface tension" vs "continue to decay") now carries numbers —
+   with the single-point limit stated up front: the two branches sit
+   ~0.007 apart in σ_eff at the fourth size, so the numbers quantify
+   the completion test without making one L=10 point decisive. The
+   power-law branch reads σ_eff(8→10) ≈ 0.205 (gap₁₂(L=10) ≈ 0.318,
+   α_eff ≈ 1.84); the first-order branch needs σ_eff(8→10) ≳ 0.213
+   (gap₁₂(L=10) ≲ 0.313, α_eff ≳ 1.91) for the 3-point Σ-fit to turn
+   positive — and at exactly that threshold the first-order reading
+   degenerates to the power law (Σ = 0 is c/L̄), so the branches
+   separate only at the next interval: the power-law continuation
+   gives σ_eff(10→12) ≈ c/L̄ ≈ 0.17, while a genuine positive Σ keeps
+   σ_eff at its level (≳ 0.2). The controls sit at 0.137 (n=3) and
+   0.162 (n=4) at the same L̄ = 9 — below both n=5 branches, a level
+   separation that carries no branch information (n=5's decay
+   constant is simply larger). *[Corrected 2026-10-12, author's call —
+   the original text here read "stabilization means σ_eff(8→10)
+   holding at ≳ 0.21 while the controls' extrapolated σ_eff at the
+   same L̄ is ≈ 0.10–0.13; decay means following the controls toward
+   ≈ 0.20 and below": the 0.10–0.13 figure is the controls'
+   next-interval level (0.109 measured, ≈ 0.12 extrapolated, at
+   L̄ = 11), not their L̄ = 9 value; and the decay branch is n=5's own
+   c/L̄ continuation, not the controls'.]*
 3. α_eff gives the same test in the dual reading: the n=3 α_eff
    asymptote is **0.951 ± 0.028 ≈ 1** (the saturating-envelope value,
    validating the manuscript's "drifts down toward the value a
@@ -138,22 +160,66 @@ holds against every fitted asymptotic reading of the n=3 chain.
 deposited p_c⁽³⁾ = 0.305(3) bracket; the CFT consistency supports the
 critical reading at these sizes.)
 
-## 6. Proposed v33 edit (author's call; not applied)
+## 6. The v33 proposal — corrected per the author's call; no new
+## version
 
-One Discussion sentence after the registered conditional, plus the
-Table tab:closingrates extension by the two new cells:
+**Author's call (2026-10-12):** correct the Tier-2 sentence; **no new
+manuscript version is needed** — v32 remains the manuscript of record.
+The corrected conditional is already the v32 body's own statement, so
+the proposal is withdrawn as a version-triggering edit and retained
+here as the corrected record for the round that eventually extends
+Table tab:closingrates (e.g., alongside a Tier-1 L=10 result).
 
-> The registered conditional is quantitative: the continuous and
-> marginal controls admit no positive interface tension at accessible
-> sizes under the standard finite-size ansatz
-> (Σ = −0.055 ± 0.012 at n=3 over four intervals, −0.055 ± 0.016 at
-> n=4 over three — negative values that mark the ansatz's crossover
-> limit, not tensions), and the extrapolated continuous envelope
-> (L·gap₁₂ → 4.6–5.8 across fit forms, bracketing 2πx_ε = 5.03 at
-> x_ε = 4/5) lies entirely above the n=5 value 3.84; if the n=5
-> closing is genuinely exponential, σ_eff(8→10) will hold at or above
-> ≈ 0.21 (gap₁₂(L=10) ≲ 0.31), and if it is a slowly decaying power
-> law it will follow the controls' c/L̄ decay toward ≈ 0.21 and below.
+**The defect corrected.** The originally proposed sentence closed with
+"if the n=5 closing is genuinely exponential, σ_eff(8→10) will hold at
+or above ≈ 0.21 (gap₁₂(L=10) ≲ 0.31), and if it is a slowly decaying
+power law it will follow the controls' c/L̄ decay toward ≈ 0.21 and
+below" — two branches that overlap almost entirely at the fourth size
+(0.205 vs 0.213, ~3% apart), presented as a discriminator. That
+framing contradicted §4's own point 1 (a single L=10 point at the
+threshold is ambiguous) and the manuscript's honest register ("the
+current data cannot distinguish these outcomes").
+
+**The appropriate conditional (author-supplied, verbatim):**
+
+> The three-size trend is consistent with first-order, but does not
+> yet establish it. If the trend is genuinely first-order, a fourth
+> size (L = 10) will show the effective closing rate σ_eff saturating
+> at a positive interface tension Σ; if the asymptotic is a
+> slowly-decaying power law, σ_eff will continue to decay. The current
+> data cannot distinguish these.
+
+**Abstract/body alignment, verified this round (no edit required).**
+The v32 abstract (line 90) carries the compressed form — "supports, at
+the three-size level, the first-order prediction … a directional
+trend, with the registered conditional that completes it: if the
+closing is genuinely exponential, a fourth size (L=10) will show the
+effective closing rate stabilizing at a positive interface tension,
+and if the asymptotic is a slowly decaying power law, that rate will
+continue to decay"; the body (line 890) carries the full conditional
+with the closing clause "the current data cannot distinguish these
+outcomes, and the registered conditional—not a performed
+discrimination—is the claim"; the conclusion (line 1773) carries the
+same conditional in the summary register ("the separation is
+registered as a prediction rather than claimed as performed"). All
+three sites state the same claim at the same strength: **aligned**.
+
+**What survives quantitatively** (for the future edit that ships with
+a Tier-1 run, not now): the controls' exclusion finding (no positive
+interface tension at accessible sizes under the standard finite-size
+ansatz — Σ = −0.055 ± 0.012 at n=3 over four intervals, −0.055 ±
+0.016 at n=4 over three, the crossover-limit signature); the
+extrapolated continuous envelope (L·gap₁₂ → 4.6–5.8 across fit forms,
+bracketing 2πx_ε = 5.03 at x_ε = 4/5) lying entirely above the n=5
+value 3.84; and the registered readings for the L=10 point (power-law
+continuation σ_eff ≈ 0.205 / gap₁₂ ≈ 0.318; flip threshold σ_eff ≳
+0.213 / gap₁₂ ≲ 0.313), stated as the completion test of the
+conditional — with the fifth size, not the fourth, as the plausible
+decision point (the power-law continuation predicts σ_eff(10→12) ≈
+0.17; a genuine positive Σ keeps it at its level).
+
+The Table tab:closingrates extension (two new cells) remains available
+unchanged:
 
 ```
 σ_eff, L=8→10   & 0.137 & 0.162 & --- \\   →  n=4 cell filled: 0.162
@@ -164,7 +230,9 @@ Table tab:closingrates extension by the two new cells:
 
 ## 7. What was deliberately not done
 
-- No manuscript edit (v32 stands; §6 is the proposal).
+- No manuscript edit (v32 stands; §6 corrected per the author's call
+  and withdrawn as a version trigger — no v33 minted; the abstract /
+  body / conclusion alignment on the conditional verified unchanged).
 - No p_c⁽⁵⁾ extrapolation (v32's plausibility-range label stands).
 - No Tier-1/Tier-3 compute (the v21 verdict and design note stand).
 - The two new ladder cells are *used deposits*, not new
