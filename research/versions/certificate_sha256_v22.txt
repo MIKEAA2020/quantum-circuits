@@ -1,0 +1,33 @@
+# certificate_sha256_v22.txt -- ledger v22 (framework v9.4 provenance
+# closure + Tier-2 interface-tension round). F4/F6 closed: the author's
+# release deposit (tag metaphysical_framework, workspace-framework.zip,
+# sha256 e891a166e2d40538f5fb0891547151486829ef4140d97d51c1f0d465b064b978)
+# imported byte-exactly at framework-workspace/ (273 files, MANIFEST
+# 273/273 clean); every byte-identity claim re-run and PASS (Part I
+# v9.1->v9.2->v9.3 identical, 52,998 chars; mirror v10.1-v10.14 ==
+# deposited v9.1 Part I; v10.0 == deposited v9 Part I per its own
+# header; repo v9.2 == deposit). Tier-2: the sigma_eff = Sigma - A/L
+# fits on the deposited ladders (n=3 four intervals incl. the newly
+# used L=12 cell; n=4 three intervals incl. the newly used L=10 cell;
+# Sigma = -0.055 +- 0.012 / -0.055 +- 0.016 -- crossover-limited,
+# excluding positive tensions at this order), the registered
+# quantitative L=10 discriminator for n=5 (power-law continuation
+# 0.206 vs flip threshold 0.213), the alpha_eff asymptotes (n=3
+# 0.951 +- 0.028 ~ 1), and the n=3 envelope bracket [4.6, 5.8]
+# bracketing 2*pi*x_eps = 5.03 with n=5's 3.84 below all of it.
+# Manuscript untouched: v32 stands; the v33 proposal is recorded in
+# the Tier-2 note.)
+# generated: 2026-10-12T00:55:00+03:00
+# v21 (Tier-1 method round) and earlier kept unmodified.
+eb554adbdce05c0a0a3273d96e55610f06a593d731d13327dfbb8a4b2f3518e2  formalism-v9.4.md
+89362226c948a3716c7589728e3e2a44cbd1ec568f7dbce01bb53d4a972d6d39  formalism-v9.3.md
+979d67f9fb6c50dc350fc2d8686a0af05218c2058e77b17191e305155264bfa7  framework-workspace/PROVENANCE.md
+6e1467708292057164413a141c277b03c894b85ac976646887adfb9686297474  framework-workspace/MANIFEST.sha256
+e972d529272a6e3e05b7549e99bbde39825f6d60fafcfcd4cf2824e40b2002a5  research/versions/changelog_framework_v9_4.md
+91bfc4318fb81296035177e97742521f998ddf16c7839f55bf829dbf89c77077  research/scripts/v27-framework-provenance/patch_v9_4_provenance.py
+fca6c674167704eaeddcc8bf6bcdae6508a9687853d33fb4ea2a65aff542d8c4  research/scripts/v27-framework-provenance/verify_f4_f6_provenance.py
+2b67499c333ca721c956e21c28dc171b17637f9cad21624f86ea3e20f04ec88b  research/results/framework_provenance_v1.json
+ccefc6a2d854bce1f0744a7a6906adbbe310364725cdbdadb956be1c2b6ff8a8  research/scripts/v22-exactZ3-n5L8/tier2_interface_tension_v1.py
+e76d21f6885ea457c7a22457245f81f4cd4b6069b6ba78303070639906f1de55  research/results/tier2_interface_tension_v1.json
+e9a036b9f65115f81206a7c43645e69717ba5a8834bba5d077c6394cf62b1bbd  research/versions/tier2_interface_tension_20261012.md
+4aa074d19cab5f6a80c54605e6f870d16190b2755c5e38e04fa71b2f13d66db0  absolute.txt

@@ -1,0 +1,375 @@
+{
+ "round": "framework v9.4 provenance closure (F4/F6)",
+ "date": "2026-10-12",
+ "release": {
+  "tag": "metaphysical_framework",
+  "asset": "workspace-framework.zip",
+  "url": "https://github.com/MIKEAA2020/quantum-circuits/releases/download/metaphysical_framework/workspace-framework.zip",
+  "zip_sha256": "e891a166e2d40538f5fb0891547151486829ef4140d97d51c1f0d465b064b978",
+  "zip_bytes": 8257106,
+  "import_location": "framework-workspace/",
+  "imported_files": 273
+ },
+ "manifest": {
+  "files": 273,
+  "verified": 273,
+  "failures": []
+ },
+ "f4": {
+  "named_artifacts": {
+   "uploads/audit.txt": {
+    "path": "framework-workspace/uploads/audit.txt",
+    "present": true,
+    "sha256": "c42ad1cfbdcf80e42454d8b236a229d3410dd44e7e3c84b2bc76b3b5f74f5904",
+    "bytes": 35614
+   },
+   "generative.txt": {
+    "path": "framework-workspace/uploads/generative.txt",
+    "present": true,
+    "sha256": "52518a300267da01b77d01687daaa15f4dba8ee230f320fa92af912a48da53e0",
+    "bytes": 9393
+   },
+   "enhancing generative.txt": {
+    "path": "framework-workspace/uploads/enhancing generative.txt",
+    "present": true,
+    "sha256": "f6b58ff12145157f993c942ebc8036e2c30e40003f41315f1e8ba0121d2fdd11",
+    "bytes": 114777
+   },
+   "formalism-v8 audit.txt": {
+    "path": "framework-workspace/uploads/formalism-v8 audit.txt",
+    "present": true,
+    "sha256": "6474ed1f036f044de6b6528a667a7f19fa9b99849d81ad0b42ad3020e4eab4b8",
+    "bytes": 129983
+   },
+   "enhancement-agenda-evaluation.md": {
+    "path": "framework-workspace/enhancement-agenda-evaluation.md",
+    "present": true,
+    "sha256": "7b84e0454918be7eb31ba4fea7d61bd70cfe05c0aa25fa1bce8c9c26797eaabd",
+    "bytes": 15655
+   },
+   "generativity-steelman-completion.md": {
+    "path": "framework-workspace/generativity-steelman-completion.md",
+    "present": true,
+    "sha256": "442d0f194d9736d5e298c49abe60ec543f615284aeb2a48c15bb72e2741b4fe7",
+    "bytes": 13297
+   },
+   "joints-audit-steelman-completion.md": {
+    "path": "framework-workspace/joints-audit-steelman-completion.md",
+    "present": true,
+    "sha256": "8e9cef3d67532b37040e6d880d37d644a501b097d45bb7c86d4a181168d55403",
+    "bytes": 11145
+   },
+   "six-audits-joint-adjudication.md": {
+    "path": "framework-workspace/six-audits-joint-adjudication.md",
+    "present": true,
+    "sha256": "ece2f162e5d2c062bb7f246e38f0e8e0d3cb5b4c92a756bdd02fb41af389ee18",
+    "bytes": 21513
+   },
+   "twelve-audits-joint-adjudication.md": {
+    "path": "framework-workspace/twelve-audits-joint-adjudication.md",
+    "present": true,
+    "sha256": "3a23b0b9cd615a79bb16176cab076d2bed05bb17e0b20ff56b7133d96ec2c52b",
+    "bytes": 24152
+   },
+   "five-audits-joint-adjudication.md": {
+    "path": "framework-workspace/five-audits-joint-adjudication.md",
+    "present": true,
+    "sha256": "4c77d80e3dcc07205deaa9fae66c13e5e8711c08345dcde9d0f8e083a8f1c44f",
+    "bytes": 14364
+   },
+   "apophatic-audit-steelman-completion.md": {
+    "path": "framework-workspace/apophatic-audit-steelman-completion.md",
+    "present": true,
+    "sha256": "5762abbbb45bdad152c1615ca627d372dc2fffd6d467d402e019a10b4c7ce618",
+    "bytes": 9122
+   },
+   "L8b-prereg.md": {
+    "path": "framework-workspace/L8b-prereg.md",
+    "present": true,
+    "sha256": "20a5fb7b14729d6c1e8dcc4efca15039d92b7ad97d564444dcaf2927022a5dba",
+    "bytes": 10210
+   },
+   "cdt_cal_2d.py": {
+    "path": "framework-workspace/cdt_cal_2d.py",
+    "present": true,
+    "sha256": "abdcaa8c217e7c2c13b705c9b4045bbe838b5d9c6d0f144cb4714c0a05e5a3f9",
+    "bytes": 8745
+   },
+   "formalism.txt (v1)": {
+    "path": "framework-workspace/uploads/formalism.txt",
+    "present": true,
+    "sha256": "08050761e0cc3fc50bfd606b3e036a92d908dbd17c68f5e0586caf02bb081e02",
+    "bytes": 19297
+   },
+   "formalism-v2.md": {
+    "path": "framework-workspace/formalism-v2.md",
+    "present": true,
+    "sha256": "1547900be8c48451f581567dc70c323d615b77ae385c337c80347c699ad14471",
+    "bytes": 24865
+   },
+   "formalism-v3.md": {
+    "path": "framework-workspace/formalism-v3.md",
+    "present": true,
+    "sha256": "71872b4871e42852127762db5580b23f0defa69494ce81868fe547ab05fd0969",
+    "bytes": 45081
+   },
+   "formalism-v4.md": {
+    "path": "framework-workspace/formalism-v4.md",
+    "present": true,
+    "sha256": "19b3eb56be345b3a4aecbdb01459e91306e42eceffc96c54361b66f75fab0461",
+    "bytes": 52897
+   },
+   "formalism-v5.md": {
+    "path": "framework-workspace/formalism-v5.md",
+    "present": true,
+    "sha256": "b572b9dc406615f9603d6c7019468e7de385b9fbde91d613b4d84d7c112cd1e6",
+    "bytes": 59589
+   },
+   "formalism-v6.md": {
+    "path": "framework-workspace/formalism-v6.md",
+    "present": true,
+    "sha256": "15b50547e43acbacef11b480c332b2d5d5d17517782d573d067f5248aa725847",
+    "bytes": 67897
+   },
+   "formalism-v7.md": {
+    "path": "framework-workspace/formalism-v7.md",
+    "present": true,
+    "sha256": "c801c351caea81fd6dc9b8a44483fc8ae166727b2bd44b1decab55f377f70d21",
+    "bytes": 74059
+   },
+   "formalism-v8.md": {
+    "path": "framework-workspace/formalism-v8.md",
+    "present": true,
+    "sha256": "c6d742a385c65b21c71e7ecf61c556022909d96896c3ae6fb15c75bb4f20318d",
+    "bytes": 96064
+   },
+   "formalism-v9.md": {
+    "path": "framework-workspace/formalism-v9.md",
+    "present": true,
+    "sha256": "d57d09ca1958c89f715fee6c970af3e1dcc2172640df41ebe5e5f9d2a202c7e5",
+    "bytes": 106287
+   },
+   "formalism-v9.1.md": {
+    "path": "framework-workspace/formalism-v9.1.md",
+    "present": true,
+    "sha256": "3ae9a9e648ddb2c619446bd2fdd99f9069b6a420236bc499c4a6700503b051ff",
+    "bytes": 123489
+   },
+   "formalism-v9.2.md": {
+    "path": "framework-workspace/formalism-v9.2.md",
+    "present": true,
+    "sha256": "e8bcb9e42ea0c3bde67512f7f901de420e6a4be8f711c827e73bc7513b553f8a",
+    "bytes": 133612
+   },
+   "formalism-v10.md": {
+    "path": "framework-workspace/formalism-v10.md",
+    "present": true,
+    "sha256": "7f563492460c056e46e7654b807f1d570f2722f4edc8c1d42e00af3c44dd281d",
+    "bytes": 122867
+   },
+   "formalism-v10.1.md": {
+    "path": "framework-workspace/formalism-v10.1.md",
+    "present": true,
+    "sha256": "7eea78ada79acdfc85bba34e6ee9ad99776dfc5566c179f03c8f581eaa0a37f6",
+    "bytes": 142563
+   },
+   "formalism-v10.2.md": {
+    "path": "framework-workspace/formalism-v10.2.md",
+    "present": true,
+    "sha256": "83f64f9d220eca2fdd6d8e3affa02f6321307981ce4681454f019c87b5fba2bd",
+    "bytes": 160719
+   },
+   "formalism-v10.3.md": {
+    "path": "framework-workspace/formalism-v10.3.md",
+    "present": true,
+    "sha256": "90067b4c2d01e43c235e8bb2f478725a10be45bfd8fa5531138a82c33a24be14",
+    "bytes": 171392
+   },
+   "formalism-v10.4.md": {
+    "path": "framework-workspace/formalism-v10.4.md",
+    "present": true,
+    "sha256": "1f905603a27092fbf0db2cd200a111e21742864bdafcec2490d05cca331f6c39",
+    "bytes": 177670
+   },
+   "formalism-v10.5.md": {
+    "path": "framework-workspace/formalism-v10.5.md",
+    "present": true,
+    "sha256": "4584fe51eefcbc15549c176929b8d1f809ea709577184e7285574c6626af87b0",
+    "bytes": 187020
+   },
+   "formalism-v10.6.md": {
+    "path": "framework-workspace/formalism-v10.6.md",
+    "present": true,
+    "sha256": "97334a5b5d0e659309594ca74e5a8d4c3d72e7c00b5e8e9f4f1bd185f93986e9",
+    "bytes": 194549
+   },
+   "formalism-v10.7.md": {
+    "path": "framework-workspace/formalism-v10.7.md",
+    "present": true,
+    "sha256": "111df2ceb9d2f0e39096da17d480d4815a4a0ee167c93f94a62cc1410cc22bf0",
+    "bytes": 199828
+   },
+   "formalism-v10.8.md": {
+    "path": "framework-workspace/formalism-v10.8.md",
+    "present": true,
+    "sha256": "e789953e075665d6281e93995763792a9fa9c7b7ebf57860d41b94ac6d22a71c",
+    "bytes": 204371
+   },
+   "formalism-v10.9.md": {
+    "path": "framework-workspace/formalism-v10.9.md",
+    "present": true,
+    "sha256": "f9f296c82193d599ce7e630c923b1392dfd627b83a9bc180e76d9ffaaf22ab8e",
+    "bytes": 210850
+   },
+   "formalism-v10.10.md": {
+    "path": "framework-workspace/formalism-v10.10.md",
+    "present": true,
+    "sha256": "924f76ea323b31a3cd76a9a38f4934ef7a07a84997e66f5cdd08493dc8a9d5b3",
+    "bytes": 214171
+   }
+  },
+  "n_named": 35,
+  "n_present": 35,
+  "extra_generative_line": [
+   {
+    "path": "framework-workspace/formalism-generative-v10.11.md",
+    "present": true,
+    "sha256": "e7a37d3bb08b4f07277956287a52712e735c331482d02fb1c00fe81960d5403c"
+   },
+   {
+    "path": "framework-workspace/formalism-generative-v10.12.md",
+    "present": true,
+    "sha256": "b6539558c8782bd2bb57454509884377d537dd66226743ad5f6fdb92d7764d22"
+   },
+   {
+    "path": "framework-workspace/formalism-generative-v10.13.md",
+    "present": true,
+    "sha256": "d3758dd4f6e396670c278a2171d3ab7501c16e9361fcbb6deda0c3731ef1f1d5"
+   },
+   {
+    "path": "framework-workspace/formalism-generative-v10.14.md",
+    "present": true,
+    "sha256": "099891aabed37bc78918d7a319a71982e714440e7162b364f8791ac5c141135b"
+   }
+  ],
+  "w4_key_context": {
+   "source_chunks": "framework-workspace/.chunks/ (172 chunks)",
+   "chat_extraction": "framework-workspace/deepseek-chat-extraction.md",
+   "build_scripts": "framework-workspace/.build_*.py (24 files)",
+   "note": "the W4 provenance key (S-numbers, chat-turn references, dated audit trails) resolves against the imported workspace; the key is published"
+  }
+ },
+ "f6": {
+  "part_i_definition": "from \"## 0. Status\" up to \"## RP0 \u2014 Mission statement\" (the v9.3 patch-script convention)",
+  "part_i_sha256": {
+   "v9.1 (deposit)": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+   "v9 (deposit)": "c4dd13b258bdc67d9252c7e64291e047a8b4e89f8105c689eb492630e4e01036",
+   "v9.2 (repo)": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+   "v9.3 (repo)": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085"
+  },
+  "part_i_chars": {
+   "v9.1 (deposit)": 52998,
+   "v9 (deposit)": 38091,
+   "v9.2 (repo)": 52998,
+   "v9.3 (repo)": 52998
+  },
+  "full_file_v92_repo_equals_deposit": true,
+  "lineage_v91_to_v92_to_v93": true,
+  "mirror_rule_v101_to_v1014": true,
+  "v100_part_i_equals_v9": true,
+  "mirror": {
+   "formalism-v10.md": {
+    "part_i_equals_v9.1": false,
+    "part_i_chars": 38091,
+    "part_i_sha256": "c4dd13b258bdc67d9252c7e64291e047a8b4e89f8105c689eb492630e4e01036",
+    "full_sha256": "7f563492460c056e46e7654b807f1d570f2722f4edc8c1d42e00af3c44dd281d"
+   },
+   "formalism-v10.1.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "7eea78ada79acdfc85bba34e6ee9ad99776dfc5566c179f03c8f581eaa0a37f6"
+   },
+   "formalism-v10.2.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "83f64f9d220eca2fdd6d8e3affa02f6321307981ce4681454f019c87b5fba2bd"
+   },
+   "formalism-v10.3.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "90067b4c2d01e43c235e8bb2f478725a10be45bfd8fa5531138a82c33a24be14"
+   },
+   "formalism-v10.4.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "1f905603a27092fbf0db2cd200a111e21742864bdafcec2490d05cca331f6c39"
+   },
+   "formalism-v10.5.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "4584fe51eefcbc15549c176929b8d1f809ea709577184e7285574c6626af87b0"
+   },
+   "formalism-v10.6.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "97334a5b5d0e659309594ca74e5a8d4c3d72e7c00b5e8e9f4f1bd185f93986e9"
+   },
+   "formalism-v10.7.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "111df2ceb9d2f0e39096da17d480d4815a4a0ee167c93f94a62cc1410cc22bf0"
+   },
+   "formalism-v10.8.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "e789953e075665d6281e93995763792a9fa9c7b7ebf57860d41b94ac6d22a71c"
+   },
+   "formalism-v10.9.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "f9f296c82193d599ce7e630c923b1392dfd627b83a9bc180e76d9ffaaf22ab8e"
+   },
+   "formalism-v10.10.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "924f76ea323b31a3cd76a9a38f4934ef7a07a84997e66f5cdd08493dc8a9d5b3"
+   },
+   "formalism-generative-v10.11.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "e7a37d3bb08b4f07277956287a52712e735c331482d02fb1c00fe81960d5403c"
+   },
+   "formalism-generative-v10.12.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "b6539558c8782bd2bb57454509884377d537dd66226743ad5f6fdb92d7764d22"
+   },
+   "formalism-generative-v10.13.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "d3758dd4f6e396670c278a2171d3ab7501c16e9361fcbb6deda0c3731ef1f1d5"
+   },
+   "formalism-generative-v10.14.md": {
+    "part_i_equals_v9.1": true,
+    "part_i_chars": 52998,
+    "part_i_sha256": "0699eb1d80500310ed4153252100789a0f8ecbeb1a128d03838aef1c04ce3085",
+    "full_sha256": "099891aabed37bc78918d7a319a71982e714440e7162b364f8791ac5c141135b"
+   }
+  },
+  "precision_note": "The v9.2 lineage appendix words the mirror rule \"Part I byte-identical since v9.1 across v10.0-v10.9\".  Verified facts: v10.1-v10.14 carry the v9.1 Part I byte-identically; v10.0 carries the v9 Part I (its own header: \"Built on formalism-v9.md ... Part I is verbatim-identical to v9\").  The appendix sentence is exact for v10.1+ and dates v10.0 to the v9.1 round; both facts are recorded here.  Observed in passing (author file, byte-preserved, not corrected): formalism-v10.md's title still reads \"(v8)\".",
+  "all_checks_pass": true
+ }
+}
