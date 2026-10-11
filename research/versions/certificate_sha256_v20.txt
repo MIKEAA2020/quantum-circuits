@@ -1,0 +1,27 @@
+# certificate_sha256_v20.txt -- ledger v20 (framework v9.3, the
+# governance-correction version note: audit item 9 executed -- the four
+# governance-layer fixes F1/F2/F3/F5 of the line-level audit of
+# formalism-v9.2.md and gap.txt. F1: the SS13 version table completed
+# (v9.1 row self-reference re-labeled; v9.2 and v9.3 rows added).
+# F2: Delivery Charter rule 4 amended with the explicit
+# descriptive-lineage exception (the rule predated the user-mandated
+# lineage split; on the descriptive line a release ships a refreshed
+# descriptive digest, the bridge-artifact criterion governing the
+# generative line; v9.3 self-labels a version note under the amended
+# rule; the alternative relabeling of v9.2 rejected on record).
+# F3: the RP12 citation-hygiene note's own citations restated by name
+# (P7 is no-brute-facts, the web/correspondence propositions are P17/
+# P20, the deducible doctrine is P8+D10 under the J5 P-present !=
+# F-deducible caveat, with the J2 ontological gap surviving by name).
+# F5: the program-stateonly typo repaired. Part I byte-identical v9.2
+# -> v9.3 (lineage invariant, asserted); the v9.2 lineage appendix
+# carried forward unchanged except the typo line; 7 designed edits /
+# 8 designed lines, no proposition, truth-value, derivation, or
+# registry row changed; formalism-v9.2.md re-read byte-identical.)
+# generated: 2026-10-11T22:30:00+03:00
+# v19 (manuscript v32) and earlier kept unmodified.
+89362226c948a3716c7589728e3e2a44cbd1ec568f7dbce01bb53d4a972d6d39  formalism-v9.3.md
+e8bcb9e42ea0c3bde67512f7f901de420e6a4be8f711c827e73bc7513b553f8a  formalism-v9.2.md
+647af267b43b2d424c54e6cf5b42450f8e875808da93c1af44a6bfad9e13145b  research/versions/changelog_framework_v9_3.md
+2596b51cd316c0b135e71bbeacfabe53ab013a42dc68c17c29ea2c3f35541199  research/scripts/v26-framework-governance/patch_v9_3_governance.py
+4aa074d19cab5f6a80c54605e6f870d16190b2755c5e38e04fa71b2f13d66db0  absolute.txt
