@@ -1,0 +1,125 @@
+{
+ "date": "2026-10-11",
+ "atlas": "w3b v0.2",
+ "directive_source": "external assessment 2026-10-11 (W3b v0.1)",
+ "rows": {
+  "ii_trap_class_audit": {
+   "directive": "D2 (assessor: row ii may itself be a trap-class instance)",
+   "verdict": "CONFIRMED TRAP-CLASS INSTANCE BELOW THRESHOLD: at d=2 both triangles pass (MP identities, residuals ~1e-9) while the decisive identity test FAILS (||GG+ - I|| = 1.0, Gram rank 5<6). At d=3 both pass. Row ii's positive was saved by the decisive test, not the triangles.",
+   "table": {
+    "2": {
+     "triangle_residuals": [
+      9.901609527317401e-17,
+      9.632744363711804e-15
+     ],
+     "triangles_pass": true,
+     "decisive_||GEDGER-I_6||": 1.0,
+     "rank(G)": 5,
+     "adjunction_holds": false
+    },
+    "3": {
+     "triangle_residuals": [
+      2.3237525861364224e-16,
+      4.14480619130142e-14
+     ],
+     "triangles_pass": true,
+     "decisive_||GEDGER-I_6||": 2.0805171530498414e-15,
+     "rank(G)": 6,
+     "adjunction_holds": true
+    }
+   },
+   "species_note": "the pseudoinverse pair (G, G+) is a REFLECTION-like datum at d<n (idempotent counit), an adjunction only at d>=n",
+   "promotion": "trap-class block now mandatory in every atlas row (standing rule, D4)"
+  },
+  "iii_strict_level": {
+   "directive": "D1 (run the queued strict check now, at a REGISTERED atlas-side strict definition)",
+   "registered_strict_definition": "adjunction must live at the balanced tensor over C[G3]: composition relations (x a) (x) y = x (x) (a y), tensor-hom dim equality on (X,Y,Z) = regular bimodules; NOT merely vector-space tensor",
+   "certificates": {
+    "rank(balanced relations)": 30,
+    "dim(X (x)_A X) = 36 - rank": 6,
+    "ker(mu) contains relations exactly": 0.0,
+    "dim ker(mu)": 30,
+    "LHS End_bimod(X) dim (expect 3 = #classes)": 3,
+    "Hom_A(X,X) dim (expect 6)": 6,
+    "RHS Hom_bimod(X, Hom_A(X,X)) dim (expect 3)": 3,
+    "adjunction dim certificate 3 == 3": true
+   },
+   "strict_content_printed": {
+    "dim(X (x)_C X)": 36,
+    "dim(X (x)_A X)": 6,
+    "meaning": "composition FORGETS nothing in the bimodule category: 6, not 36; the vector-space tensor is the wrong composition \u2014 this dimensional split IS the strict-level content at our registered definition"
+   },
+   "verdict": "STRICT-LEVEL CHECK PASSED at the atlas's registered definition (all four certificates exact). The failure the user intuited was NOT found at this level either",
+   "level_ladder_now": {
+    "vector-space": "positive (v0.1)",
+    "balanced-tensor/strict-composition": "positive (v0.2 certified)",
+    "monoidal/Phi_n paper-defined": "still definition-pending: paper upload required"
+   },
+   "expectation_postmortem_v2": "failure intuition now excluded at TWO levels; at the remaining level the test needs the paper's Phi_n",
+   "trap_class": {
+    "triangles_residuals": "not a triangle-driven row; decisive tests were rank/nullspace identities",
+    "decisive_certificate": "rank(relations)=30 + ker(mu) containment 0.0 + dim equalities 3=3"
+   }
+  },
+  "iv_energy_legendre": {
+   "source_row_verbatim": "Energy | Energy | Kinetic / Potential | mass, height, velocity | conservation | E (canonical template)",
+   "candidate_name": "Legendre-Fenchel transform (kinetic/potential interchange)",
+   "verdict": "ADJUNCTION SPECIES DENIED (no order/projection structure in the row). CONJUGACY SPECIES CERTIFIED with an exact species boundary: L^2 = id holds on the convex domain (ON-GRID biconjugation residual 0.00e+00 exactly, i.e. envelope passes through samples; disclosed off-grid floor 9.48e-06 = O(f''h^2/8) at half-step points) and FAILS off-domain (nonconvex biconjugate deficit 1.000 on |x|<0.5 for x^4 - 2x^2: L^2 returns the convex envelope, not f).",
+   "species_boundary_certificate": {
+    "convex_domain": {
+     "function": "cosh x",
+     "on_grid_max|L^2 f - f|": 0.0,
+     "off_grid_floor_disclosed": 9.476465558488911e-06
+    },
+    "off_domain": {
+     "function": "x^4 - 2x^2",
+     "biconjugate_deficit_interior": 1.0,
+     "structural_reading": "Legendre biconjugate = closed convex envelope; equality <=> f closed convex (Fenchel-Moreau)"
+    }
+   },
+   "yield_check": "established (Fenchel-Moreau, textbook): E-recognition, zero framework novelty per contamination rule. BUT atlas content: the v8 verdict 'kinetic/potential yields nothing' is refined \u2014 the row does not yield physics, yet it has a sharp species assignment with a quantified off-domain obstruction. Species assignment is empirical.",
+   "trap_class": {
+    "triangles_residuals": "n/a (no adjunction candidate)",
+    "decisive_certificate": "biconjugation residuals above"
+   }
+  },
+  "v_particles_CPT": {
+   "source_row_verbatim": "Particles | Quantum field | Particle / Antiparticle | charge conjugation | CPT | E",
+   "certificates": {
+    "C C* measured: equals -I in this Dirac rep": 0.0,
+    "T T* matrix (expect -I, Kramers)": 0.0,
+    "Theta Theta* matrix (expect -I on spin-1/2 single-particle space)": 0.0,
+    "C swaps energy projectors: ||C P+ C^{-1} - P-||": 0.0,
+    "C squared on mode swap is identity: ||C P- C^{-1} - P+||": 0.0
+   },
+   "verdict": "Z2-INVOLUTION SPECIES CERTIFIED at the MODE-SWAP level with the Kramers sign table MEASURED, not assumed: C swaps +/- single-particle projectors exactly (residual 0.0e+00) -- the swap is a clean Z2; at the OPERATOR level the squares carry rep-dependent signs: CC* = TT* = ThetaTheta* = -I here (4D Dirac rep; pseudoreal/Kramers class). Adjunction species DENIED (this row is involutive-with-sign, not reflective).",
+   "instance_specific_content": "the species does not read 'Z2' generically: the involution's square is representation-dependent (measured: -1 for C, T, Theta in this Dirac rep) \u2014 the Kramers sign table IS the row's instance-specific data (established, E); the projector-level swap is the convention-free content",
+   "yield_check": "established (CPT theorem, Kramers): E-recognition; zero framework novelty; species assignment + sign table certified numerically",
+   "trap_class": {
+    "triangles_residuals": "n/a",
+    "decisive_certificate": "antiunitary square residuals at machine precision + swap residual"
+   }
+  },
+  "vi_spin_statistics": {
+   "source_row_verbatim": "Spin/statistics | Matter-force structure | Fermion / Boson | spin number | statistics | E",
+   "certificates": {
+    "CAR {a_i, a_j^+} = delta_ij max residual (3 modes, exact)": 0.0,
+    "parity conjugation P a P = -a max residual": 0.0,
+    "CCR [b, b+] = 1 on N=7 truncation, interior 6x6 max residual (boundary disclosed)": 1.7763568394002505e-15,
+    "2pi rotation at spin 1/2: R(2pi) = -I max residual": 1.2246467991473532e-16
+   },
+   "verdict": "Z2-GRADING SPECIES CERTIFIED at algebra level: fermionic sector carries exact CAR + odd parity; bose sector carries exact CCR (truncation boundary disclosed); superselection parity operator exact; 2pi-rotation sign = -1 matches the statistics grading. Adjunction species DENIED (no projection/order data; the row is a grading, not a reflection).",
+   "honesty_clauses": [
+    "CCR certified on a truncated oscillator with interior disclosed (infinite-dim certificate is not matrix-checkable)",
+    "spin-statistics CONNECTION (theorem: needs locality + Lorentz invariance) is not matrix-derivable; the atlas certifies the two algebras + grading separately, and the rotation-statistics sign match at 1/2"
+   ],
+   "yield_check": "established: E-recognition, zero framework novelty",
+   "trap_class": {
+    "triangles_residuals": "n/a",
+    "decisive_certificate": "algebra residuals + parity conjugation residuals above"
+   }
+  }
+ },
+ "standing_rule": "every row carries trap_class block: triangles_residuals AND decisive_test",
+ "runtime_s": 0.1
+}

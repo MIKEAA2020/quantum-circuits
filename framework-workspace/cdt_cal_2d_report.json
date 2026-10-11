@@ -1,0 +1,108 @@
+{
+ "date": "2026-10-11",
+ "seed": 20261011,
+ "kernel": "lazy RW, stay 1/2, neighbors 1/6 each (Convention C1)",
+ "conventions": [
+  "time-periodic torus (endcap-free control)",
+  "fibration = uniform composition x arbitrary phase (NOT Haar/Regge measure)"
+ ],
+ "flat_2d": {
+  "N_nodes": 72000,
+  "table_sigma:": {
+   "8": [
+    1.993,
+    0.995
+   ],
+   "16": [
+    2.032,
+    0.99
+   ],
+   "32": [
+    2.006,
+    0.993
+   ],
+   "64": [
+    2.001,
+    0.996
+   ],
+   "128": [
+    2.0,
+    0.998
+   ],
+   "256": [
+    2.0,
+    0.999
+   ]
+  },
+  "d_s_window16_128": [
+   2.003,
+   0.006
+  ],
+  "d_t_window16_128": [
+   0.996,
+   0.002
+  ],
+  "targets": {
+   "d_s": "2 +/- 0.1",
+   "d_t": "1 +/- 0.1"
+  },
+  "C0a-2D-flat": "PASS"
+ },
+ "slice_ring": {
+  "d_slice_window16_128": [
+   1.0,
+   0.0
+  ],
+  "target": "1 (analytic)",
+  "note": "slice-dual of one spatial ring; sanity check of the estimator on a trivially-known case"
+ },
+ "cdt_ensemble_2d": {
+  "configs": 6,
+  "N_nodes_range": [
+   36152,
+   98968
+  ],
+  "table_sigma:": {
+   "8": [
+    1.959,
+    0.952
+   ],
+   "16": [
+    1.998,
+    0.95
+   ],
+   "32": [
+    1.986,
+    0.946
+   ],
+   "64": [
+    1.984,
+    0.938
+   ],
+   "128": [
+    1.979,
+    0.929
+   ],
+   "256": [
+    1.979,
+    0.915
+   ]
+  },
+  "d_s_window16_128": [
+   1.984,
+   0.004
+  ],
+  "d_t_window16_128": [
+   0.938,
+   0.006
+  ],
+  "targets": {
+   "d_s": "~2 window (finite-size, +-0.25 flagged)",
+   "d_t": "1 +/- 0.1 (analytic by kernel construction)"
+  },
+  "C0b-2D-partial": "PASS-partial",
+  "measure_caveat": "not the Haar/Regge-weighted 2D CDT measure; MCMC upgrade available via dyntri-cdt2d"
+ },
+ "runtime_s": 213.9,
+ "standing_note": "Gate-level pipeline validation only. Not a bridge datum. Throughput (bridge-artifact deliveries) remains zero. d_t = 1 in 2D is a KERNEL CONSTRUCTION FACT (degree-3 dual, strip-move probability 1/6): the 2D gate validates the pipeline and operationalizes the trap-inheritance warning; only the 4D ensemble flow test (L-8d) is decisional."
+}

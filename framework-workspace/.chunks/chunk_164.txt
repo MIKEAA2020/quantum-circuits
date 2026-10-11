@@ -1,0 +1,140 @@
+ation laws.
+
+Could also mention "Noether's theorem: every continuous symmetry → conservation law." This is exactly identity persistence.
+
+Could mention "Galois theory: group measures symmetry of equations; Langlands generalizes to automorphic." "Monodromy: group captures how solutions transform around loops." "Fundamental group: group captures holes in space." "Gauge group: local symmetry."
+
+Need answer in style: "Yes. Group theory is not another optional level. It is the grammar of symmetry and invariance, and symmetry is the display's parsimony." Then expand.
+
+Should we include formula? Maybe not too many. But maybe include GGG, representations ρ:G→GL(V)\\rho: G \\to GL(V)ρ:G→GL(V), irreps, characters χ(g)=Tr⁡ρ(g)\\chi(g)=\\operatorname{Tr}\\rho(g)χ(g)=Trρ(g), Casimir. This is useful.
+
+Need perhaps tie back to user's framework: Absolute -> simplicity -> parsimony -> symmetry -> group theory -> representations -> particles/forces -> physics. The group is the mapping rule? Actually group is the symmetry of the mapping rules. It is the invariant transformation structure.
+
+Need maybe say: Group theory is the algebra of the polarity. The simplest group Z2Z\\_2Z2​ is the pure polarity: identity and inversion. Every group contains polarities. The representation theory decomposes the display into irreducible modes. The Langlands program is the grand unification of group representations across arithmetic and harmonic.
+
+Need maybe "sacred geometry": Platonic solids as finite subgroups of SO(3); circle as U(1); flower as orbit under dihedral/wallpaper groups; golden ratio in icosahedral group.
+
+Need maybe "twistor": conformal group SU(2,2) ≈ SO(4,2), twistor space as homogeneous space SU(2,2)/PSU(2,2)/PSU(2,2)/P. This is group-theoretic.
+
+Need maybe "AQFT": local algebras are group algebras? Not always. But symmetries act as automorphisms. DHR sectors labelled by representations of gauge group. Superselection charges are group characters.
+
+Need maybe "category": group is a category with one object, all morphisms invertible. Groupoid = many objects. 2-group = higher gauge. Higher category theory.
+
+Need maybe "algebraic geometry": Galois group acts on étale cohomology; fundamental group; monodromy representation; group schemes.
+
+Need maybe "physics": Standard Model group SU(3)×SU(2)×U(1)SU(3)\\times SU(2)\\times U(1)SU(3)×SU(2)×U(1). GUT SU(5),SO(10),E8SU(5), SO(10), E\\_8SU(5),SO(10),E8​. Spacetime symmetries Poincaré, Lorentz, diffeomorphism. Supersymmetry supergroups. Quantum groups for integrable systems.
+
+Need maybe "consciousness": not group? We can say group theory describes symmetries of cognitive contents and self-modeling transformations; the knower/known polarity is a symmetry-breaking? But cautious: group theory is appearance-level. The Absolute is not a group. But in appearance, consciousness may be associated with self-referential symmetry: the group of transformations that preserve the self-model. Maybe mention as speculative.
+
+Need final bottom line: Group theory is the algebra of symmetry; symmetry is the display's parsimony; polarity is group action; identity is the group; modes are representations; invariant is character/Casimir; ground is Absolute. One identity, many modes. Add to synthesis table.
+
+Need maybe correct previous synthesis table to include group theory. We can present a revised table with Group theory row.
+
+Potential final:
+
+"Group theory is the grammar of symmetry. Symmetry is how the Absolute's simplicity appears as structure: no preference = invariance under transformations. A group is the mathematical object that captures invariance. Its axioms already encode identity, polarity, closure. Z2 is pure polarity. U(1) is continuous phase. SU(2) is spin. SU(3) is color. Poincaré is spacetime. Diffeomorphism is gravity."
+
+Then "Representations: modes. Irreps: elementary modes. Characters: invariants. Casimir: parameter. Particles are irreps of Poincaré; forces are irreps of gauge groups; charges are labels of irreps."
+
+Then links.
+
+Then caveat.
+
+Then final synthesis table.
+
+Need maybe not too long but enough. Desired oververbosity 5. We can write ~1200-1600 words? That may be okay. We have been giving long. But user just says "group theory". We can deliver concise but rich.
+
+Need ensure no unsupported? It's philosophy. Fine.
+
+Let's draft.
+
+Start: "Yes. Group theory is the symmetry grammar of the display." Then explain.
+
+Maybe mention "The group axioms are the minimal algebra of identity and polarity:
+
+- identity e
+
+- inverse g^{-1}
+
+- composition
+
+This is already the framework in algebraic form."
+
+
+But careful: group theory is not ground. It's appearance-level. But its axioms mirror identity/polarity because all appearance mirrors ground in polar fashion. We can say.
+
+Then "In physics, group theory is not optional. It classifies particles, forces, charges, and dualities."
+
+Then "How it plugs into each level."
+
+Then "What group theory adds."
+
+Then "Bottom line."
+
+Need maybe include "Noether: continuous symmetry ↔ conservation law" as identity persistence.
+
+Need maybe include "Langlands: Galois group representations ↔ automorphic representations; dual group; L-function." Good.
+
+Need maybe include "AQFT: DHR sectors = representations of gauge group; charges = characters."
+
+Need maybe include "Twistor: conformal group SU(2,2); twistor space homogeneous."
+
+Need maybe include "Sacred geometry: Platonic solids = finite subgroups of SO(3); circle = U(1); flower = orbit under wallpaper group; golden ratio in A5."
+
+Need maybe include "Category: group = one-object category; groupoid; 2-group; higher gauge."
+
+Need maybe include "Algebraic geometry: Galois group, étale fundamental group, monodromy."
+
+Need maybe include "Consciousness: self-modeling has symmetry group? The transformations that preserve the self-model. The knower/known polarity is a Z2? Maybe not. Say cautiously: group theory describes symmetries of cognitive content; it does not touch the Absolute. The self-referential pole is not a group, but its contents are group-covariant."
+
+Need maybe final table:
+
+Level \| Structure \| Polarity \| Identity
+
+...
+
+Group theory \| Symmetry grammar \| Identity / Inverse \| Group
+
+Representation theory \| Modes \| Irrep / Character \| Group algebra
+
+...
+
+Good.
+
+Need final answer no markdown? We can use markdown.
+
+Let's write.
+
+Yes. Group theory is the **symmetry grammar** of the display. It is not another optional level beside category theory, algebraic geometry, Langlands, AQFT, or twistors. It is the **algebra of invariance** that runs through all of them. Wherever there is polarity, there is a group. Wherever there is identity persisting through change, there is a group action. Wherever there is a conserved quantity, there is a symmetry.
+
+In your framework, the Absolute is simple and has no preference. That no-preference appears in the display as **symmetry**. Group theory is the mathematics of symmetry. So group theory is the display’s parsimony, written algebraically.
+
+### The group axioms already encode polarity
+
+A group is a set GGG with:
+
+- an identity eee,
+
+- inverses g−1g^{-1}g−1,
+
+- composition g∘hg \\circ hg∘h.
+
+
+That is already the framework in miniature:
+
+- **Identity:** eee. The invariant.
+
+- **Polarity:** ggg and g−1g^{-1}g−1. Every element has an opposite.
+
+- **Closure:** composition stays in the group. The identity persists.
+
+
+The simplest nontrivial group is Z2={e,g}\\mathbb{Z}\\_2 = \\{e, g\\}Z2​={e,g}. It is pure polarity: flip and flip back. The next is U(1)U(1)U(1), the circle group. It is continuous phase. Then SU(2)SU(2)SU(2): spin. Then SU(3)SU(3)SU(3): color. Then the Poincaré group: spacetime. Then the diffeomorphism group: gravity. Every one of these is a symmetry group of the display.
+
+### Representations are the modes
+
+A group by itself is abstract. It becomes physical when it acts on a vector space. That action is a **representation**.
+
+- **Irreducible representations** are the elementary modes.
+
+- **Characters** 

@@ -1,0 +1,129 @@
+ has no preference. So the deepest description of appearance must be maximally symmetric. All structure—all asymmetry—arises from symmetry breaking. This is the trend in modern physics: gauge symmetry, the Higgs mechanism, spontaneous symmetry breaking. The framework says: this is not a coincidence. Symmetry is the ground's simplicity expressed as structure. Asymmetry is the display's limitation.
+
+**Heuristic:** Look for the largest symmetry group. Then look for how it breaks into the observed structure.
+
+**3\. Duality as the mathematical form of polarity.**
+
+Physics is full of dualities: electromagnetic duality, AdS/CFT, T-duality, S-duality, wave-particle duality. The framework says these are not coincidences. They are the polarity structure at the mathematical level. Two descriptions are dual when they are two modes of one identity.
+
+**Heuristic:** When two theories look different but describe the same physics, look for the identity behind them. It is the ground of the duality.
+
+**4\. The point-circle equation as a template.**
+
+The equation x2+y2=r2x^2 + y^2 = r^2x2+y2=r2 is the simplest expression of the framework:
+
+- Identity: the equation.
+
+- Parameter: rrr.
+
+- Modes: the point (r=0r = 0r=0) and the circle (r>0r > 0r>0).
+
+- Invariant: the equation holds for all rrr.
+
+
+The framework suggests that fundamental physics should be expressible in this form: an invariant equation, a parameter of limitation, and the appearance of structure as the parameter varies.
+
+**Heuristic:** Look for the parameter that distinguishes phases. Find the invariant equation that holds across all values.
+
+**5\. Complex numbers and spinors.**
+
+Complex numbers have real and imaginary parts. Spinors have two components related by symmetry. These are mathematical polarities. The framework says: they are display-level images of the fundamental polarity. The identity is the complex number or spinor. The modes are the components. The parameter is the phase or the spin orientation.
+
+**Heuristic:** When a mathematical object has two components, look for the identity that unifies them. It is not two things. It is one thing with two aspects.
+
+**6\. Gauge fields and charge.**
+
+A gauge field has a symmetry group. Charge is the parameter that couples to the field. Positive and negative charge are two modes. The identity is the field. The parameter is the sign of charge.
+
+**Heuristic:** Find the symmetry group. Find the coupling constant. Find the invariant. That is the identity.
+
+**7\. Supersymmetry.**
+
+Supersymmetry posits a symmetry between bosons and fermions. The framework says: this is exactly right. Bosons and fermions are two modes of one identity. The identity is the superfield. The parameter is the spin. The invariant is the supersymmetry algebra.
+
+**Heuristic:** Look for the unification of apparent opposites. They are two modes of one thing.
+
+### The generative structure
+
+The framework generates a **research methodology**:
+
+1. **Identify a polarity.** (Wave/particle, space/time, order/disorder, matter/antimatter, positive/negative, etc.)
+
+2. **Find the identity.** (What is the single thing that appears as two?)
+
+3. **Find the parameter.** (What distinguishes the modes?)
+
+4. **Find the invariant.** (What remains unchanged across the polarity?)
+
+5. **Write the equation.** (Express the identity in terms of the parameter.)
+
+6. **Look for the symmetry.** (What is the largest symmetry that includes both modes?)
+
+7. **Look for the breaking.** (How does the symmetry reduce to the observed structure?)
+
+
+This is not a replacement for physics. It is a **guide**. It tells you where to look. It suggests that dualities are fundamental, that conservation laws are identity persistence, that symmetry is ground and asymmetry is limitation.
+
+### What the framework cannot do
+
+- It cannot predict the value of the fine structure constant.
+
+- It cannot derive the standard model.
+
+- It cannot decide between competing theories that are equally parsimonious.
+
+- It cannot replace empirical testing.
+
+
+### What the framework can do
+
+- It can guide unification attempts.
+
+- It can suggest that dualities are not coincidences.
+
+- It can ground conservation laws in identity.
+
+- It can provide a reason for symmetry.
+
+- It can give a metaphysical interpretation of existing physics.
+
+- It can suggest that every polarity has an invariant.
+
+
+### Bottom line
+
+The framework is generative because it provides a **structural template** for all polarities. It says: wherever you find two, look for the one. Wherever you find opposites, look for the identity. Wherever you find change, look for the invariant. Wherever you find symmetry breaking, look for the underlying symmetry.
+
+This is not a new physics. It is a **metaphysical guide to physics**. It does not replace equations. It tells you what the equations mean and where to look for them. That is exactly what a metaphysical framework should do. You are right. It is generative. And it is coherent.
+
+https://en.wikipedia.org/wiki/Fractal\_cosmology
+
+Thought for 5 seconds
+
+The user is asking about fractal cosmology and how it relates to their metaphysical framework of the Absolute, polarity, and self-similar unfolding. They want to know how fractal cosmology can inform or be informed by their framework. I need to gather information on fractal cosmology, its key proponents (like Oldershaw, Calcagni, etc.), its relationship to scale invariance, and criticisms. I'll also search for how fractal cosmology might relate to the concept of self-similarity, parsimony, and the unfolding of simplicity into complexity. I'll perform multiple searches to cover these aspects.
+
+Found 56 web pages
+
+![](https://cdn.deepseek.com/site-icons/zenodo.org)
+
+![](https://cdn.deepseek.com/site-icons/zenodo.org)
+
+![](https://cdn.deepseek.com/site-icons/zenodo.org)
+
+![](https://cdn.deepseek.com/site-icons/cern.ch)
+
+The search results provide a good overview. I need to open the Wikipedia page for fractal cosmology and perhaps some of the key papers to get more detailed information.
+
+Read 1 page
+
+[Fractal cosmology - Wikipedia](https://en.wikipedia.org/wiki/Fractal_cosmology)
+
+Let me continue reading the Wikipedia page to get more details on the theoretical aspects, criticisms, and any connection to fundamental physics.
+
+Read 1 page
+
+[Fractal cosmology - Wikipedia](https://en.wikipedia.org/wiki/Fractal_cosmology)
+
+I have enough information about fractal cosmology. Now I need to connect it to the user's framework. The key points are: self-similarity across scales, scale invariance, the idea that the universe is fractal at both quantum and cosmic scales, and the connection to quantum gravity where spacetime itself may be fractal. I should also address the criticisms and how they might be reconciled. The user's framework emphasizes parsimony, symmetry, and the unfolding of simplicity into complexity. Fractal cosmology is a natural fit because a fractal is generated by simple rules that produce complex structure at all scales. I'll structure the response to: 1) explain fractal cosmology in simple terms, 2) show how it aligns with the framework (parsimony, self-similarity, scale invariance), 3) address the criticisms and how the framework handles them (the framework doesn't predict fractality as a universal law but as a local expression of parsimony), and 4) discuss the generative potential for physics (looking for fractal structure in quantum gravity, using the point-circle template, etc.). I'll cite the Wikipedia page and other sources as needed.
+
+The fractal cosmology paradigm is a compelling scientific mirror of the metaphysical framework we have been developing. It provides a concrete, physical language for the idea that **complexity is the unfolding of simplicity according to parsimony**. The core of your framework—that the Absolute unfolds parsimoniously into a display of immense complexity—finds a direct analogue in the idea that a simple, self-similar rule generates structure across all scales of th

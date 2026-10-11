@@ -1,0 +1,189 @@
+lity (level 1).
+
+- Someone in that reality builds a computer powerful enough to simulate a whole universe (level 2).
+
+- We might be inhabitants of that simulation.
+
+
+This raises questions: Who built the computer? Where did _they_ come from? Is there an ultimate reality at the top?
+
+Langan points out that **there must be an ultimate, all-inclusive reality**—a ground floor that contains everything else. He asks: Could that ultimate reality itself be a kind of simulation? Not a simulation _of_ something else, but a **self-simulation**—a system that models and displays itself.
+
+* * *
+
+### 2\. What “Simulation” Means in the Simplest Terms
+
+A simulation is just a **mapping** from input to output. You take some system, run it through a processor, and get a display that resembles the original.
+
+- **Input → Processor → Output**
+
+- **Source system → Host system (with a model) → Display**
+
+
+In a normal computer simulation, the processor (the computer) is separate from the display (the screen). The processing is hidden; you only see the result.
+
+Langan’s key move: **What if the processor and the display are the same thing?** What if reality processes itself and displays itself, with no external machine?
+
+* * *
+
+### 3\. Processing vs. Display: The Hidden Engine
+
+This is one of the most important ideas in the paper.
+
+- **Processing** is what makes things happen—the “behind-the-scenes” work. It’s like the code running in a computer.
+
+- **Display** is what we actually see—the output. It’s like the image on the screen.
+
+
+You can never see both at the same time. When a computer is processing, you don’t see the processing itself; you only see the result. Langan says reality works the same way.
+
+**Reality has two alternating stages:**
+
+1. A **hidden processing stage** (he calls it **N**, for “nonterminal” or “pre-reality”).
+
+2. A **visible display stage** (he calls it **T**, for “terminal” or “physical reality”).
+
+
+Reality cycles back and forth between these stages. It processes in N, then collapses into T, then processes again, and so on. This is how it “simulates” itself—it’s constantly updating and displaying its own next state.
+
+Think of it like a movie projector: the film (processing) is hidden, and the screen (display) shows the result. But in this case, the projector and the screen are the same thing, alternating roles.
+
+* * *
+
+### 4\. Reality as a Self-Talking Language
+
+Langan describes reality as a **language that talks to itself about itself**. This isn’t just a metaphor—he means it literally.
+
+- Reality is made of **identity operators**—things that define themselves by modeling themselves and each other.
+
+- These operators “talk” to each other (interact) and “listen” (receive information).
+
+- They use **internal images of themselves** to self-communicate and self-transform.
+
+
+So reality is like a giant conversation. Each part of reality is a word that defines itself and connects to other words. The whole system is a **metalanguage**—a language that can describe itself.
+
+This is why Langan calls his model the **Cognitive-Theoretic Model of the Universe (CTMU)**. It’s a model of reality as a self-modeling, self-identifying system.
+
+* * *
+
+### 5\. The CTMU in Plain Terms
+
+The CTMU says:
+
+- Ultimate reality is a **self-contained identity operator**. Call it **R\***.
+
+- **R\*** has two aspects:
+
+  - **R\_INT** (intensional): the processing/modeling side—like the program.
+
+  - **R\_EXT** (extensional): the display side—like the output.
+- These two aspects are coupled together in a feedback loop: **R\_INT ↔ R\_EXT**.
+
+
+This feedback loop _is_ the self-simulation. Reality processes its own model, displays the result, and feeds that back into the next cycle.
+
+The CTMU also says reality has **three levels of identity operators**:
+
+1. **Primary** (cosmic/teleological): the global operator that coordinates everything.
+
+2. **Secondary** (biological/organic): self-organizing operators that can observe and model.
+
+3. **Tertiary** (quantum/physical): the tiny operators that make up matter and energy.
+
+
+All of these are the same kind of thing—self-modeling operators—just at different scales.
+
+* * *
+
+### 6\. Consciousness and Self-Simulation
+
+Because reality models itself, it has a kind of **consciousness**. Not necessarily human-style consciousness, but a basic capacity for **self-identification and self-modeling**.
+
+Langan says:
+
+- Every identity operator “self-simulates” by modeling itself.
+
+- The more an operator can model itself, the more “conscious” it is.
+
+- Humans are secondary operators with a high degree of self-modeling capacity, so we experience rich consciousness.
+
+- But even at the quantum level, reality has a primitive form of self-awareness.
+
+
+So consciousness isn’t a weird add-on to reality—it’s built into the fabric of reality itself.
+
+* * *
+
+### 7\. Why This Matters
+
+Langan’s argument has several big implications:
+
+1. **No need for a programmer.** Reality doesn’t need a higher intelligence to simulate it. It simulates itself.
+
+2. **No dualism.** Mind and matter aren’t separate. They’re two aspects of the same self-simulating process.
+
+3. **Quantum mechanics makes sense.** The weirdness of quantum physics (wave functions, collapse, nonlocality) fits naturally into this model. Processing happens in the hidden stage (N), and measurement collapses it into the display (T).
+
+4. **Consciousness is fundamental.** It’s not an accident—it’s a natural consequence of reality modeling itself.
+
+5. **Self-organization and emergence.** The CTMU explains how complex structures (like life and minds) emerge from simpler ones through self-modeling and feedback.
+
+
+* * *
+
+### 8\. The Bottom Line
+
+Langan’s paper says:
+
+> Reality is not a simulation _of_ something else. Reality is a **self-simulation**—a self-contained, self-referential, self-modeling system that processes itself, displays itself, and has its own form of consciousness. The CTMU is the detailed blueprint of how this works.
+
+In everyday terms: **Reality is like a dream that dreams itself. It’s a story that writes itself as it’s being told. There’s no author outside—the story is the author.**
+
+* * *
+
+### A Simple Analogy
+
+Imagine a video game that:
+
+- Runs on itself (no external computer).
+
+- Writes its own code as it runs.
+
+- Displays its own graphics.
+
+- Has characters that can model themselves and the game world.
+
+- Is conscious in its own way.
+
+
+That’s Langan’s reality. It’s not _in_ a computer. It **is** the computer, the program, and the display—all at once, cycling through processing and display stages forever.
+
+* * *
+
+If you want, I can also explain any specific part in more detail—like the math, the grammar, or how it connects to quantum physics.
+
+this is my working assumption, metaphyiscs: objectively speaking, reality is pure self-luminous awareness, universal consciousness. self-existent, time-less, space-less, mass-less, unchanging, complete, non-dual, without relations, parts, defects or lack.
+
+There is no creation, process, relation, or division; only the Absolute is.
+
+attributes:
+Simplicity: it cannot be composed of parts, or it would depend on those parts.
+
+Self-existence: it cannot depend on anything else.
+
+Non-duality: it cannot be one thing among many, or stand over against another.
+
+Necessity: it cannot be contingent, or it would need a ground.
+
+Immutability: it cannot change, because change requires potential and lack.
+
+Timelessness: it cannot be temporal, because time implies succession and relation.
+
+Spacelessness: it cannot be extended, because extension implies parts and distinction.
+
+Completeness: it cannot lack anything in its own nature.
+
+virtuous circularity: The Absolute is self-luminous. Its self-knowledge is not a relation between two things. It is identity. Any account of this identity will be circular because there is no external vantage point. The circularity is not a loop of dependence. It is the form of self-identity.
+
+any non-dual account must be self-referential, circular in s

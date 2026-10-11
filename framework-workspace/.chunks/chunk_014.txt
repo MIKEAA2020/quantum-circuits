@@ -1,0 +1,120 @@
+ They want generate criteria. We should be non-technical? They asked. We can provide a rubric. Need maybe include criteria like: logical coherence/self-consistency, explanatory scope, empirical adequacy/alignment, hard problem of consciousness, combination problem, simplicity/parsimony, non-duality/dualism, dynamism/process vs static, relation/pluralism, causal closure, time/change, self-reference/virtuous circularity, intelligibility, richness/fruitfulness, compatibility with science, treatment of quantum mechanics, emergence/self-organization, problem of appearance/maya, problem of evil? Maybe not. They gave examples. We can create comprehensive criteria. We should also perhaps explain how each framework might score qualitatively? But user only asked generate criteria. We can include "how to use" and maybe sample scoring. Desired oververbosity 5. We can structure.
+
+We need be careful: user's framework: non-dual Absolute. Langan: CTMU. Whitehead: process philosophy. We should maybe define each criterion and why it matters, what would count as high/low. Then maybe a table with criteria and questions. Then maybe suggest weighting or ranking method. Also note criteria may conflict; no framework wins on all. Mention "hard problem" is one criterion but not sole. We can include "empirical evidence" nuance: direct empirical test vs compatibility. "Richness/fruitfulness" as heuristic. "Logical simplicity" vs "explanatory power" tradeoff. "Virtuous circularity" vs "vicious circularity". "Self-reference" as criterion. "Problem of the One and Many". "Problem of change". "Problem of consciousness". "Problem of matter". "Problem of time". "Problem of appearance". "Problem of relations". "Problem of causation". "Problem of self". "Problem of other minds". "Problem of values/meaning". "Soteriological/practical value". "Existential coherence". Maybe too much.
+
+We need rank frameworks. Could propose criteria categories:
+
+01. Logical coherence and self-consistency.
+
+02. Explanatory scope and completeness.
+
+03. Empirical adequacy and compatibility with science.
+
+04. Parsimony/simplicity (ontological and conceptual).
+
+05. Intelligibility and self-reference (virtuous circularity).
+
+06. Consciousness and the hard problem.
+
+07. Mind-body / combination problem.
+
+08. Treatment of time, change, and process.
+
+09. Treatment of unity and multiplicity (One and Many).
+
+10. Causation and agency / self-organization.
+
+11. Richness/fruitfulness (generates new questions, integrates domains).
+
+12. Practical/existential adequacy (meaning, ethics, soteriology).
+
+13. Compatibility with quantum mechanics/cosmology.
+
+14. Treatment of appearance/illusion vs reality.
+
+15. Freedom/creativity/novelty.
+
+16. Problem of evil/suffering? maybe.
+
+17. Epistemic access: can it be known/verified?
+
+18. Non-duality/dualism: does it avoid dualism?
+
+19. Dynamism vs static: does it account for change?
+
+20. Universality: applies to all levels.
+
+
+We can organize into a rubric with scoring 1-5. For each criterion, define high score. Then maybe a suggested weighting for different goals. User may want ranking. Could offer example scoring for three frameworks? They said "generate criteria for ranking the 3 frameworks against." So maybe just criteria. But we can include "how each framework might score" as illustrative. That might be useful. But careful: not overdo. Desired oververbosity 5. We can do a table with criteria and qualitative notes. That would be valuable.
+
+Let's outline:
+
+- Introduction: criteria should be explicit, weighted, and used consistently. No framework wins all.
+
+- List criteria with definitions.
+
+- For each, say what high/low means. Maybe note likely scores: User Absolute, Langan, Whitehead.
+
+- Then a sample weighted scoring matrix? Could be complex. Maybe simpler: a table with criteria and qualitative notes. Then a suggested weight set for different priorities: e.g., if you prioritize non-duality, your framework wins; if empirical richness, Langan/Whitehead win.
+
+- Conclusion: ranking depends on weights; no absolute ranking.
+
+
+We need ensure "plain everyday non-technical" maybe but user is sophisticated. We can still keep clear.
+
+Let's draft criteria:
+
+01. **Logical Coherence & Self-Consistency** – no contradictions; concepts defined; self-reference handled virtuously not viciously.
+
+02. **Explanatory Scope** – accounts for existence, consciousness, matter, time, space, causality, multiplicity, novelty, values.
+
+03. **Empirical Adequacy / Compatibility** – doesn't contradict established science; can accommodate QM, relativity, evolution, neuroscience; potential for empirical contact.
+
+04. **Ontological Parsimony / Simplicity** – fewest fundamental kinds/entities/principles; no unnecessary posits.
+
+05. **Conceptual Intelligibility** – can be understood, taught, reasoned about; not ad hoc.
+
+06. **Hard Problem of Consciousness** – explains subjective experience, qualia, unity of consciousness, self-awareness.
+
+07. **Combination Problem** – explains how micro-experiences/micro-entities form unified macro-consciousness.
+
+08. **Mind–Body / Mind–Matter Relation** – avoids dualism or explains interaction; integrates mental and physical.
+
+09. **Treatment of Time & Change** – explains temporal succession, becoming, permanence, and their relation.
+
+10. **Unity & Multiplicity (One and Many)** – explains why there is one reality and many appearances/entities without contradiction.
+
+11. **Causation & Self-Organization** – accounts for causal order, emergence, novelty, agency, self-organization.
+
+12. **Appearance vs Reality** – clarifies status of the manifest world: illusion, appearance, expression, or real.
+
+13. **Self-Reference & Grounding** – provides non-arbitrary ground; handles vicious circularity; virtuous circularity.
+
+14. **Richness / Fruitfulness** – generates new research, integrates disciplines, solves old puzzles, suggests new questions.
+
+15. **Practical / Existential Adequacy** – meaning, ethics, suffering, liberation, purpose.
+
+16. **Epistemic Access / Verifiability** – can it be known, tested, experienced? Direct realization vs inference vs empirical test.
+
+17. **Compatibility with Quantum Mechanics & Cosmology** – explains or accommodates quantum nonlocality, measurement, entanglement, cosmology.
+
+18. **Freedom, Creativity, Novelty** – accounts for genuine novelty and creativity vs determinism/static.
+
+19. **Problem of Evil / Suffering** – if the framework includes God/Absolute, how does it account for suffering? Maybe optional.
+
+20. **Non-Duality / Dualism Avoidance** – avoids ultimate dualisms (mind/matter, subject/object, time/eternity).
+
+21. **Universality / Scale Invariance** – applies at all levels: quantum, biological, cosmic, personal.
+
+22. **Internal Consistency of Self-Modeling** – if it uses self-simulation/identity operators, are they coherent?
+
+23. **Parsimony vs Richness Tradeoff** – balance.
+
+
+We can then provide a table with criteria and notes for each framework. But maybe too long. We can do table with columns: Criterion, What it measures, High score looks like, Low score looks like. Then separate brief notes: "Likely strengths/weaknesses" for each framework.
+
+Then a sample weighting: For user's priorities: non-duality, simplicity, timelessness → user's framework. For science/empirical richness → Langan/Whitehead. For consciousness → Whitehead dissolves hard problem, Langan gives self-modeling, user identifies consciousness with ground. For combination problem → Whitehead has mechanism (prehension), Langan has id-operators, user dissolves it. Etc.
+
+We can conclude: ranking depends on weights. Provide a template for scoring: 1-5 scale, weighted sum. Maybe give example weights: Logical coherence 15%, empirical adequacy 15%, hard problem 15%, simplicity 10%, richness 15%, non-duality 10%, time/change 10%, practical 10%. Then scores? Could be useful but might be too speculative. We can say "you can fill in".
+
+Maybe user wants crite

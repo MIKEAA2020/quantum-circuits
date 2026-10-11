@@ -1,0 +1,75 @@
+{
+ "date": "2026-10-11",
+ "atlas": "w3b v0.1",
+ "rows": {
+  "i_JK_split_pair": {
+   "verdict_linear_world": "OBSTRUCTION: J -| K (linear, a<b) requires JK = I_b of rank b, but rank(JK)<=a<b. Hom-dimension test passes (ab=ab) and is therefore NON-decisive; the identity test is decisive.",
+   "facts": {
+    "KJ = I_a": true,
+    "triangle residuals (eta=I, eps=JK)": [
+     1.3140205938955446e-14,
+     1.658076475823885e-15,
+     "--> triangle identities alone PASS; triangles are necessary, not sufficient"
+    ],
+    "||JK - I_b||": 8.719128529833043,
+    "rank(JK)": 3,
+    "b": 8
+   },
+   "repair": {
+    "canonical": "K# = J^T (polar/pseudoinverse twin)",
+    "eps* = JJ^T idempotent": 5.518520469489714e-16,
+    "eps* symmetric": 0.0,
+    "conclusion": "reflective inclusion certified: J -| J^T, counit = orthogonal projection"
+   },
+   "setting_flip": "in POS/ordered setting a monotone section-retraction IS a Galois connection (fg <= id suffices): same split data, adjunction verdict flips with ambient structure",
+   "residual_freedom": "choice of ambient (linear vs ordered) + choice of metric fixing J^T",
+   "E_row_match_registered_expectation": "YES (no ambient linear adjunction; repair by image-restriction/reflection; residual = reflection data)"
+  },
+  "ii_Weingarten_Gram": {
+   "verdict": "ADJUNCTION-LIKE COUNIT CERTIFIED iff d >= n (here n=3): Gram invertible at d=3, Wg = Ginv satisfies MP identities to 2.7e-14, 3.4e-17; Wg central (commutes with conjugation, defect 2.9e-17); n=2,d=2 values match known Weingarten numbers exactly (True)",
+   "rank_audit_table_n3": {
+    "1": {
+     "rank": 1,
+     "min_singular_value": 0.0,
+     "max_singular_value": 6.000000000000002
+    },
+    "2": {
+     "rank": 5,
+     "min_singular_value": 6.006215484494496e-16,
+     "max_singular_value": 24.000000000000007
+    },
+    "3": {
+     "rank": 6,
+     "min_singular_value": 5.999999999999996,
+     "max_singular_value": 59.999999999999986
+    }
+   },
+   "quantified_obstruction": "d<n: Gram singular (d=2: rank 5<6, smin=6.01e-16); counit exists only as MP-pseudoinverse => the 'counit exists' question has a sharp rank answer, not a narrative one",
+   "residual_freedom": "pseudoinverse branch choice when d<n; gauge of the S_n x S_n basis conventions",
+   "E_row_status": "positive row kept, with certified threshold d>=n and quantified singular spectrum below threshold"
+  },
+  "iii_SnSn_bimodule": {
+   "verdict": "ADJUNCTION EXISTS at module level (tensor -| hom, always). Positive in the module sense \u2014 so the user's 'expected interesting failure', if it materializes, must live at the STRICT/monoidal level (Phi_n as a functor on G_n^{otimes L}, associator/compatibility constraints).",
+   "certificate": {
+    "Peter-Weyl check C[S_3] = sum_lambda S_lambda otimes S_lambda*: sum d_lambda^2 = |S_3|=": [
+     6,
+     6
+    ],
+    "dims": {
+     "(3,)": 1,
+     "(2, 1)": 2,
+     "(1, 1, 1)": 1
+    }
+   },
+   "status": "row kept POSITIVE (module level); strict-level test queued = definition-pending (paper definitions of Phi_n required)"
+  },
+  "pending_paper_definitions": {
+   "period_map B_even . B_odd (B_odd -| B_even ?)": "definition-pending: paper upload required",
+   "compressed operator C_comp = K_e J_o K_o J_e": "definition-pending (exact J,K matrices needed)",
+   "n-replica map Phi_n strict-level test": "definition-pending",
+   "Clifford conjugation 3-design as engine input": "definition-pending",
+   "note": "no entry in this row was guessed; anti-GRU-pattern discipline applied to our own corpus row"
+  }
+ },
+ "runtime_s": 0.3
+}

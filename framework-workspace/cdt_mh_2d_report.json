@@ -1,0 +1,75 @@
+{
+ "date": "2026-10-11",
+ "seed": 20261011,
+ "sampler": "microcanonical pair-shift MH + uniform-string Gibbs (300k burn, 80k spacing)",
+ "measure_convention": "uniform (composition, phase) microstates; rotational-symmetry multiplicity uncorrected; AL98 rooted/unrooted collation = open item A1b",
+ "volume": {
+  "T": 48,
+  "total": 1200,
+  "n_range": [
+   8,
+   200
+  ]
+ },
+ "ensemble": {
+  "configs": 6,
+  "nodes_range": [
+   2400,
+   2400
+  ],
+  "profile_sd_range": [
+   14.7,
+   18.6
+  ]
+ },
+ "window": [
+  4,
+  40
+ ],
+ "table_sigma": {
+  "4": [
+   1.596,
+   0.63
+  ],
+  "8": [
+   1.673,
+   0.564
+  ],
+  "16": [
+   1.672,
+   0.58
+  ],
+  "32": [
+   1.711,
+   0.641
+  ],
+  "64": [
+   1.786,
+   0.726
+  ],
+  "128": [
+   1.891,
+   0.808
+  ],
+  "256": [
+   1.937,
+   0.875
+  ]
+ },
+ "d_s": [
+  1.687,
+  0.027
+ ],
+ "d_t": [
+  0.609,
+  0.033
+ ],
+ "targets": {
+  "d_s": "~2 (tol 0.25)",
+  "d_t": "1 +/- 0.1"
+ },
+ "drift_question_answer": "drift PERSISTS beyond tolerance: NOISE-BUDGET ITEM OPEN - estimator question before any 4D work",
+ "C0b-2D": "FAIL",
+ "runtime_s": 41.6,
+ "standing_note": "Gate-level only; not a bridge datum; throughput zero; d_t = 1 in 2D is a kernel construction fact (strip-move p = 1/6); decisional reading remains 4D-only (L-8d)."
+}

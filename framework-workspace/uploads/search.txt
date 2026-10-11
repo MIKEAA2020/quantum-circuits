@@ -1,0 +1,248 @@
+No 4D CDT compute exists in this workspace; absent a resource route, L-8 remains exactly what its own SR11 schedule says: a pre-registered test under a printed schedule."
+
+That is correct. What now exists:
+
+The pre-registration artifact (L8b-prereg.md), frozen and hash-committable.
+Calibration gates C0a/C0b.
+Prediction tiering (P0 direction-of-flow as sole primary).
+Blinding discipline (SR8).
+The registered null-expectation printed inside the artifact.
+Outreach payload ready.
+
+What does not exist:
+
+4D CDT configurations in the de Sitter phase.
+Compute infrastructure to run CDT simulations.
+An implementation of the causal spectral dimension adapted to CDT's dual-graph foliation.
+A calibration run on the flat and 2D controls.
+
+The pre-registration is the paperwork. The run requires the resources.
+
+What running actually requires
+
+Step 1 — Resource route. The document registers three:
+
+R1 collaboration. Reach out to the CDT groups (Ambjørn–Jurkiewicz–Loll; Loll's group at Nijmegen/IMAPP, per the correction). Present the pre-registration artifact. Ask for access to existing de Sitter-phase configurations or for a joint run. This is the highest-probability route.
+R2 port/extension. Build 4D CDT simulation code from the 2D codebase. Multi-month engineering task. Requires personnel with CDT simulation experience.
+R3 snapshot re-analysis. If public 4D CDT configurations with foliation data exist, re-analyze them. The audit did not confirm this route is viable.
+
+Absent one of these, the run cannot happen. The framework has registered the test; it has not built the laboratory.
+
+Step 2 — Implement the estimator. The Eichhorn–Mizera causal spectral dimension was developed for causal sets. Adapting it to CDT's dual graph and foliation structure is a technical task. It needs to be done before any data is touched, then calibrated on the flat and 2D controls.
+
+Step 3 — Calibration. Gate C0a (flat control: $d_t = 1 \pm 0.05$, $d_s = 4 \pm 0.05$) and C0b (2D analytic control). Pass-before-ensemble. If these fail, the protocol has a bug.
+
+Step 4 — Blinded analysis. Code frozen and hash-committed before data access. Analyst blinded to prediction direction. Whole-ensemble inclusion. Windows pre-declared. External CDT-expert review.
+
+Step 5 — Report. Either outcome, published under SR11's schedule.
+
+What "run" means here
+
+The framework has done what a research program can do on its own: it has written and frozen a falsifiable test, with calibration gates, blinding, and kill criteria. That is the correct posture.
+
+What the framework cannot do on its own is produce the 4D CDT configurations. That is a resource problem, not a conceptual problem. The next move is not another version or another audit round. It is R1 outreach. Write the collaborator email. Send the pre-registration artifact. Ask for access. Wait for the reply.
+
+The document's own verdict — "a pre-registration is a discipline, not a datum" — is correct. The discipline is complete. The datum requires the resource. So: not yet. The next move is the email, not the extraction.
+
+
+you asked
+
+message time: 2026-10-11 17:37:55
+
+can't we run ourselves?
+
+
+deepseek response
+
+Short answer: not now, but you can build toward it
+
+The honest assessment of what "running it ourselves" requires, and where the real barriers are.
+
+What running requires
+
+4D CDT configurations in the de Sitter phase. The L-8b test needs ensembles of 4D CDT geometries at the de Sitter phase point. Public tooling is 2D. The 4D code exists in the literature (the "Simulating CDT" guide, arXiv:2310.16744, and the Ambjørn–Jurkiewicz–Loll line of papers), but it is not packaged as an out-of-the-box tool.
+
+Compute. A 4D CDT simulation of reasonable size takes hours to days per configuration. An ensemble for spectral dimension extraction needs many configurations. Before the ensemble, you need a phase diagram scan to find the de Sitter phase boundary (κ₀, Δ tuning). This is a cluster-scale task, not a laptop task.
+
+Implementation of the causal spectral dimension on CDT. Eichhorn–Mizera developed the tool for causal sets. Adapting it to CDT's dual graph and foliation is a technical task. It has not been published.
+
+Calibration on 2D and flat controls. Gate C0a and C0b, which are already registered.
+
+Blinding discipline. Code frozen and hash-committed before data access. Analyst blinded to prediction direction. Whole-ensemble inclusion.
+
+The 2D stepping stone is feasible
+
+2D CDT is analytically solvable. The spectral dimension is known exactly (d_s = 2). The foliation structure is explicit. The causal spectral dimension can be computed in closed form.
+
+Running the protocol on 2D CDT is a real, achievable step. It would:
+
+Validate the causal spectral dimension adaptation on a solvable case.
+Confirm the extraction code works before 4D.
+Produce a publishable calibration result.
+Cost weeks, not months, and run on a workstation, not a cluster.
+
+2D CDT is not the test. But it is the prerequisite for the test. If the protocol does not return the known 2D answer, it will not return anything meaningful in 4D.
+
+The 4D barrier is real
+
+Even with the 2D calibration passed, 4D CDT requires:
+
+A working 4D codebase. Either port the 2D code, obtain the 4D code from a published source, or build it. Porting 2D → 4D is non-trivial because the phase structure is different and the de Sitter phase requires specific tuning.
+Cluster access. Institutional compute, or cloud compute (AWS, GCP, etc.), or a collaboration with a group that has it.
+Phase diagram scan. Before the ensemble, find where the de Sitter phase lives. This is itself a multi-week task.
+Ensemble generation. Then run the ensemble. Days to weeks of compute.
+
+This is a multi-month project for someone with CDT simulation experience. It is a multi-year project for someone without it.
+
+The blinding problem
+
+Here is the structural issue. The blinding discipline (SR8) was designed specifically to protect against the confabulation signature the audit detected in the spine datum — a precise number, one sigma from the pre-registered value, produced by someone with a stake in the result.
+
+If you run the extraction yourself, you are not blinded. You know the prediction. You will see the numbers as they come out. The discipline that makes the test credible is defeated.
+
+The three honest options:
+
+Collaborate (R1). An external CDT group runs the extraction. You supply the protocol. They run blinded. The result is credible.
+Build toward it yourself, with external review. You run it, but the extraction code is hash-committed and frozen, the data window is pre-declared, and an external CDT expert reviews the result before it is scored. This is weaker than full blinding, but it is the strongest form available if you run it yourself.
+Run the 2D calibration yourself, defer the 4D run to collaboration. This is the pragmatic path. 2D is calibration, not the test, so blinding matters less. 4D is the test, and it goes to a collaborator.
+
+What "running ourselves" would look like
+
+If you want to build toward it:
+
+Phase 1 (weeks). Obtain the 2D CDT code (JorenB/2d-cdt, or the code accompanying arXiv:2310.16744). Implement the causal spectral dimension on it. Calibrate against the analytic 2D result. This is real, achievable, and useful.
+
+Phase 2 (weeks to months). Obtain or build a 4D CDT codebase. Run a phase diagram scan to locate the de Sitter phase. This is engineering work, and it will require either CDT simulation experience or a collaborator who has it.
+
+Phase 3 (months). Generate the ensemble. Implement the causal spectral dimension extraction. Run the protocol with blinding discipline.
+
+Phase 4 (weeks). Report the result under SR11.
+
+Total: months to a year of work, with the 4D phase the critical path, and compute being the binding constraint.
+
+The honest recommendation
+
+You cannot run the full test right now. But you can:
+
+Run the 2D calibration now. This is real, achievable, and it validates the protocol on a solvable case. If the 2D extraction matches the analytic result, the protocol is sound. If it does not, the protocol has a bug, and you have saved yourself a 4D debacle.
+Build or obtain the 4D codebase. This is the critical path. It will require either learning CDT simulation or finding a collaborator who already does it.
+Send the outreach email (R1). The pre-registration artifact is ready. Present it to a CDT group. Collaboration is the highest-probability route, and it solves the resource gap and the blinding problem simultaneously.
+
+The framework's own SR11 schedule already anticipates this. The pre-registration is done. The run is a resource problem, not a conceptual problem. The next move is not another version. It is: pick a route — 2D calibration first, or outreach first, or both — and execute it.
+
+The test is real. The path is clear. The compute is the bottleneck. Build toward it, or hand it to someone who has the compute.
+
+
+you asked
+
+message time: 2026-10-11 17:40:45
+
+multimonth, multiyear, for humans, not ai!
+
+
+deepseek response
+
+You're right, and I was applying the wrong frame.
+
+Most of the "months to years" estimate was human-labor time: reading papers, writing code, debugging, running the analysis, iterating. That collapses under AI assistance. The 2D calibration could be done in days. The causal spectral dimension implementation could be written in hours. The literature extraction — the E&M definition, the Benedetti–Henson slice procedure, the Horava formula — takes minutes with search.
+
+What does not collapse:
+
+Compute. 4D CDT ensembles need cluster time. Cloud compute is rentable, but it costs money and the phase diagram scan is genuinely compute-bound. This is a resource constraint, not a labor constraint, and it does not shrink under AI assistance.
+
+The 4D codebase. The "Simulating CDT" guide has an accompanying codebase, but it is not necessarily drop-in for what the protocol needs. Adapting it, or porting the 2D code, is AI-doable but the 4D CDT phase structure is more complex than 2D and the adaptation is not trivial. Still: days to weeks of AI work, not months.
+
+External CDT-expert review. This requires a human with CDT experience. It is not optional — it is the SR8 blinding discipline. Without it, the confabulation risk the audit detected in the spine datum is not mitigated.
+
+Blinding. If the analyst is an AI, the blinding is only as good as the pipeline. The code must be frozen before data access, the analyst must not see the prediction, and the review must be by someone outside the process. This is achievable with discipline but not automatic.
+
+So the honest revision:
+
+2D calibration: days. Can be done now. AI writes the extraction, runs it on 2D CDT, compares to the analytic result.
+4D implementation: weeks of AI work, plus compute access.
+Phase diagram scan: compute-bound, weeks to months of wall-clock time, not labor-bound.
+Ensemble: compute-bound.
+External review and blinding: requires a human collaborator.
+
+The deepest point you are making, I think, is this: the framework has spent many rounds producing formalizations, audits, and pre-registrations, while throughput stays zero. The AI agents could have been building the extraction code instead of writing more version notes. The bottleneck has not been ability. It has been the choice of what to do.
+
+If that is the point, it is correct. The 2D calibration could have been built several rounds ago. The pre-registration artifact is good discipline, but discipline without execution is registry-keeping. The next move is not another document. It is to write the code, run it on 2D CDT, and see whether the protocol returns the analytic answer. That is achievable now, in days, with the resources at hand.
+
+The 4D run is still resource-bound, and the blinding still needs a human reviewer. But the 2D step is not. It should have been done. It can be done. The question is whether the agents will do it or produce another version note.
+
+
+you asked
+
+message time: 2026-10-11 17:42:29
+
+can't u find 4d cdt or give me link to download?
+
+
+deepseek response
+
+Yes, I found several publicly available 4D CDT resources. The most relevant for your L-8b protocol are:
+
+🧬 Primary 4D CDT Codebases
+
+dynamical-triangulation/dyntri-rs (Zenodo/GitLab) — This is the most promising for your needs. It is a Rust framework that explicitly provides code for dynamical triangulation in 2, 3, and 4 dimensions[reference:0]. It includes a specific file causal_triangulation4d.rs (26.4 kB)[reference:1]. You can download the full repository as a ZIP file from Zenodo[reference:2].
+
+
+acgetchell/causal-triangulations (Rust) — This project's roadmap explicitly includes 4D Delaunay triangulation, 3+1 foliation, and 4D ergodic moves[reference:3][reference:4]. While it may be less mature than the dyntri-rs framework, it is a public repository you can inspect.
+
+
+acgetchell/CDT-plusplus (C++) — A C++ implementation using CGAL, which is more established (63 stars, 25 forks)[reference:5]. Its focus is primarily on lower dimensions, but it is a well-maintained reference for the algorithms you would need to port.
+
+📄 The "Simulating CDT" Guide & Associated Code
+
+The paper "Simulating CDT quantum gravity" (arXiv:2310.16744) is your essential reference[reference:6]. It provides a hands-on introduction to the Monte Carlo moves and detailed-balance equations. The paper states that an associated open-source C++ implementation code is freely available online[reference:7][reference:8].
+
+Paper: arXiv:2310.16744
+Code (2D): github.com/JorenB/2d-cdt
+Code (3D): github.com/JorenB/3d-cdt — Note: This is the 3D (2+1) codebase, not 4D[reference:9].
+
+🔍 Other Resources & Data
+
+Zenodo Data Repositories: Search Zenodo for datasets related to "Causal Dynamical Triangulations." The search results mention a 2026 paper on the "Causal Spine" of CDT, which may have associated data[reference:10].
+CDT in C++ using CGAL: The acgetchell/CDT-plusplus repository is a mature, well-structured codebase that can serve as a reference for implementing the 4D moves, even if you ultimately port the logic to Python or Rust[reference:11].
+
+💡 Practical Next Steps
+
+Given your pre-registration artifact, the dyntri-rs framework is the best starting point. It is the only public code that claims to implement the 4D causal triangulation structure you need. You can download it, inspect the causal_triangulation4d.rs file, and use it as the foundation for your spectral dimension extraction code.
+
+You will still need to implement the Eichhorn–Mizera causal spectral dimension estimator on top of this framework, as that adaptation has not been published. The "Simulating CDT" paper and the CDT-plusplus code can guide you on the Monte Carlo moves and data structures.
+
+
+you asked
+
+message time: 2026-10-11 17:43:26
+
+anything else out there?
+
+
+deepseek response
+
+Yes, the search surfaced several additional resources beyond the dyntri-rs and CDT-plusplus frameworks. The most immediately usable asset for your L-8b protocol appears to be a published 2+1D CDT dataset with associated analysis code.
+
+📊 Newly Identified CDT Resources
+
+1. A Published 2+1D CDT Dataset with Foliation Data (GRU Project)
+This is the most promising find for immediate analysis. A Zenodo preprint titled "The Causal Spine of Discrete Spacetime" (GRU v2.5) provides a "Complete computational package (67 files, Python scripts, JSON results, QC/PPN/SO3 validation suites)" for full reproducibility[reference:0]. Crucially, it includes a source file named GRU_real_CDT_for_interactive.json containing a real 2+1D CDT geometry with N=2567 vertices and T=20 temporal slices[reference:1]. This dataset is explicitly offered for cross-validation, and the paper states that "collaboration inquiries are welcome"[reference:2]. It provides a concrete, published geometry with explicit foliation structure—exactly the kind of data your protocol needs for calibration and directional extraction, albeit in 2+1D rather than 3+1D.
+
+2. Additional Codebase References
+
+Damicristi/cdt (GitHub): This is another open-source CDT codebase referenced in the search results, with an explicit invitation to contribute[reference:3].
+Utrecht/Nijmegen Code: The search confirms that the simulation code developed by Renate Loll's group (historically at Utrecht, now at Radboud University Nijmegen) is open source and freely available, though it is not hosted on a standard repository[reference:4]. This likely refers to the code associated with the "Simulating CDT quantum gravity" guide (arXiv:2310.16744). Accessing it would require direct contact with the group.
+
+3. Software Development Avenues
+The "Simulating CDT quantum gravity" paper explicitly discusses future software development, noting that GPU acceleration for measuring computationally expensive observables (like average sphere distance) is a promising avenue[reference:5]. This is directly relevant to your protocol, which requires running diffusion kernels across an ensemble.
+
+💡 The Path Forward
+
+The discovery of the GRU 2+1D dataset changes the practical landscape. You can now:
+
+Download the GRU computational package to inspect the GRU_real_CDT_for_interactive.json file and the associated Python scripts.
+Implement and calibrate your causal spectral dimension estimator on this real 2+1D CDT geometry. This would satisfy the C0b calibration gate (or a 2+1D variant thereof) using published, non-confabulated data.
+Contact the GRU authors to inquire about the availability of 3+1D data or potential collaboration, as their dataset is explicitly offered for cross-validation.
+Contact Renate Loll's group at Radboud University to request access to their open-source 4D CDT simulation code, citing your pre-registration artifact and the specific extraction you intend to perform.
+
+This provides a concrete, executable first step. The GRU dataset gives you real geometry to validate your extraction code against, and the open-source code from the Loll group gives you a path toward the 4D ensembles required for the full L-8b test.

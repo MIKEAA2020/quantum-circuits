@@ -1,0 +1,73 @@
+gically necessary, then you have a proof. But that is the crux.
+
+We can also mention: In logic, a contradiction cannot be true. So process cannot be both objective and not objective. Excluded middle: either it is or it isn't. So exactly one is true. But which one is not determined by logic alone. That's standard. If user says "full logic" includes all truths? Then it's just omniscience. No human has it.
+
+We should perhaps ask: What would "full, correct, complete logic" be? If it's the set of all logical truths, it includes only tautologies, not contingent facts. "Process is objective" is not a logical truth; it's a metaphysical proposition. So logic alone cannot refute it. It can only refute it if combined with necessary metaphysical premises. Are your premises logical truths? If yes, then you have a proof. But you haven't demonstrated they are logical truths; you've asserted them as attributes. They may be metaphysically necessary, but not logically necessary in the narrow sense. In wide sense, if they are necessary truths, then yes.
+
+We can frame: There are two senses of logic:
+
+1. Formal logic: valid inference. Neutral on content.
+
+2. Complete logic of reality: the necessary structure of being. If that exists, it entails the truth about process.
+
+
+You're invoking sense 2. In sense 2, yes, it necessitates one. But we don't have access to sense 2 independently of metaphysical inquiry. So we can't use it as a neutral arbiter.
+
+We can agree: My earlier "logic does not tell us which" meant formal logic plus empirical evidence. I should have distinguished. If you mean logic in the full metaphysical sense, then it does tell us—provided you have the correct complete system. But then the question is whether your system is correct. That's not settled.
+
+We should also address: "necessitates one and refutes other." We can say: Yes, for any determinate proposition, exactly one of P and not-P is true. So either process is an objective feature in the strongest sense, or it is not. There is no third option. The law of excluded middle gives that. But that doesn't tell us which. The law of non-contradiction says not both. So your point that logic doesn't permit both is correct. My phrase "permits both" was wrong if taken as simultaneous truth. It permits either as a hypothesis, but only one can be true.
+
+We can conclude: So the honest answer: There is a fact of the matter. Logic dictates exactly one. But logic alone does not identify which without premises. If your non-dual axioms are logically necessary, then logic plus them refutes process. But that's a metaphysical proof, not logic alone. If you claim to have such a proof, present it. I'm open. Otherwise, the question remains open under logic + empirical evidence. But if you define "logic" as including all necessary truths, then yes, it necessitates one. But then it's not a neutral tool; it's the whole of metaphysics.
+
+We need respond in plain, direct. Avoid fluff. Maybe structure:
+
+1. You are right: logic does not permit both. Exactly one is true. Excluded middle.
+
+2. My earlier "permits both" was loose: I meant formal logic can model either consistently, not that both are true.
+
+3. But formal logic alone does not identify which. It needs premises. If the premises are necessary metaphysical truths, then the full system entails one. That is not "logic alone"; it's logic + metaphysics.
+
+4. If your non-dual axioms are logically necessary, then yes: process is not objective. But that is the claim to be proven.
+
+5. So: there is a fact of the matter; logic dictates exactly one; whether that one is "process is not objective" depends on whether your axioms are true/necessary. We don't have a neutral proof.
+
+
+We can also mention: In formal logic, you can have consistent theories with static ontology and consistent theories with dynamic ontology. Both can satisfy logical laws. So logic doesn't refute either. That's the sense in which logic doesn't tell us which. It's not "limited logic"; it's the nature of logic as form vs content.
+
+Maybe we can offer: If you want, state your axioms and I'll see if they logically entail non-process. But be careful: if axioms include "Absolute is unchanging," then it's immediate. But that's not a proof of the axiom.
+
+We should not be too adversarial. User is seeking truth. We can be respectful.
+
+Potential final answer:
+
+"You're right to correct me. Logic does not permit both. For any proposition P, either P or not-P. So either process is an objective feature in the strongest sense, or it is not. There is no third way. My 'permits both' meant only that formal logic can consistently formalize either a static or a dynamic ontology; it does not mean both are true. But that is a statement about logical form, not about which ontology is actual.
+
+Now: does logic in its full, correct, complete implication necessitate one and refute the other? Yes—if by 'logic' you mean the complete necessary structure of reality, including all true necessary premises. Then it entails the truth about process. But that is not logic alone in the formal sense; it is logic plus the true metaphysics. Formal logic alone is neutral on content. It can derive contradictions only from inconsistent premises. It cannot refute a consistent dynamic ontology without additional premises.
+
+So the question reduces to: Are your non-dual axioms logically necessary? If they are, then yes, process is refuted as objective. If they are not, then logic alone doesn't refute it. You may have a metaphysical proof, but it is not a purely logical proof.
+
+Thus: There is a fact of the matter. Exactly one side is true. Logic dictates that. But logic alone does not tell us which side. Your full system may tell us, if it is correct. That is the honest position."
+
+That seems good. We can add: "I'm not saying logic is limited; I'm saying logic is formal. Content comes from premises. If you have necessary premises, you have a necessary conclusion."
+
+We should also address "empirical evidence" maybe not needed. But we can mention: empirical evidence is also underdetermined. But user focused on logic.
+
+We can maybe say: "If you can show that change/process violates the law of non-contradiction or identity, then logic alone refutes it. Parmenides tried. But modern logic shows that change can be modeled consistently with temporal indices. So the refutation is not purely logical."
+
+Let's craft final with moderate length. Use plain language. Avoid hedging too much but be precise. We can say "You are correct" at start to acknowledge. Then clarify. Then conclusion.
+
+We need ensure not to say "logic permits both" again. We can say "Formal logic can model either without contradiction, but that's not the same as both being true."
+
+Also mention "strongest sense" definition. If process is objective feature in strongest sense, then it's a feature of ultimate reality. If ultimate reality is defined as unchanging, then contradiction. But that's from definition.
+
+We can maybe end: "So: under logic + empirical evidence alone, the answer remains unknown. Under your full non-dual metaphysics, the answer is no. Logic itself, formal logic, doesn't decide. If you claim a complete logic that does, you're claiming a complete metaphysics. That's a legitimate ambition, but it's not yet established."
+
+That should satisfy.
+
+You are right to press this. Let me correct myself precisely.
+
+Logic does **not** permit both. For any determinate proposition PPP, either PPP is true or ¬P\\neg P¬P is true. There is no third option. So either process is an objective feature in the strongest sense, or it is not. Exactly one is true. My earlier phrase “logic permits both” was loose and misleading. What I meant was: **formal logic can consistently model either a static ontology or a dynamic ontology.** That is not the same as saying both are true. Only one can be true.
+
+Now, your stronger claim: **logic in its full, correct, complete implication necessitates one and refutes the other.**
+
+If b

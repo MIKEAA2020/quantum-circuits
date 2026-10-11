@@ -1,0 +1,89 @@
+{
+ "date": "2026-10-11",
+ "atlas": "w3b v0.3",
+ "registered_expectation": "vii, viii expected adjunction-POSITIVE (assessor), computation decides",
+ "rows": {
+  "vii_universal_constructions": {
+   "source_row_verbatim": "Universal constructions | Diagram | Limit / Colimit | universal property | adjunction | math",
+   "verdict": "ADJUNCTION SPECIES CERTIFIED on both sides at decisive level: Delta -| Pi and |_| -| Delta hold on the finite fragment with EXACT integer hom-count identities (72/72 grids), diagonal-map naturality brute-forced TRUE on the map grid, and triangle identities TRUE at component level. The corpus row names 'adjunction' as its invariant; the atlas certifies it rather than trusts it.",
+   "registered_expectation_outcome": "POSITIVE as expected (assessor direction)",
+   "trap_class": {
+    "triangles_residuals": "triangles TRUE (exact, component level); ran alongside, not instead of, decisive counts",
+    "decisive_certificate": "exact hom-count identity on 72-cardinality grid; naturality brute force over all small functions"
+   },
+   "certificates": {
+    "Delta_|_Pi_grids_pass": true,
+    "coprod_|_Delta_grids_pass": true,
+    "unit_naturality": true,
+    "triangles": true,
+    "grids": 72
+   }
+  },
+  "viii_group_theory": {
+   "source_row_verbatim": "Group theory | Group | Element / Inverse | operation | identity | math",
+   "rendering_a_antiinvolution": {
+    "verdict": "ANTI-INVOLUTION SPECIES CERTIFIED exactly (integer Cayley arithmetic)",
+    "certificates": [
+     {
+      "group": "S_3",
+      "i^2=id": true,
+      "i(gh)=i(h)i(g)": true,
+      "order": 6
+     },
+     {
+      "group": "Z_6",
+      "i^2=id": true,
+      "i(gh)=i(h)i(g)": true,
+      "order": 6
+     },
+     {
+      "group": "S_4",
+      "i^2=id": true,
+      "i(gh)=i(h)i(g)": true,
+      "order": 24
+     }
+    ]
+   },
+   "rendering_b_free_forgetful": {
+    "verdict": "ADJUNCTION SPECIES CERTIFIED at decisive level: Hom_Grp(F_n, G) =~ G^n by eval-at-generators (exact counts n=2: 36, n=3: 216); hom property VERIFIED on 3600 sampled word pairs per assignment (integer Cayley arithmetic), triangle laws at component level.",
+    "certificates": {
+     "2": {
+      "count": 36,
+      "count_equals_|G|^n": true,
+      "hom_property_3600_sampled_word_pairs": true,
+      "eval_bijective": true
+     },
+     "3": {
+      "count": 216,
+      "count_equals_|G|^n": true,
+      "hom_property_3600_sampled_word_pairs": true,
+      "eval_bijective": true
+     }
+    },
+    "triangles": true
+   },
+   "registered_expectation_outcome": "POSITIVE for adjunction at the free/forgetful rendering; the row's NAMED polarity (element/inverse) belongs to the anti-involution species -- both species live in one row, so the row's species label must record which rendering is meant",
+   "trap_class": {
+    "triangles_residuals": "exact (word-level component checks)",
+    "decisive_certificate": "eval bijection with hom-property enumeration; Cayley integer arithmetic \u2014 no floats"
+   },
+   "honesty_clause": "eval bijectivity's surjectivity is the universal property itself; here it is verified by checking the extended maps are homomorphisms on all sampled words and that distinct assignments differ (they differ at a generator). Infinite-word closure is a theorem, disclosed as the analytic step."
+  }
+ },
+ "runtime_s": 3.3,
+ "cumulative_ledger_v0.3": {
+  "adjunction_positive": [
+   "ii (d>=n only)",
+   "iii (balanced tensor)",
+   "vii (Delta-|Pi, |_| -|Delta)",
+   "viii-b (Free-|Forget)"
+  ],
+  "adjunction_denied_or_mismatch_species": [
+   "i (registered failure)",
+   "iv (conjugacy)",
+   "v (Z2 with Kramers sign)",
+   "vi (Z2 grading)"
+  ],
+  "measured_rate_after_v0.3": "4/8 row-tests adjunction-positive (rate stressed in the positive direction as instructed)"
+ }
+}

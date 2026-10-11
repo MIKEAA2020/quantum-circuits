@@ -1,0 +1,30 @@
+{
+ "D1_flat_profile_equilibrated_strings": {
+  "d_s_window4_40": [
+   1.816,
+   0.056
+  ],
+  "d_t_window4_40": [
+   0.771,
+   0.042
+  ],
+  "prediction": "d_t ~ 1 if heterogeneity is the mechanism"
+ },
+ "D2_strip_chain_from_profile_rates": {
+  "table_sigma": {
+   "4": 0.642,
+   "8": 0.551,
+   "16": 0.663,
+   "32": 0.877,
+   "64": 1.172,
+   "128": 1.328,
+   "256": 1.026
+  },
+  "d_t_window4_40": [
+   0.746,
+   0.131
+  ],
+  "prediction": "reproduce ~0.6 ballpark if reduced process suffices"
+ },
+ "note": "diagnostics for cdt_mh_2d.py FAIL (d_t=0.609, d_s=1.687, window [4,40])"
+}

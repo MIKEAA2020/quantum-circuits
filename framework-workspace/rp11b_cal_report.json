@@ -1,0 +1,61 @@
+{
+ "date": "2026-10-11",
+ "engine": "rp11b v0.1",
+ "cases": {
+  "C1_ising_planar": {
+   "H_G(t)": "7*x**8 + 4*x**6 + 4*x**4 + 1",
+   "H_dual(xt)": "x**12 + 4*x**10 + 16*x**9 + 23*x**8 + 48*x**7 + 72*x**6 + 48*x**5 + 23*x**4 + 16*x**3 + 4*x**2 + 1",
+   "polynomial_identity": false,
+   "verdict": "OBSTRUCTION",
+   "completion": "t = xt, i.e. tanh K = e^{-2 Kt} ; self-dual K* = 0.440686793510",
+   "residual": "prefactor (ground-state degeneracy x2 free b.c.); boundary-condition sensitivity -> C3",
+   "dimensions": [
+    "V=9 E=12 | dual V=5 E=12"
+   ]
+  },
+  "C2_potts3_primal_dual": {
+   "verdict": "FORCED COMPLETION",
+   "completion": "('vt = q/v', 12, -4) -> v vt = 3 ; self-dual v* = sqrt(3) = 1.732051 ; K* = ln(1+sqrt3) = 1.005053",
+   "residual": "prefactor q^{...} monomial (Euler data); map library restricted to stated 6 candidates",
+   "unique_over_library": true
+  },
+  "C3_ising_torus": {
+   "verdict": "OBSTRUCTION (homology sectors), classified residual",
+   "graph_poly": "H_T(t) = x**18 + 6*x**15 + 9*x**14 + 36*x**13 + 75*x**12 + 90*x**11 + 171*x**10 + 248*x**9 + 171*x**8 + 90*x**7 + 75*x**6 + 36*x**5 + 9*x**4 + 6*x**3 + 1",
+   "sector_polynomials": {
+    "(0, 0)": "51*x**12 + 72*x**10 + 99*x**8 + 24*x**6 + 9*x**4 + 1",
+    "(1, 0)": "3*x**15 + 18*x**13 + 45*x**11 + 124*x**9 + 45*x**7 + 18*x**5 + 3*x**3",
+    "(0, 1)": "3*x**15 + 18*x**13 + 45*x**11 + 124*x**9 + 45*x**7 + 18*x**5 + 3*x**3",
+    "(1, 1)": "x**18 + 9*x**14 + 24*x**12 + 99*x**10 + 72*x**8 + 51*x**6"
+   },
+   "finding": "high/low duality on the torus maps Z to a spin-structure SUM, not to Z alone: the four (wx,wy) sector polynomials are distinct -> no single-map completion; residual freedom = the 2x2 sector basis; standard repair: weighted sum over the 4 spin structures",
+   "engine_note": "this is the demonstration case that completion is local; obstruction global"
+  },
+  "C4_sduality_structure": {
+   "verdict": "FORCED COMPLETION (structure level)",
+   "completion": "tau -> -1/tau acts projectively (S^2 = -I, (ST)^3 = S^2): SL(2,Z) modular S confirmed; Langlands dual pair map verified at root/coroot level for B_3 <-> C_3",
+   "residual": "center/level data (= global form of gauge group) not fixed by Lie-algebra data alone",
+   "checks": {
+    "S^2 = -I (projective)": true,
+    "S^4 = I": true,
+    "(S T)^3 = S^2 (up to sign)": true,
+    "coroot(B_n) = roots(C_n), n=3": true
+   }
+  },
+  "C5_particle_vortex": {
+   "verdict": "FORCED COMPLETION",
+   "completion": "Villain/XY Gaussian dualization step certified numerically at 1e-11 over 25 random (a, phi): sum_m exp(-a m^2/2 + i m phi) = sqrt(2 pi/a) sum_e exp(-(phi+2 pi e)^2/2a); coupling inversion a <-> 1/a recovered from the chain",
+   "residual": "global winding sectors e (integer) \u2014 classified residual freedom",
+   "numeric_certified": true
+  }
+ },
+ "debt_ledger": [
+  "H1 \u2014 partition-function equality up to ground-state/prefactor normalization",
+  "H2 \u2014 dictionary restricted to graph-level planar duality: H_G(t) == poly == H_G*(xt) forces t := xt",
+  "H3 \u2014 Tutte/RC polynomial duality tested over a 6-candidate map library {vt = v, 1/v, q/v, qv, v/q, -q/v}",
+  "H4 \u2014 group-theoretic level only (structure duality), no dynamics content tested",
+  "H5 \u2014 exact chain-argument identity verified numerically (1e-11); analytic proof is standard textbook step"
+ ],
+ "runtime_s": 12.4,
+ "scope_note": "Calibration-only. Engine v0.1 is an exact-probe engine: two invariants enumerated independently, identity-tested. No yield scored; benchmark (W3-v10) unrun. Paper-specific cases (B_even/B_odd, C_comp, Phi_n) = definition-pending, paper upload required."
+}
