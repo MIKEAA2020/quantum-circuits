@@ -1,0 +1,49 @@
+name: Deploy web simulation (GitHub Pages)
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+# The runtime GITHUB_TOKEN carries pages:write + id-token:write here, which the
+# fine-grained session PAT cannot (403 on the Pages API). This is what makes
+# the deployment self-contained: no owner-side API call is needed.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # enablement: true creates the GitHub Pages site (build_type: workflow)
+      # via the GITHUB_TOKEN if it does not exist yet.
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # Serve the whole repository tree, mirroring the documented branch-source
+      # route: the .nojekyll at the repo root (commit 79e2f1a) is honored, so
+      # https://mikeaa2020.github.io/quantum-circuits/web-simulation/ serves
+      # web-simulation/index.html — the URL cited in the manuscript's data
+      # availability statement.
+      - name: Upload site (repo root, .nojekyll honored)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
