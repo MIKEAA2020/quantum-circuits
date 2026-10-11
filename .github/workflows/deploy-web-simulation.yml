@@ -5,9 +5,12 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
-# The runtime GITHUB_TOKEN carries pages:write + id-token:write here, which the
-# fine-grained session PAT cannot (403 on the Pages API). This is what makes
-# the deployment self-contained: no owner-side API call is needed.
+# Once the Pages site exists (owner: Settings -> Pages -> Build and deployment
+# -> Source: "GitHub Actions"), this workflow deploys on every push to main
+# and via manual dispatch. Until then it exits green without deploying:
+# creating the Pages site is a repository-administration operation, and the
+# automatic GITHUB_TOKEN cannot administer the repository by design, no
+# matter what is granted under `permissions:`.
 permissions:
   contents: read
   pages: write
@@ -27,12 +30,42 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # enablement: true creates the GitHub Pages site (build_type: workflow)
-      # via the GITHUB_TOKEN if it does not exist yet.
+      # Preflight: is the Pages site created, and in which mode?
+      #   absent   -> owner has not enabled Pages yet; skip deployment (green).
+      #   workflow -> site enabled for GitHub Actions; deploy below.
+      #   legacy   -> owner chose branch-source serving (Settings -> Pages ->
+      #              Deploy from a branch: main / (root)); the site is served
+      #              directly from the branch and this workflow is not needed.
+      - name: Check Pages site mode
+        id: pagescheck
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          RESP=$(curl -s -w '\n%{http_code}' \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages")
+          CODE=$(echo "$RESP" | tail -n1)
+          BODY=$(echo "$RESP" | sed '$d')
+          if [ "$CODE" != "200" ]; then
+            echo "mode=absent" >> "$GITHUB_OUTPUT"
+            echo "Pages site not created yet (HTTP ${CODE}); nothing deployed."
+            echo "One-time owner action to go live:"
+            echo "  Settings -> Pages -> Build and deployment -> Source: 'GitHub Actions'"
+            echo "(equivalently: Source 'Deploy from a branch', main / (root))."
+          else
+            MODE=$(echo "$BODY" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("build_type","legacy"))')
+            echo "mode=${MODE}" >> "$GITHUB_OUTPUT"
+            echo "Pages site present; build_type=${MODE}"
+            if [ "$MODE" != "workflow" ]; then
+              echo "Branch-source serving active; the site serves from main directly."
+            fi
+          fi
+
       - name: Setup Pages
+        if: steps.pagescheck.outputs.mode == 'workflow'
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       # Serve the whole repository tree, mirroring the documented branch-source
       # route: the .nojekyll at the repo root (commit 79e2f1a) is honored, so
@@ -40,10 +73,12 @@ jobs:
       # web-simulation/index.html — the URL cited in the manuscript's data
       # availability statement.
       - name: Upload site (repo root, .nojekyll honored)
+        if: steps.pagescheck.outputs.mode == 'workflow'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
       - name: Deploy to GitHub Pages
+        if: steps.pagescheck.outputs.mode == 'workflow'
         id: deployment
         uses: actions/deploy-pages@v4
