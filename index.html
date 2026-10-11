@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quantum·circuits — MIPT research workspace</title>
+<meta name="description" content="Landing page for the quantum·circuits repository: measurement-induced phase transitions in monitored quantum circuits — exact replica mechanics, the annealed critical ladder n=2..5, a quenched Clifford finite-size-scaling benchmark, and the standalone web simulation hosted at /web-simulation/." />
+<meta name="keywords" content="measurement-induced phase transition, MIPT, monitored quantum circuits, replica mechanics, Clifford circuits, triangular-lattice Ising, Potts universality, finite-size scaling, purification" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23052e26%22%2F%3E%3Ccircle%20cx%3D%2211%22%20cy%3D%2216%22%20r%3D%222.6%22%20fill%3D%22%2334d399%22%2F%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%229.5%22%20r%3D%222.6%22%20fill%3D%22%2334d399%22%2F%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2222.5%22%20r%3D%222.6%22%20fill%3D%22%23fbbf24%22%2F%3E%3Cpath%20d%3D%22M11%2016%2021%209.5M11%2016%2021%2022.5%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%221.6%22%2F%3E%3C%2Fsvg%3E" />
+<!--
+  Optional root index for the GitHub Pages site of MIKEAA2020/quantum-circuits.
+  The Pages workflow deploys the whole repository tree on every push to main;
+  this file gives the site root a landing page (it previously returned 404).
+  Single self-contained file: no network requests, no scripts, no tracking.
+  Every quoted number is taken from the manuscript of record
+  (research/versions/manuscript_revised_v32.tex) in its honest register.
+-->
+<style>
+  :root{
+    --paper:#ffffff;
+    --ink:#0a0a0a;
+    --ink-soft:#3f3f46;
+    --muted:#52525b;
+    --pine:#052e26;
+    --pine-soft:#0b4437;
+    --emerald:#047857;
+    --emerald-bright:#059669;
+    --mint:#34d399;
+    --amber:#b45309;
+    --line:#e4e4e7;
+    --wash:#f6f8f7;
+    --radius:.75rem;
+    --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:var(--font);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    min-height:100dvh;
+  }
+  .wrap{width:100%;max-width:1060px;margin:0 auto;padding:0 20px}
+  a{color:var(--emerald);text-decoration-thickness:1px;text-underline-offset:3px}
+  a:hover{color:var(--pine)}
+  :focus-visible{outline:2px solid var(--emerald-bright);outline-offset:2px;border-radius:4px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--pine);color:#fff;padding:.5rem 1rem;border-radius:8px;z-index:99}
+  .skip:focus{left:8px}
+  .mono{font-family:var(--mono)}
+
+  /* ---------- header ---------- */
+  .site-header{
+    border-bottom:1px solid var(--line);
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(1.2);
+    position:sticky;top:0;z-index:10;
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    min-height:60px;gap:12px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}
+  .brand:hover{color:var(--ink)}
+  .brand-mark{width:30px;height:30px;flex:none;border-radius:7px;background:var(--pine);display:grid;place-items:center}
+  .brand-name{font-weight:700;letter-spacing:-.01em;font-size:1.02rem;white-space:nowrap}
+  .brand-name .dot{color:var(--emerald-bright)}
+  .brand-tag{font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;display:none}
+  @media(min-width:640px){.brand-tag{display:inline}}
+  .gh-link{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:.85rem;font-weight:600;color:var(--ink-soft);
+    text-decoration:none;border:1px solid var(--line);
+    padding:7px 12px;border-radius:999px;background:#fff;
+    transition:border-color .15s,box-shadow .15s,color .15s;
+    white-space:nowrap;
+  }
+  .gh-link:hover{border-color:var(--emerald-bright);color:var(--pine);box-shadow:0 1px 6px rgba(5,46,38,.12)}
+  .gh-link svg{width:15px;height:15px;fill:currentColor;flex:none}
+  .gh-link .gh-short{display:none}
+  @media(max-width:640px){
+    .gh-link .gh-full{display:none}
+    .gh-link .gh-short{display:inline}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(720px 340px at 88% -10%,rgba(52,211,153,.16),transparent 65%),
+      radial-gradient(500px 260px at -8% 108%,rgba(4,120,87,.08),transparent 70%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:
+      linear-gradient(rgba(5,46,38,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(5,46,38,.045) 1px,transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(560px 300px at 80% 0%,#000 30%,transparent 75%);
+    mask-image:radial-gradient(560px 300px at 80% 0%,#000 30%,transparent 75%);
+  }
+  .hero-inner{position:relative;padding:64px 0 56px}
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--emerald);background:rgba(52,211,153,.12);
+    border:1px solid rgba(52,211,153,.35);
+    padding:5px 11px;border-radius:999px;margin-bottom:18px;
+  }
+  .kicker .pulse{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 3px rgba(52,211,153,.25)}
+  .hero h1{
+    margin:0 0 14px;font-size:clamp(1.85rem,4.6vw,2.9rem);
+    line-height:1.12;letter-spacing:-.025em;font-weight:800;max-width:19ch;
+  }
+  .hero h1 em{font-style:normal;color:var(--emerald)}
+  .hero p.lede{
+    margin:0 0 10px;max-width:66ch;color:var(--ink-soft);font-size:clamp(.98rem,1.6vw,1.08rem);
+  }
+  .hero p.cite{margin:0 0 26px;max-width:66ch;color:var(--muted);font-size:.88rem}
+  .hero p.cite .work{font-style:italic}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:650;font-size:.95rem;text-decoration:none;
+    padding:12px 20px;border-radius:10px;border:1px solid transparent;
+    transition:transform .15s,box-shadow .15s,background .15s,border-color .15s,color .15s;
+  }
+  .btn-primary{background:var(--pine);color:#fff;box-shadow:0 2px 10px rgba(5,46,38,.28)}
+  .btn-primary:hover{background:var(--pine-soft);color:#fff;transform:translateY(-1px);box-shadow:0 6px 18px rgba(5,46,38,.3)}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--emerald-bright);color:var(--pine);transform:translateY(-1px)}
+  .btn svg{width:16px;height:16px;flex:none}
+  .btn .arrow{transition:transform .15s}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  /* ---------- sections ---------- */
+  section.block{padding:52px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .sec-index{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--emerald-bright);letter-spacing:.06em}
+  h2{margin:0;font-size:clamp(1.3rem,2.6vw,1.6rem);letter-spacing:-.02em;font-weight:750}
+  .sec-sub{margin:0 0 26px;color:var(--muted);font-size:.93rem;max-width:70ch}
+
+  /* simulation spotlight */
+  .spotlight{
+    border:1px solid var(--line);border-radius:calc(var(--radius) + 4px);
+    background:linear-gradient(180deg,#ffffff, var(--wash));
+    padding:26px;display:grid;grid-template-columns:1fr;gap:18px;
+    box-shadow:0 1px 3px rgba(5,46,38,.05);
+  }
+  @media(min-width:860px){.spotlight{grid-template-columns:1.55fr 1fr;align-items:center;padding:32px}}
+  .spot h3{margin:0 0 8px;font-size:1.18rem;letter-spacing:-.015em}
+  .spot h3 .path{font-family:var(--mono);font-weight:600;color:var(--emerald);font-size:.95em}
+  .spot p{margin:0;color:var(--ink-soft);font-size:.95rem}
+  .feat-list{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+  @media(min-width:520px){.feat-list{grid-template-columns:1fr 1fr}}
+  .feat-list li{
+    display:flex;gap:9px;align-items:flex-start;font-size:.875rem;color:var(--ink-soft);
+    background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 12px;
+  }
+  .feat-list li::before{
+    content:"";flex:none;width:7px;height:7px;border-radius:2px;
+    background:var(--mint);margin-top:6px;box-shadow:0 0 0 3px rgba(52,211,153,.18);
+  }
+  .spot-cta{display:flex;flex-direction:column;gap:10px;justify-content:center}
+  .spot-cta .btn{justify-content:center}
+  .spot-cta .fineprint{font-size:.78rem;color:var(--muted);text-align:center;margin:2px 0 0}
+
+  /* results grid */
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:820px){.grid{grid-template-columns:repeat(3,1fr)}}
+  .card{
+    border:1px solid var(--line);border-radius:calc(var(--radius) + 2px);
+    background:#fff;padding:20px;display:flex;flex-direction:column;gap:12px;
+    transition:border-color .15s,box-shadow .15s,transform .15s;
+  }
+  .card:hover{border-color:rgba(4,120,87,.4);box-shadow:0 8px 22px rgba(5,46,38,.08);transform:translateY(-2px)}
+  .card-label{
+    display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+    font-size:.7rem;font-weight:750;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);
+    background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);
+    padding:4px 10px;border-radius:999px;
+  }
+  .card-label.gold{color:var(--amber);background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.45)}
+  .card h3{margin:0;font-size:1.02rem;letter-spacing:-.01em}
+  .card p{margin:0;font-size:.88rem;color:var(--ink-soft)}
+  .card .foot{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font-size:.78rem;color:var(--muted)}
+
+  /* the ladder */
+  .ladder{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+  .rung{
+    flex:1 1 105px;min-width:100px;
+    border:1px solid var(--line);border-radius:10px;background:var(--wash);
+    padding:9px 10px;text-align:center;
+  }
+  .rung .n{display:block;font-size:.68rem;font-weight:750;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .rung .v{display:block;font-family:var(--mono);font-size:1.02rem;font-weight:650;color:var(--ink);margin-top:2px;white-space:nowrap}
+  .rung.hot{background:var(--pine);border-color:var(--pine)}
+  .rung.hot .n{color:var(--mint)}
+  .rung.hot .v{color:#fff}
+  .ladder-note{font-size:.78rem;color:var(--muted);margin:10px 0 0}
+  .ladder-note .cond{color:var(--emerald);font-weight:600}
+
+  /* stat rows (quenched / purification) */
+  .stat{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline}
+  .stat dt{font-family:var(--mono);font-weight:650;font-size:.98rem;color:var(--pine);white-space:nowrap}
+  .stat dd{margin:0;font-size:.86rem;color:var(--ink-soft)}
+
+  /* docs */
+  .doc-groups{display:grid;gap:16px}
+  @media(min-width:820px){.doc-groups{grid-template-columns:1fr 1fr}}
+  .doc-group{border:1px solid var(--line);border-radius:calc(var(--radius) + 2px);background:#fff;padding:18px 20px}
+  .doc-group h3{
+    margin:0 0 10px;font-size:.78rem;font-weight:750;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--emerald);
+    display:flex;align-items:center;gap:8px;
+  }
+  .doc-group h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .doc-group ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+  .doc-group li{font-size:.88rem}
+  .doc-group li a{display:flex;justify-content:space-between;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);padding:6px 8px;border-radius:8px;transition:background .12s}
+  .doc-group li a:hover{background:var(--wash)}
+  .doc-group li a .name{font-weight:570}
+  .doc-group li a .hint{font-size:.74rem;color:var(--muted);white-space:nowrap;font-family:var(--mono)}
+  .doc-group li a:hover .name{color:var(--emerald);text-decoration:underline;text-underline-offset:3px}
+  .doc-group li .ext{font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-family:var(--mono)}
+
+  /* about / directory */
+  .dir{display:grid;gap:10px;border:1px solid var(--line);border-radius:calc(var(--radius) + 2px);background:var(--wash);padding:18px 20px}
+  @media(min-width:720px){.dir{grid-template-columns:1fr 1fr}}
+  .dir-row{display:flex;flex-direction:column;gap:2px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 13px}
+  .dir-row .url{font-family:var(--mono);font-size:.8rem;font-weight:650;color:var(--pine);text-decoration:none;word-break:break-all}
+  .dir-row .url:hover{color:var(--emerald);text-decoration:underline;text-underline-offset:3px}
+  .dir-row .what{font-size:.78rem;color:var(--muted)}
+  .about-note{font-size:.85rem;color:var(--muted);max-width:75ch;margin:16px 0 0}
+  .about-note a{font-family:var(--mono);font-size:.8rem}
+
+  /* ---------- footer ---------- */
+  .site-footer{
+    margin-top:auto;border-top:1px solid var(--line);background:#eef3f1;
+    padding:26px 0 calc(26px + env(safe-area-inset-bottom,0px));
+  }
+  .foot-grid{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:flex-start}
+  .foot-brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.92rem}
+  .foot-brand .brand-mark{width:24px;height:24px;border-radius:6px}
+  .foot-col{font-size:.78rem;color:var(--muted);line-height:1.7}
+  .foot-col strong{color:var(--ink-soft)}
+  .foot-col a{color:var(--emerald)}
+  .foot-bottom{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:.72rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="quantum·circuits home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="11" cy="16" r="2.6" fill="#34d399"/>
+          <circle cx="21" cy="9.5" r="2.6" fill="#34d399"/>
+          <circle cx="21" cy="22.5" r="2.6" fill="#fbbf24"/>
+          <path d="M11 16 21 9.5M11 16 21 22.5" stroke="#34d399" stroke-width="1.6"/>
+        </svg>
+      </span>
+      <span class="brand-name">quantum<span class="dot">·</span>circuits</span>
+      <span class="brand-tag">MIPT research workspace</span>
+    </a>
+    <a class="gh-link" href="https://github.com/MIKEAA2020/quantum-circuits" aria-label="Repository on GitHub">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      <span class="gh-full">MIKEAA2020/quantum-circuits</span>
+      <span class="gh-short">GitHub</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ hero ============ -->
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <span class="kicker"><span class="pulse" aria-hidden="true"></span>GitHub Pages · repository root</span>
+      <h1>Measurement-induced phase transitions, <em>treated exactly.</em></h1>
+      <p class="lede">
+        The research workspace behind the manuscript on monitored quantum circuits: an exact
+        finite-dimensional theory of the replica mechanics — feature-space compression, the
+        Weingarten bond channel, and the annealed critical ladder at n&thinsp;=&thinsp;2&hellip;5 —
+        together with a large-scale quenched Clifford finite-size-scaling benchmark of the
+        entanglement transition.
+      </p>
+      <p class="cite">
+        Manuscript of record&thinsp;· <span class="work">&ldquo;Exact Replica Mechanics and Born-Record
+        Large Deviations in Monitored Quantum Circuits&rdquo;</span>&thinsp;· Amin Abaee&thinsp;·
+        <a href="research/versions/manuscript_revised_v32.pdf">PDF (v32)</a>
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="./web-simulation/">
+          Open the web simulation
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 8h11m0 0-4.5-4.5M13 8l-4.5 4.5"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="research/versions/manuscript_revised_v32.pdf">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 1.5h5.5L13 5v9.5H4z"/><path d="M9.5 1.5V5H13"/></svg>
+          Manuscript (PDF)
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/research/versions/manuscript_revised_v32.tex">
+          TeX source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ simulation spotlight ============ -->
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-index">01</span><h2>Hosted at this URL</h2></div>
+      <p class="sec-sub">The interactive artifact this Pages site exists to serve — the URL cited in the manuscript&rsquo;s data-availability statement.</p>
+      <div class="spotlight">
+        <div class="spot">
+          <h3>Web simulation &nbsp;<span class="path">/web-simulation/</span></h3>
+          <p>A standalone research explorer in a single self-contained HTML file, generated from this repository: the same Clifford engine and the same seed contracts as the deposited pipeline, so every number it produces is bit-identical to the hosted build.</p>
+          <ul class="feat-list">
+            <li>Live Gottesman&ndash;Knill stabilizer-circuit simulator</li>
+            <li>The deposited purification dataset (425 points, with standard errors)</li>
+            <li>Finite-size-scaling explorer &amp; record SCGF charts</li>
+            <li>Exact free-fermion results and closed-form weights</li>
+            <li>Bit-exact reproducibility metadata &amp; seed contract</li>
+            <li>No network, no server, no tracking — runs offline</li>
+          </ul>
+        </div>
+        <div class="spot-cta">
+          <a class="btn btn-primary" href="./web-simulation/">
+            Launch the simulation
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 8h11m0 0-4.5-4.5M13 8l-4.5 4.5"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/MIKEAA2020/quantum-circuits/tree/main/web-simulation">Source folder</a>
+          <p class="fineprint">737&thinsp;KB · opens in any modern browser</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ results ============ -->
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-index">02</span><h2>Deposited headline results</h2></div>
+      <p class="sec-sub">Quoted from the manuscript of record (v32), in its own register — exact statements are labeled exact, simulated statements are labeled simulated.</p>
+      <div class="grid">
+
+        <article class="card">
+          <span class="card-label">Exact · annealed replica ladder</span>
+          <h3>Critical points at every replica number</h3>
+          <div class="ladder" role="img" aria-label="Annealed critical points: n=2 0.2338, n=3 0.305 with uncertainty 3 in the last digit, n=4 approximately 0.383, n=5 approximately 0.47 to 0.48, a plausibility range">
+            <div class="rung"><span class="n">n = 2</span><span class="v">0.2338</span></div>
+            <div class="rung"><span class="n">n = 3</span><span class="v">0.305(3)</span></div>
+            <div class="rung"><span class="n">n = 4</span><span class="v">&asymp;0.383</span></div>
+            <div class="rung hot"><span class="n">n = 5</span><span class="v">&asymp;0.47&ndash;0.48</span></div>
+          </div>
+          <p>Exact symmetry-resolved transfer-matrix computations; at n&thinsp;=&thinsp;2 the model is exactly the triangular-lattice Ising model of Bao, Choi and Altman, with a closed-form critical point and a closed free-fermion spectrum. Potts universality at n&thinsp;=&thinsp;3; marginal q&thinsp;=&thinsp;4 behavior at n&thinsp;=&thinsp;4.</p>
+          <p class="ladder-note">At n&thinsp;=&thinsp;5 the exact three-size test (L&thinsp;=&thinsp;4,&thinsp;6,&thinsp;8) <strong>supports, at the three-size level</strong>, the first-order direction of the q&thinsp;=&thinsp;n-Potts identification — <span class="cond">registered conditional:</span> a fourth size (L&thinsp;=&thinsp;10) completes or breaks it. The n&thinsp;=&thinsp;5 value is a plausibility range, not an extrapolation.</p>
+          <p class="foot">No size extrapolation is applied at n&thinsp;=&thinsp;5; the locator sequence 0.48&thinsp;/&thinsp;0.47&thinsp;/&thinsp;0.465 is monotone decreasing.</p>
+        </article>
+
+        <article class="card">
+          <span class="card-label">Simulated · quenched transition</span>
+          <h3>Clifford finite-size-scaling benchmark</h3>
+          <dl class="stat">
+            <dt class="mono">p<sub>c</sub></dt><dd>0.1597(8)</dd>
+            <dt class="mono">&nu;</dt><dd>1.24(7)</dd>
+            <dt class="mono">&alpha;</dt><dd>1.55(7) bits &nbsp;(= 0.54(2) nats per cut)</dd>
+          </dl>
+          <p>Hybrid random Clifford circuits, system sizes 16&thinsp;&le;&thinsp;L&thinsp;&le;&thinsp;512: crossings, data collapse, and bootstrap errors over 475,600 trajectories; the critical half-chain entropy scales as S<sub>L/2</sub>&thinsp;=&thinsp;&alpha;&thinsp;ln&thinsp;L&thinsp;+&thinsp;b. The quenched point lies 0.074 below the exact annealed point p<sub>c</sub><sup>(2)</sup>(2)&thinsp;=&thinsp;0.2338.</p>
+          <p class="foot">Results of simulation, not theorems — quoted with systematic rather than statistical uncertainties; consistent with the literature (Gullans&ndash;Huse; Sierant).</p>
+        </article>
+
+        <article class="card">
+          <span class="card-label gold">Simulated · independent locator</span>
+          <h3>Purification protocol</h3>
+          <dl class="stat">
+            <dt class="mono">p<sub>c</sub><sup>purif</sup></dt><dd>0.1601&ndash;0.1604</dd>
+            <dt class="mono">&nu;<sup>purif</sup></dt><dd>1.25(2)</dd>
+          </dl>
+          <p>The Gullans&ndash;Huse reference-qubit protocol — a different observable on trajectories disjoint from the I<sub>3</sub> analysis (135,000 trajectories, independent seeds) — confirms the quenched critical point independently.</p>
+          <p class="foot">Quoted separately, and deliberately not combined with the adopted p<sub>c</sub>&thinsp;=&thinsp;0.1597(8): different observable, different finite-size corrections.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ repository documents ============ -->
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-index">03</span><h2>In the repository</h2></div>
+      <p class="sec-sub">The full tree lives on GitHub; text documents link to their rendered blob views, the manuscript PDF is served from this site.</p>
+      <div class="doc-groups">
+
+        <div class="doc-group">
+          <h3>Manuscript &amp; research tree</h3>
+          <ul>
+            <li><a href="research/versions/manuscript_revised_v32.pdf"><span class="name">Manuscript of record — v32</span><span class="hint">PDF · this site</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/research/versions/manuscript_revised_v32.tex"><span class="name">manuscript_revised_v32.tex</span><span class="hint">TeX</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/research/versions/changelog_v32.md"><span class="name">changelog_v32.md</span><span class="hint">edit record</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/research/versions/README_v32.md"><span class="name">README_v32.md</span><span class="hint">version note</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/research/README.md"><span class="name">research/README.md</span><span class="hint">the research tree</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/research/versions/tier1_L10_design_20261011.md"><span class="name">Tier-1 L=10 design note</span><span class="hint">feasibility + method</span></a></li>
+          </ul>
+        </div>
+
+        <div class="doc-group">
+          <h3>Framework &amp; audit trail</h3>
+          <ul>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/formalism-v9.3.md"><span class="name">formalism-v9.3.md</span><span class="hint">current</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/formalism-v9.2.md"><span class="name">formalism-v9.2.md</span><span class="hint">prior release</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/absolute.txt"><span class="name">absolute.txt</span><span class="hint">author upload</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/gap.txt"><span class="hint">review log</span><span class="name">gap.txt</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/research/versions/audit_formalism_v9_2_and_gap_20261011.md"><span class="name">Line-level audit (v9.2 + gap.txt)</span><span class="hint">2026-10-11</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/previous%20chat.txt"><span class="name">previous chat.txt</span><span class="hint">deposited log</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/blob/main/previous%20turns.txt"><span class="name">previous turns.txt</span><span class="hint">deposited log</span></a></li>
+          </ul>
+        </div>
+
+        <div class="doc-group">
+          <h3>Code</h3>
+          <ul>
+            <li><a href="./web-simulation/"><span class="name">web-simulation/</span><span class="hint">standalone explorer</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/tree/main/web-explorer"><span class="name">web-explorer/</span><span class="hint">Next.js app source</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/tree/main/research/scripts"><span class="name">research/scripts/</span><span class="hint">computation scripts</span></a></li>
+            <li><a href="https://github.com/MIKEAA2020/quantum-circuits/tree/main/research/results"><span class="name">research/results/</span><span class="hint">deposited results</span></a></li>
+          </ul>
+        </div>
+
+        <div class="doc-group">
+          <h3>Site directory</h3>
+          <div class="dir">
+            <div class="dir-row">
+              <a class="url" href="./">/</a>
+              <span class="what">This landing page — the optional root index</span>
+            </div>
+            <div class="dir-row">
+              <a class="url" href="./web-simulation/">/web-simulation/</a>
+              <span class="what">The standalone interactive simulation</span>
+            </div>
+            <div class="dir-row">
+              <a class="url" href="research/versions/manuscript_revised_v32.pdf">/research/versions/manuscript_revised_v32.pdf</a>
+              <span class="what">The compiled manuscript of record (v32)</span>
+            </div>
+            <div class="dir-row">
+              <a class="url" href="https://github.com/MIKEAA2020/quantum-circuits">github.com/MIKEAA2020/quantum-circuits</a>
+              <span class="what">The repository itself</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="about-note">
+        <strong>About this site.</strong> It is the repository tree itself, built and deployed by the
+        repository&rsquo;s GitHub Actions workflow on every push to <span class="mono">main</span>
+        (<span class="mono">.nojekyll</span> honored — files are served exactly as committed).
+        Revisions are always added as new version files; existing files are never overwritten,
+        so the links above remain stable addresses of the deposited artifacts.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="foot-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="11" cy="16" r="2.6" fill="#34d399"/>
+              <circle cx="21" cy="9.5" r="2.6" fill="#34d399"/>
+              <circle cx="21" cy="22.5" r="2.6" fill="#fbbf24"/>
+              <path d="M11 16 21 9.5M11 16 21 22.5" stroke="#34d399" stroke-width="1.6"/>
+            </svg>
+          </span>
+          quantum·circuits
+        </div>
+        MIPT research workspace — exact replica mechanics and Born-record large deviations in monitored quantum circuits.
+      </div>
+      <div class="foot-col">
+        <strong>Manuscript of record</strong><br/>
+        <span class="mono">research/versions/manuscript_revised_v32.tex</span><br/>
+        Amin Abaee · Independent Researcher
+      </div>
+      <div class="foot-col">
+        <strong>Links</strong><br/>
+        <a href="https://github.com/MIKEAA2020/quantum-circuits">Repository</a> ·
+        <a href="./web-simulation/">Web simulation</a> ·
+        <a href="research/versions/manuscript_revised_v32.pdf">Manuscript PDF</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Every number on this page is quoted from the deposited manuscript (v32) in its stated register.</span>
+      <span>Hosted on GitHub Pages · deployed from <span class="mono">main</span></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
