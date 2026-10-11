@@ -1,0 +1,384 @@
+{
+ "round": "Tier-2 interface-tension fits (research v23)",
+ "date": "2026-10-12",
+ "input_manuscript": "research/versions/manuscript_revised_v32.tex (Tables tab:n5twosize, tab:closingrates)",
+ "dataset": {
+  "3": {
+   "locator_p": 0.3,
+   "gaps": {
+    "4": {
+     "gap12": 2.1471666216015826,
+     "deposit": "research/results/v17-annealed-n3/n3_annealed_scan_dense.json",
+     "sha256": "730b493ad4addf9ac4c50e491b54b2ee4b058cfda9a9e238311d35eb62084a9d",
+     "note": "dense annealed scan, exact p=0.30 grid point"
+    },
+    "6": {
+     "gap12": 1.185328716628764,
+     "deposit": "research/results/v17-annealed-n3/n3_annealed_scan_dense.json",
+     "sha256": "730b493ad4addf9ac4c50e491b54b2ee4b058cfda9a9e238311d35eb62084a9d",
+     "note": "dense annealed scan, exact p=0.30 grid point"
+    },
+    "8": {
+     "gap12": 0.8165028954124276,
+     "deposit": "research/results/v17-annealed-n3/n3_annealed_scan_dense.json",
+     "sha256": "730b493ad4addf9ac4c50e491b54b2ee4b058cfda9a9e238311d35eb62084a9d",
+     "note": "dense annealed scan, exact p=0.30 grid point"
+    },
+    "10": {
+     "gap12": 0.6208955929451464,
+     "deposit": "research/results/v17-annealed-n3/n3_annealed_scan_dense.json",
+     "sha256": "730b493ad4addf9ac4c50e491b54b2ee4b058cfda9a9e238311d35eb62084a9d",
+     "note": "dense annealed scan, exact p=0.30 grid point"
+    },
+    "12": {
+     "gap12": 0.49953587415088596,
+     "deposit": "research/results/v17-annealed-n3/n3_annealed_scan_block12.json",
+     "sha256": "26144c7d8ed18fa82e845fa81a9fad04b8b533db3430b7209660b9e504103a9e",
+     "note": "NEW: the L=12 block scan (dim_k0=7826, the manuscript anchor), exact p=0.30 grid point"
+    }
+   }
+  },
+  "4": {
+   "locator_p": 0.38,
+   "gaps": {
+    "4": {
+     "gap12": 1.9187412460140882,
+     "deposit": "research/results/v18-n4n5-smc/n4_eps_L4_v1.json",
+     "sha256": "5e89c3546d9eef23eef7d5bfa0e2a98c689e556025d88289fb156409a3e4d7c4",
+     "note": "eps scan, exact p=0.38 grid point"
+    },
+    "6": {
+     "gap12": 0.989573768805676,
+     "deposit": "research/results/v18-n4n5-smc/n4_eps_L6_v1.json",
+     "sha256": "552919cd84340fb841f6aa8e62349788f04279c15df181de21d0f4b76f075cf1",
+     "note": "eps scan, exact p=0.38 grid point"
+    },
+    "8": {
+     "gap12": 0.6444741090457221,
+     "deposit": "research/results/v22-exactZ3-n5L8/v22_n4_eps_topup.json",
+     "sha256": "a29c892e5b0a2e6d9f7b04e10c997c32292aceda80ded46417cf108d5d4d1b39",
+     "note": "the deposited lambda_eps top-up (the Table IV provenance)"
+    },
+    "10": {
+     "gap12": 0.4661399891686305,
+     "deposit": "research/results/v19-n5L6-nofreeze/n4_L10_scan_v2.json",
+     "sha256": "9736c409de4908b7e2b6bf7f12ed996555845500d00d078762c84ff7fde5912b",
+     "note": "NEW: the L=10 scan, exact p=0.38 grid point"
+    }
+   }
+  },
+  "5": {
+   "locator_p": 0.47,
+   "gaps": {
+    "4": {
+     "gap12": 1.7113973776904026,
+     "deposit": "research/results/v18-n4n5-smc/n5_annealed_scan_v1.json",
+     "sha256": "40c149f63a3e9ef5152e2aa0598d76fde34736595cb18753ce0e87c230c5e403",
+     "note": "annealed scan, exact p=0.47 grid point"
+    },
+    "6": {
+     "gap12": 0.8057001767890146,
+     "deposit": "research/results/v19-n5L6-nofreeze/n5_L6_scan_v2.json",
+     "sha256": "8468621ee01dbeee6801ef5f3144ad586d3eaddf68886a833e035542ab7fcce9",
+     "note": "L=6 scan v2 (gap12 field), exact p=0.47 grid point"
+    },
+    "8": {
+     "gap12": 0.47965022767875914,
+     "deposit": "research/results/v22-exactZ3-n5L8/v25_n5_L8_finegrid.json",
+     "sha256": "2de43a569168d517424f2f2511a4cebd673780c027ef38cec39138051c1981e2",
+     "note": "the finer locator grid minimum (p=0.465; the Table IV provenance)"
+    }
+   }
+  }
+ },
+ "ladders": {
+  "3": [
+   {
+    "interval": "4->6",
+    "Lbar": 5.0,
+    "sigma_eff": 0.29706449423741454,
+    "alpha_eff": 1.465302381373678,
+    "closing": 1.811452461649977
+   },
+   {
+    "interval": "6->8",
+    "Lbar": 7.0,
+    "sigma_eff": 0.18637247728478656,
+    "alpha_eff": 1.2956836392092173,
+    "closing": 1.4517140395810073
+   },
+   {
+    "interval": "8->10",
+    "Lbar": 9.0,
+    "sigma_eff": 0.13693375901745328,
+    "alpha_eff": 1.2273154049129211,
+    "closing": 1.3150405715386715
+   },
+   {
+    "interval": "10->12",
+    "Lbar": 11.0,
+    "sigma_eff": 0.10874176243221859,
+    "alpha_eff": 1.1928568880651884,
+    "closing": 1.2429449516524682
+   }
+  ],
+  "4": [
+   {
+    "interval": "4->6",
+    "Lbar": 5.0,
+    "sigma_eff": 0.33107516756296396,
+    "alpha_eff": 1.6330636641347906,
+    "closing": 1.938957262711027
+   },
+   {
+    "interval": "6->8",
+    "Lbar": 7.0,
+    "sigma_eff": 0.21441983222225414,
+    "alpha_eff": 1.4906721881892284,
+    "closing": 1.5354748234509308
+   },
+   {
+    "interval": "8->10",
+    "Lbar": 9.0,
+    "sigma_eff": 0.16197432723132324,
+    "alpha_eff": 1.4517500172187026,
+    "closing": 1.3825763161730749
+   }
+  ],
+  "5": [
+   {
+    "interval": "4->6",
+    "Lbar": 5.0,
+    "sigma_eff": 0.3766769057584357,
+    "alpha_eff": 1.8579991137385417,
+    "closing": 2.124111955033813
+   },
+   {
+    "interval": "6->8",
+    "Lbar": 7.0,
+    "sigma_eff": 0.25932726913264786,
+    "alpha_eff": 1.8028740332862723,
+    "closing": 1.6797660676367365
+   }
+  ]
+ },
+ "sigma_fits": {
+  "3": {
+   "Sigma": -0.0546366643817682,
+   "A": -1.7392155489824392,
+   "sSigma": 0.012265598789727956,
+   "rss": 0.00010094949536809995,
+   "dof": 2,
+   "points": [
+    [
+     5.0,
+     0.29706449423741454
+    ],
+    [
+     7.0,
+     0.18637247728478656
+    ],
+    [
+     9.0,
+     0.13693375901745328
+    ],
+    [
+     11.0,
+     0.10874176243221859
+    ]
+   ],
+   "residuals": [
+    0.003858048822694915,
+    -0.007450222473793677,
+    -0.0016757487099384183,
+    0.0052679223610377635
+   ],
+   "loo_Sigma": [
+    -0.028422237907564124,
+    -0.05346488348726321,
+    -0.05271593797354891,
+    -0.06826000002405444
+   ],
+   "geo_midpoint_Sigma": -0.04951005751162916
+  },
+  "4": {
+   "Sigma": -0.054559802140155995,
+   "A": -1.9189639932353704,
+   "sSigma": 0.01565195084578077,
+   "rss": 4.099461793277682e-05,
+   "dof": 1,
+   "points": [
+    [
+     5.0,
+     0.33107516756296396
+    ],
+    [
+     7.0,
+     0.21441983222225414
+    ],
+    [
+     9.0,
+     0.16197432723132324
+    ]
+   ],
+   "residuals": [
+    0.0018421710560458382,
+    -0.005158078956928491,
+    0.003315907900882542
+   ],
+   "geo_midpoint_Sigma": -0.047465468972148435
+  }
+ },
+ "alpha_fits": {
+  "3": {
+   "alpha_inf": 0.9506234881247776,
+   "B": 2.530228819427678,
+   "s_alpha_inf": 0.027634635031253275,
+   "dof": 2
+  },
+  "4": {
+   "alpha_inf": 1.208342363295768,
+   "B": 2.093667941199002,
+   "s_alpha_inf": 0.0508744196007869,
+   "dof": 1
+  },
+  "5": {
+   "alpha_inf": 1.665061332155598,
+   "B": 0.964688907914719,
+   "s_alpha_inf": null,
+   "dof": 0
+  }
+ },
+ "n5_discriminator": {
+  "c_products": {
+   "4->6": 1.8833845287921784,
+   "6->8": 1.815290883928535
+  },
+  "c_mean": 1.8493377063603567,
+  "c_spread": 0.06809364486364333,
+  "power_law_prediction_sigma_eff_8to10": 0.20548196737337296,
+  "sigma_eff_8to10_flip_threshold": 0.21270961260506047,
+  "note": "sigma_eff(8->10) at or below the power-law continuation (~0.205) keeps the 3-point Sigma fit non-positive; at or above the flip threshold (0.213) it turns positive -- the quantitative form of the v32 registered conditional",
+  "alpha_eff_readings": {
+   "power_law": 1.8417020448333061,
+   "flip": 1.9064822743234269
+  },
+  "caveat": "the two readings sit ~0.007 apart in sigma_eff (~3% of the value): a single L=10 point at the threshold is ambiguous on its own; the decisive observable is the TREND of sigma_eff across the intervals (and, per Tier 3, a fifth size)"
+ },
+ "envelopes": {
+  "3": {
+   "L": [
+    4,
+    6,
+    8,
+    10,
+    12
+   ],
+   "Lgap": [
+    8.58866648640633,
+    7.111972299772584,
+    6.532023163299421,
+    6.208955929451464,
+    5.9944304898106315
+   ],
+   "fits": {
+    "1/L": {
+     "form": "a + b/1/L",
+     "a": 4.627369505163545,
+     "b": 15.585104610927873,
+     "s_a": 0.1054581323484993,
+     "dof": 3
+    },
+    "1/L2": {
+     "form": "a + b/1/L2",
+     "a": 5.7610460561200245,
+     "b": 45.83594147496912,
+     "s_a": 0.05405719820661452,
+     "dof": 3
+    },
+    "lnL/L": {
+     "form": "a + b/lnL/L",
+     "a": 2.014745209709263,
+     "b": 18.147462139767455,
+     "s_a": 0.7437032055669013,
+     "dof": 3
+    }
+   },
+   "out_of_sample_L12": {
+    "1/L": {
+     "predicted": 5.877758879662013,
+     "deposited": 5.9944304898106315
+    },
+    "1/L2": {
+     "predicted": 6.125357580397968,
+     "deposited": 5.9944304898106315
+    },
+    "lnL/L": {
+     "predicted": 5.545120850552054,
+     "deposited": 5.9944304898106315
+    }
+   }
+  },
+  "4": {
+   "L": [
+    4,
+    6,
+    8,
+    10
+   ],
+   "Lgap": [
+    7.674964984056353,
+    5.937442612834056,
+    5.155792872365777,
+    4.661399891686305
+   ],
+   "fits": {
+    "1/L": {
+     "form": "a + b/1/L",
+     "a": 2.6360080294213906,
+     "b": 20.081405054426384,
+     "s_a": 0.05596126938139528,
+     "dof": 2
+    },
+    "1/L2": {
+     "form": "a + b/1/L2",
+     "a": 4.239373300365967,
+     "b": 55.840828697718486,
+     "s_a": 0.1304289102034767,
+     "dof": 2
+    },
+    "lnL/L": {
+     "form": "a + b/lnL/L",
+     "a": -1.4683699505021943,
+     "b": 25.80884921850684,
+     "s_a": 0.9673859933448496,
+     "dof": 2
+    }
+   }
+  },
+  "5": {
+   "L": [
+    4,
+    6,
+    8
+   ],
+   "Lgap": [
+    6.84558951076161,
+    4.834201060734088,
+    3.837201821430073
+   ],
+   "note": "sequence only: steeply declining, not extrapolable (both asymptotic readings send it to 0)"
+  },
+  "cft_reference": {
+   "value": 5.026548245743669,
+   "statement": "the q=3 Potts thermal scaling dimension x_eps = 4/5 gives 2*pi*x_eps = 5.027; the n=3 extrapolated asymptotes are compared against it as a consistency observation (interpretive, non-load-bearing: the operator identification is the natural reading of a two-phase thermal splitting)"
+  }
+ },
+ "honesty": [
+  "the sigma_eff(L) = Sigma - A/L ansatz is the first-order finite-size form; the accessible sizes (Lbar <= 11) sit in the crossover region the manuscript itself flags",
+  "the fits return Sigma = -0.05 at BOTH n=3 and n=4: negative values are the ansatz-misspecification signature at these sizes, not negative tensions; what the fits exclude is any positive interface tension at this order",
+  "the n=5 discriminator is a 2-point extrapolation registered as a prediction with numbers, not a measurement; the power-law continuation and the flip threshold sit ~3% apart in sigma_eff, so a single L=10 point at the threshold is ambiguous -- the trend across intervals (and Tier 3) carries the decision",
+  "the n=3 L=12 and n=4 L=10 cells are not new computations: they are deposited results newly used (block12 scan; L=10 scan v2)",
+  "the manuscript is NOT edited: v32's registered conditional stands; this deposit quantifies its completion test"
+ ]
+}
