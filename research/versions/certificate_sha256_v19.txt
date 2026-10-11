@@ -1,0 +1,43 @@
+# certificate_sha256_v19.txt -- ledger v19 (v32, the claims-alignment +
+# registered-conditional + fidelity pass: items 1-7 of the recommended
+# order of action from the line-level audit of formalism-v9.2.md and
+# gap.txt -- abstract/intro/spine/discussion/conclusion claim verbs
+# aligned with the body's honest register ("supports, at the three-size
+# level", "ordered consistently with", the directional statement,
+# "converges toward ... 6.53 at L=8, 6.21 at L=10" at the matched
+# size); the registered L=10 conditional stated in body, abstract and
+# conclusion (if the n=5 closing is genuinely exponential, the fourth
+# size will show the effective closing rate stabilizing at a positive
+# interface tension, a slowly decaying power law will keep it decaying;
+# the current data cannot distinguish these -- the interface tension a
+# prediction of the first-order hypothesis, never "expected"); the
+# p_c^(5) plausibility-range label over the monotone-decreasing locator
+# sequence; the Ref [15] improvement sentence (leak + exact post-Haar
+# closure, every replica number); the L=8 verification-gap sentence
+# (no independent-method check at L=8 itself; randomized lower-bound
+# rank estimate would close it); Sec VII: "approach the primitive
+# level" replaced by the display-level statement, the author's
+# "mass-less" attribute restored to the standing metaphysics statement
+# (absolute.txt fidelity), and the new plain-language paragraph "The
+# modal character of the results" classifying the paper's results by
+# their relation to necessity (display-tier, results not Absolute
+# attributes, no generative power claimed, no framework notation);
+# line-multiset 1775->1783 visible lines, 14 replaced, 22 entered,
+# zero undesigned loss; tectonic: 43 pages (v31: 42 -- the added
+# content), 609.13 KiB, zero unresolved references, zero new
+# typesetting warnings (identical warning classes vs a fresh v31
+# probe); companion supplement_v10 carries no touched content and
+# passes forward unchanged. Tier 1 compute NOT run; the exact L=10
+# sector dimension 346,177 (validated against the deposited L=8 anchor
+# 3865) is deposited by v32_tier1_L10_dimension.py in
+# research/results/v32_tier1_L10_dimension.json.)
+# generated: 2026-10-11T21:20:00+03:00
+# v18 (v31) and earlier kept unmodified.
+edb741d8209acc1fcbc07b41e17176d84e619ccb2678857b580cca4210620a8d  manuscript_revised_v32.tex
+4920075478b0b60e4fc10b5e3a204e8e9540eb2db5fedf739a981450925d35c4  manuscript_revised_v32.pdf
+9eed109a2915fc1a0a91d6fc3a9d25d86b0bdb16d37f3ca1a7ad93e94445bd8f  supplement_v10.tex
+204d420e5bbf29242039190817e93530553eacd57c52d4d97a19bf318b72589c  supplement_v10.pdf
+e624248252e571c38dbbcf07439519486d384bd542f60600da69a291811cead3  changelog_v32.md
+2290a6d78b0a91efd678603d1ef51a055612577d517b524a8ca068150c08be8e  README_v32.md
+4aa074d19cab5f6a80c54605e6f870d16190b2755c5e38e04fa71b2f13d66db0  ../../absolute.txt
+05f906c3a4342be8a655196d4a06839af77b2d3f1a9205eae945c8bf096ffa08  ../scripts/v22-exactZ3-n5L8/patch_v32_claims_alignment.py
