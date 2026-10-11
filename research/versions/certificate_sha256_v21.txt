@@ -1,0 +1,30 @@
+# certificate_sha256_v21.txt -- ledger v21 (Tier-1 method round: the
+# L=10-at-n=5 feasibility verdict + validated method design -- the
+# exact eigen-solve honestly NOT run on this sandbox (3 GB / 2 cores:
+# dense block 1.7 TiB x2; streaming assembly 8.6e16 MACs = 40
+# days/p-point at the measured 2.5e10 MAC/s; streaming matvec 4.3e16
+# MACs = 20 days -> Lanczos(60) ~ 3.3 years; full-space iterative
+# needs 185 GB vectors). DELIVERED and VALIDATED: (i) the W-channel
+# factorization M2 = Omega@B, M1 = Omega@B' with Omega the per-factor
+# Weingarten class-kernel convolution and B the psi-ring transfer --
+# entrywise vs the deposited W at nb=2 (2000 pairs, max rel 7.2e-15)
+# and nb=3 (120 pairs, max rel 3.5e-14) by explicit s-space
+# summation; (ii) the factorized restricted mom0-triv assembly
+# reproducing the deposited block route elementwise (8.6e-13) and
+# spectrally (1.8e-11), matching the deposited L=4 scan anchor
+# (1.8e-11) at p=0.44/0.32; (iii) the nb=3 reference spectra (K=57);
+# (iv) the cost model validated against every deposited L=8 timing
+# (6.41e12 MACs <-> 208-487 s; median throughput 2.5e10 MAC/s); (v)
+# the design note specifying the two viable L=10 routes (distributed
+# streaming / distributed full-space iterative -- engineering only;
+# and the representation-theoretic colour basis -- the CG-coupled
+# invariant-sector method resting on the validated factorization, a
+# dedicated engineering round). The K x N wall documented: orbit
+# invariance compresses storage, not the transfer computation; the
+# slice reformulation is self-similar. Manuscript untouched: the L=10
+# statement remains exactly the v32 registered conditional.)
+# generated: 2026-10-11T23:10:00+03:00
+# v20 (framework v9.3) and earlier kept unmodified.
+99468161ec87ba70bbde6ca9305b12bd25dbed4674ac5609bf50dc780b9c2af3  research/scripts/v22-exactZ3-n5L8/tier1_slice_matvec_v1.py
+788e60c676fe0dcb43ce982650607e7d9764c8f9bbebe1acda50f206a656e854  research/results/tier1_slice_matvec.json
+f8aab238befe604a1e49f8db9c97830fe0e67bce2b13379e5a83222e7599b823  research/versions/tier1_L10_design_20261011.md

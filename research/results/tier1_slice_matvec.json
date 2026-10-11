@@ -1,0 +1,118 @@
+{
+ "A_factorization": {
+  "nb2_M2_maxrel": 7.218338344058242e-15,
+  "nb2_M1_maxrel": 1.1577481061406334e-14,
+  "nb3_M2_maxrel": 3.506469311143513e-14,
+  "nb3_M1_maxrel": 1.7792168031042882e-14,
+  "verdict": "M2 = Omega@B and M1 = Omega@B' validated (explicit s-space summation vs deposited W)"
+ },
+ "B_restricted_nb2": {
+  "p0.44": {
+   "K": 7,
+   "matrix_maxrel": 8.631759062940409e-13,
+   "eig_maxrel": 1.765147295427986e-11,
+   "deposited_scan_maxrel": 1.765543053575005e-11,
+   "top4": [
+    0.02131488480242821,
+    0.003809423161378098,
+    0.0006574937833805532,
+    0.0006405949616404697
+   ]
+  },
+  "p0.32": {
+   "K": 7,
+   "matrix_maxrel": 2.561471665815506e-12,
+   "eig_maxrel": 2.7135411319996303e-11,
+   "deposited_scan_maxrel": 1.6774600496673535e-11,
+   "top4": [
+    0.07057115250214821,
+    0.011046306918613587,
+    0.00302888381139735,
+    0.00273789362502248
+   ]
+  },
+  "verdict": "the factorized restricted assembly reproduces the deposited block route elementwise and spectrally, and the deposited L=4 scan anchor"
+ },
+ "C_nb3_reference": {
+  "p0.44": {
+   "K": 57,
+   "top6": [
+    0.0023451339719296987,
+    0.0010303232416566546,
+    0.00031136407824227904,
+    0.00017953257857367043,
+    7.460896710181966e-05,
+    5.630723996470418e-05
+   ],
+   "arnoldi_maxrel": null
+  },
+  "p0.47": {
+   "K": 57,
+   "top6": [
+    0.0014431056861512845,
+    0.0006447445639824013,
+    0.00018536781917244117,
+    0.00010497842356903805,
+    4.2254470199760474e-05,
+    3.1368046503063006e-05
+   ],
+   "arnoldi_maxrel": null
+  }
+ },
+ "D_cost_model": {
+  "L8_deposited": {
+   "K": 3865,
+   "N": 207360000,
+   "nb": 4,
+   "macs_per_point": 6411571200000.0,
+   "secs": {
+    "0.44": 483.6,
+    "0.46": 207.8,
+    "0.47": 211.5,
+    "0.48": 487.3,
+    "0.5": 255.5
+   },
+   "throughput_median_MACs": 25094212133.072407
+  },
+  "L10_extrapolation": {
+   "K": 346177,
+   "N": 24883200000,
+   "nb": 5,
+   "dense_block_bytes": 1917416245264.0,
+   "assembly_macs_per_point": 8.6139915264e+16,
+   "assembly_days_per_point_at_median": 39.7298689718988,
+   "matvec_macs": 4.3069957632e+16,
+   "matvec_days_at_median": 19.8649344859494,
+   "lanczos60_years_at_median": 3.2654686826218193,
+   "full_space_vector_bytes": 199065600000.0,
+   "ring_matvec_macs": 716636160000000.0,
+   "ring_matvec_hours_at_median": 7.932729624838292
+  },
+  "sandbox": {
+   "ram_GB": 3.0,
+   "cores": 2
+  },
+  "verdict": "L=10 exact eigen-solve not computable on this sandbox via any deposited route; the validated factorization (phases A/B) and the sector dimension 346,177 are deposited for the two viable routes (cluster streaming; representation-theoretic colour basis) specified in tier1_L10_design_20261011.md"
+ },
+ "log": [
+  "== phase A: kernel + factorization validation (M2 = Omega@B) ==",
+  "   nb=2 p=0.44 M2: 2000 random pairs, max rel err 7.22e-15  [OK] (1s)",
+  "   nb=2 p=0.44 M1: 2000 random pairs, max rel err 1.16e-14  [OK] (1s)",
+  "   nb=3 p=0.44 M2: 120 random pairs, max rel err 3.51e-14  [OK] (14s)",
+  "   nb=3 p=0.44 M1: 120 random pairs, max rel err 1.78e-14  [OK] (14s)",
+  "   M2 = Omega@B and M1 = Omega@B' validated (explicit s-space summation vs deposited W)",
+  "== phase B: restricted-operator validation at nb=2 (K=7) ==",
+  "   p=0.44: K=7; factorized vs deposited block: matrix max rel 8.63e-13, eig max rel 1.77e-11; vs deposited L=4 scan: 1.77e-11",
+  "   p=0.32: K=7; factorized vs deposited block: matrix max rel 2.56e-12, eig max rel 2.71e-11; vs deposited L=4 scan: 1.68e-11",
+  "   the factorized restricted assembly reproduces the deposited block route elementwise and spectrally, and the deposited L=4 scan anchor",
+  "== phase C: nb=3 reference (deposited block; Arnoldi optional) ==",
+  "   p=0.44: K=57; top: ['2.34513397e-03', '1.03032324e-03', '3.11364078e-04'];  (Arnoldi cross-check: run with TIER1_ARNOLDI=1; the deposited v22 validation already performed it at nb=3)  (12s)",
+  "   p=0.47: K=57; top: ['1.44310569e-03', '6.44744564e-04', '1.85367819e-04'];  (Arnoldi cross-check: run with TIER1_ARNOLDI=1; the deposited v22 validation already performed it at nb=3)  (10s)",
+  "== phase D: cost model + L=10 verdict ==",
+  "   L=8 deposited timings: [484, 208, 212, 487, 256] s over 5 p-points (+ 4 finer-grid points); assembly model 6.41e+12 MACs/point -> throughput 2.51e+10 MAC/s (median)",
+  "   L=10 (n=5): K=346,177, N=2.488e+10; dense block 1.7 TiB (x2 matrices); streaming assembly 8.61e+16 MACs = 40 days/p-point; streaming matvec 4.31e+16 MACs = 20 days -> Lanczos(60) ~ 3.3 years",
+  "   full-space iterative route: vectors 185 GB each; ring matvec 7.17e+14 MACs = 7.9 h each",
+  "   VERDICT: the exact L=10 eigen-solve does not fit this sandbox (3 GB RAM / 2 cores) by any deposited route; routes that do fit adequate hardware are specified in the design note."
+ ],
+ "secs_total": 79.9
+}
